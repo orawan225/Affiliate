@@ -1,0 +1,63 @@
+.backgroundimg {
+    background-image: url('src\assets\img\illustrations\heroheader.png');
+    margin-top: -1rem;
+}
+
+.card-body {
+    margin-left: 12rem;
+    margin-right: 12rem;
+}
+
+.font-20px {
+    font-size: 20px;
+}
+
+.form-group {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+}
+
+label {
+    margin-top: 10px;
+}
+
+.input-address {
+    margin-bottom: 2rem;
+}
+
+.button {
+    text-align: end;
+    margin-right: 2rem;
+}
+
+img {
+    height: 60px;
+    width: 60px;
+    float: right;
+    margin: auto auto;
+    display: block;
+    margin-top: 1rem;
+}
+
+.text {
+    text-align: center;
+}
+
+.btn-primary {
+    margin-bottom: -2rem;
+    text-align: end;
+}
+
+.slip-picture {
+    text-align: center;
+}
+
+.listproduct {
+    text-align: end;
+}
+
+.picture {
+    margin-bottom: 3rem;
+}

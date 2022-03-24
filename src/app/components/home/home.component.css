@@ -1,0 +1,16 @@
+input {
+    margin-left: 7rem;
+    width: 80%;
+}
+
+.btn {
+    text-align: center;
+}
+
+.card-title {
+    text-align: center;
+}
+
+.text-price {
+    margin-left: 13rem;
+}

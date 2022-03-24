@@ -1,0 +1,7 @@
+.dropdown .dropdown-menu .dropdown-item:hover {
+    background-color: rgb(122, 111, 228);
+}
+
+.bi-cart {
+    margin-top: -1rem;
+}
