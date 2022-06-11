@@ -14,6 +14,8 @@ export class RegisterShopComponent implements OnInit {
 
   constructor(public callApi: CallApiService, public fb: FormBuilder, public router: Router ) {
     this.formRegister = fb.group({
+      storeName: [null],
+      passWord: [null],
       store: [null],
       address: [null],
       sub: [null],
@@ -22,7 +24,9 @@ export class RegisterShopComponent implements OnInit {
       postalCode: [null],
       fullName: [null],
       email: [null],
-      tel: [null]
+      tel: [null],
+      bankNumber: [null],
+      bankNameAccount: [null]
     })
   }
 

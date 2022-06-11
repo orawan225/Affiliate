@@ -41,3 +41,8 @@ img {
     width: 90%;
     margin-left: 2rem;
 }
+
+.form-group {
+    margin-top: 1rem;
+    text-align: center;
+}

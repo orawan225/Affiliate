@@ -26,21 +26,26 @@
                         </div>
 
                         <div class="col">
-                            <form (ngSubmit)="createProduct()">
+                            <form [formGroup]="formCreateProduct" (ngSubmit)="createProduct()">
                                 <div class="col-lg-12 col-12 mt-2">
                                     <label for="name" class="form-label"> ชื่อสินค้า : </label>
                                     <input type="text" name="name" id="name" class="form-control" placeholder="กรุณากรอกรายชื่อสินค้า" formControlName="productName">
                                 </div>
                                 <div class="col-lg-12 col-12">
                                     <label for="detail" class="form-label"> รายละเอียด : </label>
-                                    <textarea type="text" name="postal" id="postal" class="form-control" placeholder="กรุณากรอกรายละเอียดเพิ่มเติม" rows="3"></textarea>
+                                    <textarea type="text" name="detail" id="detail" class="form-control" rows="3" formControlName="productDetail">
+                                    </textarea>
                                 </div>
                                 <div class="col-lg-5">
                                     <label for="price" class="form-label" placeholder="0"> ราคา : </label>
                                     <input type="number" name="price" id="price" class="form-control" placeholder="0" formControlName="productPrice">
                                 </div>
-                                <div class="button mt-2">
-                                    <button type="submit" class="btn btn-outline-primary"> ยืนยัน </button>
+                                <div class="row mt-2">
+                                    <div class="button">
+                                        <button type="submit" class="btn btn-outline-primary">
+                                        ยืนยัน
+                                    </button>
+                                    </div>
                                 </div>
                             </form>
                         </div>

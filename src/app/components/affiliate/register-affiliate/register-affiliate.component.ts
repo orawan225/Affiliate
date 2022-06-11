@@ -19,13 +19,15 @@ export class RegisterAffiliateComponent implements OnInit {
       passWord: [null],
       email: [null],
       tel: [null],
-      adderss: [null],
+      address: [null],
       sub: [null],
       district: [null],
-      provincs: [null],
+      province: [null],
       postalCode: [null]
     })
   }
+
+  
 
   ngOnInit(): void {
   }

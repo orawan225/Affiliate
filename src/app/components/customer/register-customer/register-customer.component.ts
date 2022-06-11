@@ -19,10 +19,10 @@ export class RegisterCustomerComponent implements OnInit {
       passWord: [null],
       email: [null],
       tel: [null],
-      adderss: [null],
+      address: [null],
       sub: [null],
       district: [null],
-      provincs: [null],
+      province: [null],
       postalCode: [null]
     })
   }
@@ -34,6 +34,8 @@ export class RegisterCustomerComponent implements OnInit {
     console.log(this.formRegister.value);
     this.callApi.registerCustomer(this.formRegister.value).subscribe(data => {
       console.log(data);
+      console.log(this.formRegister);
+      
       this.router.navigate(['/logincustomer'])
     })
   }
