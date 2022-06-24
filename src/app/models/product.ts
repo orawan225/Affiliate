@@ -1,6 +1,6 @@
-export class product {
-    productId: string | undefined
-    productName: string | undefined
-    productPrice: string | undefined
-    productDetail: string | undefined
+export interface product {
+    productId: string 
+    productName: string 
+    productPrice: string 
+    productDetail: string 
 }

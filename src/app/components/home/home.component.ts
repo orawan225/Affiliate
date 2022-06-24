@@ -19,14 +19,20 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getProduct();
+    // this.getProduct();
   }
 
   getProduct() {
     this.callApi.getAllProduct().subscribe((data: product[]) => {
-      this.products = data;
+      this.products = data
       console.log(data)
     })
+  }
+
+  setProductIdtolocal(id : string) {
+    console.log(id);
+    localStorage.setItem('productId',id)
+    this.router.navigateByUrl('/productdetail')
   }
 
 

@@ -6,14 +6,28 @@ import { product } from '../models/product';
 import { customer } from '../models/customer';
 import { store } from '../models/store';
 import { Observable } from 'rxjs';
+import { CookieServiceService } from './cookie-service.service';
+import { profile } from '../models/profile';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class CallApiService { 
+export class CallApiService {
+  [x: string]: any;
 
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient, private cookie: CookieServiceService) { }
+
+
+  public header() {
+    let token = this.cookie.getToken()
+    console.log(token);
+    return {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    };
+  }
 
   //User
   public registerUser(data: user) {
@@ -23,6 +37,12 @@ export class CallApiService {
   public loginUser(data: any) {
     return this.http.post<user>(`${environment.apiUrl}user/user-login`, data)
   }
+
+  public getProfile(): Observable<profile> {
+    
+    return this.http.get<profile>(`${environment.apiUrl}user/getProfile`, this.header())
+  }
+
 
 
   //Customer
@@ -37,7 +57,8 @@ export class CallApiService {
 
   //Store
   public registerStore(data: store) {
-    return this.http.post<store>(`${environment.apiUrl}store/store-register`, data)
+
+    return this.http.post<store>(`${environment.apiUrl}store/store-register`, data, this.header())
   }
 
   public loginStore(data: any) {
@@ -50,9 +71,24 @@ export class CallApiService {
     return this.http.post<product>(`${environment.apiUrl}product/create-product`, data)
   }
 
-  getAllProduct(): Observable<product[]> {
-    return this.http.get<product[]>(`${environment.apiUrl}product/getAll-product`);
+  public getAllProduct(): Observable<product[]> {
+    return this.http.get<product[]>(`${environment.apiUrl}product/getAll-product`)
   }
+
+  public getProductById(productId: any) {
+    return this.http.get<product>(`${environment.apiUrl}product/get-productById/${productId}`)
+  }
+
+  public editProductById(productId: string, product: product) {
+    return this.http.put<product>(`${environment.apiUrl}product/update-product/${productId}`, product)
+  }
+
+  public deleteProductById(productId: any) {
+    return this.http.delete<product>(`${environment.apiUrl}product/delete-product/${productId}`)
+  }
+
+ 
+
 
 
 

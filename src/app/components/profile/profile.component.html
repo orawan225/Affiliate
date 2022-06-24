@@ -1,0 +1,153 @@
+<section class="backgroundimg" style="background-color: #eee;">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card mb-4 mt-4">
+                    <div class="card-body text-center">
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                        <br>
+                        <input type="file" #file placeholder="เลือกรูปภาพ" style="display: none;">
+                        <button type="button" class="btn btn-outline-primary mt-3" (click)="file.click()">
+                            แก้ไขรูปภาพ
+                        </button>
+                        <div class="upload col mt-2">
+                            <span style="color: green;"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4 mb-lg-0">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <p class="mb-0"> ชื่อร้านค้า </p>
+                            </div>
+                            <div class="col-sm-7">
+                                <p class="text-muted mb-0">Johnatan Smith</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <p class="mb-0"> ชื่อบัญชีธนาคาร </p>
+                            </div>
+                            <div class="col-sm-7">
+                                <p class="text-muted mb-0">Johnatan Smith</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <p class="mb-0"> เลขที่บัญชี </p>
+                            </div>
+                            <div class="col-sm-7">
+                                <p class="text-muted mb-0">Johnatan Smith</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <p class="mb-0"> ชื่อธนาคาร </p>
+                            </div>
+                            <div class="col-sm-7">
+                                <p class="text-muted mb-0">Johnatan Smith</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="profile col-lg-8">
+                <div class="card mb-4 mt-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">ชื่อ - นามสกุล</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">{{profile.fullName}}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0"> ชื่อผู้ใช้ </p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">{{profile.userName}}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0"> เบอร์โทรศัพท์ </p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">{{profile.tel}}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0"> อีเมล </p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">{{profile.email}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0"> บ้านเลขที่ </p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">{{profile.address}}</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0"> ตำบล </p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">{{profile.sub}}</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0"> อำเภอ </p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">{{profile.district}}</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0"> จังหวัด </p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">{{profile.province}}</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0"> รหัสไปรษณีย์ </p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">{{profile.postalCode}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

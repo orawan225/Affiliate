@@ -3,7 +3,6 @@ import { CallApiService } from 'src/app/services/call-api.service';
 import { FormBuilder } from '@angular/forms';
 import { AlertService } from 'src/app/services/alert.service';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-create-product',
   templateUrl: './create-product.component.html',
@@ -35,6 +34,15 @@ export class CreateProductComponent implements OnInit {
       }
     }))
   }
+
+
+  getProductById() {
+    let productId = localStorage.getItem('productId')
+    console.log(productId);
+    
+  }
+
+
 }
 
 

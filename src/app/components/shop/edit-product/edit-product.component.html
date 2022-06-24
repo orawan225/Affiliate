@@ -1,0 +1,51 @@
+<div class="backgroundimg">
+    <section class="contact section-padding" id="contact">
+        <div class="col col-12 mx-auto">
+            <div class="card-body">
+                <div class="card mt-4 mb-4">
+                    <div class="row mt-5 mb-5">
+                        <div class="card form-group col-lg-5 col-5">
+                            <div class="picture">
+                                <img class="card-img-top" src="./assets/img/our-work-01.jpg" alt="...">
+                            </div>
+                            <input type="file" #file placeholder="เลือกรูปภาพ" style="display: none;">
+                            <button type="button" class="btn btn-outline-primary mt-3" (click)="file.click()">
+                                แก้ไขรูปภาพ
+                            </button>
+                            <div class="upload col mt-2">
+                                <span style="color: green;"></span>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-6 col-6">
+                            <div class="data-product">
+                                <form [formGroup]="formProduct" (ngSubmit)="editProductById(formProduct.value.productId)">
+                                    <div class="col-lg-12 col-12 mt-2">
+                                        <label for="name" class="form-label"> ชื่อสินค้า </label>
+                                        <input type="text" name="name" id="name" class="form-control" formControlName="productName">
+                                    </div>
+                                    <div class="col-lg-12 col-12 mt-2">
+                                        <label for="detail" class="form-label"> รายละเอียด </label>
+                                        <textarea type="text" name="detail" id="detail" class="form-control" rows="3" formControlName="productDetail">
+                                                </textarea>
+                                    </div>
+                                    <div class="col-lg-4 mt-2">
+                                        <label for="price" class="form-label"> ราคา </label>
+                                        <input type="number" name="price" id="price" class="form-control" formControlName="productPrice">
+                                    </div>
+
+                                    <div class="button">
+                                        <button type="submit" class="btn btn-outline-success">
+                                                ยืนยันการแก้ไขข้อมูล
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

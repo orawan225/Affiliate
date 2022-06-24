@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpClientModule} from '@angular/common/http'
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { LoginAffiliateComponent } from './components/affiliate/login-affiliate/login-affiliate.component';
@@ -16,16 +16,16 @@ import { NavbarFooterComponent } from './components/navbar/navbar-footer/navbar-
 import { NavbarHeaderComponent } from './components/navbar/navbar-header/navbar-header.component';
 import { LoginShopComponent } from './components/shop/login-shop/login-shop.component';
 import { RegisterShopComponent } from './components/shop/register-shop/register-shop.component';
-import { RegisterShopsComponent } from './components/shop/register-shops/register-shops.component';
-import { RegisterComponent } from './components/shop/register/register.component';
 import { CreateProductComponent } from './components/create-product/create-product.component';
 import { CartComponent } from './components/cart/cart.component';
 import { AddressComponent } from './components/address/address.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { ShareComponent } from './components/share/share.component';
-
-
+import { ShopProductComponent } from './components/shop/shop-product/shop-product.component';
+import { EditProductComponent } from './components/shop/edit-product/edit-product.component';
+import { CookieService } from 'ngx-cookie-service';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 
@@ -39,17 +39,19 @@ import { ShareComponent } from './components/share/share.component';
     RegisterAffiliateComponent,
     RegisterCustomerComponent,
     RegisterShopComponent,
-    RegisterShopsComponent,
     HomeComponent,
     NavbarFooterComponent,
     NavbarHeaderComponent,
-    RegisterComponent,
     CreateProductComponent,
     CartComponent,
     AddressComponent,
     PaymentComponent,
     ProductDetailComponent,
-    ShareComponent
+    ShareComponent,
+    ShopProductComponent,
+    EditProductComponent,
+    ProfileComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -57,9 +59,12 @@ import { ShareComponent } from './components/share/share.component';
     NgbModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
+    
+    
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

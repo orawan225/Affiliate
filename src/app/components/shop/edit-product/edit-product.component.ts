@@ -1,18 +1,16 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { product } from 'src/app/models/product';
 import { CallApiService } from 'src/app/services/call-api.service';
 import Swal from 'sweetalert2';
 
-
-
 @Component({
-  selector: 'app-product-detail',
-  templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.css']
+  selector: 'app-edit-product',
+  templateUrl: './edit-product.component.html',
+  styleUrls: ['./edit-product.component.css']
 })
-export class ProductDetailComponent implements OnInit {
+export class EditProductComponent implements OnInit {
 
   formProduct: any
   constructor(public callApi: CallApiService, public router: Router, public fb: FormBuilder) {
@@ -50,7 +48,7 @@ export class ProductDetailComponent implements OnInit {
   }
 
   editProductById(propuctId: string) {
-    this.callApi.editProductById(propuctId,this.formProduct.value).subscribe(data => {
+    this.callApi.editProductById(propuctId, this.formProduct.value).subscribe(data => {
       console.log(data);
       Swal.fire({
         position: 'top',
@@ -60,19 +58,10 @@ export class ProductDetailComponent implements OnInit {
         timer: 1000
       })
       setTimeout(() => {
-        this.router.navigate(['/productdetail'])
+        this.router.navigate(['/shopproduct'])
       }, 1000);
     })
   }
-
-  // openDialog() {
-  //   this.dialog.open(EditProdructComponent, {
-  //     data: {
-  //       animal: 'panda',
-  //     },
-  //   });
-  // }
-
 
 
 }
