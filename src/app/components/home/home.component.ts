@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.getProduct();
+    this.getProduct()
   }
 
   getProduct() {
@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
   setProductIdtolocal(id : string) {
     console.log(id);
     localStorage.setItem('productId',id)
-    this.router.navigateByUrl('/productdetail')
+    this.router.navigateByUrl('/product-detail')
   }
 
 

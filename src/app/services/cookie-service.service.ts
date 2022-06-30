@@ -18,4 +18,20 @@ export class CookieServiceService {
       return this.cookie.get(this._token)
   }
 
+  clearCookie(){
+    this.cookie.deleteAll()
+  }
+
+  setRoleProfile(data: string){
+    this.cookie.set('roleProfile',JSON.stringify(data))
+  }
+
+  getRoleProfile(){
+   let data = this.cookie.get('roleProfile')
+   
+    if(data){
+      return JSON.parse(data)
+    }
+  }
+
 }

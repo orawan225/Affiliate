@@ -1,0 +1,67 @@
+<app-navbar-header></app-navbar-header>
+<div class="backgroundimg">
+    <div class="row justify-content-center">
+        <div class="assets-img col-4">
+            <img src="assets/img/illustrations/callback.png" alt="..." />
+            <h1> Affiliate Shop </h1>
+            <p> ยินดีต้อนรับเข้าสู่การสมัครสมาชิก Affiliate shop ที่เป็นระบบการขายสินค้า รวมทั้งการสร้างรายได้ให้แก่ทุกท่าน </p>
+        </div>
+        <div class="col-6">
+            <div class="loginStore">
+                <h2 class="text-center" data-aos="fade-up">
+                    <i class="bi bi-person-plus-fill">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                            class="bi bi-person-workspace" viewBox="0 0 16 16">
+                            <path
+                                d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                            <path
+                                d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z" />
+                        </svg>
+                    </i> สมัครสมาชิกร้านค้า
+                </h2>
+                <div class="card">
+                    <section class=" contact section-padding" id="contact">
+                        <div class="col col-12 mx-auto">
+                            <div class="card-body">
+                                <form [formGroup]="formRegister" (ngSubmit)="registerStore()">
+                                    <div class="row mt-2">
+                                        <div class="col-lg-6 col-6">
+                                            <label for="username" class="form-label"> ชื่อร้านค้า </label>
+                                            <input type="text" name="username" id="username" class="form-control" placeholder="กรุณากรอกชื่อบัญชีธนาคาร" formControlName="store">
+                                        </div>
+                                        <div class="col-lg-6 col-6">
+                                            <label for="namebank" class="form-label"> ชื่อบัญชีธนาคาร </label>
+                                            <input type="text" name="namebank" id="namebank" class="form-control" placeholder="กรุณากรอกชื่อบัญชีธนาคาร" formControlName="bankName">
+                                        </div>
+
+                                        <div class="col-lg-6 col-6">
+                                            <label for="number" class="form-label"> เลขที่บัญชี </label>
+                                            <input type="text" name="number" id="number" class="form-control" placeholder="กรุณากรอกเลขที่บัญชี" formControlName="bankNumber">
+                                        </div>
+                                        <div class="col-lg-6 col-6">
+                                            <label for="namebank" class="form-label"> ชื่อธนาคาร </label>
+                                            <select class="form-select" aria-label="Default select example" formControlName="bankNameAccount">
+                                                <option value="ธนาคารกรุงไทย (KTB)"> ธนาคารกรุงไทย (KTB) </option>
+                                                <option value="ธนาคารไทยพาณิชย์ (SCB)"> ธนาคารไทยพาณิชย์ (SCB) </option>
+                                                <option value="ธนาคารกรุงเทพ (BBL)"> ธนาคารกรุงเทพ (BBL) </option>
+                                                <option value="ธนาคารกสิกรไทย (KBANK)"> ธนาคารกสิกรไทย (KBANK) </option>
+                                            </select>
+                                        </div>
+                                        <div class="row">
+                                            <div class="button">
+                                                <button type="submit" class="btn btn-outline-primary">
+                                                    ยืนยันสมัครสมาชิก
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

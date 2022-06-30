@@ -1,0 +1,56 @@
+<app-navbar-header></app-navbar-header>
+<div class="backgroundimg">
+    <div class="row flex-center justify-content-center">
+        <div class="col-7">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-5 upload">
+                            <img src="http://f.ptcdn.info/034/048/000/oifflt9dlY1OXY4JWyF-o.jpg" alt="">
+                        </div>
+                        <div class="productdetail col">
+                            <div class="productname row">
+                                <div class="col-3 p-0"> ชื่อสินค้า : </div>
+                                <div class="col p-0"> {{formProduct.value.productName}} </div>
+                            </div>
+                            <div class="productdetail row">
+                                <div class="col-3 p-0"> รายละเอียด : </div>
+                                <div class="col p-0"> {{formProduct.value.productDetail}} </div>
+                            </div>
+                            <div class="productprice row">
+                                <div class="col-3 p-0"> ราคา : </div>
+                                <div class="col p-0 "> {{formProduct.value.productPrice}} บาท </div>
+                            </div>
+
+                            <div class="button row">
+                                <div class="cart col-6">
+                                    <button type="button" class="btn btn-outline-primary" routerLink="/cart">
+                                        <i class="bi bi-cart">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                            </svg>
+                                        </i>
+                                        เพิ่มไปยังรถเข็น
+                                    </button>
+                                </div>
+                                <div class="col">
+                                    <button type="button" class="btn btn-outline-success" routerLink="/share">
+                                        <i class="bi bi-share">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" />
+                                            </svg>
+                                        </i> แชร์
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

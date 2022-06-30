@@ -1,6 +1,8 @@
+<app-navbar-header></app-navbar-header>
 <section class="backgroundimg" style="background-color: #eee;">
     <div class="container py-5">
         <div class="row">
+
             <div class="col-lg-4">
                 <div class="card mb-4 mt-4">
                     <div class="card-body text-center">
@@ -16,14 +18,15 @@
                     </div>
                 </div>
 
-                <div class="card mb-4 mb-lg-0">
+                <div class="card mb-4 mb-lg-0" *ngIf="showCardRole == 'store'">
                     <div class="card-body">
+                        <h2> ข้อมูลสำหรับร้านค้า </h2>
                         <div class="row">
                             <div class="col-sm-5">
                                 <p class="mb-0"> ชื่อร้านค้า </p>
                             </div>
                             <div class="col-sm-7">
-                                <p class="text-muted mb-0">Johnatan Smith</p>
+                                <p class="text-muted mb-0">{{store.store}}</p>
                             </div>
                         </div>
                         <hr>
@@ -32,7 +35,7 @@
                                 <p class="mb-0"> ชื่อบัญชีธนาคาร </p>
                             </div>
                             <div class="col-sm-7">
-                                <p class="text-muted mb-0">Johnatan Smith</p>
+                                <p class="text-muted mb-0">{{store.bankName}}</p>
                             </div>
                         </div>
                         <hr>
@@ -41,7 +44,7 @@
                                 <p class="mb-0"> เลขที่บัญชี </p>
                             </div>
                             <div class="col-sm-7">
-                                <p class="text-muted mb-0">Johnatan Smith</p>
+                                <p class="text-muted mb-0">{{store.bankNumber}}</p>
                             </div>
                         </div>
                         <hr>
@@ -50,7 +53,39 @@
                                 <p class="mb-0"> ชื่อธนาคาร </p>
                             </div>
                             <div class="col-sm-7">
-                                <p class="text-muted mb-0">Johnatan Smith</p>
+                                <p class="text-muted mb-0">{{store.bankNameAccount}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4 mb-lg-0 mt-4" *ngIf="showCardRole == 'customer'">
+                    <div class="card-body">
+                        <h2> ข้อมูลของบัญชีธนาคาร </h2>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <p class="mb-0"> ชื่อบัญชีธนาคาร </p>
+                            </div>
+                            <div class="col-sm-7">
+                                <p class="text-muted mb-0">{{customer.bankName}}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <p class="mb-0"> เลขที่บัญชี </p>
+                            </div>
+                            <div class="col-sm-7">
+                                <p class="text-muted mb-0">{{customer.bankNumber}}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <p class="mb-0"> ชื่อธนาคาร </p>
+                            </div>
+                            <div class="col-sm-7">
+                                <p class="text-muted mb-0">{{customer.bankNameAccount}}</p>
                             </div>
                         </div>
                     </div>
@@ -59,6 +94,7 @@
             <div class="profile col-lg-8">
                 <div class="card mb-4 mt-4">
                     <div class="card-body">
+                        <h2> ข้อมูลของฉัน</h2>
                         <div class="row">
                             <div class="col-sm-3">
                                 <p class="mb-0">ชื่อ - นามสกุล</p>
@@ -147,7 +183,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </section>

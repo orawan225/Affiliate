@@ -1,0 +1,37 @@
+.backgroundimg {
+    background-color: rgb(236, 233, 233);
+}
+
+label {
+    margin-top: 6px;
+}
+
+.card {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+
+.assets-img {
+    margin-top: 8rem;
+}
+
+.btn-outline-primary {
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    border-radius: 22px;
+}
+
+h1 {
+    text-align: center;
+}
+
+img {
+    margin-top: 3rem;
+    width: 90%;
+    margin-left: 2rem;
+}
+
+.loginUser {
+    margin-left: 3rem;
+}

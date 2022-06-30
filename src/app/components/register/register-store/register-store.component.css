@@ -1,0 +1,34 @@
+.backgroundimg {
+    background-image: url('src\assets\img\oval2.png');
+}
+
+label {
+    margin-top: 6px;
+}
+
+.btn-outline-primary {
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    border-radius: 22px;
+}
+
+h1 {
+    text-align: center;
+}
+
+img {
+    width: 90%;
+    margin-left: 2rem;
+}
+
+.loginStore {
+    margin-left: 5rem;
+    margin-right: 4rem;
+    margin-top: 8rem;
+}
+
+.assets-img {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}

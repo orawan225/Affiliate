@@ -2,3 +2,7 @@
     background-image: url('src\assets\img\illustrations\heroheader.png');
     margin-top: -1rem;
 }
+
+h2 {
+    text-align: center;
+}

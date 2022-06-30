@@ -5,53 +5,49 @@ import { AppRoutingModule } from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpClientModule} from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 
 import { AppComponent } from './app.component';
-import { LoginAffiliateComponent } from './components/affiliate/login-affiliate/login-affiliate.component';
-import { RegisterAffiliateComponent } from './components/affiliate/register-affiliate/register-affiliate.component';
-import { LoginCustomerComponent } from './components/customer/login-customer/login-customer.component';
-import { RegisterCustomerComponent } from './components/customer/register-customer/register-customer.component';
 import { HomeComponent } from './components/home/home.component';
-import { NavbarFooterComponent } from './components/navbar/navbar-footer/navbar-footer.component';
-import { NavbarHeaderComponent } from './components/navbar/navbar-header/navbar-header.component';
-import { LoginShopComponent } from './components/shop/login-shop/login-shop.component';
-import { RegisterShopComponent } from './components/shop/register-shop/register-shop.component';
-import { CreateProductComponent } from './components/create-product/create-product.component';
-import { CartComponent } from './components/cart/cart.component';
-import { AddressComponent } from './components/address/address.component';
-import { PaymentComponent } from './components/payment/payment.component';
-import { ProductDetailComponent } from './components/product-detail/product-detail.component';
-import { ShareComponent } from './components/share/share.component';
-import { ShopProductComponent } from './components/shop/shop-product/shop-product.component';
-import { EditProductComponent } from './components/shop/edit-product/edit-product.component';
-import { CookieService } from 'ngx-cookie-service';
 import { ProfileComponent } from './components/profile/profile.component';
 
+// <---- Navbar --->
+import { NavbarHeaderComponent } from './components/navbar/navbar-header/navbar-header.component';
+import { NavbarFooterComponent } from './components/navbar/navbar-footer/navbar-footer.component';
+import { NavbarLoginComponent } from './components/navbar/navbar-login/navbar-login.component';
 
+// <---- Regisger --->
+import { RegisterUserComponent } from './components/register/register-user/register-user.component';
+import { RegisterCustomerComponent } from './components/register/register-customer/register-customer.component';
+import { RegisterStoreComponent } from './components/register/register-store/register-store.component';
 
+// <---- Logion --->
+import { LoginComponent } from './components/login/login/login.component';
+import { CheckLoginComponent } from './components/login/check-login/check-login.component';
+
+// <---- Product --->
+import { ProductDetailComponent } from './components/product/product-detail/product-detail.component';
+import { ProductStoreComponent } from './components/product/product-store/product-store.component';
+import { ProductCreateComponent } from './components/product/product-create/product-create.component';
+import { ProductEditComponent } from './components/product/product-edit/product-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginAffiliateComponent,
-    LoginCustomerComponent,
-    LoginShopComponent,
-    RegisterAffiliateComponent,
-    RegisterCustomerComponent,
-    RegisterShopComponent,
     HomeComponent,
-    NavbarFooterComponent,
     NavbarHeaderComponent,
-    CreateProductComponent,
-    CartComponent,
-    AddressComponent,
-    PaymentComponent,
-    ProductDetailComponent,
-    ShareComponent,
-    ShopProductComponent,
-    EditProductComponent,
+    NavbarFooterComponent,
+    NavbarLoginComponent,
+    RegisterUserComponent,
+    RegisterCustomerComponent,
+    RegisterStoreComponent,
+    LoginComponent,
+    CheckLoginComponent,
     ProfileComponent,
-    
+    ProductDetailComponent,
+    ProductStoreComponent,
+    ProductCreateComponent,
+    ProductEditComponent 
   ],
   imports: [
     BrowserModule,
