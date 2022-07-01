@@ -49,18 +49,24 @@ export class CallApiService {
   }
 
 
-
   //Store
   public registerStore(data: store) {
     return this.http.post<store>(`${environment.apiUrl}store/store-register`,data,this.header())
   }
 
+
   
   //Product
-  public getAllProduct(): Observable<product[]> {
-    return this.http.get<product[]>(`${environment.apiUrl}product/getAll-product`,this.header())
+  public getAllProduct(){
+    return this.http.get<product>(`${environment.apiUrl}product/getAll-product`)
   }
 
+  public getAllProductByStore(){
+    return this.http.get<store>(`${environment.apiUrl}product/getAll-productByStoreId`,this.header())
+  }
+  public getProductById(productId: any) {
+    return this.http.get<product>(`${environment.apiUrl}product/getProductById/${productId}`,this.header())
+  }
 
   public editProductById(productId: string, product: product) {
     return this.http.put<product>(`${environment.apiUrl}product/update-product/${productId}`, product)

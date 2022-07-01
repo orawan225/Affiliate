@@ -10,20 +10,18 @@ import { CookieServiceService } from 'src/app/services/cookie-service.service';
 export class ProfileComponent implements OnInit {
 
   formProfile: any
-  profile: any = {}
-  store: any = {}
-  customer: any = {}
+  profile: any = []
+  store: any = []
+  customer: any = []
   role?: string 
   showCardRole: any
 
   constructor(public callApi: CallApiService, private cookie: CookieServiceService, private ref: ChangeDetectorRef) {
     this.getRoleProfile()
-
   }
 
   ngOnInit(): void {
     this.getProfile()
-  
   }
 
   getProfile() {
@@ -36,13 +34,12 @@ export class ProfileComponent implements OnInit {
   }
 
   getRoleProfile(){
-    if(this.cookie.getRoleProfile()){
-      this.showCardRole = this.cookie.getRoleProfile()
+    if(this.cookie.getRoleAccount()){
+      this.showCardRole = this.cookie.getRoleAccount()
     }
   }
 
   ngAfterContentChecked() {
     this.ref.detectChanges()
   }
-
 }

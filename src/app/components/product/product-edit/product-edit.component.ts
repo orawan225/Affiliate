@@ -22,8 +22,8 @@ export class ProductEditComponent implements OnInit {
     })
   }
 
-  patchValue(receiveProduct: product) {
-    this.formProduct.patchValue({
+  setProduct(receiveProduct: product) {
+    this.formProduct.setValue({
       productId: receiveProduct.productId,
       productName: receiveProduct.productName,
       productPrice: receiveProduct.productPrice,
@@ -33,19 +33,17 @@ export class ProductEditComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // this.getProductById()
+    this.getProductById()
 
   }
 
-  // getProductById() {
-  //   let productId = localStorage.getItem('productId')
-  //   this.callApi.getAllProduct().subscribe(data => {
-  //     // this.formProduct = data
-  //     this.patchValue(data)
-  //     console.log(this.formProduct);
+  getProductById() {
+    this.callApi.getAllProduct().subscribe((data: any) => {
+      this.setProduct = data
+      console.log(this.formProduct);
 
-  //   })
-  // }
+    })
+  }
 
   editProductById(propuctId: string) {
     this.callApi.editProductById(propuctId,this.formProduct.value).subscribe(data => {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { user } from 'src/app/models/user';
 import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CookieServiceService } from 'src/app/services/cookie-service.service';
@@ -29,7 +30,9 @@ export class LoginComponent implements OnInit {
     this.callApi.loginUser(this.formLogin.value).subscribe((res: any) => {
       this.cookie.setToken(res.data.token)
       this.alert.success("เข้าสู่ระบบสำเร็จ")
-      this.router.navigate(['/check-login'])
+      setTimeout(() => {
+        this.router.navigate(['/home'])
+      }, 1000);
     },((err:any)=>{
       if (err.status===417) {
         this.alert.error(err.error.message)
@@ -37,4 +40,5 @@ export class LoginComponent implements OnInit {
     }))
     
   }
+
 }

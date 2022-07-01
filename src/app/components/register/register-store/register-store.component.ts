@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CallApiService } from 'src/app/services/call-api.service';
+import { CookieServiceService } from 'src/app/services/cookie-service.service';
 
 @Component({
   selector: 'app-register-store',
@@ -11,8 +12,9 @@ import { CallApiService } from 'src/app/services/call-api.service';
 export class RegisterStoreComponent implements OnInit {
 
   formRegister: any;
+  checkLogin: boolean = true
 
-  constructor(public callApi: CallApiService, public fb: FormBuilder, public router: Router) {
+  constructor(public callApi: CallApiService, public fb: FormBuilder, public router: Router, private cookie: CookieServiceService) {
     this.formRegister = fb.group({
       store: [null],
       bankNameAccount: [null],
@@ -28,7 +30,13 @@ export class RegisterStoreComponent implements OnInit {
     console.log(this.formRegister.value);
     this.callApi.registerStore(this.formRegister.value).subscribe((res: any) => {
       console.log(res);
-      this.router.navigateByUrl('/login')
+      if (this.cookie.getToken()) {
+        this.checkLogin = true
+        this.router.navigate(['/home'])
+      } else {
+        this.checkLogin = false
+        this.router.navigate(['/login'])
+      }
     })
   }
 }

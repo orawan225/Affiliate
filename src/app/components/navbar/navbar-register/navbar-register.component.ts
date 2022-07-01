@@ -4,11 +4,11 @@ import { CallApiService } from 'src/app/services/call-api.service';
 import { CookieServiceService } from 'src/app/services/cookie-service.service';
 
 @Component({
-  selector: 'app-navbar-header',
-  templateUrl: './navbar-header.component.html',
-  styleUrls: ['./navbar-header.component.css']
+  selector: 'app-navbar-register',
+  templateUrl: './navbar-register.component.html',
+  styleUrls: ['./navbar-register.component.css']
 })
-export class NavbarHeaderComponent implements OnInit {
+export class NavbarRegisterComponent implements OnInit {
 
   profile: any = []
   role?: string
@@ -20,26 +20,9 @@ export class NavbarHeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkLogout()
-    this.getProfile()
   }
-
-
-  // <---- checkRoleAccuont ---->
-  getProfile() {
-    this.callApi.getProfile().subscribe((res: any) => {
-      this.profile = res.data.profile
-      this.role = this.profile.role
-    })
-  }
-
-  checkProfile(role: any) {
-    this.cookie.setRoleAccount(role)
-    // window.location.reload()
-  }
-
 
   
-  // <---- checkButtonLout---->
   checkLogout() {
     if (this.cookie.getToken()) {
       this.checkLogin = true
@@ -54,18 +37,6 @@ export class NavbarHeaderComponent implements OnInit {
     this.router.navigate(['/login'])
   }
 
-
-
-   // <---- checkButtonStore---->
-  loginStore() {
-    if (this.cookie.getToken()) {
-      this.checkLogin = true
-      this.router.navigate(['/product-store'])
-    } else {
-      this.checkLogin = false
-      this.router.navigate(['/login'])
-    }
-  }
 
   ngAfterContentChecked() {
     this.ref.detectChanges()

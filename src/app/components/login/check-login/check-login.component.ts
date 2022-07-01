@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CookieServiceService } from 'src/app/services/cookie-service.service';
 
@@ -11,7 +12,7 @@ export class CheckLoginComponent implements OnInit {
 
   profile: any = []
   role?: string
-  constructor(public callApi: CallApiService, private ref: ChangeDetectorRef, private cookie: CookieServiceService) { }
+  constructor(public callApi: CallApiService, private ref: ChangeDetectorRef, private cookie: CookieServiceService, public router: Router) { }
 
 
   ngOnInit(): void {
@@ -26,12 +27,13 @@ export class CheckLoginComponent implements OnInit {
     })
   }
 
-  ngAfterContentChecked() {
-    this.ref.detectChanges()
+  checkProfile(role: any){
+    this.cookie.setRoleAccount(role)
   }
 
-  checkProfile(role: any){
-    this.cookie.setRoleProfile(role)
+  
+  ngAfterContentChecked() {
+    this.ref.detectChanges()
   }
 
 }

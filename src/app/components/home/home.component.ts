@@ -11,31 +11,23 @@ import { CallApiService } from 'src/app/services/call-api.service';
 })
 export class HomeComponent implements OnInit {
 
-  formProduct: any
-  products: product[] = []
+  products: any
 
-  constructor(public callApi: CallApiService, public router: Router, public fb: FormBuilder) {
-
-  }
+  constructor(public callApi: CallApiService, public router: Router, public fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.getProduct()
   }
 
   getProduct() {
-    this.callApi.getAllProduct().subscribe((data: product[]) => {
+    this.callApi.getAllProduct().subscribe(data => {
       this.products = data
       console.log(data)
     })
   }
 
-  setProductIdtolocal(id : string) {
-    console.log(id);
-    localStorage.setItem('productId',id)
-    this.router.navigateByUrl('/product-detail')
+  setProductIdtolocal(productId : string) {
+    localStorage.setItem('productId',productId)
+    this.router.navigate(['/product-detail'])
   }
-
-
-
-
 }

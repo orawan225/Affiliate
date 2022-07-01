@@ -22,13 +22,12 @@ export class CookieServiceService {
     this.cookie.deleteAll()
   }
 
-  setRoleProfile(data: string){
-    this.cookie.set('roleProfile',JSON.stringify(data))
+  setRoleAccount(data: string){
+    this.cookie.set('roleAccount',JSON.stringify(data))
   }
 
-  getRoleProfile(){
-   let data = this.cookie.get('roleProfile')
-   
+  getRoleAccount(){
+   let data = this.cookie.get('roleAccount')
     if(data){
       return JSON.parse(data)
     }

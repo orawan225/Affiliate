@@ -3,14 +3,6 @@ input {
     width: 80%;
 }
 
-.btn {
-    text-align: center;
-}
-
-.card-title {
-    text-align: center;
-}
-
 .text-price {
     margin-left: 13rem;
 }
@@ -20,10 +12,12 @@ input {
 }
 
 .card-body span .row .price {
+    font-size: 16px;
     text-align: right;
 }
 
 .card-body span .row .baht {
+    font-size: 16px;
     text-align: left;
 }
 
@@ -55,4 +49,8 @@ h3 {
 
 p {
     font-size: 16px;
+}
+
+#work_banner {
+    height: 60%;
 }

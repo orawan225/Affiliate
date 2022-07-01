@@ -30,6 +30,8 @@ import { ProductDetailComponent } from './components/product/product-detail/prod
 import { ProductStoreComponent } from './components/product/product-store/product-store.component';
 import { ProductCreateComponent } from './components/product/product-create/product-create.component';
 import { ProductEditComponent } from './components/product/product-edit/product-edit.component';
+import { NavbarRegisterComponent } from './components/navbar/navbar-register/navbar-register.component';
+import { NavbarStoreComponent } from './components/navbar/navbar-store/navbar-store.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { ProductEditComponent } from './components/product/product-edit/product-
     ProductDetailComponent,
     ProductStoreComponent,
     ProductCreateComponent,
-    ProductEditComponent 
+    ProductEditComponent,
+    NavbarRegisterComponent,
+    NavbarStoreComponent 
   ],
   imports: [
     BrowserModule,

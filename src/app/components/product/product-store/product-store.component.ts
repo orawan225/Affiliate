@@ -12,34 +12,28 @@ import Swal from 'sweetalert2';
 })
 export class ProductStoreComponent implements OnInit {
 
-  products: product[] = []
+  products: any
 
   constructor(public callApi: CallApiService, public router: Router, public fb: FormBuilder) {
 
   }
   ngOnInit(): void {
-    this.getProduct()
+    // this.getAllProductByStore()
   }
 
-  getProduct() {
-    this.callApi.getAllProduct().subscribe((data: product[]) => {
-      this.products = data
-      console.log(data)
-    })
-  }
+  // getAllProductByStore() {
+  //   this.callApi.getAllProductByStore().subscribe(data=> {
+  //     this.products = data
+  //     console.log(data)
+  //   })
+  // }
 
   setProductIdtolocal(id: string) {
     console.log(id);
     localStorage.setItem('productId', id)
-    this.router.navigateByUrl('/product-edit')
+    this.router.navigate(['/product-edit'])
   }
 
-  // deleteProductById(propuctId: string) {
-  //   this.callApi.deleteProductById(propuctId).subscribe(data => {
-  //     console.log(data);
-
-  //   })
-  // }
   deleteProductById(propuctId: string) {
     Swal.fire({
       position: 'top',
@@ -49,19 +43,19 @@ export class ProductStoreComponent implements OnInit {
       cancelButtonColor: '#3085d6',
       confirmButtonColor: '#d33',
       confirmButtonText: 'ใช่, ฉันต้องการลบข้อมูล'
-    }).then((result) => {
-      // if (result.isConfirmed) {
-      //   this.callApi.deleteProductById(propuctId).subscribe(data => {
-      //     console.log(data);
-      //   })
-      //   Swal.fire({
-      //     position: 'top',
-      //     icon: 'success',
-      //     title: 'ลบสำเร็จ',
-      //     showConfirmButton: false,
-      //     timer: 1000
-      //   })
-      // } 
+    // }).then((result) => {
+    //   if (result.isConfirmed) {
+    //     this.callApi.deleteProductById(propuctId).subscribe(data => {
+    //       console.log(data);
+    //     })
+    //     Swal.fire({
+    //       position: 'top',
+    //       icon: 'success',
+    //       title: 'ลบสำเร็จ',
+    //       showConfirmButton: false,
+    //       timer: 1000
+    //     })
+    //   } 
     })
   }
 

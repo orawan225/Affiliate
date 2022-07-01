@@ -28,9 +28,10 @@ export class ProductCreateComponent implements OnInit {
     console.log(this.formCreateProduct.value);
     this.callApi.createProduct(this.formCreateProduct.value).subscribe(data => {
       console.log(data);
-      
       this.alert.success("เพิ่มสินค้าสำเร็จ")
-      this.router.navigate(['/product-store'])
+      setTimeout(() => {
+        this.router.navigate(['/product-store'])
+      }, 1000);
     }, ((err: any) => {
       if (err.status === 417) {
         this.alert.error(err.error.message)

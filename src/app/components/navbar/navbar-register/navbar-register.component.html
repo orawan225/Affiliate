@@ -10,9 +10,6 @@
         <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="navbar-toggler-success">
             <div class="flex-fill mb-2">
                 <ul class="nav navbar-nav d-flex justify-content-end text-center text-dark">
-                    <li class="nav-item" *ngIf="role=='STORE' || role=='ST_CTM'" (click)="checkProfile('store')">
-                        <a class="nav-link btn-outline-primary rounded-pill px-3" (click)="loginStore()"> ร้านค้าของฉัน </a>
-                    </li>
                     <div class="dropdown">
                         <a class="nav-link btn-outline-primary rounded-pill px-3 " role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                             สมัครสมาชิก
@@ -38,21 +35,6 @@
                 </ul>
             </div>
 
-            <div class="dropdown">
-                <a class="nav-link align-self-center d-flex " role="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class='bx bx-user-circle bx-sm text-primary'></i>
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <li class="nav-item">
-                        <button class="dropdown-item" type="button" (click)="checkProfile('user')" routerLink="/profile"> โปรไฟล์ของฉัน </button>
-                    </li>
-                    <li class="nav-item" *ngIf="role=='CUSTOMER' || role=='ST_CTM'" routerLink="/profile">
-                        <button class="dropdown-item" type="button" (click)="checkProfile('customer')">
-                            โปรไฟล์ Affiliate
-                        </button>
-                    </li>
-                </ul>
-            </div>
         </div>
     </div>
 </nav>
