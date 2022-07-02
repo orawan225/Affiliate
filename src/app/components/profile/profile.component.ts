@@ -16,7 +16,7 @@ export class ProfileComponent implements OnInit {
   role?: string 
   showCardRole: any
 
-  constructor(public callApi: CallApiService, private cookie: CookieServiceService, private ref: ChangeDetectorRef) {
+  constructor(private callApi: CallApiService, private cookie: CookieServiceService, private ref: ChangeDetectorRef) {
     this.getRoleProfile()
   }
 

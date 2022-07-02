@@ -12,7 +12,7 @@ export class CheckLoginComponent implements OnInit {
 
   profile: any = []
   role?: string
-  constructor(public callApi: CallApiService, private ref: ChangeDetectorRef, private cookie: CookieServiceService, public router: Router) { }
+  constructor(private callApi: CallApiService, private ref: ChangeDetectorRef, private cookie: CookieServiceService, private router: Router) { }
 
 
   ngOnInit(): void {

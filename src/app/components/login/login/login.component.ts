@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   formLogin: any;
   
-  constructor(public callApi: CallApiService, public fb: FormBuilder,private alert :AlertService, public router: Router, public cookie: CookieServiceService) {
+  constructor(private callApi: CallApiService, private fb: FormBuilder,private alert :AlertService, private router: Router, private cookie: CookieServiceService) {
     this.formLogin = fb.group({
       userName: [null],
       passWord: [null]

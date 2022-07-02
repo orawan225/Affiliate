@@ -14,19 +14,19 @@ export class ProductStoreComponent implements OnInit {
 
   products: any
 
-  constructor(public callApi: CallApiService, public router: Router, public fb: FormBuilder) {
+  constructor(private callApi: CallApiService, private router: Router, private fb: FormBuilder) {
 
   }
   ngOnInit(): void {
-    // this.getAllProductByStore()
+    this.getAllProductByStore()
   }
 
-  // getAllProductByStore() {
-  //   this.callApi.getAllProductByStore().subscribe(data=> {
-  //     this.products = data
-  //     console.log(data)
-  //   })
-  // }
+  getAllProductByStore() {
+    this.callApi.getAllProductByStore().subscribe(data=> {
+      this.products = data
+      console.log(data)
+    })
+  }
 
   setProductIdtolocal(id: string) {
     console.log(id);

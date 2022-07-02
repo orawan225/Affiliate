@@ -18,7 +18,6 @@ export class CallApiService {
 
   constructor(public http: HttpClient, private cookie: CookieServiceService) { }
 
-
   public header() {
     let token = this.cookie.getToken()
     return {
@@ -30,51 +29,59 @@ export class CallApiService {
 
   //User
   public registerUser(data: user) {
-    return this.http.post<user>(`${environment.apiUrl}user/user-register`,data)
+    return this.http.post<user>(`${environment.apiUrl}auth/user-register`, data)
   }
 
   public loginUser(data: any) {
-    return this.http.post<user>(`${environment.apiUrl}user/user-login`,data)
+    return this.http.post<user>(`${environment.apiUrl}auth/user-login`, data)
   }
 
   public getProfile(): Observable<profile> {
-    return this.http.get<profile>(`${environment.apiUrl}user/getProfile`,this.header())
+    return this.http.get<profile>(`${environment.apiUrl}user/getProfile`, this.header())
   }
 
 
 
   //Customer
   public registerCustomer(data: customer) {
-    return this.http.post<customer>(`${environment.apiUrl}customer/customer-register`,data,this.header())
+    return this.http.post<customer>(`${environment.apiUrl}customer/customer-register`, data, this.header())
   }
 
 
   //Store
   public registerStore(data: store) {
-    return this.http.post<store>(`${environment.apiUrl}store/store-register`,data,this.header())
+    return this.http.post<store>(`${environment.apiUrl}store/store-register`, data, this.header())
+  }
+
+  public getAllStore(data: store) {
+    return this.http.post<store>(`${environment.apiUrl}store/getAll-store`, data, this.header())
   }
 
 
-  
+
   //Product
-  public getAllProduct(){
-    return this.http.get<product>(`${environment.apiUrl}product/getAll-product`)
+  public getAllProduct() {
+    return this.http.get<product>(`${environment.apiUrl}auth/getAll-product`)
   }
 
-  public getAllProductByStore(){
-    return this.http.get<store>(`${environment.apiUrl}product/getAll-productByStoreId`,this.header())
+  public getAllProductByStore() {
+    return this.http.get<product>(`${environment.apiUrl}product/getAll-productByStore`, this.header())
   }
+
   public getProductById(productId: any) {
-    return this.http.get<product>(`${environment.apiUrl}product/getProductById/${productId}`,this.header())
-  }
-
-  public editProductById(productId: string, product: product) {
-    return this.http.put<product>(`${environment.apiUrl}product/update-product/${productId}`, product)
+    return this.http.get<product>(`${environment.apiUrl}auth/getProductById/${productId}`)
   }
 
   public createProduct(product: product) {
-    return this.http.post<product>(`${environment.apiUrl}product/create-product`,product,this.header())
+    return this.http.post<product>(`${environment.apiUrl}product/create-product`, product, this.header())
   }
 
- 
+  public editProductById(productId: string, product: product) {
+    return this.http.put<product>(`${environment.apiUrl}product/update-product/${productId}`, product, this.header())
+  }
+
+
+
+
+
 }

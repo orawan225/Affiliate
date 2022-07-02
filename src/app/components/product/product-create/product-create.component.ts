@@ -13,7 +13,7 @@ export class ProductCreateComponent implements OnInit {
 
   formCreateProduct: any;
 
-  constructor(public callApi: CallApiService, public fb: FormBuilder, public alert: AlertService, public router: Router) {
+  constructor(private callApi: CallApiService, private fb: FormBuilder, private alert: AlertService, private router: Router) {
     this.formCreateProduct = fb.group({
       productName: [null],
       productDetail: [null],

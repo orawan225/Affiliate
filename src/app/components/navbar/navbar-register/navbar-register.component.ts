@@ -14,7 +14,7 @@ export class NavbarRegisterComponent implements OnInit {
   role?: string
   checkLogin: boolean = true
 
-  constructor(public callApi: CallApiService, private cookie: CookieServiceService, private router: Router, private ref: ChangeDetectorRef) { 
+  constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router, private ref: ChangeDetectorRef) { 
 
   }
 

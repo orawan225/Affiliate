@@ -14,7 +14,7 @@ export class RegisterStoreComponent implements OnInit {
   formRegister: any;
   checkLogin: boolean = true
 
-  constructor(public callApi: CallApiService, public fb: FormBuilder, public router: Router, private cookie: CookieServiceService) {
+  constructor(private callApi: CallApiService, private fb: FormBuilder, private router: Router, private cookie: CookieServiceService) {
     this.formRegister = fb.group({
       store: [null],
       bankNameAccount: [null],

@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   products: any
 
-  constructor(public callApi: CallApiService, public router: Router, public fb: FormBuilder) {}
+  constructor(private callApi: CallApiService, private router: Router) {}
 
   ngOnInit(): void {
     this.getProduct()

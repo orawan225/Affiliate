@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 export class ProductEditComponent implements OnInit {
 
   formProduct: any
-  constructor(public callApi: CallApiService, public router: Router, public fb: FormBuilder) {
+  constructor(private callApi: CallApiService, private router: Router, private fb: FormBuilder) {
     this.formProduct = fb.group({
       productId: [null],
       productName: [null],
@@ -22,8 +22,8 @@ export class ProductEditComponent implements OnInit {
     })
   }
 
-  setProduct(receiveProduct: product) {
-    this.formProduct.setValue({
+  patchValue(receiveProduct: product) {
+    this.formProduct.patchValue({
       productId: receiveProduct.productId,
       productName: receiveProduct.productName,
       productPrice: receiveProduct.productPrice,
@@ -38,15 +38,16 @@ export class ProductEditComponent implements OnInit {
   }
 
   getProductById() {
-    this.callApi.getAllProduct().subscribe((data: any) => {
-      this.setProduct = data
+    let productId = localStorage.getItem('productId')
+    this.callApi.getProductById(productId).subscribe(data => {
+      this.patchValue(data)
       console.log(this.formProduct);
 
     })
   }
 
   editProductById(propuctId: string) {
-    this.callApi.editProductById(propuctId,this.formProduct.value).subscribe(data => {
+    this.callApi.editProductById(propuctId, this.formProduct.value).subscribe(data => {
       console.log(data);
       Swal.fire({
         position: 'top',

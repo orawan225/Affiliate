@@ -14,7 +14,7 @@ export class RegisterCustomerComponent implements OnInit {
   formRegister: any
   checkLogin: boolean = true
   
-  constructor(public callApi: CallApiService, public fb: FormBuilder, public router: Router, private cookie: CookieServiceService) {
+  constructor(private callApi: CallApiService, private fb: FormBuilder, private router: Router, private cookie: CookieServiceService) {
     this.formRegister = fb.group({
       bankNameAccount: [null],
       bankNumber: [null],
@@ -26,9 +26,9 @@ export class RegisterCustomerComponent implements OnInit {
   }
 
   registerCustomer() {
-    console.log(this.formRegister.value);
     this.callApi.registerCustomer(this.formRegister.value).subscribe((res: any)=> {
       console.log(res);
+      
       if (this.cookie.getToken()) {
         this.checkLogin = true
         this.router.navigate(['/home'])
