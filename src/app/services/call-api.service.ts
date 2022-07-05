@@ -61,11 +61,11 @@ export class CallApiService {
 
   //Product
   public getAllProduct() {
-    return this.http.get<product>(`${environment.apiUrl}auth/getAll-product`)
+    return this.http.get<product>(`${environment.apiUrl}auth/getAll-byStatusIsTrue-product`)
   }
 
   public getAllProductByStore() {
-    return this.http.get<product>(`${environment.apiUrl}product/getAll-productByStore`, this.header())
+    return this.http.get<product>(`${environment.apiUrl}product/getMy-productByStoreIsTrue`, this.header())
   }
 
   public getProductById(productId: any) {
@@ -79,6 +79,11 @@ export class CallApiService {
   public editProductById(productId: string, product: product) {
     return this.http.put<product>(`${environment.apiUrl}product/update-product/${productId}`, product, this.header())
   }
+
+  public deleteProductById(productId: string, product: product) {
+    return this.http.put<product>(`${environment.apiUrl}product/update-productByStatus/${productId}`, product, this.header())
+  }
+
 
 
 
