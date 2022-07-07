@@ -32,6 +32,8 @@ import { ProductCreateComponent } from './components/product/product-create/prod
 import { ProductEditComponent } from './components/product/product-edit/product-edit.component';
 import { NavbarRegisterComponent } from './components/navbar/navbar-register/navbar-register.component';
 import { NavbarStoreComponent } from './components/navbar/navbar-store/navbar-store.component';
+import { ShareComponent } from './components/share/share.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { NavbarStoreComponent } from './components/navbar/navbar-store/navbar-st
     ProductCreateComponent,
     ProductEditComponent,
     NavbarRegisterComponent,
-    NavbarStoreComponent 
+    NavbarStoreComponent,
+    ShareComponent,
+    CartComponent 
   ],
   imports: [
     BrowserModule,

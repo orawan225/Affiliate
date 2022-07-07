@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CartComponent } from './components/cart/cart.component';
 import { HomeComponent } from './components/home/home.component';
 import { CheckLoginComponent } from './components/login/check-login/check-login.component';
 import { LoginComponent } from './components/login/login/login.component';
@@ -11,6 +12,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterCustomerComponent } from './components/register/register-customer/register-customer.component';
 import { RegisterStoreComponent } from './components/register/register-store/register-store.component';
 import { RegisterUserComponent } from './components/register/register-user/register-user.component';
+import { ShareComponent } from './components/share/share.component';
 
 
 
@@ -27,6 +29,8 @@ const routes: Routes = [
   { path: 'product-store', component: ProductStoreComponent},
   { path: 'product-create', component: ProductCreateComponent},
   { path: 'product-edit', component: ProductEditComponent},
+  { path: 'cart', component: CartComponent},
+  { path: 'share', component: ShareComponent},
 ];
 
 @NgModule({

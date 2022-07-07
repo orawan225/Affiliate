@@ -1,0 +1,68 @@
+.backgroundimg {
+    background-image: url('src\assets\img\illustrations\heroheader.png');
+    margin-top: -15px;
+}
+
+h1 {
+    text-align: center;
+}
+
+img {
+    width: 40%;
+}
+
+thead {
+    background-color: #eff4ff;
+    height: 40px;
+    border: 0.5px solid #d3d8ff
+}
+
+.amount {
+    /* align-items: baseline; */
+    margin-right: 30px;
+}
+
+.btn-amount {
+    width: 22%;
+    border: 1px solid #ced4da;
+    border-radius: 0px;
+    background-color: #f5f4f4;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.form-control {
+    /* width: 25%; */
+    width: 50px;
+    text-align: center;
+    border-radius: 0px;
+    background-color: white;
+}
+
+.bi-trash {
+    color: red;
+}
+
+img {
+    margin-left: 4rem;
+}
+
+.button {
+    text-align: end;
+}
+
+.footer {
+    margin-top: 3rem;
+}
+
+.card {
+    justify-items: end;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 1rem;
+}
