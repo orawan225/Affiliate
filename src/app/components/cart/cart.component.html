@@ -26,7 +26,7 @@
                 </div>
             </div>
 
-            <div class="card mb-lg-0 mt-5">
+            <div class="card mt-5">
                 <div class="card-body">
                     <table>
                         <thead>
@@ -41,22 +41,30 @@
                         </thead>
                         <br>
                         <tbody>
-                            <tr>
+
+                            <tr *ngFor="let item of productList index as indexOfitem">
                                 <td>
-                                    <img class="card-img-top" src="./assets/img/our-work-01.jpg" alt="...">
+                                    <img class="card-img-top" [src]="" alt="...">
                                 </td>
-                                <td> ขนม </td>
-                                <td> 150 </td>
+                                <td>
+                                    <div class="productName">
+                                        {{item.productName}}
+                                    </div>
+                                    <div class="productDetail">
+                                        {{item.productDetail}}
+                                    </div>
+                                </td>
+                                <td> {{item.productPrice}} </td>
                                 <td>
                                     <div class="form-group row amount">
-                                        <button class="btn btn-amount" (click)="onAmountMinus()">
+                                        <button class="btn btn-amount" (click)="onAmountMinus(indexOfitem)">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                                 fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
                                                 <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
                                             </svg>
                                         </button>
-                                        <input type="number" class="form-control" [(ngModel)]="amount" disabled>
-                                        <button class="btn btn-amount" (click)="onAmountPlus()">
+                                        <input type="number" class="form-control" [(ngModel)]="item.amount" disabled>
+                                        <button class="btn btn-amount" (click)="onAmountPlus(indexOfitem)">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                                 fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
                                                 <path
@@ -65,7 +73,9 @@
                                         </button>
                                     </div>
                                 </td>
-                                <td> 150 </td>
+                                <td>
+                                    <p>{{item.productPrice *item.amount}}</p>
+                                </td>
                                 <td>
                                     <i class="bi bi-trash">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
@@ -91,8 +101,8 @@
                             <p>ยอดที่ต้องชำระ : </p>
                         </div>
                         <div class="totalPrice2">
-                            <p>55555 รายการ</p>
-                            <p>5555 บาท</p>
+                            <p> รายการ</p>
+                            <p> 5555 บาท</p>
                         </div>
                     </div>
                 </div>

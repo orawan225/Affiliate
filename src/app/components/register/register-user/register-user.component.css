@@ -36,3 +36,13 @@ img {
 .loginUser {
     margin-left: 3rem;
 }
+
+.img-fluid {
+    margin-top: 20px;
+    width: 150px;
+    margin-left: 15rem;
+}
+
+.btn-primary {
+    margin-left: 16rem;
+}

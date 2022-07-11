@@ -13,6 +13,8 @@ export class RegisterStoreComponent implements OnInit {
 
   formRegister: any;
   checkLogin: boolean = true
+  file: any
+  img: any = 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp'
 
   constructor(private callApi: CallApiService, private fb: FormBuilder, private router: Router, private cookie: CookieServiceService) {
     this.formRegister = fb.group({
@@ -27,8 +29,11 @@ export class RegisterStoreComponent implements OnInit {
   }
 
   registerStore() {
+    const fileData = new FormData()
+    fileData.append('file', this.file, this.file.name)
+    fileData.append('profile', JSON.stringify(this.formRegister.value))
     console.log(this.formRegister.value);
-    this.callApi.registerStore(this.formRegister.value).subscribe((res: any) => {
+    this.callApi.registerStore(fileData).subscribe((res: any) => {
       console.log(res);
       if (this.cookie.getToken()) {
         this.checkLogin = true
@@ -39,4 +44,15 @@ export class RegisterStoreComponent implements OnInit {
       }
     })
   }
+
+  selectFile(event: any) {
+    this.file = <File>event.target.files[0]
+    const image = new FileReader();
+    image.readAsDataURL(this.file)
+    image.onload = () => {
+      this.img = image.result
+      console.log(this.img);
+    }
+  }
+
 }

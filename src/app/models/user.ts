@@ -10,6 +10,8 @@ export class user {
     district: string | undefined
     province: string | undefined
     postalCode: string | undefined
+    image: string | undefined
+    date: Date | undefined
 
 
 }

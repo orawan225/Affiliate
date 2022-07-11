@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { product } from 'src/app/models/product';
 import { CallApiService } from 'src/app/services/call-api.service';
 
@@ -12,14 +13,24 @@ import { CallApiService } from 'src/app/services/call-api.service';
 export class ProductDetailComponent implements OnInit {
 
   formProduct: any
+  productList: any = []
+  productId: any
 
-  constructor(private callApi: CallApiService, private router: Router, private fb: FormBuilder) {
+
+  constructor(private callApi: CallApiService, private router: Router, private fb: FormBuilder, private acrout: ActivatedRoute) {
     this.formProduct = fb.group({
       productId: [null],
       productName: [null],
       productPrice: [null],
       productDetail: [null]
     })
+
+    acrout.queryParams.subscribe((res: any) => {
+      console.log(res.id);
+      this.productId = res.id
+      console.log(res.user);
+    })
+    
   }
 
   patchValue(receiveProduct: product) {
@@ -38,13 +49,22 @@ export class ProductDetailComponent implements OnInit {
   }
 
   getProductById() {
-    let productId = localStorage.getItem('productId')
-    this.callApi.getProductById(productId).subscribe((res: any) => {
+    // let productId = localStorage.getItem('productId')
+    // console.log(productId);
+    this.callApi.getProductById(this.productId).subscribe((res: any) => {
+      this.productList = res
       this.patchValue(res)
       console.log(this.formProduct);
 
     })
   }
+
+  setProductIdtolocal(productId: string) {
+    localStorage.setItem('productId', productId)
+    this.router.navigate(['/cart'])
+  }
+
+
 
 
 }

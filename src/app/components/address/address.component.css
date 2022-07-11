@@ -1,12 +1,12 @@
 .backgroundimg {
     background-image: url('src\assets\img\illustrations\heroheader.png');
-    margin-top: -1rem;
+    margin-top: -15px;
 }
 
-h2 {
+้h1 {
     text-align: center;
 }
 
-img {
-    width: 150px;
+.btn-primary {
+    margin-left: 40rem;
 }

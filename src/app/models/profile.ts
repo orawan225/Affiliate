@@ -10,8 +10,5 @@ export class profile {
     district: string | undefined
     province: string | undefined
     postalCode: string | undefined
-
-    
-
-
+    image: string | undefined
 }

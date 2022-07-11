@@ -33,3 +33,29 @@ img {
     margin-top: 5rem;
     margin-bottom: 5rem;
 }
+
+.img-fluid {
+    margin-top: 20px;
+    width: 150px;
+    margin-left: 15rem;
+}
+
+.btn-primary {
+    margin-left: 16rem;
+}
+
+.img-fluid {
+    margin-top: 5rem;
+    width: 150px;
+    margin-left: 4rem;
+}
+
+.btn-primary {
+    width: 50%;
+    margin-left: 4rem;
+}
+
+.image {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}

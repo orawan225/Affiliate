@@ -5,26 +5,26 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-5 upload">
+                        <div class="col-6 upload">
                             <img src="http://f.ptcdn.info/034/048/000/oifflt9dlY1OXY4JWyF-o.jpg" alt="">
                         </div>
-                        <div class="productdetail col">
+                        <div class="product col" *ngIf="productList">
                             <div class="productname row">
-                                <div class="col-3 p-0"> ชื่อสินค้า : </div>
-                                <div class="col p-0"> {{formProduct.value.productName}} </div>
+                                <!-- <div class="col-4"> ชื่อสินค้า : </div> -->
+                                <div class="col"> {{formProduct.value.productName}} </div>
                             </div>
                             <div class="productdetail row">
-                                <div class="col-3 p-0"> รายละเอียด : </div>
-                                <div class="col p-0"> {{formProduct.value.productDetail}} </div>
+                                <!-- <div class="col-3"> รายละเอียด : </div> -->
+                                <div class="col"> {{formProduct.value.productDetail}} </div>
                             </div>
                             <div class="productprice row">
-                                <div class="col-3 p-0"> ราคา : </div>
-                                <div class="col p-0 "> {{formProduct.value.productPrice}} บาท </div>
+                                <div class="col-3"> ราคา </div>
+                                <div class="col"> {{formProduct.value.productPrice}} บาท </div>
                             </div>
 
                             <div class="button row">
-                                <div class="cart col-6">
-                                    <button type="button" class="btn btn-outline-primary" routerLink="/cart">
+                                <div class="cart col-6 p-0">
+                                    <button type="button" class="btn btn-outline-primary" (click)="setProductIdtolocal(productList.productId)">
                                         <i class="bi bi-cart">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">

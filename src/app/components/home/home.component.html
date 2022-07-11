@@ -2,7 +2,8 @@
 <div id="work_banner" class="banner-wrapper bg-light w-100 py-5">
     <div class="banner-vertical-center-work container text-light d-flex justify-content-center align-items-center py-5 p-0">
         <div class="banner-content col-lg-8 col-12 m-lg-auto text-center">
-            <h1 class="banner-heading h2 display-3 pb-5 semi-bold-600 typo-space-line-center"> ระบบการขายสินค้าออนไลน์ </h1>
+            <h1 class="banner-heading h2 display-3 pb-5 semi-bold-600 typo-space-line-center"> ระบบการขายสินค้าออนไลน์
+            </h1>
             <!-- <h3 class="h4 pb-2 regular-400"> ยินดีต้อนรับเข้าสู่ระบบการขายสินค้าออนไลน์ </h3> -->
             <p class="banner-body pb-2 light-300">
                 ซื้อสินค้าและสร้างรายได้ง่าย ๆ กับ
@@ -44,33 +45,21 @@
     </div>
 </div>
 
-<div class="container">
-    <!-- <div class="row justify-content-center mt-4 mb-4">
-        <div class="filter-btns shadow-md rounded-pill text-center col-auto">
-            <a class="filter-btn btn rounded-pill btn-outline-primary border-0 m-md-2 px-md-4 active" data-filter=".project">All</a>
-            <a class="filter-btn btn rounded-pill btn-outline-primary border-0 m-md-2 px-md-4" data-filter=".business">Business</a>
-            <a class="filter-btn btn rounded-pill btn-outline-primary border-0 m-md-2 px-md-4" data-filter=".marketing">Marketing</a>
-            <a class="filter-btn btn rounded-pill btn-outline-primary border-0 m-md-2 px-md-4" data-filter=".social">Social Media</a>
-            <a class="filter-btn btn rounded-pill btn-outline-primary border-0 m-md-2 px-md-4" data-filter=".graphic">Graphic</a>
-        </div>
-    </div> -->
-
-    <div class="container mt-4">
-        <div class="row">
-            <div class="col-xl-4 col-lg-4 col-md-6 mb-3" *ngFor="let element of products">
-                <div class="text-decoration-none project marketing social business" (click)="setProductIdtolocal(element.productId)">
-                    <div class="service-work overflow-hidden card mb-5 mx-5 m-sm-0">
-                        <img class="card-img-top" src="./assets/img/our-work-01.jpg" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title light-300 text-dark mt-1 text-center">{{element.productName}}</h5>
-                            <p class="card-detail">{{element.productDetail}}</p>
-                            <span class="text-price text-danger light-300 mt-2 mb-2">
-                                <div class="row">
-                                    <div class="col-10 price">{{element.productPrice}}</div>
-                                    <div class="col baht"> บาท </div>
-                                </div>
-                            </span>
-                        </div>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-xl-4 col-lg-4 col-md-6 mb-3" *ngFor="let element of product">
+            <div class="text-decoration-none project marketing social business" (click)="setProductIdtolocal(element.productId)">
+                <div class="service-work overflow-hidden card mb-5 mx-5 m-sm-0">
+                    <img class="card-img-top" [src]="api+element.image" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title light-300 text-dark mt-1 text-center">{{element.productName}}</h5>
+                        <p class="card-detail">{{element.productDetail}}</p>
+                        <span class="text-price text-danger light-300 mt-2 mb-2">
+                            <div class="row">
+                                <div class="col-10 price">{{element.productPrice}}</div>
+                                <div class="col baht"> บาท </div>
+                            </div>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -93,5 +82,4 @@
             </div>
         </div>
     </div>
-
 </div>

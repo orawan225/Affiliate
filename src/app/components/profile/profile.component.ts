@@ -12,7 +12,7 @@ export class ProfileComponent implements OnInit {
   formProfile: any
   profile: any = []
   store: any = []
-  customer: any = []
+  affiliate: any = []
   role?: string 
   showCardRole: any
 
@@ -28,8 +28,8 @@ export class ProfileComponent implements OnInit {
     this.callApi.getProfile().subscribe((res: any) => {
       this.profile = res.data.profile
       this.store = res.data.profile.store
-      this.customer = res.data.profile.customer
-      console.log(res.data);
+      this.affiliate = res.data.profile.affiliate
+      this.profile.image = 'http://localhost:8080'+res.data.profile.image
     })
   }
 
@@ -42,4 +42,6 @@ export class ProfileComponent implements OnInit {
   ngAfterContentChecked() {
     this.ref.detectChanges()
   }
+
+
 }

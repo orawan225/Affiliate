@@ -1,8 +1,10 @@
+import { query } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { product } from 'src/app/models/product';
 import { CallApiService } from 'src/app/services/call-api.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +13,8 @@ import { CallApiService } from 'src/app/services/call-api.service';
 })
 export class HomeComponent implements OnInit {
 
-  products: any
+  product: any = []
+  api = environment.apiUrl
 
   constructor(private callApi: CallApiService, private router: Router) {}
 
@@ -21,13 +24,13 @@ export class HomeComponent implements OnInit {
 
   getProduct() {
     this.callApi.getAllProduct().subscribe(data => {
-      this.products = data
+      this.product = data
       console.log(data)
     })
   }
 
   setProductIdtolocal(productId : string) {
-    localStorage.setItem('productId',productId)
-    this.router.navigate(['/product-detail'])
+    // localStorage.setItem('productId',productId)
+    this.router.navigate(['/product-detail'],{queryParams: {id:productId}})
   }
 }

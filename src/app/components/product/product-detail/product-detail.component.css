@@ -19,18 +19,27 @@ img {
     height: 95%;
 }
 
+.product {
+    margin-top: 3rem;
+}
+
 .productname {
-    font-size: 16px;
+    border: black;
+    margin-left: 1rem;
+    font-size: 22px;
+    text-align: center;
 }
 
 .productdetail {
     margin-top: 2rem;
     font-size: 16px;
+    margin-left: 1rem;
 }
 
 .productprice {
+    margin-left: 1rem;
     color: blue;
-    margin-top: 20px;
+    margin-top: 3rem;
     font-size: 20px;
 }
 

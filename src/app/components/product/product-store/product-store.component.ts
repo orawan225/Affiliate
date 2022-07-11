@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { product } from 'src/app/models/product';
 import { CallApiService } from 'src/app/services/call-api.service';
+import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,6 +15,7 @@ export class ProductStoreComponent implements OnInit {
 
   products: any
   formProduct: any
+  api = environment.apiUrl
   constructor(private callApi: CallApiService, private router: Router, private fb: FormBuilder) {
     this.formProduct = fb.group({
       productId: [null],

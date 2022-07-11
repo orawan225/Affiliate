@@ -30,10 +30,10 @@
                     </button>
                 </div>
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-4" *ngFor="let element of products ">
+            <div class="col-xl-4 col-lg-4 col-md-4 mt-5" *ngFor="let element of products ">
                 <div class="text-decoration-none project marketing social business ">
-                    <div class="service-work overflow-hidden card mb-5 mx-5 m-sm-0 ">
-                        <img class="card-img-top" src="./assets/img/our-work-01.jpg " alt="... ">
+                    <div class="service-work overflow-hidden card mb-5 mx-5 m-sm-0">
+                        <img class="card-img-top" [src]="api+element.image" alt="... ">
                         <div class="card-body ">
                             <h5 class="card-title light-300 text-dark mt-1 ">{{element.productName}}</h5>
                             <p class="card-detail ">{{element.productDetail}}</p>

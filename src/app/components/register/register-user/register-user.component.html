@@ -20,10 +20,16 @@
                     </i> สมัครสมาชิก
                 </h2>
                 <div class="card">
-                    <section class=" contact section-padding" id="contact">
+                    <section class="contact section-padding" id="contact">
                         <div class="col col-12 mx-auto">
                             <div class="card-body">
                                 <form [formGroup]="formRegister" (ngSubmit)="registerUser()">
+                                    <div class="image">
+                                        <img [src]="img" alt="avatar" class="rounded-circle img-fluid">
+                                        <br>
+                                        <input type="file" #file placeholder="เลือกรูปภาพ" style="display: none;" (change)="selectFile($event)">
+                                        <button type="button" class="btn btn-primary mt-3 mb-5" (click)="file.click()"> เลือกรูปภาพ </button>
+                                    </div>
                                     <div class="row mt-2">
                                         <div class="col-lg-6 col-6">
                                             <label for="username" class="form-label"> ชื่อ - สกุล </label>

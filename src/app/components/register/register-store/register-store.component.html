@@ -6,7 +6,7 @@
             <h1> Affiliate Shop </h1>
             <p> ยินดีต้อนรับเข้าสู่การสมัครสมาชิก Affiliate shop ที่เป็นระบบการขายสินค้า รวมทั้งการสร้างรายได้ให้แก่ทุกท่าน </p>
         </div>
-        <div class="col-5">
+        <div class="col-7">
             <div class="loginStore">
                 <h2 class="text-center" data-aos="fade-up">
                     <i class="bi bi-person-plus-fill">
@@ -24,7 +24,54 @@
                         <div class="col col-12 mx-auto">
                             <div class="card-body">
                                 <form [formGroup]="formRegister" (ngSubmit)="registerStore()">
-                                    <div class="row mt-2">
+                                    <div class="row">
+                                        <div class="image card col-5">
+                                            <img [src]="img" alt="avatar" class="rounded-circle img-fluid">
+                                            <br>
+                                            <input type="file" #file placeholder="เลือกรูปภาพ" style="display: none;" (change)="selectFile($event)">
+                                            <button type="button" class="btn btn-primary mt-3 mb-5" (click)="file.click()"> เลือกรูปภาพ </button>
+                                        </div>
+                                        <div class="col">
+                                            <div class="row mt-2">
+                                                <div class="col-lg-12 col-12">
+                                                    <label for="username" class="form-label"> ชื่อร้านค้า </label>
+                                                    <input type="text" name="username" id="username" class="form-control" placeholder="กรุณากรอกชื่อบัญชีธนาคาร" formControlName="store">
+                                                </div>
+                                                <div class="col-lg-12 col-12">
+                                                    <label for="namebank" class="form-label"> ชื่อบัญชีธนาคาร </label>
+                                                    <input type="text" name="namebank" id="namebank" class="form-control" placeholder="กรุณากรอกชื่อบัญชีธนาคาร" formControlName="bankName">
+                                                </div>
+
+                                                <div class="col-lg-12 col-12">
+                                                    <label for="number" class="form-label"> เลขที่บัญชี </label>
+                                                    <input type="text" name="number" id="number" class="form-control" placeholder="กรุณากรอกเลขที่บัญชี" formControlName="bankNumber">
+                                                </div>
+                                                <div class="col-lg-12 col-12">
+                                                    <label for="namebank" class="form-label"> ชื่อธนาคาร </label>
+                                                    <select class="form-select" aria-label="Default select example" formControlName="bankNameAccount">
+                                                        <option value="ธนาคารกรุงไทย (KTB)"> ธนาคารกรุงไทย (KTB) </option>
+                                                        <option value="ธนาคารไทยพาณิชย์ (SCB)"> ธนาคารไทยพาณิชย์ (SCB) </option>
+                                                        <option value="ธนาคารกรุงเทพ (BBL)"> ธนาคารกรุงเทพ (BBL) </option>
+                                                        <option value="ธนาคารกสิกรไทย (KBANK)"> ธนาคารกสิกรไทย (KBANK) </option>
+                                                    </select>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="button">
+                                                        <button type="submit" class="btn btn-outline-primary">
+                                                            ยืนยันสมัครสมาชิก
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="image">
+                                        <img [src]="img" alt="avatar" class="rounded-circle img-fluid">
+                                        <br>
+                                        <input type="file" #file placeholder="เลือกรูปภาพ" style="display: none;" (change)="selectFile($event)">
+                                        <button type="button" class="btn btn-primary mt-3 mb-5" (click)="file.click()"> เลือกรูปภาพ </button>
+                                    </div> -->
+                                    <!-- <div class="row mt-2">
                                         <div class="col-lg-12 col-12">
                                             <label for="username" class="form-label"> ชื่อร้านค้า </label>
                                             <input type="text" name="username" id="username" class="form-control" placeholder="กรุณากรอกชื่อบัญชีธนาคาร" formControlName="store">
@@ -54,7 +101,7 @@
                                                 </button>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </form>
                             </div>
                         </div>

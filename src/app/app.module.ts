@@ -34,6 +34,8 @@ import { NavbarRegisterComponent } from './components/navbar/navbar-register/nav
 import { NavbarStoreComponent } from './components/navbar/navbar-store/navbar-store.component';
 import { ShareComponent } from './components/share/share.component';
 import { CartComponent } from './components/cart/cart.component';
+import { AddressComponent } from './components/address/address.component';
+
 
 @NgModule({
   declarations: [
@@ -55,7 +57,8 @@ import { CartComponent } from './components/cart/cart.component';
     NavbarRegisterComponent,
     NavbarStoreComponent,
     ShareComponent,
-    CartComponent 
+    CartComponent,
+    AddressComponent
   ],
   imports: [
     BrowserModule,

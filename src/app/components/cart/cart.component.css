@@ -17,13 +17,12 @@ thead {
     border: 0.5px solid #d3d8ff
 }
 
-.amount {
-    /* align-items: baseline; */
-    margin-right: 30px;
+table {
+    width: 100%;
 }
 
 .btn-amount {
-    width: 22%;
+    width: 25%;
     border: 1px solid #ced4da;
     border-radius: 0px;
     background-color: #f5f4f4;
@@ -35,8 +34,8 @@ thead {
 }
 
 .form-control {
-    /* width: 25%; */
-    width: 50px;
+    width: 25%;
+    width: 75px;
     text-align: center;
     border-radius: 0px;
     background-color: white;
@@ -44,10 +43,6 @@ thead {
 
 .bi-trash {
     color: red;
-}
-
-img {
-    margin-left: 4rem;
 }
 
 .button {
@@ -65,4 +60,8 @@ img {
 h2 {
     text-align: center;
     margin-top: 1rem;
+}
+
+.card-body {
+    text-align: center;
 }
