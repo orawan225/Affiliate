@@ -54,3 +54,8 @@ p {
 #work_banner {
     height: 60%;
 }
+
+.card-img-top {
+    width: 100%;
+    height: 400px;
+}

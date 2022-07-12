@@ -26,4 +26,18 @@ export class AlertService {
           timer: 1000
         })
   }
+
+  confirm(mss:string){
+   return Swal.fire({
+      position: 'top',
+      text: mss,
+      icon: 'warning',
+      showCancelButton: true,
+      cancelButtonColor: '#3085d6',
+      confirmButtonColor: '#d33',
+      confirmButtonText: 'ใช่, ฉันต้องการลบข้อมูล'
+    })
+  }
+
+
 }

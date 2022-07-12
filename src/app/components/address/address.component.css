@@ -3,10 +3,44 @@
     margin-top: -15px;
 }
 
-้h1 {
+h1 {
     text-align: center;
 }
 
+.btn-success {
+    float: right;
+}
+
 .btn-primary {
-    margin-left: 40rem;
+    float: right;
+}
+
+.address {
+    margin-top: 5rem;
+    /* margin-left: 2rem; */
+}
+
+.card {
+    box-shadow: 0px 0px 0px 1px #313131;
+}
+
+p {
+    text-align: center;
+}
+
+.header {
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+}
+
+img {
+    margin-top: 6rem;
+    margin-bottom: 8rem;
+    margin-left: 8rem;
+    width: 75%;
+}
+
+.card-header {
+    text-align: center;
 }

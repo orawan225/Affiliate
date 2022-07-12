@@ -15,6 +15,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { NavbarHeaderComponent } from './components/navbar/navbar-header/navbar-header.component';
 import { NavbarFooterComponent } from './components/navbar/navbar-footer/navbar-footer.component';
 import { NavbarLoginComponent } from './components/navbar/navbar-login/navbar-login.component';
+import { NavbarRegisterComponent } from './components/navbar/navbar-register/navbar-register.component';
+import { NavbarStoreComponent } from './components/navbar/navbar-store/navbar-store.component';
 
 // <---- Regisger --->
 import { RegisterUserComponent } from './components/register/register-user/register-user.component';
@@ -30,11 +32,11 @@ import { ProductDetailComponent } from './components/product/product-detail/prod
 import { ProductStoreComponent } from './components/product/product-store/product-store.component';
 import { ProductCreateComponent } from './components/product/product-create/product-create.component';
 import { ProductEditComponent } from './components/product/product-edit/product-edit.component';
-import { NavbarRegisterComponent } from './components/navbar/navbar-register/navbar-register.component';
-import { NavbarStoreComponent } from './components/navbar/navbar-store/navbar-store.component';
+
 import { ShareComponent } from './components/share/share.component';
 import { CartComponent } from './components/cart/cart.component';
 import { AddressComponent } from './components/address/address.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 
 @NgModule({
@@ -44,6 +46,8 @@ import { AddressComponent } from './components/address/address.component';
     NavbarHeaderComponent,
     NavbarFooterComponent,
     NavbarLoginComponent,
+    NavbarRegisterComponent,
+    NavbarStoreComponent,
     RegisterUserComponent,
     RegisterCustomerComponent,
     RegisterStoreComponent,
@@ -54,11 +58,10 @@ import { AddressComponent } from './components/address/address.component';
     ProductStoreComponent,
     ProductCreateComponent,
     ProductEditComponent,
-    NavbarRegisterComponent,
-    NavbarStoreComponent,
     ShareComponent,
     CartComponent,
-    AddressComponent
+    AddressComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

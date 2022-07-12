@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { product } from 'src/app/models/product';
+import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
@@ -16,7 +17,8 @@ export class ProductStoreComponent implements OnInit {
   products: any
   formProduct: any
   api = environment.apiUrl
-  constructor(private callApi: CallApiService, private router: Router, private fb: FormBuilder) {
+
+  constructor(private callApi: CallApiService, private router: Router, private fb: FormBuilder, private alert: AlertService) {
     this.formProduct = fb.group({
       productId: [null],
       productName: [null],
@@ -53,27 +55,13 @@ export class ProductStoreComponent implements OnInit {
   }
 
   deleteProductById(productId: string) {
-    Swal.fire({
-      position: 'top',
-      text: "ต้องการลบข้อมูลนี้หรือไม่?",
-      icon: 'warning',
-      showCancelButton: true,
-      cancelButtonColor: '#3085d6',
-      confirmButtonColor: '#d33',
-      confirmButtonText: 'ใช่, ฉันต้องการลบข้อมูล'
-    }).then((result) => {
+    this.alert.confirm("ต้องการลบสินค้าหรือไม่ ?").then((result) => {
       if (result.isConfirmed) {
         this.callApi.deleteProductById(productId, this.formProduct.value).subscribe(data => {
           this.getAllProductByStore()
           console.log(data);
         })
-        Swal.fire({
-          position: 'top',
-          icon: 'success',
-          title: 'ลบสำเร็จ',
-          showConfirmButton: false,
-          timer: 1000
-        })
+        this.alert.success("ลบสินค้าสำเร็จ")
       }
     })
   }

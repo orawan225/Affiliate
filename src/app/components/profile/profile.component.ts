@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CookieServiceService } from 'src/app/services/cookie-service.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-profile',
@@ -15,6 +16,7 @@ export class ProfileComponent implements OnInit {
   affiliate: any = []
   role?: string 
   showCardRole: any
+  api = environment.apiUrl
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService, private ref: ChangeDetectorRef) {
     this.getRoleProfile()
@@ -29,7 +31,7 @@ export class ProfileComponent implements OnInit {
       this.profile = res.data.profile
       this.store = res.data.profile.store
       this.affiliate = res.data.profile.affiliate
-      this.profile.image = 'http://localhost:8080'+res.data.profile.image
+      // this.profile.image = this.api+res.data.profile.image
     })
   }
 

@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { product } from 'src/app/models/product';
 import { CallApiService } from 'src/app/services/call-api.service';
+import { CartService } from 'src/app/services/cart.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-product-detail',
@@ -13,11 +15,14 @@ import { CallApiService } from 'src/app/services/call-api.service';
 export class ProductDetailComponent implements OnInit {
 
   formProduct: any
-  productList: any = []
   productId: any
+  user: any;
+  api = environment.apiUrl
+  product: any = []
 
 
-  constructor(private callApi: CallApiService, private router: Router, private fb: FormBuilder, private acrout: ActivatedRoute) {
+  constructor(private callApi: CallApiService, private router: Router, private fb: FormBuilder, 
+    private acrout: ActivatedRoute, private cartService: CartService) {
     this.formProduct = fb.group({
       productId: [null],
       productName: [null],
@@ -29,8 +34,9 @@ export class ProductDetailComponent implements OnInit {
       console.log(res.id);
       this.productId = res.id
       console.log(res.user);
+      this.user = res.user || 0
     })
-    
+
   }
 
   patchValue(receiveProduct: product) {
@@ -49,18 +55,20 @@ export class ProductDetailComponent implements OnInit {
   }
 
   getProductById() {
-    // let productId = localStorage.getItem('productId')
-    // console.log(productId);
     this.callApi.getProductById(this.productId).subscribe((res: any) => {
-      this.productList = res
+      this.product = res
       this.patchValue(res)
-      console.log(this.formProduct);
+      // this.product.image = this.api+res.gata.image
+      console.log();
+      
 
     })
   }
 
-  setProductIdtolocal(productId: string) {
-    localStorage.setItem('productId', productId)
+  setProductIdtolocal(product: any) {
+    product.amount = 1;
+    product.user = this.user
+    this.cartService.addCart(product, true)
     this.router.navigate(['/cart'])
   }
 

@@ -42,3 +42,7 @@
 .btn-outline-danger {
     width: 90%;
 }
+
+.card-img-top {
+    height: 320px;
+}

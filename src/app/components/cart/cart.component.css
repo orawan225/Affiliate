@@ -57,11 +57,33 @@ table {
     justify-items: end;
 }
 
-h2 {
+h3 {
+    font-weight: bold;
     text-align: center;
     margin-top: 1rem;
+    margin-bottom: -1px;
 }
 
 .card-body {
     text-align: center;
 }
+
+.productName {
+    font-size: 18px;
+}
+
+.productDetail {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+
+/* .totalPrice1 {
+    margin-left: 3rem;
+}
+
+.totalPrice2 {
+    margin-right: 3rem;
+} */

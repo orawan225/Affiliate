@@ -14,12 +14,10 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class CallApiService {
-  [x: string]: any;
   cartDataList: any = []
   productList = new BehaviorSubject<any>([])
 
   constructor(public http: HttpClient, private cookie: CookieServiceService) {
-
    }
 
   public header() {
@@ -40,8 +38,15 @@ export class CallApiService {
     return this.http.post<user>(`${environment.apiUrl}/auth/user-login`, data)
   }
 
+
+  //Profile
+
   public getProfile(){
     return this.http.get<profile>(`${environment.apiUrl}/user/getProfile`, this.header())
+  }
+
+  public editProfile() {
+    return this.http.put<profile>(`${environment.apiUrl}/user/update-profile`, this.header())
   }
 
 
@@ -87,49 +92,5 @@ export class CallApiService {
   public deleteProductById(productId: string, product: product) {
     return this.http.put<product>(`${environment.apiUrl}/product/update-productByStatus/${productId}`, product, this.header())
   }
-
-
-
-  // in Cart
-
-  // getProductData() {
-  //   return this.cartDataList.asObservable()
-  // }
-
-  // setProduct(product: any) {
-  //   this.cartDataList.push(...product)
-  //   this.productList.next(product)
-  // }
-
-  // addToCard(product: any) {
-  //   this.cartDataList.push(product)
-  //   this.productList.next(this.cartDataList)
-  //   this.getTotalAmount()
-  //   console.log(this.cartDataList);
-    
-  // }
-
-  // getTotalAmount() {
-  //   let gradTotal = 0
-  //   this.cartDataList.map((data: any) => {
-  //     gradTotal += data.total
-  //   })
-  // }
-
-  // removeCartData(product: any) {
-  //   this.cartDataList.map((data: any, index:any) => {
-  //     if(product.id === data.id){
-  //       this.cartDataList.splice(index,1)
-  //     }
-  //   })
-  // }
-
-  // removeAllCart() {
-  //   this.cartDataList = []
-  //   this.productList.next(this.cartDataList)
-  // }
-
-
-
 
 }

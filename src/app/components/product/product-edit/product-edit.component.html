@@ -7,7 +7,7 @@
                     <div class="row mt-5 mb-5">
                         <div class="card form-group col-lg-5 col-5">
                             <div class="picture">
-                                <img class="card-img-top" src="./assets/img/our-work-01.jpg" alt="...">
+                                <img class="card-img-top" [src]="api+product.image" alt="...">
                             </div>
                             <input type="file" #file placeholder="เลือกรูปภาพ" style="display: none;">
                             <button type="button" class="btn btn-outline-primary mt-3" (click)="file.click()">

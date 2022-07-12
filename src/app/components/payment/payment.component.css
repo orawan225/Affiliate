@@ -1,0 +1,18 @@
+.backgroundimg {
+    background-image: url('src\assets\img\illustrations\heroheader.png');
+    margin-top: -15px;
+}
+
+.btn-primary {
+    float: right;
+}
+
+p {
+    text-align: center;
+}
+
+.header {
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+}

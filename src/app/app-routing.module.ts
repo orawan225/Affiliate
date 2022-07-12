@@ -5,6 +5,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { HomeComponent } from './components/home/home.component';
 import { CheckLoginComponent } from './components/login/check-login/check-login.component';
 import { LoginComponent } from './components/login/login/login.component';
+import { PaymentComponent } from './components/payment/payment.component';
 import { ProductCreateComponent } from './components/product/product-create/product-create.component';
 import { ProductDetailComponent } from './components/product/product-detail/product-detail.component';
 import { ProductEditComponent } from './components/product/product-edit/product-edit.component';
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent},
   { path: 'share', component: ShareComponent},
   { path: 'address', component: AddressComponent},
+  { path: 'payment', component: PaymentComponent}
 ];
 
 @NgModule({
