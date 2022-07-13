@@ -17,8 +17,11 @@ export class ProductEditComponent implements OnInit {
   formProduct: any
   api = environment.apiUrl
   product: any = []
+  file: any
+  img: any
 
-  constructor(private callApi: CallApiService, private router: Router, private fb: FormBuilder, private alert: AlertService) {
+  constructor(private callApi: CallApiService, private router: Router,
+    private fb: FormBuilder, private alert: AlertService) {
     this.formProduct = fb.group({
       productId: [null],
       productName: [null],
@@ -39,27 +42,42 @@ export class ProductEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProductById()
-
   }
 
   getProductById() {
     let productId = localStorage.getItem('productId')
     this.callApi.getProductById(productId).subscribe(res => {
       this.product = res
-      this.patchValue(res)      
+      this.img = this.api+res.image
+      this.patchValue(res)
       console.log(this.formProduct);
     })
   }
 
   editProductById(propuctId: string) {
-    this.callApi.editProductById(propuctId, this.formProduct.value).subscribe(data => {
+    delete this.formProduct.value.productId
+    const data = new FormData()
+    if(this.file) {
+      data.append('file', this.file, this.file.name)
+    }
+    data.append('product', JSON.stringify(this.formProduct.value))
+    this.callApi.editProductById(propuctId, data).subscribe(data => {
       console.log(data);
       this.alert.success("แก้ไขสำเร็จ")
-        setTimeout(() => {
-          this.router.navigate(['/product-store'])
-        }, 1000);
+      setTimeout(() => {
+        this.router.navigate(['/product-store'])
+      }, 1000);
     })
   }
 
+  selectFile(event: any) {
+    this.file = <File>event.target.files[0]
+    const image = new FileReader();
+    image.readAsDataURL(this.file)
+    image.onload = () => {
+      this.img = image.result
+      console.log(this.img);
+    }
+  }
 
 }

@@ -2,18 +2,74 @@
 <div class="backgroundimg">
     <div class="container">
         <div class="row justify-content-between">
-            <div class="address col-md-6 mb-4 mt-5">
-                <div class="card mb-4 mt-5">
-                    <div class="card-header">
-                        <h2 class="mb-0"> ชำระเงิน </h2>
+            <div class="address col-md-7 mb-4 mt-5">
+                <div class="mb-4">
+                    <div class="card-body card ml-5 mb-5">
+                        <a class="btn btn-primary w-100 h-100 d-flex align-items-center justify-content-between" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true" aria-controls="collapseExample">
+                            <span class="fw-bold"> ช่องทางการชำระเงิน </span>
+                            <span class="fab fa-cc-paypal">
+                            </span>
+                        </a>
+                        <div class="row">
+                            <div class="col-4 mt-5">
+                                <img class="img" src="https://www.matichon.co.th/wp-content/uploads/2019/10/%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%84%E0%B8%97%E0%B8%A201.jpg" alt="">
+                            </div>
+                            <div class="col mt-5">
+                                <p>ชื่อบัญชี : บริษัททรีมีดีเวลลอปเปอร์</p>
+                                <p> เลขบัญชี : 984-1-99964-1 </p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body ml-5">
-
+                    <div class="card-body card">
+                        <a class="btn btn-primary w-100 h-100 d-flex align-items-center justify-content-between" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true" aria-controls="collapseExample">
+                            <span class="fw-bold"> หลักฐานในการชำระเงิน
+                            </span>
+                        </a>
+                        <form [formGroup]="formPayment">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="image">
+                                        <img [src]="img" alt="avatar" class="img-fluid">
+                                        <br>
+                                        <input type="file" #file placeholder="เลือกรูปภาพ" style="display: none;" (change)="selectFile($event)">
+                                        <div class="flex-parent jc-center">
+                                            <button type="button" class="btn btn-success" (click)="file.click()">
+                                                เลือกรูปภาพ 
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="col-lg-12 col-12 mt-4">
+                                        <label for="namebank" class="form-label"> ชื่อ - นามสกุล </label>
+                                        <input type="text" name="namebank" id="namebank" class="form-control">
+                                    </div>
+                                    <div class="col-lg-12 col-12 mt-3">
+                                        <label for="number" class="form-label"> เลขบัญชี </label>
+                                        <input type="text" name="number" id="number" class="form-control">
+                                    </div>
+                                    <div class="col-lg-12 col-12 mt-3">
+                                        <label for="bankNameAccount" class="form-label"> เลขบัญชี </label>
+                                        <input type="text" name="bankNameAccount" id="bankNameAccount" class="form-control">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-6 mt-3">
+                                            <label for="date" class="form-label"> วันที่ที่ชำระเงิน </label>
+                                            <input type="text" name="date" id="date" class="form-control">
+                                        </div>
+                                        <div class="col-lg-6 col-6 mt-3">
+                                            <label for="time" class="form-label"> เวลาที่ชำระเงิน </label>
+                                            <input type="text" name="time" id="time" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
 
-            <div class="productList col-md-4 mb-4 mt-5">
+            <div class="productList col-md-4">
                 <div class="card mb-4 mt-5">
                     <div class="card-header py-3">
                         <h2 class="mb-0"> รายการสินค้า </h2>

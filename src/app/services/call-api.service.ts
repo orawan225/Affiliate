@@ -85,7 +85,7 @@ export class CallApiService {
     return this.http.post<product>(`${environment.apiUrl}/product/create-product`,product, this.header())
   }
 
-  public editProductById(productId: string, product: product) {
+  public editProductById(productId: string, product: any) {
     return this.http.put<product>(`${environment.apiUrl}/product/update-product/${productId}`, product, this.header())
   }
 

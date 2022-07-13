@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddressComponent } from './components/address/address.component';
 import { CartComponent } from './components/cart/cart.component';
 import { HomeComponent } from './components/home/home.component';
-import { CheckLoginComponent } from './components/login/check-login/check-login.component';
-import { LoginComponent } from './components/login/login/login.component';
+import { LoginComponent } from './components/login/login.component';
+
 import { PaymentComponent } from './components/payment/payment.component';
 import { ProductCreateComponent } from './components/product/product-create/product-create.component';
 import { ProductDetailComponent } from './components/product/product-detail/product-detail.component';
@@ -24,8 +24,6 @@ const routes: Routes = [
   { path: 'register-user', component: RegisterUserComponent},
   { path: 'register-customer', component: RegisterCustomerComponent},
   { path: 'register-store', component: RegisterStoreComponent},
-  { path: 'login', component: LoginComponent},
-  // { path: 'check-login', component: CheckLoginComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'product-detail', component: ProductDetailComponent},
   { path: 'product-store', component: ProductStoreComponent},
@@ -34,7 +32,8 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent},
   { path: 'share', component: ShareComponent},
   { path: 'address', component: AddressComponent},
-  { path: 'payment', component: PaymentComponent}
+  { path: 'payment', component: PaymentComponent},
+  { path: 'login', component: LoginComponent}
 ];
 
 @NgModule({

@@ -13,7 +13,6 @@ import { environment } from 'src/environments/environment';
 })
 export class CartComponent implements OnInit {
 
-  // amount: number = 1
   productList: any = [];
   allAmount: any = [];
   api = environment.apiUrl
@@ -89,6 +88,11 @@ export class CartComponent implements OnInit {
       this.productList[index].amount--;
       this.cartService.addCart(this.productList[index], false)
     }
+  }
+
+  onRemove(index:number){
+    this.cartService.remove(index)
+    this.getProductId()
   }
 
 

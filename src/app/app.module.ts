@@ -24,8 +24,7 @@ import { RegisterCustomerComponent } from './components/register/register-custom
 import { RegisterStoreComponent } from './components/register/register-store/register-store.component';
 
 // <---- Logion --->
-import { LoginComponent } from './components/login/login/login.component';
-import { CheckLoginComponent } from './components/login/check-login/check-login.component';
+import { LoginComponent } from './components/login/login.component';
 
 // <---- Product --->
 import { ProductDetailComponent } from './components/product/product-detail/product-detail.component';
@@ -37,6 +36,7 @@ import { ShareComponent } from './components/share/share.component';
 import { CartComponent } from './components/cart/cart.component';
 import { AddressComponent } from './components/address/address.component';
 import { PaymentComponent } from './components/payment/payment.component';
+
 
 
 @NgModule({
@@ -51,8 +51,6 @@ import { PaymentComponent } from './components/payment/payment.component';
     RegisterUserComponent,
     RegisterCustomerComponent,
     RegisterStoreComponent,
-    LoginComponent,
-    CheckLoginComponent,
     ProfileComponent,
     ProductDetailComponent,
     ProductStoreComponent,
@@ -61,7 +59,8 @@ import { PaymentComponent } from './components/payment/payment.component';
     ShareComponent,
     CartComponent,
     AddressComponent,
-    PaymentComponent
+    PaymentComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

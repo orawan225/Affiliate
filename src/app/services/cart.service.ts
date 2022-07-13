@@ -62,7 +62,7 @@ export class CartService {
     let totalPrice: number = 0
     let product = this.getCart()
     product.forEach((e: any) => {
-      totalPrice += e.amount*e.productPrice
+      totalPrice += e.amount * e.productPrice
     });
     return totalPrice
   }
@@ -74,5 +74,12 @@ export class CartService {
       totalAmount += e.amount
     });
     return totalAmount
+  }
+
+  remove(index: number) {
+    let cart = this.getCart();
+    cart.splice(index, 1);
+    localStorage.setItem(this.key, JSON.stringify(cart));
+
   }
 }

@@ -10,7 +10,7 @@
                 </div>
             </div>
 
-            <div class="card mt-5">
+            <div class="card mt-2">
                 <div class="card-body">
                     <table>
                         <thead>
@@ -60,7 +60,7 @@
                                     <p>{{item.productPrice *item.amount}}</p>
                                 </td>
                                 <td>
-                                    <i class="bi bi-trash">
+                                    <i class="bi bi-trash" (click)="onRemove(indexOfitem)">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                             fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                             <path

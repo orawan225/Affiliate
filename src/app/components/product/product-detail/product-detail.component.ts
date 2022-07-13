@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
 import { product } from 'src/app/models/product';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CartService } from 'src/app/services/cart.service';
@@ -58,10 +57,8 @@ export class ProductDetailComponent implements OnInit {
     this.callApi.getProductById(this.productId).subscribe((res: any) => {
       this.product = res
       this.patchValue(res)
-      // this.product.image = this.api+res.gata.image
       console.log();
-      
-
+    
     })
   }
 
@@ -71,8 +68,5 @@ export class ProductDetailComponent implements OnInit {
     this.cartService.addCart(product, true)
     this.router.navigate(['/cart'])
   }
-
-
-
 
 }

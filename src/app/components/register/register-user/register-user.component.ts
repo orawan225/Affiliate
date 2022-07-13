@@ -12,8 +12,6 @@ import { CallApiService } from 'src/app/services/call-api.service';
 export class RegisterUserComponent implements OnInit {
 
   formRegister: any
-  file: any
-  img: any = 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp'
 
   constructor(private callApi: CallApiService, private fb: FormBuilder, private router: Router,private http: HttpClient) {
     this.formRegister = fb.group({
@@ -35,26 +33,12 @@ export class RegisterUserComponent implements OnInit {
   }
 
   registerUser() {
-    const fileData = new FormData()
-    fileData.append('file',this.file, this.file.name)
-    fileData.append('profile', JSON.stringify(this.formRegister.value))
-    this.callApi.registerUser(fileData).subscribe(data => {
+    this.callApi.registerUser(this.formRegister.value).subscribe(data => {
       console.log(data);
       this.router.navigate(['/login'])
     })
    
   }
-
-  selectFile(event: any) {
-    this.file = <File>event.target.files[0]
-    const image = new FileReader();
-    image.readAsDataURL(this.file)
-    image.onload = () => { this.img = image.result 
-    console.log(this.img);
-    }
-
-  }
-
 
 }
 
