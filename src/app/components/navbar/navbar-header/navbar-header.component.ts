@@ -67,6 +67,17 @@ export class NavbarHeaderComponent implements OnInit {
     }
   }
 
+  // <---- checkButtonStore---->
+  checkOrderStore() {
+    if (this.cookie.getToken()) {
+      this.checkLogin = true
+      this.router.navigate(['/order-store'])
+    } else {
+      this.checkLogin = false
+      this.router.navigate(['/login'])
+    }
+  }
+
   ngAfterContentChecked() {
     this.ref.detectChanges()
   }

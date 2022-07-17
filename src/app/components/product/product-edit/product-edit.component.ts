@@ -5,7 +5,6 @@ import { product } from 'src/app/models/product';
 import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { environment } from 'src/environments/environment';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product-edit',
@@ -19,6 +18,7 @@ export class ProductEditComponent implements OnInit {
   product: any = []
   file: any
   img: any
+  productId: any
 
   constructor(private callApi: CallApiService, private router: Router,
     private fb: FormBuilder, private alert: AlertService) {
@@ -45,8 +45,8 @@ export class ProductEditComponent implements OnInit {
   }
 
   getProductById() {
-    let productId = localStorage.getItem('productId')
-    this.callApi.getProductById(productId).subscribe(res => {
+    // let productId = localStorage.getItem('productId')
+    this.callApi.getProductById(this.productId).subscribe(res => {
       this.product = res
       this.img = this.api+res.image
       this.patchValue(res)

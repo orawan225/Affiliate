@@ -31,13 +31,14 @@ export class ProfileComponent implements OnInit {
       this.profile = res.data.profile
       this.store = res.data.profile.store
       this.affiliate = res.data.profile.affiliate
-    })
+      console.log(this.profile);
+    })   
   }
 
   getRoleProfile(){
     if(this.cookie.getRoleAccount()){
       this.showCardRole = this.cookie.getRoleAccount()
-    }
+    } 
   }
 
   ngAfterContentChecked() {

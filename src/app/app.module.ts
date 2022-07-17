@@ -36,6 +36,7 @@ import { ShareComponent } from './components/share/share.component';
 import { CartComponent } from './components/cart/cart.component';
 import { AddressComponent } from './components/address/address.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { OrderStoreComponent } from './components/order-store/order-store.component';
 
 
 
@@ -60,7 +61,8 @@ import { PaymentComponent } from './components/payment/payment.component';
     CartComponent,
     AddressComponent,
     PaymentComponent,
-    LoginComponent
+    LoginComponent,
+    OrderStoreComponent
   ],
   imports: [
     BrowserModule,

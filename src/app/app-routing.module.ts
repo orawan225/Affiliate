@@ -4,6 +4,7 @@ import { AddressComponent } from './components/address/address.component';
 import { CartComponent } from './components/cart/cart.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { OrderStoreComponent } from './components/order-store/order-store.component';
 
 import { PaymentComponent } from './components/payment/payment.component';
 import { ProductCreateComponent } from './components/product/product-create/product-create.component';
@@ -33,7 +34,8 @@ const routes: Routes = [
   { path: 'share', component: ShareComponent},
   { path: 'address', component: AddressComponent},
   { path: 'payment', component: PaymentComponent},
-  { path: 'login', component: LoginComponent}
+  { path: 'login', component: LoginComponent},
+  { path: 'order-store', component: OrderStoreComponent}
 ];
 
 @NgModule({

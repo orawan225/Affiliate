@@ -69,4 +69,9 @@ export class ProductDetailComponent implements OnInit {
     this.router.navigate(['/cart'])
   }
 
+
+  setProducttolocal(productId : string) {
+    this.router.navigate(['/share'],{queryParams: {id:productId}})
+  }
+
 }

@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { product } from 'src/app/models/product';
-import { CallApiService } from 'src/app/services/call-api.service';
 import { CartService } from 'src/app/services/cart.service';
-import { CookieServiceService } from 'src/app/services/cookie-service.service';
 import { environment } from 'src/environments/environment';
 
 @Component({

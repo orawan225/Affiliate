@@ -13,6 +13,9 @@
                     <li class="nav-item" *ngIf="role=='STORE' || role=='ST_AF'" (click)="checkProfile('store')">
                         <a class="nav-link btn-outline-primary rounded-pill px-3" (click)="loginStore()"> ร้านค้าของฉัน </a>
                     </li>
+                    <li class="nav-item" *ngIf="role=='STORE' || role=='ST_AF'" (click)="checkProfile('store')">
+                        <a class="nav-link btn-outline-primary rounded-pill px-3" (click)="checkOrderStore()"> คำสั่งซื้อ </a>
+                    </li>
                     <div class="dropdown">
                         <a class="nav-link btn-outline-primary rounded-pill px-3 " role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                             สมัครสมาชิก
@@ -51,11 +54,11 @@
                             โปรไฟล์ Affiliate
                         </button>
                     </li>
-                    <!-- <li class="nav-item" *ngIf="role=='STORE' || role=='ST_AF'" routerLink="/profile">
+                    <li class="nav-item" *ngIf="role=='STORE' || role=='ST_AF'" routerLink="/profile">
                         <button class="dropdown-item" type="button" (click)="checkProfile('store')">
                             โปรไฟล์ร้าค้า
                         </button>
-                    </li> -->
+                    </li>
                 </ul>
             </div>
         </div>

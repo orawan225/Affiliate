@@ -8,6 +8,7 @@ import { CookieServiceService } from './cookie-service.service';
 import { profile } from '../models/profile';
 import { affiliate } from '../models/affiliate';
 import { BehaviorSubject } from 'rxjs';
+import { order } from '../models/order';
 
 
 @Injectable({
@@ -91,6 +92,12 @@ export class CallApiService {
 
   public deleteProductById(productId: string, product: product) {
     return this.http.put<product>(`${environment.apiUrl}/product/update-productByStatus/${productId}`, product, this.header())
+  }
+
+
+  //Order
+  public orderStore(orderId: string, order: any) {
+    return this.http.put<order>(`${environment.apiUrl}/order/create-order/${orderId}`, order, this.header())
   }
 
 }
