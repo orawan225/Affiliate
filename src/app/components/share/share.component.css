@@ -4,58 +4,61 @@
 }
 
 .card {
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-    margin-left: 0%;
+    margin-top: 8rem;
+    margin-bottom: 8rem;
     box-shadow: 0px 0px 0px 1px #313131;
     border: 0px;
 }
 
-.col-8 {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+.card-body {
+    margin: 2rem;
 }
 
-.text-center {
-    box-sizing: border-box;
-    font-size: 20px;
-}
-
-.upload {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+.productname {
+    border: black;
+    margin-left: 1rem;
+    font-size: 22px;
     text-align: center;
 }
 
-img {
-    margin-top: 3rem;
-    width: 90%;
-    height: 90%;
-}
-
 .productdetail {
-    margin-top: 6rem;
-    margin-left: 2rem;
+    margin-top: 2rem;
+    font-size: 16px;
+    margin-left: 1rem;
 }
 
-.detail {
-    margin-top: 1rem;
-}
-
-.bi-share {
-    margin-right: 3px;
-}
-
-.bi-cart {
-    margin-top: -0.2rem;
-    margin-right: 1px;
-}
-
-.bi-currency-bitcoin {
-    margin-top: -0.2rem;
+.productprice {
+    margin-left: 1rem;
+    color: blue;
+    margin-top: 3rem;
+    font-size: 20px;
 }
 
 .button {
-    margin-left: 5rem;
-    width: 60%;
+    margin-top: 3rem;
+}
+
+.cart {
+    text-align: right;
+}
+
+.price {
+    padding: 0;
+    text-align: end;
+}
+
+.priceValue {
+    text-align: start;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 300px;
+    box-shadow: 0px 0px 0px 1px #313131;
+}
+
+.share-buttons {
+    margin-top: 1rem;
+    padding: 0;
+    justify-content: center;
 }

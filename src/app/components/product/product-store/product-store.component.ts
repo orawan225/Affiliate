@@ -49,7 +49,6 @@ export class ProductStoreComponent implements OnInit {
   }
 
   setProductIdtolocal(productId: string) {
-    // localStorage.setItem('productId', productId)
     this.router.navigate(['/product-edit'], {queryParams: {id:productId}})
   }
 

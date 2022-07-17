@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { profile } from 'src/app/models/profile';
-import { store } from 'src/app/models/store';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -19,13 +17,13 @@ export class PaymentComponent implements OnInit {
   
   constructor(private fb: FormBuilder, public cartService: CartService, private callApi: CallApiService) {
     this.formPayment = fb.group({
-      
+      day: [null],
+      time: [null]
     })
   }
 
   ngOnInit(): void {
     this.getProductAll()
-    this.getProfile()
   }
 
   getProductAll() {
@@ -33,10 +31,13 @@ export class PaymentComponent implements OnInit {
     console.log(this.productList); 
   }
 
-  getProfile() {
-    this.callApi.getProfile().subscribe((res: any) => {
+  createPayment() {
+    const fileData = new FormData()
+    fileData.append('file', this.file, this.file.name)
+    fileData.append('order', JSON.stringify(this.formPayment.value))
+    console.log(this.formPayment.value);
+    this.callApi.createPayment(fileData).subscribe((res: any) => {
       console.log(res);
-      
     })
   }
 
@@ -44,9 +45,11 @@ export class PaymentComponent implements OnInit {
     this.file = <File>event.target.files[0]
     const image = new FileReader();
     image.readAsDataURL(this.file)
-    image.onload = () => { this.img = image.result 
-    console.log(this.img);
+    image.onload = () => {
+      this.img = image.result
+      console.log(this.img);
     }
   }
+
 
 }

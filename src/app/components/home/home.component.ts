@@ -28,7 +28,6 @@ export class HomeComponent implements OnInit {
   }
 
   setProductIdtolocal(productId : string) {
-    // localStorage.setItem('productId',productId)
     this.router.navigate(['/product-detail'],{queryParams: {id:productId}})
   }
 }

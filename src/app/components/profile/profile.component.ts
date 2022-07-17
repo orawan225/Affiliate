@@ -1,4 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { profile } from 'src/app/models/profile';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CookieServiceService } from 'src/app/services/cookie-service.service';
 import { environment } from 'src/environments/environment';
@@ -11,6 +13,8 @@ import { environment } from 'src/environments/environment';
 export class ProfileComponent implements OnInit {
 
   formProfile: any
+  file: any
+  img: any
   profile: any = []
   store: any = []
   affiliate: any = []
@@ -18,12 +22,36 @@ export class ProfileComponent implements OnInit {
   showCardRole: any
   api = environment.apiUrl
 
-  constructor(private callApi: CallApiService, private cookie: CookieServiceService, private ref: ChangeDetectorRef) {
-    this.getRoleProfile()
+  constructor(private callApi: CallApiService, private cookie: CookieServiceService, private ref: ChangeDetectorRef,
+    private fb: FormBuilder) {
+    this.formProfile = fb.group({
+      fullName: [null],
+      email: [null],
+      tel: [null],
+      address: [null],
+      sub: [null],
+      district: [null],
+      province: [null],
+      postalCode: [null]
+    })
+  }
+
+  patchValue(receiveProfile: profile) {
+    this.formProfile.patchValue({
+      fullName: receiveProfile.fullName,
+      email: receiveProfile.email,
+      tel: receiveProfile.tel,
+      address: receiveProfile.address,
+      sub: receiveProfile.sub,
+      district: receiveProfile.district,
+      province: receiveProfile.province,
+      postalCode: receiveProfile.postalCode,
+    })
   }
 
   ngOnInit(): void {
     this.getProfile()
+    this.getRoleProfile()
   }
 
   getProfile() {
@@ -33,6 +61,19 @@ export class ProfileComponent implements OnInit {
       this.affiliate = res.data.profile.affiliate
       console.log(this.profile);
     })   
+  }
+
+  editProfile(profile: string) {
+    delete this.formProfile.value.productId
+    const data = new FormData()
+    if(this.file) {
+      data.append('file', this.file, this.file.name)
+    }
+    data.append('product', JSON.stringify(this.formProfile.value))
+    this.callApi.editProfile(profile, data).subscribe((res: any) => {
+      console.log(res);
+      
+    })
   }
 
   getRoleProfile(){

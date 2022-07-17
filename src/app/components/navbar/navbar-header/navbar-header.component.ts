@@ -14,9 +14,8 @@ export class NavbarHeaderComponent implements OnInit {
   role?: string
   checkLogin: boolean = true
 
-  constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router, private ref: ChangeDetectorRef) { 
-
-  }
+  constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router, 
+    private ref: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.checkLogout()
@@ -34,7 +33,7 @@ export class NavbarHeaderComponent implements OnInit {
 
   checkProfile(role: any) {
     this.cookie.setRoleAccount(role)
-    // window.location.reload()
+    window.location.href = "/profile"
   }
 
 

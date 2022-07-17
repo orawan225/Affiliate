@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { product } from 'src/app/models/product';
 import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
@@ -21,18 +21,24 @@ export class ProductEditComponent implements OnInit {
   productId: any
 
   constructor(private callApi: CallApiService, private router: Router,
-    private fb: FormBuilder, private alert: AlertService) {
+    private fb: FormBuilder, private alert: AlertService, private acrout: ActivatedRoute) {
     this.formProduct = fb.group({
-      productId: [null],
       productName: [null],
       productPrice: [null],
       productDetail: [null]
     })
+
+    acrout.queryParams.subscribe((res: any) => {
+      console.log(res.id);
+      this.productId = res.id
+      console.log(res.affiliate);
+    })
+
+    
   }
 
   patchValue(receiveProduct: product) {
     this.formProduct.patchValue({
-      productId: receiveProduct.productId,
       productName: receiveProduct.productName,
       productPrice: receiveProduct.productPrice,
       productDetail: receiveProduct.productDetail,
@@ -45,7 +51,6 @@ export class ProductEditComponent implements OnInit {
   }
 
   getProductById() {
-    // let productId = localStorage.getItem('productId')
     this.callApi.getProductById(this.productId).subscribe(res => {
       this.product = res
       this.img = this.api+res.image
@@ -54,14 +59,14 @@ export class ProductEditComponent implements OnInit {
     })
   }
 
-  editProductById(propuctId: string) {
+  editProductById(productId: string) {
     delete this.formProduct.value.productId
     const data = new FormData()
     if(this.file) {
       data.append('file', this.file, this.file.name)
     }
     data.append('product', JSON.stringify(this.formProduct.value))
-    this.callApi.editProductById(propuctId, data).subscribe(data => {
+    this.callApi.editProductById(productId, data).subscribe(data => {
       console.log(data);
       this.alert.success("แก้ไขสำเร็จ")
       setTimeout(() => {

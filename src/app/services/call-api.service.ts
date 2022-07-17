@@ -46,8 +46,8 @@ export class CallApiService {
     return this.http.get<profile>(`${environment.apiUrl}/user/getProfile`, this.header())
   }
 
-  public editProfile() {
-    return this.http.put<profile>(`${environment.apiUrl}/user/update-profile`, this.header())
+  public editProfile(userId: string, profile: any) {
+    return this.http.put<profile>(`${environment.apiUrl}/user/update-profile/${userId}`, profile, this.header())
   }
 
 
@@ -96,8 +96,9 @@ export class CallApiService {
 
 
   //Order
-  public orderStore(orderId: string, order: any) {
-    return this.http.put<order>(`${environment.apiUrl}/order/create-order/${orderId}`, order, this.header())
+
+  public createPayment(data: any) {
+    return this.http.post<user>(`${environment.apiUrl}/order/create-order`, data, this.header())
   }
 
 }

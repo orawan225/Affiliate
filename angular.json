@@ -38,7 +38,9 @@
                             "src/assets/css/bootstrap.min.css",
                             "src/assets/css/boxicon.min.css",
                             "src/assets/css/custom.css",
-                            "src/assets/css/templatemo.css"
+                            "src/assets/css/templatemo.css",
+                            "node_modules/ngx-sharebuttons/themes/circles.scss",
+                            "node_modules/ngx-sharebuttons/themes/modern.scss"
                         ],
                         "scripts": [
                             "node_modules/@popperjs/core/dist/umd/popper.min.js",
@@ -118,7 +120,9 @@
                             "src/assets/css/bootstrap.min.css",
                             "src/assets/css/boxicon.min.css",
                             "src/assets/css/custom.css",
-                            "src/assets/css/templatemo.css"
+                            "src/assets/css/templatemo.css",
+                            "node_modules/ngx-sharebuttons/themes/circles.scss",
+                            "node_modules/ngx-sharebuttons/themes/modern.scss"
                         ],
                         "scripts": [
                             "./node_modules/@popperjs/core/dist/umd/popper.min.js",

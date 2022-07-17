@@ -1,32 +1,29 @@
 <app-navbar-store></app-navbar-store>
 <div class="backgroundimg">
     <div class="row flex-center justify-content-center">
-        <div class="col-9">
+        <div class="col-7">
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-5 upload">
-                            <img src="http://f.ptcdn.info/034/048/000/oifflt9dlY1OXY4JWyF-o.jpg" alt="">
+                        <div class="col-6 upload mt-4">
+                            <img class="card-img-top" [src]="api+product.image">
                         </div>
-                        <div class="col productdetail">
-                            <div class="row p-1 m-2 mt-4 mb-0">
-                                <div class="col-3 listproduct">
-                                    <p class="name"> ชื่อสินค้า : </p>
-                                    <p class="detail"> รายละเอียด : </p>
-                                    <p class="price"> ราคา : </p>
-                                    <p class="com"> ค่าคอม : </p>
-                                </div>
+                        <div class="product col mt-4">
+                            <div class="productname row">
                                 <div class="col">
-                                    <p class="name"> เสื้อผ้าแฟชั่นผู้หญิง เสื้อยืดผู้หญิง </p>
-                                    <p class="detail"> เสื้อผ้าแฟชั่นผู้หญิง เสื้อยืดแขนสั้นพิมพ์ลายลำลองสำหรับผู้หญิง </p>
-                                    <p class="price"> บาท </p>
-                                    <p class="com"> บาท </p>
+                                    <strong>{{product.productName}}</strong>
                                 </div>
                             </div>
-                            <div class="row button mt-2">
-                                <!-- <button type="button" class="btn btn-primary mt-2"> Facebook </button>
-                                <button type="button" class="btn btn-danger mt-2"> line </button>
-                                <button type="button" class="btn btn-dark mt-2"> Tiktok </button> -->
+                            <div class="productdetail row">
+                                <div class="col"> {{product.productDetail}} </div>
+                            </div>
+                            <div class="productprice row">
+                                <div class="price col-8"> ราคา </div>
+                                <div class="priceValue col"> {{product.productPrice}} บาท </div>
+                            </div>
+                            <div class="row share-buttons mt-2">
+                                <share-buttons theme="circles-dark" [include]="['copy', 'facebook', 'line']" [showIcon]="true" [showText]="true" [url]="baseUrl" description="Angular Share Buttons" twitterAccount="rodrigokamada" class="share-buttons"></share-buttons>
+                                <!-- {{baseUrl}} -->
                             </div>
                         </div>
                     </div>

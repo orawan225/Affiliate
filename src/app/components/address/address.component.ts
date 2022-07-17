@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { profile } from 'src/app/models/profile';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CartService } from 'src/app/services/cart.service';
@@ -15,8 +16,10 @@ export class AddressComponent implements OnInit {
   profile: any = []
   productList: any = []
   file: any
+  userId: any
 
-  constructor(private fb: FormBuilder, public cartService: CartService, private callApi: CallApiService) {
+  constructor(private fb: FormBuilder, public cartService: CartService, private callApi: CallApiService,
+    private router: Router, private acrout: ActivatedRoute) {
     this.formAddress = fb.group({
       fullName: [null],
       email: [null],
@@ -26,6 +29,12 @@ export class AddressComponent implements OnInit {
       district: [null],
       province: [null],
       postalCode: [null]
+    })
+
+    acrout.queryParams.subscribe((res: any) => {
+      console.log(res.id);
+      this.userId = res.id
+      console.log(res.userId);
     })
   }
 
@@ -39,8 +48,8 @@ export class AddressComponent implements OnInit {
       district: receiveProfile.district,
       province: receiveProfile.province,
       postalCode: receiveProfile.postalCode
-      
-    }) 
+
+    })
   }
 
 
@@ -54,19 +63,20 @@ export class AddressComponent implements OnInit {
       this.profile = res.data.profile
       this.patchValue(res.data.profile)
       console.log(res);
-      
+
     })
   }
 
-  editAddress() {
+  editAddress(userId: string) {
     const data = new FormData()
-    if(this.file) {
+    if (this.file) {
       data.append('file', this.file, this.file.name)
     }
-    data.append('product', JSON.stringify(data))
-    this.callApi.editProfile().subscribe((res => {
+    data.append('product', JSON.stringify(this.formAddress.value))
+    this.callApi.editProfile(userId, data).subscribe((res => {
       console.log(res);
     }))
+    // this.router.navigate(['/payment'])
   }
 
 }

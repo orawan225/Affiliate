@@ -15,7 +15,7 @@ export class ProductDetailComponent implements OnInit {
 
   formProduct: any
   productId: any
-  user: any;
+  affiliate: any;
   api = environment.apiUrl
   product: any = []
 
@@ -32,21 +32,12 @@ export class ProductDetailComponent implements OnInit {
     acrout.queryParams.subscribe((res: any) => {
       console.log(res.id);
       this.productId = res.id
-      console.log(res.user);
-      this.user = res.user || 0
+      this.affiliate = res.affiliate || 0
+      console.log(res.affiliate);
+      
     })
 
   }
-
-  patchValue(receiveProduct: product) {
-    this.formProduct.patchValue({
-      productId: receiveProduct.productId,
-      productName: receiveProduct.productName,
-      productPrice: receiveProduct.productPrice,
-      productDetail: receiveProduct.productDetail,
-    })
-  }
-
 
   ngOnInit(): void {
     this.getProductById()
@@ -56,21 +47,18 @@ export class ProductDetailComponent implements OnInit {
   getProductById() {
     this.callApi.getProductById(this.productId).subscribe((res: any) => {
       this.product = res
-      this.patchValue(res)
-      console.log();
-    
+      console.log(res);
     })
   }
 
   setProductIdtolocal(product: any) {
     product.amount = 1;
-    product.user = this.user
+    product.affiliate = this.affiliate
     this.cartService.addCart(product, true)
     this.router.navigate(['/cart'])
   }
 
-
-  setProducttolocal(productId : string) {
+  toPageShare(productId : string) {
     this.router.navigate(['/share'],{queryParams: {id:productId}})
   }
 

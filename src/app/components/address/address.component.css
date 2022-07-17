@@ -17,7 +17,6 @@ h1 {
 
 .address {
     margin-top: 5rem;
-    /* margin-left: 2rem; */
 }
 
 .card {
@@ -35,9 +34,9 @@ p {
 }
 
 img {
+    margin-left: 8rem;
     margin-top: 6rem;
     margin-bottom: 8rem;
-    margin-left: 8rem;
     width: 75%;
 }
 
