@@ -10,14 +10,14 @@
                 </div>
             </div>
 
-            <div class="card mt-2">
+            <div class="card mt-2" *ngFor="let store of productStores index as indexOfstore">
                 <div class="card-body">
                     <table>
                         <thead>
                             <tr>
-                                <th style=" width: 15%;;"> </th>
+                                <th style=" width: 15%;;"> {{ store.storeName }} </th>
                                 <th style=" width: 20%;"> </th>
-                                <th style=" width: 10%;"> ราคา/ชิ้น </th>
+                                <th style=" width: 10%;"> ราคา </th>
                                 <th style=" width: 10%;"> จำนวน </th>
                                 <th style=" width: 10%;"> ราคารวม </th>
                                 <th style=" width: 5%;"></th>
@@ -25,29 +25,29 @@
                         </thead>
                         <br>
                         <tbody>
-                            <tr *ngFor="let item of productList index as indexOfitem">
+                            <tr *ngFor="let product of store.products index as indexOfitem">
                                 <td>
-                                    <img class="card-img-top mt-3" [src]="api+item.image" alt="...">
+                                    <img class="card-img-top mt-3" [src]="api+product.image" alt="...">
                                 </td>
                                 <td>
                                     <div class="productName mt-4">
-                                        <strong> {{item.productName}} </strong>
+                                        <strong> {{product.productName}} </strong>
                                     </div>
                                     <div class="productDetail mt-3">
-                                        {{item.productDetail}}
+                                        {{product.productDetail}}
                                     </div>
                                 </td>
-                                <td> {{item.productPrice}} </td>
+                                <td> {{product.productPrice}} </td>
                                 <td>
                                     <div class="form-group row amount">
-                                        <button class="btn btn-amount" (click)="onAmountMinus(indexOfitem)">
+                                        <button class="btn btn-amount" (click)="onAmountMinus(product.productId)">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                                 fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
                                                 <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
                                             </svg>
                                         </button>
-                                        <input type="number" class="form-control" [(ngModel)]="item.amount" disabled>
-                                        <button class="btn btn-amount" (click)="onAmountPlus(indexOfitem)">
+                                        <input type="number" class="form-control" [(ngModel)]="product.amount" disabled>
+                                        <button class="btn btn-amount" (click)="onAmountPlus(product.productId)">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                                 fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
                                                 <path
@@ -57,10 +57,10 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <p>{{item.productPrice *item.amount}}</p>
+                                    <p>{{product.productPrice *product.amount}}</p>
                                 </td>
                                 <td>
-                                    <i class="bi bi-trash" (click)="onRemove(indexOfitem)">
+                                    <i class="bi bi-trash" (click)="onRemove(indexOfstore,indexOfitem)">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                             fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                             <path
@@ -73,26 +73,26 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
-            </div>
-            <div class="d-flex justify-content-end">
-                <div class="card mt-5 px-3" style="width:30%;">
-                    <h3> รวมรายการสินค้าทั้งหมด </h3>
-                    <hr>
-                    <div class="d-flex justify-content-between">
-                        <div class="totalPrice1 mb-4">
-                            <p> จำนวนรายการสินค้า : </p>
-                            <p> ยอดสุทธิ : </p>
-                        </div>
-                        <div class="totalPrice2">
-                            <p> {{cartService.getTotalAmount()}} รายการ </p>
-                            <p> {{cartService.getTotalPrice()}} บาท </p>
+                    <div class="d-flex justify-content-end">
+                        <div class="card mt-5 px-3" style="width:30%;">
+                            <h3> รวมรายการสินค้าทั้งหมด </h3>
+                            <hr>
+                            <div class="d-flex justify-content-between">
+                                <div class="totalPrice1 mb-4">
+                                    <p> จำนวนรายการสินค้า : </p>
+                                    <p> ยอดสุทธิ : </p>
+                                </div>
+                                <div class="totalPrice2">
+                                    <p> {{cartService.getTotalAmount(store.storeId)}} รายการ </p>
+                                    <p> {{cartService.getTotalPrice(store.storeId)}} บาท </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div class="button mt-3 mb-4">
+                        <button class="btn btn-primary" routerLink="/address"> ยืนยันการซื้อ </button>
+                    </div>
                 </div>
-            </div>
-            <div class="button mt-3 mb-4">
-                <button class="btn btn-primary" routerLink="/address"> ถัดไป </button>
             </div>
         </div>
     </div>

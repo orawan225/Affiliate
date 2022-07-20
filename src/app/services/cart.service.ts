@@ -12,9 +12,6 @@ export class CartService {
   constructor() { }
 
   addCart(product: any, add: boolean) {
-    console.log(product);
-
-    // เช็คสินค้าใน storage ว่ามีไหม ถ้ามีก็เอา cartLocal ไปเพิ่มลงในตัวแปร cart
     const cartLocal = localStorage.getItem(this.key);
     if (cartLocal) {
       this.cart = JSON.parse(cartLocal);
@@ -22,30 +19,25 @@ export class CartService {
       this.cart = [];
     }
 
-
     let added = false;
     this.cart.forEach((e: any, i: number) => {
-      console.log(e.productId, product.productId);
       if (e.productId == product.productId) {
         if (add == true) {
-          this.cart[i].amount++
+          this.cart[i].amount++;
         } else {
-          this.cart[i].amount = product.amount
+          this.cart[i].amount = product.amount;
         }
         added = true;
-        console.log(e);
-        return
+        return;
       }
-    })
-    console.log(this.cart);
-
+    });
 
     if (!added) {
       product.amount = 1;
       product.totalPrice = product.productPrice * product.amount;
       this.cart.push(product);
-      console.log(this.cart);
     }
+
     localStorage.setItem(this.key, JSON.stringify(this.cart));
   }
 
@@ -58,28 +50,42 @@ export class CartService {
     return product
   }
 
-  getTotalPrice(): number {
+  getTotalPrice(storeId:any): number {
     let totalPrice: number = 0
     let product = this.getCart()
     product.forEach((e: any) => {
-      totalPrice += e.amount * e.productPrice
+      if(storeId==e.storeId){
+        totalPrice += e.amount * e.productPrice
+      }
     });
+
+
     return totalPrice
   }
 
-  getTotalAmount(): number {
+  getTotalAmount(storeId: any): number {
     let totalAmount: number = 0
     let product = this.getCart()
     product.forEach((e: any) => {
-      totalAmount += e.amount
+      if(storeId==e.storeId){
+      totalAmount += e.amount   
+      }
     });
     return totalAmount
   }
 
-  remove(index: number) {
+  remove(productId:number) {
     let cart = this.getCart();
-    cart.splice(index, 1);
-    localStorage.setItem(this.key, JSON.stringify(cart));
+    
 
+    //delete product in cartLocalstorage by id
+    for (let index in cart) { 
+      if(cart[index].productId == productId){
+        cart.splice(index,1);
+        break;
+      }
+    } 
+
+    localStorage.setItem(this.key, JSON.stringify(cart));
   }
 }

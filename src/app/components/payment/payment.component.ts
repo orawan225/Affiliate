@@ -13,7 +13,7 @@ export class PaymentComponent implements OnInit {
   productList: any = []
   formPayment: any
   file: any
-  img: any = 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp'
+  img: any 
   
   constructor(private fb: FormBuilder, public cartService: CartService, private callApi: CallApiService) {
     this.formPayment = fb.group({

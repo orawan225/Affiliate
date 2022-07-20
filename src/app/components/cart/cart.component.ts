@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CallApiService } from 'src/app/services/call-api.service';
+import { store } from "./../../models/store";
 
 import { CartService } from 'src/app/services/cart.service';
 import { environment } from 'src/environments/environment';
@@ -8,57 +10,54 @@ import { environment } from 'src/environments/environment';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
+
+
 export class CartComponent implements OnInit {
 
   productList: any = [];
   allAmount: any = [];
-  api = environment.apiUrl
+  api = environment.apiUrl;
+  productStores: Array<ProductASStore> = [];
+  stores: Array<store> = [];
 
 
-  constructor(public cartService: CartService) { }
+  constructor(
+    public cartService: CartService, private callApiService: CallApiService) { }
 
   ngOnInit(): void {
-    this.getProductId()
+    this.getDataOption()
+    // this.getProductId()
+  }
+
+
+  getDataOption() {
+    this.callApiService.getAllStore().subscribe((res) => {
+      if (res) {
+        this.stores = res;
+        this.getProductId();
+      }
+    });
   }
 
   getProductId() {
-    // let productId = localStorage.getItem('productId')
-    // console.log(productId);
-    // this.callApi.getProductById(productId).subscribe((res: any) => {
+    this.productList = this.cartService.getCart();
+    this.productList.forEach((product: any) => {
+      let findStore = this.productStores.find(x => x.storeId == product.storeId);
 
-    //   console.log(res);
-    // this.cookie.setProduct(res.data.product)
+      if (findStore) {
+        findStore.products.push(product);
+      } else {
+        const _productStore = new ProductASStore();
+        _productStore.storeName = this.stores.find(x => x.storeId == product.storeId) != null
+          ? this.stores.find(x => x.storeId == product.storeId)?.store!
+          : '';
+        _productStore.storeId = product.storeId;
+        _productStore.products.push(product);
 
-    // this.productList = localStorage.getItem('productDetail');
-    // if (this.productList == null) {
-    //   localStorage.setItem('productDetail', '[]');
-    // }
-    // else {
-    //   this.productList = JSON.parse(this.productList);
-    //   // check if array already have contain the res value
-    //   const isFound = this.productList.some((element: any) => {
-    //     if (element["productId"] == productId) {
-    //       return true;
-    //     }
-    //     return false;
-    //   });
-
-    //   if (!isFound) {
-    //     res['amount'] = 1;
-    //     res['totalPrice'] = res['productPrice'] * res['amount'];
-    //     this.productList.push(res);
-
-    //     // this.productList.foreach((item:any)=>{
-    //     //   item['amount'] = 0;
-    //     // });
-    //   }
-
-    //   //this.SetAllAmount();
-    //   console.log(this.productList);
-    //   localStorage.setItem('productDetail', JSON.stringify(this.productList));
-    // }
-    // })
-    this.productList = this.cartService.getCart()
+        this.productStores.push(_productStore);
+      }
+    });
+    console.log(this.productStores);
   }
 
   SetAllAmount() {
@@ -73,24 +72,53 @@ export class CartComponent implements OnInit {
   }
 
 
-  onAmountPlus(index: number) {
-    this.productList[index].amount++;
-    console.log(this.productList[index]);
+  onAmountPlus(productId:number) {
 
-    this.cartService.addCart(this.productList[index], false)
+        
+    for (let i in this.productList) { 
+      if(this.productList[i].productId == productId){
+        this.productList[i].amount++;
+        this.cartService.addCart(this.productList[i], false)
+        break;
+      }
+    } 
   }
 
-  onAmountMinus(index: number) {
-    if (this.productList[index].amount > 1) {
-      this.productList[index].amount--;
-      this.cartService.addCart(this.productList[index], false)
-    }
+  onAmountMinus(productId: number) {
+
+    for (let index in this.productList) {
+      if(this.productList[index].productId == productId){
+
+        if (this.productList[index].amount > 1) {
+          this.productList[index].amount--;
+          this.cartService.addCart(this.productList[index], false);
+          break;
+        }
+
+      }
+      
+     }
+
+
   }
 
-  onRemove(index:number){
-    this.cartService.remove(index)
-    this.getProductId()
+  onRemove(indexStore: number, indexItem: number) {
+    console.log(indexStore, indexItem);
+
+    var productId = this.productStores[indexStore].products[indexItem].productId;
+
+    this.cartService.remove(productId);
+    this.productStores[indexStore].products.splice(indexItem, 1);
+
   }
 
 
+}
+
+
+
+class ProductASStore {
+  storeName: string = '';
+  storeId: number = 0;
+  products: Array<any> = [];
 }

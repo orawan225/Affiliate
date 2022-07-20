@@ -35,7 +35,7 @@
                                         เพิ่มไปยังรถเข็น
                                     </button>
                                 </div>
-                                <div class="col">
+                                <div class="col" *ngIf="role=='AFFILIATE' || role=='ST_AF'">
                                     <button type="button" class="btn btn-outline-success" (click)="toPageShare(productId)">
                                         <i class="bi bi-share">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"

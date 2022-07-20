@@ -33,6 +33,7 @@ export class ShareComponent implements OnInit {
     })
 
     this.affiliate = cookie.getUserId();
+    
   }
 
   ngOnInit(): void {
@@ -52,8 +53,5 @@ export class ShareComponent implements OnInit {
       ? `${window.location.protocol}//${window.location.hostname}:${window.location.port}${this.url}?id=${this.productId}&&affiliate=${this.affiliate}`
       : `${window.location.protocol}//${window.location.hostname}${this.url}?id=?${this.productId}&&affiliate=${this.affiliate}`;
   }
-
-
-
 
 }

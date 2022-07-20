@@ -6,13 +6,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
-
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
-
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-import { ProfileComponent } from './components/profile/profile.component';
+
+
 
 // <---- Navbar --->
 import { NavbarHeaderComponent } from './components/navbar/navbar-header/navbar-header.component';
@@ -35,6 +33,10 @@ import { ProductStoreComponent } from './components/product/product-store/produc
 import { ProductCreateComponent } from './components/product/product-create/product-create.component';
 import { ProductEditComponent } from './components/product/product-edit/product-edit.component';
 
+
+
+import { HomeComponent } from './components/home/home.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { ShareComponent } from './components/share/share.component';
 import { CartComponent } from './components/cart/cart.component';
 import { AddressComponent } from './components/address/address.component';

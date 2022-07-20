@@ -46,8 +46,8 @@ export class CallApiService {
     return this.http.get<profile>(`${environment.apiUrl}/user/getProfile`, this.header())
   }
 
-  public editProfile(userId: string, profile: any) {
-    return this.http.put<profile>(`${environment.apiUrl}/user/update-profile/${userId}`, profile, this.header())
+  public editProfile(userId: string, user: any) {
+    return this.http.put<profile>(`${environment.apiUrl}/user/update-profile/${userId}`, user, this.header())
   }
 
 
@@ -63,8 +63,8 @@ export class CallApiService {
     return this.http.post<store>(`${environment.apiUrl}/store/store-register`, data, this.header())
   }
 
-  public getAllStore(data: store) {
-    return this.http.post<store>(`${environment.apiUrl}/store/getAll-store`, data, this.header())
+  public getAllStore() {
+    return this.http.get<store[]>(`${environment.apiUrl}/store/getAll-store`, this.header())
   }
 
 

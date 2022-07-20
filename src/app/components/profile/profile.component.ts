@@ -3,7 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { profile } from 'src/app/models/profile';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CookieServiceService } from 'src/app/services/cookie-service.service';
-import { environment } from 'src/environments/environment';
+// import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-profile',
@@ -14,16 +14,15 @@ export class ProfileComponent implements OnInit {
 
   formProfile: any
   file: any
-  img: any
   profile: any = []
   store: any = []
   affiliate: any = []
   role?: string 
   showCardRole: any
-  api = environment.apiUrl
+  img: any = 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp'
 
-  constructor(private callApi: CallApiService, private cookie: CookieServiceService, private ref: ChangeDetectorRef,
-    private fb: FormBuilder) {
+  constructor(private callApi: CallApiService, private cookie: CookieServiceService, 
+    private ref: ChangeDetectorRef,private fb: FormBuilder) {
     this.formProfile = fb.group({
       fullName: [null],
       email: [null],
@@ -53,6 +52,13 @@ export class ProfileComponent implements OnInit {
     this.getProfile()
     this.getRoleProfile()
   }
+
+  // openDialog() {
+  //   const dialogRef = this.dialog.open(profile);
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log(`Dialog result: ${result}`);
+  //   });
+  // }
 
   getProfile() {
     this.callApi.getProfile().subscribe((res: any) => {

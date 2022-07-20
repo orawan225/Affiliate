@@ -13,7 +13,6 @@ export class OrderStoreComponent implements OnInit {
   formOrder: any
   productList: any = []
   file: any
-  img: any = 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp'
 
   constructor(public cartService: CartService) {
    }

@@ -32,9 +32,7 @@ export class AddressComponent implements OnInit {
     })
 
     acrout.queryParams.subscribe((res: any) => {
-      console.log(res.id);
       this.userId = res.id
-      console.log(res.userId);
     })
   }
 
@@ -48,7 +46,6 @@ export class AddressComponent implements OnInit {
       district: receiveProfile.district,
       province: receiveProfile.province,
       postalCode: receiveProfile.postalCode
-
     })
   }
 

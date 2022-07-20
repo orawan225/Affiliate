@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { product } from 'src/app/models/product';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CartService } from 'src/app/services/cart.service';
+import { CookieServiceService } from 'src/app/services/cookie-service.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -18,10 +19,13 @@ export class ProductDetailComponent implements OnInit {
   affiliate: any;
   api = environment.apiUrl
   product: any = []
+  showCardRole: any
+  profile: any = []
+  role?: string
 
 
   constructor(private callApi: CallApiService, private router: Router, private fb: FormBuilder, 
-    private acrout: ActivatedRoute, private cartService: CartService) {
+    private acrout: ActivatedRoute, private cartService: CartService, private cookie: CookieServiceService) {
     this.formProduct = fb.group({
       productId: [null],
       productName: [null],
@@ -41,7 +45,7 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProductById()
-
+    this.getProfile()
   }
 
   getProductById() {
@@ -60,6 +64,19 @@ export class ProductDetailComponent implements OnInit {
 
   toPageShare(productId : string) {
     this.router.navigate(['/share'],{queryParams: {id:productId}})
+  }
+
+  getProfile() {
+    this.callApi.getProfile().subscribe((res: any) => {
+      this.profile = res.data.profile
+      this.role = this.profile.role
+      console.log(this.profile);
+      
+    })
+  }
+
+  checkProfile(role: any) {
+    this.cookie.setRoleAccount(role)
   }
 
 }
