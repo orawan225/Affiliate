@@ -19,7 +19,7 @@ export class ShareComponent implements OnInit {
   api = environment.apiUrl
   product: any = []
   url: string = "/product-detail";
-  affiliate?:string = undefined;
+  user?:string = undefined;
 
   constructor(private callApi: CallApiService, private fb: FormBuilder, public router: Router, private acrout: ActivatedRoute,public cookie :CookieServiceService) {
     this.formProduct = fb.group({
@@ -31,8 +31,8 @@ export class ShareComponent implements OnInit {
     acrout.queryParams.subscribe((res: any) => {
       this.productId = res.id | 0
     })
-
-    this.affiliate = cookie.getUserId();
+    this.user = cookie.getUserId();  
+    console.log(this.user);
     
   }
 
@@ -50,8 +50,8 @@ export class ShareComponent implements OnInit {
 
   getLinkShareProduct() {
     this.baseUrl = window.location.port
-      ? `${window.location.protocol}//${window.location.hostname}:${window.location.port}${this.url}?id=${this.productId}&&affiliate=${this.affiliate}`
-      : `${window.location.protocol}//${window.location.hostname}${this.url}?id=?${this.productId}&&affiliate=${this.affiliate}`;
+      ? `${window.location.protocol}//${window.location.hostname}:${window.location.port}${this.url}?id=${this.productId}&&affiliate=${this.user}`
+      : `${window.location.protocol}//${window.location.hostname}${this.url}?id=?${this.productId}&&affiliate=${this.user}`;
   }
 
 }

@@ -11,10 +11,10 @@
             <div class="flex-fill mb-2">
                 <ul class="nav navbar-nav d-flex justify-content-end text-center text-dark">
                     <li class="nav-item" *ngIf="role=='STORE' || role=='ST_AF'" (click)="checkProfile('store')">
-                        <a class="nav-link btn-outline-primary rounded-pill px-3" (click)="loginStore()"> ร้านค้าของฉัน </a>
+                        <a class="nav-link btn-outline-primary rounded-pill px-3" (click)="checkOrderStore()"> คำสั่งซื้อ </a>
                     </li>
                     <li class="nav-item" *ngIf="role=='STORE' || role=='ST_AF'" (click)="checkProfile('store')">
-                        <a class="nav-link btn-outline-primary rounded-pill px-3" (click)="checkOrderStore()"> คำสั่งซื้อ </a>
+                        <a class="nav-link btn-outline-primary rounded-pill px-3" (click)="loginStore()"> ร้านค้าของฉัน </a>
                     </li>
                     <div class="dropdown">
                         <a class="nav-link btn-outline-primary rounded-pill px-3 " role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
@@ -47,14 +47,14 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                     <li class="nav-item">
-                        <button class="dropdown-item" type="button" (click)="checkProfile('user')" routerLink="/profile"> โปรไฟล์ของฉัน </button>
+                        <button class="dropdown-item" type="button" (click)="checkProfile('user')" routerLink="/profile-user"> โปรไฟล์ของฉัน </button>
                     </li>
-                    <li class="nav-item" *ngIf="role=='AFFILIATE' || role=='ST_AF'" routerLink="/profile">
+                    <li class="nav-item" *ngIf="role=='AFFILIATE' || role=='ST_AF'" routerLink="/profile-user">
                         <button class="dropdown-item" type="button" (click)="checkProfile('affiliate')">
                             โปรไฟล์ Affiliate
                         </button>
                     </li>
-                    <li class="nav-item" *ngIf="role=='STORE' || role=='ST_AF'" routerLink="/profile">
+                    <li class="nav-item" *ngIf="role=='STORE' || role=='ST_AF'" routerLink="/profile-user">
                         <button class="dropdown-item" type="button" (click)="checkProfile('store')">
                             โปรไฟล์ร้าค้า
                         </button>

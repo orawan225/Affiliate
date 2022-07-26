@@ -1,9 +1,8 @@
 export class store {
-    storeId: string | undefined
-    store: string | undefined
-    bankNameAccount: string | undefined
-    bankName: string | undefined
-    bankNumber: string | undefined
-    image: string | undefined
-    userId: string | undefined
+    storeId?: string
+    store?: string
+    bankNameAccount?: string
+    bankName?: string
+    bankNumber?: string
+    image?: string
 }

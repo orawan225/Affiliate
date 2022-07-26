@@ -23,9 +23,9 @@ img {
 }
 
 .img {
+    float: right;
     height: 130px;
-    width: 150px;
-    float: left;
+    width: 130px;
     display: block;
     margin-top: -2rem;
 }
@@ -47,4 +47,13 @@ img {
 
 .btn-outline-primary {
     float: right;
+}
+
+.payment {
+    margin-top: 2rem;
+    font-size: 16px;
+}
+
+.address {
+    text-align: center;
 }

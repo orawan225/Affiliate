@@ -1,6 +1,6 @@
 .backgroundimg {
     background-image: url('src\assets\img\illustrations\heroheader.png');
-    margin-top: -15px;
+    margin-top: -12px;
 }
 
 h1 {
@@ -85,5 +85,19 @@ h3 {
 }
 
 .namestore {
+    font-size: 16px;
+}
+
+.bi-cart-fill {
+    margin-top: 6rem;
+    margin-bottom: 2rem;
+}
+
+.empty-cart {
+    margin-bottom: 10pc;
+    text-align: center;
+}
+
+p {
     font-size: 16px;
 }

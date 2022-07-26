@@ -34,7 +34,7 @@
 
 .button {
     margin-top: 4rem;
-    margin-left: 20rem;
+    float: right;
 }
 
 .card-img-top {

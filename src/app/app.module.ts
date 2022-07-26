@@ -11,6 +11,10 @@ import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 import { AppComponent } from './app.component';
 
 
+// <--- Material --->
+import {MatDialogModule} from '@angular/material/dialog';
+
+
 
 // <---- Navbar --->
 import { NavbarHeaderComponent } from './components/navbar/navbar-header/navbar-header.component';
@@ -36,12 +40,13 @@ import { ProductEditComponent } from './components/product/product-edit/product-
 
 
 import { HomeComponent } from './components/home/home.component';
-import { ProfileComponent } from './components/profile/profile.component';
 import { ShareComponent } from './components/share/share.component';
 import { CartComponent } from './components/cart/cart.component';
 import { AddressComponent } from './components/address/address.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { OrderStoreComponent } from './components/order-store/order-store.component';
+import { ProfileUpdateComponent } from './components/profile/profile-update/profile-update.component';
+import { ProfileUserComponent } from './components/profile/profile-user/profile-user.component';
 
 
 
@@ -57,7 +62,6 @@ import { OrderStoreComponent } from './components/order-store/order-store.compon
     RegisterUserComponent,
     RegisterCustomerComponent,
     RegisterStoreComponent,
-    ProfileComponent,
     ProductDetailComponent,
     ProductStoreComponent,
     ProductCreateComponent,
@@ -67,7 +71,9 @@ import { OrderStoreComponent } from './components/order-store/order-store.compon
     AddressComponent,
     PaymentComponent,
     LoginComponent,
-    OrderStoreComponent
+    OrderStoreComponent,
+    ProfileUpdateComponent,
+    ProfileUserComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +84,8 @@ import { OrderStoreComponent } from './components/order-store/order-store.compon
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ShareButtonsModule,
-    ShareIconsModule
+    ShareIconsModule,
+    MatDialogModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

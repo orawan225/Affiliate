@@ -34,13 +34,10 @@ export class ProductDetailComponent implements OnInit {
     })
 
     acrout.queryParams.subscribe((res: any) => {
-      console.log(res.id);
       this.productId = res.id
       this.affiliate = res.affiliate || 0
-      console.log(res.affiliate);
-      
+      console.log(res.affiliate); 
     })
-
   }
 
   ngOnInit(): void {
@@ -55,14 +52,14 @@ export class ProductDetailComponent implements OnInit {
     })
   }
 
-  setProductIdtolocal(product: any) {
+  addProductToCart(product: any) {
     product.amount = 1;
     product.affiliate = this.affiliate
     this.cartService.addCart(product, true)
     this.router.navigate(['/cart'])
   }
 
-  toPageShare(productId : string) {
+  shareProduct(productId : string) {
     this.router.navigate(['/share'],{queryParams: {id:productId}})
   }
 
@@ -71,7 +68,6 @@ export class ProductDetailComponent implements OnInit {
       this.profile = res.data.profile
       this.role = this.profile.role
       console.log(this.profile);
-      
     })
   }
 

@@ -4,6 +4,7 @@ import { store } from "./../../models/store";
 
 import { CartService } from 'src/app/services/cart.service';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -22,11 +23,10 @@ export class CartComponent implements OnInit {
 
 
   constructor(
-    public cartService: CartService, private callApiService: CallApiService) { }
+    public cartService: CartService, private callApiService: CallApiService, private router: Router) { }
 
   ngOnInit(): void {
     this.getDataOption()
-    // this.getProductId()
   }
 
 
@@ -37,6 +37,11 @@ export class CartComponent implements OnInit {
         this.getProductId();
       }
     });
+  }
+
+  getCart(storeId: any) {
+    this.router.navigate(['/payment'])
+    localStorage.setItem("storeId", JSON.stringify(storeId));
   }
 
   getProductId() {
@@ -73,19 +78,16 @@ export class CartComponent implements OnInit {
 
 
   onAmountPlus(productId:number) {
-
-        
-    for (let i in this.productList) { 
-      if(this.productList[i].productId == productId){
-        this.productList[i].amount++;
-        this.cartService.addCart(this.productList[i], false)
+    for (let index in this.productList) { 
+      if(this.productList[index].productId == productId){
+        this.productList[index].amount++;
+        this.cartService.addCart(this.productList[index], false)
         break;
       }
     } 
   }
 
   onAmountMinus(productId: number) {
-
     for (let index in this.productList) {
       if(this.productList[index].productId == productId){
 
@@ -94,19 +96,12 @@ export class CartComponent implements OnInit {
           this.cartService.addCart(this.productList[index], false);
           break;
         }
-
-      }
-      
+      } 
      }
-
-
   }
 
   onRemove(indexStore: number, indexItem: number) {
-    console.log(indexStore, indexItem);
-
     var productId = this.productStores[indexStore].products[indexItem].productId;
-
     this.cartService.remove(productId);
     this.productStores[indexStore].products.splice(indexItem, 1);
 

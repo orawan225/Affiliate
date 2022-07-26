@@ -23,8 +23,8 @@
                             </div>
 
                             <div class="button row">
-                                <div class="cart col-6 p-0">
-                                    <button type="button" class="btn btn-outline-primary" (click)="setProductIdtolocal(product)">
+                                <div class="cart col-8 p-0">
+                                    <button type="button" class="btn btn-outline-primary" (click)="addProductToCart(product)">
                                         <i class="bi bi-cart">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
@@ -36,7 +36,7 @@
                                     </button>
                                 </div>
                                 <div class="col" *ngIf="role=='AFFILIATE' || role=='ST_AF'">
-                                    <button type="button" class="btn btn-outline-success" (click)="toPageShare(productId)">
+                                    <button type="button" class="btn btn-outline-success" (click)="shareProduct(productId)">
                                         <i class="bi bi-share">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">

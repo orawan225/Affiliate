@@ -13,8 +13,7 @@ export class ProductCreateComponent implements OnInit {
 
   formCreateProduct: any;
   file: any
-  img: any
-
+  img: any = 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp'
 
   constructor(private callApi: CallApiService, private fb: FormBuilder, private alert: AlertService, private router: Router) {
     this.formCreateProduct = fb.group({

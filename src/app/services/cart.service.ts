@@ -28,7 +28,6 @@ export class CartService {
           this.cart[i].amount = product.amount;
         }
         added = true;
-        return;
       }
     });
 
@@ -37,7 +36,6 @@ export class CartService {
       product.totalPrice = product.productPrice * product.amount;
       this.cart.push(product);
     }
-
     localStorage.setItem(this.key, JSON.stringify(this.cart));
   }
 
@@ -50,16 +48,16 @@ export class CartService {
     return product
   }
 
-  getTotalPrice(storeId:any): number {
+
+
+  getTotalPrice(storeId: any): number {
     let totalPrice: number = 0
     let product = this.getCart()
     product.forEach((e: any) => {
-      if(storeId==e.storeId){
+      if (storeId == e.storeId) {
         totalPrice += e.amount * e.productPrice
       }
     });
-
-
     return totalPrice
   }
 
@@ -67,24 +65,23 @@ export class CartService {
     let totalAmount: number = 0
     let product = this.getCart()
     product.forEach((e: any) => {
-      if(storeId==e.storeId){
-      totalAmount += e.amount   
+      if (storeId == e.storeId) {
+        totalAmount += e.amount
       }
     });
     return totalAmount
   }
 
-  remove(productId:number) {
+  remove(productId: number) {
     let cart = this.getCart();
-    
 
-    //delete product in cartLocalstorage by id
-    for (let index in cart) { 
-      if(cart[index].productId == productId){
-        cart.splice(index,1);
+    //delete product in cart Localstorage by id
+    for (let index in cart) {
+      if (cart[index].productId == productId) {
+        cart.splice(index, 1);
         break;
       }
-    } 
+    }
 
     localStorage.setItem(this.key, JSON.stringify(cart));
   }

@@ -11,7 +11,8 @@ import { ProductCreateComponent } from './components/product/product-create/prod
 import { ProductDetailComponent } from './components/product/product-detail/product-detail.component';
 import { ProductEditComponent } from './components/product/product-edit/product-edit.component';
 import { ProductStoreComponent } from './components/product/product-store/product-store.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import { ProfileUpdateComponent } from './components/profile/profile-update/profile-update.component';
+import { ProfileUserComponent } from './components/profile/profile-user/profile-user.component';
 import { RegisterCustomerComponent } from './components/register/register-customer/register-customer.component';
 import { RegisterStoreComponent } from './components/register/register-store/register-store.component';
 import { RegisterUserComponent } from './components/register/register-user/register-user.component';
@@ -25,7 +26,6 @@ const routes: Routes = [
   { path: 'register-user', component: RegisterUserComponent},
   { path: 'register-customer', component: RegisterCustomerComponent},
   { path: 'register-store', component: RegisterStoreComponent},
-  { path: 'profile', component: ProfileComponent},
   { path: 'product-detail', component: ProductDetailComponent},
   { path: 'product-store', component: ProductStoreComponent},
   { path: 'product-create', component: ProductCreateComponent},
@@ -35,7 +35,10 @@ const routes: Routes = [
   { path: 'address', component: AddressComponent},
   { path: 'payment', component: PaymentComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'order-store', component: OrderStoreComponent}
+  { path: 'order-store', component: OrderStoreComponent},
+  { path: 'profile-user', component: ProfileUserComponent},
+  { path: 'profile-update', component: ProfileUpdateComponent}
+
 ];
 
 @NgModule({

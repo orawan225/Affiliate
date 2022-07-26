@@ -31,14 +31,16 @@
     text-align: end;
 }
 
-.btn-outline-primary {
-    width: 30%;
-}
-
 label {
     margin-top: 10px;
 }
 
-.btn-primary {
-    margin-left: 4rem;
+.button-picture {
+    text-align: center;
+}
+
+.img-fluid {
+    margin-left: 25px;
+    height: 300px;
+    width: 300px;
 }

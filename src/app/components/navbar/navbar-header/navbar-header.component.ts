@@ -33,7 +33,7 @@ export class NavbarHeaderComponent implements OnInit {
 
   checkProfile(role: any) {
     this.cookie.setRoleAccount(role)
-    window.location.href = "/profile"
+    window.location.href = "/profile-user"
   }
 
 

@@ -1,14 +1,14 @@
 export class profile {
-    userId: string | undefined
-    passWord: string | undefined
-    userName: string | undefined
-    fullName: string | undefined
-    email: string | undefined
-    tel: string | undefined
-    address: string | undefined
-    sub: string | undefined
-    district: string | undefined
-    province: string | undefined
-    postalCode: string | undefined
-    image: string | undefined
+    userId?: string
+    passWord?: string
+    userName?: string
+    fullName?: string
+    email?: string
+    tel?: string
+    address?: string
+    sub?: string
+    district?: string
+    province?: string
+    postalCode?: string
+    image?: string
 }

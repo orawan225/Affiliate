@@ -1,8 +1,8 @@
 export class affiliate {
-    affiliateId: string | undefined
-    bankNameAccount: string | undefined
-    bankName: string | undefined
-    bankNumber: string | undefined
-    image: string | undefined
+    affiliateId?: string
+    bankNameAccount?: string
+    bankName?: string
+    bankNumber?: string
+    image?: string
 
 }

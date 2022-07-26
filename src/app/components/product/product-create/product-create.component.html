@@ -16,9 +16,11 @@
                                     <img [src]="img" alt="avatar" class="img-fluid">
                                     <br>
                                     <input type="file" #file placeholder="เลือกรูปภาพ" style="display: none;" (change)="selectFile($event)">
-                                    <button type="button" class="btn btn-primary mt-3 mb-5" (click)="file.click()">
-                                        เลือกรูปภาพ 
-                                    </button>
+                                    <div class="button-picture">
+                                        <button type="button" class="btn btn-success mt-3" (click)="file.click()">
+                                            เลือกรูปภาพ
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col">
@@ -35,7 +37,6 @@
                                     <label for="price" class="form-label" placeholder="0"> ราคา : </label>
                                     <input type="number" name="price" id="price" class="form-control" placeholder="0" formControlName="productPrice">
                                 </div>
-
                             </div>
                             <div class="row mt-2">
                                 <div class="button">

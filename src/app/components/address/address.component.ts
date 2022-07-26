@@ -30,10 +30,6 @@ export class AddressComponent implements OnInit {
       province: [null],
       postalCode: [null]
     })
-
-    acrout.queryParams.subscribe((res: any) => {
-      this.userId = res.id
-    })
   }
 
   patchValue(receiveProfile: profile) {
@@ -59,21 +55,19 @@ export class AddressComponent implements OnInit {
     this.callApi.getProfile().subscribe((res: any) => {
       this.profile = res.data.profile
       this.patchValue(res.data.profile)
-      console.log(res);
-
     })
   }
 
-  editAddress(userId: string) {
+  editAddress() {
     const data = new FormData()
     if (this.file) {
       data.append('file', this.file, this.file.name)
     }
     data.append('product', JSON.stringify(this.formAddress.value))
-    this.callApi.editProfile(userId, data).subscribe((res => {
+    this.callApi.editProfile( data).subscribe((res => {
       console.log(res);
     }))
-    // this.router.navigate(['/payment'])
+    this.router.navigate(['/payment'])
   }
 
 }

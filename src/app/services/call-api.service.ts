@@ -41,13 +41,12 @@ export class CallApiService {
 
 
   //Profile
-
   public getProfile(){
     return this.http.get<profile>(`${environment.apiUrl}/user/getProfile`, this.header())
   }
 
-  public editProfile(userId: string, user: any) {
-    return this.http.put<profile>(`${environment.apiUrl}/user/update-profile/${userId}`, user, this.header())
+  public editProfile( user: any) {
+    return this.http.put<profile>(`${environment.apiUrl}/user/update-profile/`, user, this.header())
   }
 
 
@@ -97,8 +96,14 @@ export class CallApiService {
 
   //Order
 
-  public createPayment(data: any) {
-    return this.http.post<user>(`${environment.apiUrl}/order/create-order`, data, this.header())
+  public createOrder(data: any) {
+    return this.http.post<order>(`${environment.apiUrl}/order/create-order`, data, this.header())
   }
+
+  public getAllOrderByStore() {
+    return this.http.get<product>(`${environment.apiUrl}/order/getAllOrder`, this.header())
+  }
+
+
 
 }

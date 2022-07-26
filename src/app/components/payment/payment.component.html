@@ -2,29 +2,26 @@
 <div class="backgroundimg">
     <div class="container">
         <div class="row justify-content-between">
-            <div class="address col-md-7 mb-4 mt-5">
-                <div class="mb-4">
-                    <div class="card-body card ml-5 mb-5">
+            <div class="col-md-7 mb-4 mt-5">
+                <div class="payment">
+                    <div class="card-body card mt-4">
                         <a class="btn btn-primary w-100 h-100 d-flex align-items-center justify-content-between" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true" aria-controls="collapseExample">
-                            <span class="fw-bold"> ช่องทางการชำระเงิน </span>
-                            <span class="fab fa-cc-paypal">
-                            </span>
+                            <span class="fw-bold"> ที่อยู่ในการจัดส่ง </span>
                         </a>
-                        <div class="row">
-                            <div class="col-4 mt-5">
-                                <img class="img" src="https://www.matichon.co.th/wp-content/uploads/2019/10/%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%84%E0%B8%97%E0%B8%A201.jpg" alt="">
-                            </div>
-                            <div class="col mt-5">
-                                <p>ชื่อบัญชี : บริษัททรีมีดีเวลลอปเปอร์</p>
-                                <p> เลขบัญชี : 984-1-99964-1 </p>
-                            </div>
+                        <div class="address mt-4">
+                            ชื่อผู้รับ : {{profile.fullName}} <br> <br> เบอร์โทรศัพท์ : {{profile.tel}} <br><br> ที่อยู่ในการจัดส่ง : {{profile.address}} ตำบล{{profile.sub}} อำเภอ{{profile.district}} จังหวัด{{profile.province}} รหัสไปรษณีย์{{profile.postalCode}}
+                        </div>
+                        <div class="button mt-3">
+                            <button class="btn btn-outline-primary" type="submit" (click)="openDialog()"> แก้ไข
+                            </button>
                         </div>
                     </div>
-                    <div class="card-body card">
-                        <a class="btn btn-primary w-100 h-100 d-flex align-items-center justify-content-between" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true" aria-controls="collapseExample">
-                            <span class="fw-bold"> หลักฐานในการชำระเงิน
-                            </span>
-                        </a>
+                    <div class="card-body card mt-4">
+                        <div class="header mt-3">
+                            <a class="btn btn-primary w-100 h-100 d-flex align-items-center justify-content-between" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true" aria-controls="collapseExample">
+                                <span class="fw-bold"> หลักฐานในการชำระเงิน </span>
+                            </a>
+                        </div>
                         <form [formGroup]="formPayment" (ngSubmit)="createPayment()">
                             <div class="row">
                                 <div class="col">
@@ -33,16 +30,20 @@
                                         <input type="file" #file placeholder="เลือกรูปภาพ" style="display: none;" (change)="selectFile($event)">
                                         <div class="flex-parent jc-center">
                                             <button type="button" class="btn btn-success" (click)="file.click()">
-                                                เลือกรูปภาพ 
+                                                เลือกรูปภาพ
                                             </button>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <div class="row">
+                                    <div class="row mt-4">
+                                        <div class="col-lg-12 col-12 mt-3">
+                                            <label for="date" class="form-label"> จำนวนเงิน </label>
+                                            <input type="text" name="date" id="date" class="form-control" formControlName="price">
+                                        </div>
                                         <div class="col-lg-6 col-6 mt-3">
-                                            <label for="date" class="form-label"> วันที่ที่ชำระเงิน </label>
-                                            <input type="text" name="date" id="date" class="form-control" formControlName="day">
+                                            <label for="time" class="form-label"> วันที่ที่ชำระเงิน </label>
+                                            <input type="text" name="time" id="time" class="form-control" formControlName="day">
                                         </div>
                                         <div class="col-lg-6 col-6 mt-3">
                                             <label for="time" class="form-label"> เวลาที่ชำระเงิน </label>
@@ -66,29 +67,45 @@
             <div class="productList col-md-4">
                 <div class="card mb-4 mt-5">
                     <div class="card-header py-3">
+                        <h2 class="mb-0"> ช่องทางการชำระเงิน </h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-5 mt-5">
+                                <img class="img" src="https://www.matichon.co.th/wp-content/uploads/2019/10/%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%84%E0%B8%97%E0%B8%A201.jpg" alt="">
+                            </div>
+                            <div class="col mt-5">
+                                <p>ชื่อบัญชี : บริษัททรีมีดีเวลลอปเปอร์</p>
+                                <p> เลขบัญชี : 984-1-99964-1 </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-4 mt-5">
+                    <div class="card-header py-3">
                         <h2 class="mb-0"> รายการสินค้า </h2>
                     </div>
                     <div class="card-body">
                         <div class="header row p-0 mb-3">
                             <div class="col"> สินค้า </div>
                             <div class="col"> จำนวน </div>
-                            <div class="col"> ราคา </div>
+                            <div class="col"> ราคารวม </div>
                         </div>
-                        <div *ngFor="let item of productList">
+                        <div *ngFor="let product of productList">
                             <div class="row">
                                 <div class="col">
                                     <div class="productName">
-                                        <p> {{item.productName}} </p>
+                                        <p> {{product.productName}} </p>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="productAmount">
-                                        <p> {{item.amount}} </p>
+                                        <p> {{product.amount}} </p>
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <div class="producPricr">
-                                        <p> {{item.productPrice}} </p>
+                                    <div class="producPrice">
+                                        <p> {{product.productPrice *product.amount}} </p>
                                     </div>
                                 </div>
                             </div>
@@ -97,7 +114,7 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0">
                                 จำนวนรายการสินค้า
-                                <!-- <span>{{cartService.getTotalAmount()}} ชิ้น</span> -->
+                                <span>{{cartService.getTotalAmount("storeId")}} ชิ้น</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center  border-0  px-0">
                                 ค่าจัดส่ง
@@ -107,12 +124,12 @@
                                 <div>
                                     <strong>ยอดสุทธิ</strong>
                                 </div>
-                                <!-- <span><strong>{{cartService.getTotalPrice()}} บาท</strong></span> -->
+                                <span><strong>{{cartService.getTotalPrice("storeId")}} บาท</strong></span>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary"> ถัดไป </button>
+                <!-- <button type="button" class="btn btn-primary"> ถัดไป </button> -->
             </div>
         </div>
     </div>
