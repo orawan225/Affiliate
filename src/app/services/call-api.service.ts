@@ -19,7 +19,7 @@ export class CallApiService {
   productList = new BehaviorSubject<any>([])
 
   constructor(public http: HttpClient, private cookie: CookieServiceService) {
-   }
+  }
 
   public header() {
     let token = this.cookie.getToken()
@@ -41,18 +41,26 @@ export class CallApiService {
 
 
   //Profile
-  public getProfile(){
+  public getProfile() {
     return this.http.get<profile>(`${environment.apiUrl}/user/getProfile`, this.header())
   }
 
-  public editProfile( user: any) {
+  public editProfile(user: any) {
     return this.http.put<profile>(`${environment.apiUrl}/user/update-profile/`, user, this.header())
+  }
+  
+  public editProfileStore(user: any) {
+    return this.http.put<profile>(`${environment.apiUrl}/store/store-update/`, user, this.header())
+  }
+
+  public editProfileAffiliate(user: any) {
+    return this.http.put<profile>(`${environment.apiUrl}/affiliate/affiliate-update/`, user, this.header())
   }
 
 
 
   //Affiliate
-  public registerCustomer(data: any) {
+  public registerAffiliate(data: any) {
     return this.http.post<affiliate>(`${environment.apiUrl}/affiliate/affiliate-register`, data, this.header())
   }
 
@@ -82,7 +90,7 @@ export class CallApiService {
   }
 
   public createProduct(product: any) {
-    return this.http.post<product>(`${environment.apiUrl}/product/create-product`,product, this.header())
+    return this.http.post<product>(`${environment.apiUrl}/product/create-product`, product, this.header())
   }
 
   public editProductById(productId: string, product: any) {
@@ -104,6 +112,7 @@ export class CallApiService {
     return this.http.get<product>(`${environment.apiUrl}/order/getAllOrder`, this.header())
   }
 
-
-
+  public checkStatusOrderById(orderId: string, order: order) {
+    return this.http.put<order>(`${environment.apiUrl}/order/update-order-payment/${orderId}`, order, this.header())
+  }
 }

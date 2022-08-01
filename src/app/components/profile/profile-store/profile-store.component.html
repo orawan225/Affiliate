@@ -1,0 +1,45 @@
+<section class="backgroundimg">
+    <div class="container">
+        <div class="row">
+            <h2> ข้อมูลของฉัน </h2>
+            <form [formGroup]="formProfile" (ngSubmit)="editProfileStore()">
+                <div class="card mb-4 mt-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="input-group flex-nowrap">
+                                <span class="input-group-text" id="addon-wrapping"> ชื่อร้านค้า </span>
+                                <input type="text" class="form-control" formControlName="store">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="input-group flex-nowrap">
+                                <span class="input-group-text" id="addon-wrapping"> ชื่อบัญชีธนาคาร </span>
+                                <input type="text" class="form-control" formControlName="bankName">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="input-group flex-nowrap">
+                                <span class="input-group-text" id="addon-wrapping"> เลขที่บัญชี </span>
+                                <input type="text" class="form-control" formControlName="bankNumber">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="input-group flex-nowrap">
+                                <span class="input-group-text" id="addon-wrapping"> ชื่อธนาคาร </span>
+                                <select class="form-select" aria-label="Default select example" formControlName="bankNameAccount">
+                                    <option value="ธนาคารกรุงไทย (KTB)"> ธนาคารกรุงไทย (KTB) </option>
+                                    <option value="ธนาคารไทยพาณิชย์ (SCB)"> ธนาคารไทยพาณิชย์ (SCB) </option>
+                                    <option value="ธนาคารกรุงเทพ (BBL)"> ธนาคารกรุงเทพ (BBL) </option>
+                                    <option value="ธนาคารกสิกรไทย (KBANK)"> ธนาคารกสิกรไทย (KBANK) </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button">
+                    <button type="submit" class="btn btn-outline-success"> ยืนยัน </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

@@ -26,7 +26,7 @@ export class RegisterCustomerComponent implements OnInit {
   }
 
   registerCustomer() {
-    this.callApi.registerCustomer(this.formRegister.value).subscribe((res: any) => {
+    this.callApi.registerAffiliate(this.formRegister.value).subscribe((res: any) => {
       console.log(res);
       if (this.cookie.getToken()) {
         this.checkLogin = true

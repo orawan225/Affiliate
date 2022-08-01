@@ -15,12 +15,7 @@ import { environment } from 'src/environments/environment';
 export class ProfileUpdateComponent implements OnInit {
 
   profile: any = []
-  store: any = []
-  affiliate: any = []
-  file: any
-  showCardRole: any
-  img: any 
-  api = environment.apiUrl
+  file: any 
   formProfile: any
   user?: string = undefined;
 
@@ -28,7 +23,6 @@ export class ProfileUpdateComponent implements OnInit {
     private fb: FormBuilder, private router: Router) {
     this.formProfile = fb.group({
       fullName: [null],
-      userName: [null,], 
       email: [null],
       tel: [null],
       address: [null],
@@ -45,7 +39,6 @@ export class ProfileUpdateComponent implements OnInit {
   patchValue(receiveProfile: profile) {
     this.formProfile.patchValue({
       fullName: receiveProfile.fullName,
-      userName: receiveProfile.userName,
       email: receiveProfile.email,
       tel: receiveProfile.tel,
       address: receiveProfile.address,
@@ -79,14 +72,5 @@ export class ProfileUpdateComponent implements OnInit {
     this.getProfile()
   }
 
-  selectFile(event: any) {
-    this.file = <File>event.target.files[0]
-    const image = new FileReader();
-    image.readAsDataURL(this.file)
-    image.onload = () => {
-      this.img = image.result
-      console.log(this.img);
-    }
-  }
 
 }

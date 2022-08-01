@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { product } from 'src/app/models/product';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CookieServiceService } from 'src/app/services/cookie-service.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-share',
-  templateUrl: './share.component.html',
-  styleUrls: ['./share.component.css']
+  selector: 'app-product-share',
+  templateUrl: './product-share.component.html',
+  styleUrls: ['./product-share.component.css']
 })
-export class ShareComponent implements OnInit {
+export class ProductShareComponent implements OnInit {
 
   formProduct: any
   productId: any
@@ -21,7 +20,8 @@ export class ShareComponent implements OnInit {
   url: string = "/product-detail";
   user?:string = undefined;
 
-  constructor(private callApi: CallApiService, private fb: FormBuilder, public router: Router, private acrout: ActivatedRoute,public cookie :CookieServiceService) {
+  constructor(private callApi: CallApiService, private fb: FormBuilder, public router: Router, 
+    private acrout: ActivatedRoute,public cookie :CookieServiceService) {
     this.formProduct = fb.group({
       productName: [null],
       productPrice: [null],

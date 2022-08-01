@@ -1,0 +1,70 @@
+<app-navbar-header></app-navbar-header>
+<div class="backgroundimg">
+    <div class="container">
+        <div class="row">
+            <div class="col-5">
+                <div class="text-title mt-5">
+                    <h1>
+                        คำสั่งซื้อของฉัน
+                    </h1>
+                </div>
+            </div>
+
+            <div class="card mt-2 mb-5">
+                <div class="card-body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style=" width: 5%;;"> วันที่ </th>
+                                <th style=" width: 5%;"> สินค้า </th>
+                                <th style=" width: 5%;"> จำนวน </th>
+                                <th style=" width: 5%;"> ราคา </th>
+                                <th style=" width: 5%;"> ยอดสุทธิ </th>
+                                <th style=" width: 10%;"> ที่อยู่ในการจัดส่ง </th>
+                                <th style=" width: 5%;"> หลักฐานในการชำระเงิน </th>
+                                <th style=" width: 5%;"> </th>
+                            </tr>
+                        </thead>
+                        <br>
+
+                        <tbody *ngFor="let product of ordertList">
+                            <tr *ngIf="product.status === 'payment'">
+                                <td> {{product.date | date: 'HH:mm:ss'}}
+                                    <br> {{product.date | date:' d/M/yyyy'}}
+                                </td>
+                                <td> สินค้า </td>
+                                <td> จำนวน </td>
+                                <td> {{product.price}} </td>
+                                <td> ราคารวม </td>
+                                <td> ชื่อผู้รับ : {{profile.fullName}}
+                                    <br> เบอร์โทรศัพท์ : {{profile.tel}}
+                                    <br> ที่อยู่ในการจัดส่ง : {{profile.address}} {{profile.sub}} {{profile.district}} {{profile.province}} {{profile.postalCode}}
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        หลักฐานในการชำระเงิน
+                                    </button>
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <img class="card-img-top" [src]="api+product.image" alt="...">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-success" (click)="checkStatusOrderById(product.orderListId)"> ยืนยัน </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -27,8 +27,8 @@
                         </thead>
                         <br>
 
-                        <tbody>
-                            <tr *ngFor="let product of ordertList">
+                        <tbody *ngFor="let product of ordertList">
+                            <tr *ngIf="product.status === 'true'">
                                 <td> {{product.date | date: 'HH:mm:ss'}}
                                     <br> {{product.date | date:' d/M/yyyy'}}
                                 </td>
@@ -58,7 +58,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <button type="submit" class="btn btn-success"> ยืนยัน </button>
+                                    <button type="button" class="btn btn-success" (click)="checkStatusOrderById(product.orderListId)"> ยืนยัน </button>
                                 </td>
                             </tr>
                         </tbody>

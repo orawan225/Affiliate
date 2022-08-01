@@ -1,6 +1,10 @@
 export class order {
-    orderId?: string 
-    date?: string 
-    time?: string 
+    orderListId?: string
+    price?: string
+    day?: string
+    time?: string
+    date?: string
     image?: string
+    status?: string
+    userId?: string
 }

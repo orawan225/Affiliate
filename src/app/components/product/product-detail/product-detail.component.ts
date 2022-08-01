@@ -60,7 +60,7 @@ export class ProductDetailComponent implements OnInit {
   }
 
   shareProduct(productId : string) {
-    this.router.navigate(['/share'],{queryParams: {id:productId}})
+    this.router.navigate(['/product-share'],{queryParams: {id:productId}})
   }
 
   getProfile() {

@@ -56,26 +56,26 @@ export class NavbarHeaderComponent implements OnInit {
 
 
    // <---- checkButtonStore---->
-  loginStore() {
-    if (this.cookie.getToken()) {
-      this.checkLogin = true
-      this.router.navigate(['/product-store'])
-    } else {
-      this.checkLogin = false
-      this.router.navigate(['/login'])
-    }
-  }
+  // loginStore() {
+  //   if (this.cookie.getToken()) {
+  //     this.checkLogin = true
+  //     this.router.navigate(['/product-store'])
+  //   } else {
+  //     this.checkLogin = false
+  //     this.router.navigate(['/login'])
+  //   }
+  // }
 
   // <---- checkButtonStore---->
-  checkOrderStore() {
-    if (this.cookie.getToken()) {
-      this.checkLogin = true
-      this.router.navigate(['/order-store'])
-    } else {
-      this.checkLogin = false
-      this.router.navigate(['/login'])
-    }
-  }
+  // checkOrderStore() {
+  //   if (this.cookie.getToken()) {
+  //     this.checkLogin = true
+  //     this.router.navigate(['/order-store'])
+  //   } else {
+  //     this.checkLogin = false
+  //     this.router.navigate(['/login'])
+  //   }
+  // }
 
   ngAfterContentChecked() {
     this.ref.detectChanges()

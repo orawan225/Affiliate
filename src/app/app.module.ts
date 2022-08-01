@@ -36,17 +36,23 @@ import { ProductDetailComponent } from './components/product/product-detail/prod
 import { ProductStoreComponent } from './components/product/product-store/product-store.component';
 import { ProductCreateComponent } from './components/product/product-create/product-create.component';
 import { ProductEditComponent } from './components/product/product-edit/product-edit.component';
+import { ProductShareComponent } from './components/product/product-share/product-share.component';
+
+// <---- Profile --->
+import { ProfileUpdateComponent } from './components/profile/profile-update/profile-update.component';
+import { ProfileUserComponent } from './components/profile/profile-user/profile-user.component';
+import { ProfileStoreComponent } from './components/profile/profile-store/profile-store.component';
+import { ProfileAffiliateComponent } from './components/profile/profile-affiliate/profile-affiliate.component';
 
 
 
 import { HomeComponent } from './components/home/home.component';
-import { ShareComponent } from './components/share/share.component';
 import { CartComponent } from './components/cart/cart.component';
-import { AddressComponent } from './components/address/address.component';
 import { PaymentComponent } from './components/payment/payment.component';
-import { OrderStoreComponent } from './components/order-store/order-store.component';
-import { ProfileUpdateComponent } from './components/profile/profile-update/profile-update.component';
-import { ProfileUserComponent } from './components/profile/profile-user/profile-user.component';
+
+import { OrderHistoryComponent } from './components/order/order-history/order-history.component';
+import { OrderStoreComponent } from './components/order/order-store/order-store.component';
+
 
 
 
@@ -66,14 +72,16 @@ import { ProfileUserComponent } from './components/profile/profile-user/profile-
     ProductStoreComponent,
     ProductCreateComponent,
     ProductEditComponent,
-    ShareComponent,
     CartComponent,
-    AddressComponent,
     PaymentComponent,
     LoginComponent,
-    OrderStoreComponent,
     ProfileUpdateComponent,
-    ProfileUserComponent
+    ProfileUserComponent,
+    OrderHistoryComponent,
+    OrderStoreComponent,
+    ProfileStoreComponent,
+    ProfileAffiliateComponent,
+    ProductShareComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,8 @@ import { profile } from 'src/app/models/profile';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CookieServiceService } from 'src/app/services/cookie-service.service';
 import { environment } from 'src/environments/environment';
+import { ProfileAffiliateComponent } from '../profile-affiliate/profile-affiliate.component';
+import { ProfileStoreComponent } from '../profile-store/profile-store.component';
 import { ProfileUpdateComponent } from '../profile-update/profile-update.component';
 
 @Component({
@@ -13,8 +15,8 @@ import { ProfileUpdateComponent } from '../profile-update/profile-update.compone
   templateUrl: './profile-user.component.html',
   styleUrls: ['./profile-user.component.css']
 })
-export class ProfileUserComponent implements OnInit {
 
+export class ProfileUserComponent implements OnInit {
   formProfile: any
   file: any
   profile: any = []
@@ -58,8 +60,22 @@ export class ProfileUserComponent implements OnInit {
     this.getRoleProfile()
   }
 
-  openDialog() {
+  profileUser() {
     const dialogRef = this.dialog.open(ProfileUpdateComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  profileStore() {
+    const dialogRef = this.dialog.open(ProfileStoreComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  profileAffiliate() {
+    const dialogRef = this.dialog.open(ProfileAffiliateComponent);
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
@@ -71,7 +87,6 @@ export class ProfileUserComponent implements OnInit {
       this.store = res.data.profile.store
       this.affiliate = res.data.profile.affiliate
       this.img = this.api + res.image
-      console.log(this.profile);
       this.patchValue(this.profile)
     })
   }
@@ -94,10 +109,8 @@ export class ProfileUserComponent implements OnInit {
     image.readAsDataURL(this.file)
     image.onload = () => {
       this.img = image.result
-      console.log(this.img);
     }
   }
-
 
   getRoleProfile() {
     if (this.cookie.getRoleAccount()) {

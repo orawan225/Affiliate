@@ -1,5 +1,4 @@
 export class product {
-    [x: string]: any
     productId?: string
     productName?: string
     productPrice?: string

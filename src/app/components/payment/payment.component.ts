@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { profile } from 'src/app/models/profile';
-import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CartService } from 'src/app/services/cart.service';
 import { CookieServiceService } from 'src/app/services/cookie-service.service';
@@ -23,9 +21,11 @@ export class PaymentComponent implements OnInit {
   formAddress: any
   profile: any = []
   user?: string = undefined;
+  TotalAmount:any
+  TotalPrice:any
 
   constructor(private fb: FormBuilder, public cartService: CartService, private callApi: CallApiService,
-    private router: Router, private acrout: ActivatedRoute,private cookie: CookieServiceService,
+    private router: Router, private acrout: ActivatedRoute, private cookie: CookieServiceService,
     private dialog: MatDialog) {
     this.formPayment = fb.group({
       price: [null],
@@ -33,7 +33,7 @@ export class PaymentComponent implements OnInit {
       time: [null]
     })
 
-    this.user = cookie.getUserId();  
+    this.user = cookie.getUserId();
     console.log(this.user);
 
   }
@@ -46,8 +46,6 @@ export class PaymentComponent implements OnInit {
   getProfile() {
     this.callApi.getProfile().subscribe((res: any) => {
       this.profile = res.data.profile
-      console.log(this.profile);
-      
     })
   }
 
@@ -59,16 +57,20 @@ export class PaymentComponent implements OnInit {
   }
 
   getProductByStoreId() {
-    const StoreId = localStorage.getItem("storeId");
+    let StoreId = localStorage.getItem("storeId");
 
     if (StoreId) {
       this.productList = this.cartService.getCart()
 
       // filter คือ การกรองข้อมูล ค้นหาสินค้าของ storeId นั้น ๆ  
-      this.productList = this.productList.filter((element: any) => element.storeId == StoreId);
-      console.log(this.productList);
+      this.productList = this.productList.filter((element: any) =>element.storeId == StoreId);
+      if(this.productList.length > 0){
+        this.TotalAmount = this.cartService.getTotalAmount(StoreId)
+        this.TotalPrice = this.cartService.getTotalPrice(StoreId)
+      }
     }
   }
+
 
 
   createPayment() {
@@ -91,6 +93,8 @@ export class PaymentComponent implements OnInit {
       console.log(this.img);
     }
   }
+
+
 
 
 }
