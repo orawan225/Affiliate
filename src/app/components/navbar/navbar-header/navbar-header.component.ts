@@ -32,8 +32,8 @@ export class NavbarHeaderComponent implements OnInit {
   }
 
   checkProfile(role: any) {
-    this.cookie.setRoleAccount(role)
-    window.location.href = "/profile-user"
+    // this.cookie.setRoleAccount(role)
+    // window.location.href = "/profile-user"
   }
 
 
@@ -72,7 +72,7 @@ export class NavbarHeaderComponent implements OnInit {
   //     this.checkLogin = true
   //     this.router.navigate(['/order-store'])
   //   } else {
-  //     this.checkLogin = false
+  //     this.checkLogine = fals
   //     this.router.navigate(['/login'])
   //   }
   // }

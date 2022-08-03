@@ -36,7 +36,7 @@ export class ProductDetailComponent implements OnInit {
     acrout.queryParams.subscribe((res: any) => {
       this.productId = res.id
       this.affiliate = res.affiliate || 0
-      console.log(res.affiliate); 
+
     })
   }
 

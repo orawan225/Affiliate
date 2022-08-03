@@ -1,5 +1,5 @@
-export class order {
-    orderListId?: string
+export class orderList {
+    orderListId?: number
     price?: string
     day?: string
     time?: string

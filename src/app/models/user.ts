@@ -4,12 +4,12 @@ export class user {
     userName?: string
     fullName?: string
     email?: string
-    tel?: string
+    tel?: number
     address?: string
     sub?: string
     district?: string
     province?: string
-    postalCode?: string
+    postalCode?: number
     image?: string
     date?: Date
 

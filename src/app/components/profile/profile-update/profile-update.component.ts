@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { profile } from 'src/app/models/profile';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CookieServiceService } from 'src/app/services/cookie-service.service';
 import { environment } from 'src/environments/environment';
+import { ProfileUserComponent } from '../profile-user/profile-user.component';
 
 
 @Component({
@@ -15,12 +17,12 @@ import { environment } from 'src/environments/environment';
 export class ProfileUpdateComponent implements OnInit {
 
   profile: any = []
-  file: any 
+  file: any
   formProfile: any
   user?: string = undefined;
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService,
-    private fb: FormBuilder, private router: Router) {
+    private fb: FormBuilder, private router: Router, public dialogRef: MatDialogRef<ProfileUserComponent>) {
     this.formProfile = fb.group({
       fullName: [null],
       email: [null],
@@ -32,8 +34,6 @@ export class ProfileUpdateComponent implements OnInit {
       postalCode: [null]
     })
 
-    this.user = cookie.getUserId();  
-    console.log(this.user);
   }
 
   patchValue(receiveProfile: profile) {
@@ -68,9 +68,12 @@ export class ProfileUpdateComponent implements OnInit {
     data.append('profile', JSON.stringify(this.formProfile.value))
     this.callApi.editProfile(data).subscribe(data => {
       console.log(data);
+      this.closeDialog()
     })
-    this.getProfile()
   }
 
+  closeDialog() {
+    this.dialogRef.close();
+  }
 
 }

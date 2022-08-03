@@ -14,8 +14,8 @@ import { CookieServiceService } from 'src/app/services/cookie-service.service';
 export class LoginComponent implements OnInit {
 
   formLogin: any;
-  
-  constructor(private callApi: CallApiService, private fb: FormBuilder,private alert :AlertService, private router: Router, private cookie: CookieServiceService) {
+
+  constructor(private callApi: CallApiService, private fb: FormBuilder, private alert: AlertService, private router: Router, private cookie: CookieServiceService) {
     this.formLogin = fb.group({
       userName: [null],
       passWord: [null]
@@ -29,16 +29,20 @@ export class LoginComponent implements OnInit {
     console.log(this.formLogin.value);
     this.callApi.loginUser(this.formLogin.value).subscribe((res: any) => {
       this.cookie.setToken(res.data.token)
+      let role = this.cookie.helper$.decodeToken(res.data.token).role
+      console.log(role);
+      
+      this.cookie.setRoleAccount(role.trim())
       this.alert.success("เข้าสู่ระบบสำเร็จ")
       setTimeout(() => {
         this.router.navigate(['/home'])
       }, 1000);
-    },((err:any)=>{
-      if (err.status===417) {
+    }, ((err: any) => {
+      if (err.status === 417) {
         this.alert.error(err.error.message)
       }
     }))
-    
+
   }
 
 }

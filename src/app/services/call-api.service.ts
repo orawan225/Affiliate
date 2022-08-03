@@ -8,7 +8,7 @@ import { CookieServiceService } from './cookie-service.service';
 import { profile } from '../models/profile';
 import { affiliate } from '../models/affiliate';
 import { BehaviorSubject } from 'rxjs';
-import { order } from '../models/order';
+import { orderList } from '../models/order';
 
 
 @Injectable({
@@ -105,14 +105,18 @@ export class CallApiService {
   //Order
 
   public createOrder(data: any) {
-    return this.http.post<order>(`${environment.apiUrl}/order/create-order`, data, this.header())
+    return this.http.post<orderList>(`${environment.apiUrl}/order/create-order`, data, this.header())
   }
 
   public getAllOrderByStore() {
-    return this.http.get<product>(`${environment.apiUrl}/order/getAllOrder`, this.header())
+    return this.http.get<product>(`${environment.apiUrl}/order-detail/getAllByStoreId`, this.header())
   }
 
-  public checkStatusOrderById(orderId: string, order: order) {
-    return this.http.put<order>(`${environment.apiUrl}/order/update-order-payment/${orderId}`, order, this.header())
+  public checkStatusOrderById(orderId: string, order: orderList) {
+    return this.http.put<orderList>(`${environment.apiUrl}/order/update-order-payment/${orderId}`, order, this.header())
+  }
+
+  public addOrderDetail(data: any) {
+    return this.http.post(`${environment.apiUrl}/order-detail/addProducts`, data, this.header())
   }
 }

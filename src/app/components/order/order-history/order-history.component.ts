@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { order } from 'src/app/models/order';
+import { orderList } from 'src/app/models/order';
 import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { environment } from 'src/environments/environment';
@@ -29,7 +29,7 @@ export class OrderHistoryComponent implements OnInit {
     })
   }
 
-  patchValue(receiveOrder: order) {
+  patchValue(receiveOrder: orderList) {
     this.formOrder.patchValue({
       orderListId: receiveOrder.orderListId,
       price: receiveOrder.price,

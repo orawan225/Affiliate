@@ -14,7 +14,7 @@
                         </svg>
                     </i>
                     <div class="card-body text-center">
-                        <img [src]="api+profile.image" alt="avatar" class="img-fluid">
+                        <img [src]="img" alt="avatar" class="img-fluid">
                         <br>
                         <input type="file" #file placeholder="เลือกรูปภาพ" style="display: none;" (change)="selectFile($event)">
                     </div>
@@ -23,7 +23,7 @@
                     </div>
                 </div>
 
-                <div class="card mb-4 mb-lg-0" *ngIf="showCardRole == 'store'">
+                <div class="card mb-4 mb-lg-0" *ngIf="showCardRole == 'STORE' || showCardRole == 'ST_AF'">
                     <div class="card-body">
                         <h2> ข้อมูลสำหรับร้านค้า
                             <i class="fa-solid fa-pen-to-square" (click)="profileStore()"></i>
@@ -66,7 +66,7 @@
                     </div>
                 </div>
 
-                <div class="card mb-4 mb-lg-0 mt-4" *ngIf="showCardRole == 'affiliate'">
+                <div class="card mb-4 mb-lg-0 mt-4" *ngIf="showCardRole == 'AFFILIATE' || showCardRole == 'ST_AF'">
                     <div class="card-body">
                         <h2> ข้อมูลของบัญชีธนาคาร
                             <i class="fa-solid fa-pen-to-square" (click)="profileAffiliate()"></i>

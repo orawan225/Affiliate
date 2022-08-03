@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { order } from 'src/app/models/order';
+import { orderList } from 'src/app/models/order';
 import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { environment } from 'src/environments/environment';
@@ -30,7 +30,7 @@ export class OrderStoreComponent implements OnInit {
     })
   }
 
-  patchValue(receiveOrder: order) {
+  patchValue(receiveOrder: orderList) {
     this.formOrder.patchValue({
       orderListId: receiveOrder.orderListId,
       price: receiveOrder.price,
@@ -44,24 +44,15 @@ export class OrderStoreComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllOrderByStore()
-    this.getProfile()
   }
 
   getAllOrderByStore() {
     this.callApi.getAllOrderByStore().subscribe((res: any) => {
       this.ordertList = res
-      console.log(res);
       console.log(this.ordertList);
-
     })
   }
 
-  getProfile() {
-    this.callApi.getProfile().subscribe((res: any) => {
-      this.profile = res.data.profile
-      console.log(this.profile);
-    })
-  }
 
   checkStatusOrderById(orderListId: string) {
     this.alert.confirm("ทำการแพ็คสินค้าเรียบร้อยหรือไม่ ?").then((result) => {
@@ -71,9 +62,7 @@ export class OrderStoreComponent implements OnInit {
         })
         this.alert.success("รอการจัดส่งสินค้า")
       } 
-      this.getAllOrderByStore()
     })
-
   }
 
 

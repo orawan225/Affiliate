@@ -29,9 +29,8 @@ export class ProductEditComponent implements OnInit {
     })
 
     acrout.queryParams.subscribe((res: any) => {
-      console.log(res.id);
       this.productId = res.id
-      console.log(res.affiliate);
+      console.log(this.productId);
     })
 
     
@@ -58,6 +57,7 @@ export class ProductEditComponent implements OnInit {
       console.log(this.formProduct);
     })
   }
+
 
   editProductById(productId: string) {
     delete this.formProduct.value.productId

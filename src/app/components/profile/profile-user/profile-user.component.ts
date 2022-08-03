@@ -63,21 +63,22 @@ export class ProfileUserComponent implements OnInit {
   profileUser() {
     const dialogRef = this.dialog.open(ProfileUpdateComponent);
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      this.getProfile()
     });
   }
 
   profileStore() {
     const dialogRef = this.dialog.open(ProfileStoreComponent);
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+
+      this.getProfile()
     });
   }
 
   profileAffiliate() {
     const dialogRef = this.dialog.open(ProfileAffiliateComponent);
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      this.getProfile()
     });
   }
 
@@ -86,10 +87,12 @@ export class ProfileUserComponent implements OnInit {
       this.profile = res.data.profile
       this.store = res.data.profile.store
       this.affiliate = res.data.profile.affiliate
-      this.img = this.api + res.image
+      this.img = this.api + this.profile.image
       this.patchValue(this.profile)
     })
   }
+
+
 
   editProfile() {
     const data = new FormData()
@@ -100,8 +103,9 @@ export class ProfileUserComponent implements OnInit {
     this.callApi.editProfile(data).subscribe(data => {
       console.log(data);
     })
-    this.getProfile()
+
   }
+
 
   selectFile(event: any) {
     this.file = <File>event.target.files[0]

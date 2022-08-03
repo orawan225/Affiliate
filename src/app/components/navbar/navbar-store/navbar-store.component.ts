@@ -31,7 +31,7 @@ export class NavbarStoreComponent implements OnInit {
   }
 
   checkProfile(role: any) {
-    this.cookie.setRoleAccount(role)
+    // this.cookie.setRoleAccount(role)
   }
 
   // <---- checkLogout ---->

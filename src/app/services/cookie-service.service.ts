@@ -35,14 +35,15 @@ export class CookieServiceService {
   }
 
   setRoleAccount(data: string) {
-    this.cookie.set('roleAccount', JSON.stringify(data))
+    this.cookie.set('roleAccount',data)
   }
 
   getRoleAccount() {
     let data = this.cookie.get('roleAccount')
-    if (data) {
-      return JSON.parse(data)
-    }
+    return data
+    // if (data) {
+    //   return JSON.parse(data)
+    // }
   }
 
   checkToken(): boolean {

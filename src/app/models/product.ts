@@ -1,7 +1,7 @@
 export class product {
     productId?: string
     productName?: string
-    productPrice?: string
+    productPrice?: number
     productDetail?: string
     status?: boolean
     created?: Date
