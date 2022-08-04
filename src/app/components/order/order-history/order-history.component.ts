@@ -32,10 +32,7 @@ export class OrderHistoryComponent implements OnInit {
   patchValue(receiveOrder: orderList) {
     this.formOrder.patchValue({
       orderListId: receiveOrder.orderListId,
-      price: receiveOrder.price,
-      time: receiveOrder.time,
-      date: receiveOrder.date,
-      status: receiveOrder.status,
+      status: receiveOrder.status
     })
   }
 

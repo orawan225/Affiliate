@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { product } from 'src/app/models/product';
+import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CartService } from 'src/app/services/cart.service';
 import { ProfileUpdateComponent } from '../profile/profile-update/profile-update.component';
@@ -22,30 +25,26 @@ export class PaymentComponent implements OnInit {
   TotalPrice: any
   orderList: any
 
+
+
+
   constructor(private fb: FormBuilder, public cartService: CartService, private callApi: CallApiService,
-    private dialog: MatDialog) {
-    this.formPayment = fb.group({
-      price: [null],
-      day: [null],
-      time: [null]
-    }),
+    private dialog: MatDialog, private router: Router, private alert: AlertService) {
+    // this.orderList = fb.group({
+    //   fullName: "",
+    //   tel: "",
+    //   address: "",
+    //   sub: "",
+    //   district: "",
+    //   province: "",
+    //   postalCode: "",
+    //   products: [{
+    //     productId: "",
+    //     amount: ""
+    //   }]
+    // })
 
-    this.orderList = fb.group({
-      fullName: [null],
-      tel: [null],
-      address: [null],
-      sub: [null],
-      district: [null],
-      province: [null],
-      postalCode: [null],
-      products: [{
-        productId: [null],
-        productAmount: [null],
-      }]
-    })
   }
-
-
 
   ngOnInit(): void {
     this.getProductByStoreId()
@@ -92,11 +91,36 @@ export class PaymentComponent implements OnInit {
   }
 
   addOrderDetail() {
-    this.callApi.addOrderDetail(this.orderList.value).subscribe(res => {
+
+    var product = this.productList.filter((product: any) => {
+      var products = {
+        "productId": product.productId,
+        "amount": product.amount,
+      }
+      return products;
+    })
+
+    console.log(product);
+    this.orderList = this.fb.group({
+      fullName: this.profile.fullName,
+      tel: this.profile.tel,
+      address: this.profile.address,
+      sub: this.profile.sub,
+      district: this.profile.district,
+      province: this.profile.province,
+      postalCode: this.profile.postalCode,
+      products: [product]
+    })
+    console.log(this.orderList);
+    console.log(this.productList);
+    this.callApi.addOrderDetail(this.orderList.value).subscribe((res: any) => {
       console.log(res);
+      this.alert.success("สั่งซื้อสินค้าสำเร็จ")
+      setTimeout(() => {
+        this.router.navigate(['/home'])
+      }, 1000);
     })
   }
-
 
   selectFile(event: any) {
     this.file = <File>event.target.files[0]

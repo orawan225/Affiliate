@@ -28,14 +28,15 @@
                         <br>
 
                         <tbody *ngFor="let product of ordertList">
-                            <tr *ngIf="product.status === 'true'">
+                            <!-- <tr *ngIf="product.status === 'true'"> -->
+                            <tr>
                                 <td> {{product.date | date: 'HH:mm:ss'}}
                                     <br> {{product.date | date:' d/M/yyyy'}}
                                 </td>
                                 <td> สินค้า </td>
-                                <td> จำนวน </td>
-                                <td> {{product.price}} </td>
-                                <td> ราคารวม </td>
+                                <td> {{product.amount}} </td>
+                                <td> {{product.productPrice}} </td>
+                                <td> {{product.productTotal}} </td>
                                 <td> ชื่อผู้รับ : {{profile.fullName}}
                                     <br> เบอร์โทรศัพท์ : {{profile.tel}}
                                     <br> ที่อยู่ในการจัดส่ง : {{profile.address}} {{profile.sub}} {{profile.district}} {{profile.province}} {{profile.postalCode}}

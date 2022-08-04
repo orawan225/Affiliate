@@ -10,7 +10,7 @@
         <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="navbar-toggler-success">
             <div class="flex-fill mb-2">
                 <ul class="nav navbar-nav d-flex justify-content-end text-center text-dark">
-                    <div class="dropdown">
+                    <div class="dropdown" *ngIf="role=='STORE' || role=='ST_AF'">
                         <a class="nav-link btn-outline-primary rounded-pill px-3 " role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                             รายการของฉัน
                         </a>
@@ -21,9 +21,7 @@
                             <li *ngIf="role=='STORE' || role=='ST_AF'">
                                 <a class="dropdown-item" routerLink="/order-store"> คำสั่งซื้อ </a>
                             </li>
-                            <li>
-                                <a class="dropdown-item" routerLink="/order-history"> ประวัติการสั่งซื้อ </a>
-                            </li>
+
                         </ul>
                     </div>
 
@@ -46,9 +44,7 @@
                     <li class="nav-item" *ngIf="!checkLogin">
                         <a class="nav-link btn-outline-primary rounded-pill px-3" routerLink="/login"> เข้าสู่ระบบ </a>
                     </li>
-                    <li class="nav-item" *ngIf="checkLogin">
-                        <a class="nav-link btn-outline-primary rounded-pill px-3" (click)="logout()"> ออกจากระบบ </a>
-                    </li>
+
                 </ul>
             </div>
 
@@ -58,7 +54,13 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                     <li class="nav-item">
-                        <button class="dropdown-item" type="button" (click)="checkProfile('user')" routerLink="/profile-user"> โปรไฟล์ของฉัน </button>
+                        <button class="dropdown-item" type="button" routerLink="/profile-user"> โปรไฟล์ของฉัน </button>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="/order-history"> ประวัติการสั่งซื้อ </a>
+                    </li>
+                    <li class="nav-item" *ngIf="checkLogin">
+                        <a class="nav-link btn-outline-primary rounded-pill px-3" (click)="logout()"> ออกจากระบบ </a>
                     </li>
                     <!-- <li class="nav-item" *ngIf="role=='AFFILIATE' || role=='ST_AF'" routerLink="/profile-user">
                         <button class="dropdown-item" type="button" (click)="checkProfile('affiliate')">

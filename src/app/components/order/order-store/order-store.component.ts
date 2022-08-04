@@ -21,24 +21,8 @@ export class OrderStoreComponent implements OnInit {
 
 
   constructor(public callApi: CallApiService, private alert: AlertService, private fb: FormBuilder) {
-    this.formOrder = fb.group({
-      orderListId: [null],
-      price: [null],
-      time: [null],
-      date: [null],
-      status: [null]
-    })
   }
 
-  patchValue(receiveOrder: orderList) {
-    this.formOrder.patchValue({
-      orderListId: receiveOrder.orderListId,
-      price: receiveOrder.price,
-      time: receiveOrder.time,
-      date: receiveOrder.date,
-      status: receiveOrder.status,
-    })
-  }
 
 
 

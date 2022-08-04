@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { store } from 'src/app/models/store';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CookieServiceService } from 'src/app/services/cookie-service.service';
+import { ProfileUserComponent } from '../profile-user/profile-user.component';
 
 @Component({
   selector: 'app-profile-store',
@@ -19,7 +21,7 @@ export class ProfileStoreComponent implements OnInit {
   user?: string = undefined;
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService,
-    private fb: FormBuilder, private router: Router) {
+    private fb: FormBuilder, private router: Router,  public dialogRef: MatDialogRef<ProfileUserComponent>) {
     this.formProfile = fb.group({
       store: [null],
       bankName: [null],
@@ -55,7 +57,12 @@ export class ProfileStoreComponent implements OnInit {
   editProfileStore() {
     this.callApi.editProfileStore(this.formProfile.value).subscribe(data => {
       console.log(data);
+      this. closeDialog()
     })
+  }
+
+  closeDialog() {
+    this.dialogRef.close();
   }
 
 }

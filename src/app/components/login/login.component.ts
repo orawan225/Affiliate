@@ -30,8 +30,6 @@ export class LoginComponent implements OnInit {
     this.callApi.loginUser(this.formLogin.value).subscribe((res: any) => {
       this.cookie.setToken(res.data.token)
       let role = this.cookie.helper$.decodeToken(res.data.token).role
-      console.log(role);
-      
       this.cookie.setRoleAccount(role.trim())
       this.alert.success("เข้าสู่ระบบสำเร็จ")
       setTimeout(() => {

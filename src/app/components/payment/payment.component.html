@@ -22,43 +22,42 @@
                                 <span class="fw-bold"> หลักฐานในการชำระเงิน </span>
                             </a>
                         </div>
-                        <form [formGroup]="formPayment" (ngSubmit)="createPayment()">
-                            <div class="row">
-                                <div class="image mt-2">
-                                    <img [src]="img" alt="avatar" class="img-fluid">
-                                    <input type="file" #file placeholder="เลือกรูปภาพ" style="display: none;" (change)="selectFile($event)">
-                                    <div class="flex-parent jc-center">
-                                        <button type="button" class="btn btn-success" (click)="file.click()">
-                                                เลือกรูปภาพ
-                                            </button>
-                                    </div>
-                                </div>
 
-                                <div class="col">
-                                    <!-- <div class="row mt-4">
-                                        <div class="col-lg-12 col-12 mt-3">
-                                            <label for="date" class="form-label"> จำนวนเงิน </label>
-                                            <input type="text" name="date" id="date" class="form-control" formControlName="price">
-                                        </div>
-                                        <div class="col-lg-6 col-6 mt-3">
-                                            <label for="time" class="form-label"> วันที่ที่ชำระเงิน </label>
-                                            <input type="text" name="time" id="time" class="form-control" formControlName="day">
-                                        </div>
-                                        <div class="col-lg-6 col-6 mt-3">
-                                            <label for="time" class="form-label"> เวลาที่ชำระเงิน </label>
-                                            <input type="text" name="time" id="time" class="form-control" formControlName="time">
-                                        </div>
-                                    </div> -->
-                                    <div class="row mt-2">
-                                        <div class="button">
-                                            <button type="submit" class="btn btn-outline-primary">
-                                                ยืนยัน
-                                            </button>
-                                        </div>
+                        <!-- <form [formGroup]="formPayment" (ngSubmit)="createPayment()"> -->
+                        <div class="row">
+                            <div class="image mt-2">
+                                <img [src]="img" alt="avatar" class="img-fluid">
+                                <input type="file" #file placeholder="เลือกรูปภาพ" style="display: none;" (change)="selectFile($event)">
+                                <div class="flex-parent jc-center">
+                                    <button type="button" class="btn btn-success" (click)="file.click()">
+                                            เลือกรูปภาพ
+                                        </button>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <!-- <div class="row mt-4">
+                                    <div class="col-lg-12 col-12 mt-3">
+                                        <label for="date" class="form-label"> จำนวนเงิน </label>
+                                        <input type="text" name="date" id="date" class="form-control" formControlName="price">
+                                    </div>
+                                    <div class="col-lg-6 col-6 mt-3">
+                                        <label for="time" class="form-label"> วันที่ที่ชำระเงิน </label>
+                                        <input type="text" name="time" id="time" class="form-control" formControlName="day">
+                                    </div>
+                                    <div class="col-lg-6 col-6 mt-3">
+                                        <label for="time" class="form-label"> เวลาที่ชำระเงิน </label>
+                                        <input type="text" name="time" id="time" class="form-control" formControlName="time">
+                                    </div>
+                                </div> -->
+                                <div class="row mt-2">
+                                    <div class="button">
+                                        <button type="button" class="btn btn-outline-primary" (click)="createPayment()"> ยืนยัน </button>
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                        </div>
+                        <!-- </form> -->
                     </div>
                 </div>
             </div>

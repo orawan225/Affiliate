@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { profile } from 'src/app/models/profile';
+import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CookieServiceService } from 'src/app/services/cookie-service.service';
 import { environment } from 'src/environments/environment';
@@ -29,7 +30,7 @@ export class ProfileUserComponent implements OnInit {
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService,
     private ref: ChangeDetectorRef, private fb: FormBuilder, private router: Router,
-    private dialog: MatDialog) {
+    private dialog: MatDialog,private alert: AlertService) {
     this.formProfile = fb.group({
       fullName: [null],
       email: [null],
@@ -63,6 +64,7 @@ export class ProfileUserComponent implements OnInit {
   profileUser() {
     const dialogRef = this.dialog.open(ProfileUpdateComponent);
     dialogRef.afterClosed().subscribe(result => {
+      this.alert.success("แก้ไขข้อมูลสำเร็จ")
       this.getProfile()
     });
   }
@@ -70,7 +72,7 @@ export class ProfileUserComponent implements OnInit {
   profileStore() {
     const dialogRef = this.dialog.open(ProfileStoreComponent);
     dialogRef.afterClosed().subscribe(result => {
-
+      this.alert.success("แก้ไขข้อมูลร้านค้าสำเร็จ")
       this.getProfile()
     });
   }
@@ -78,6 +80,7 @@ export class ProfileUserComponent implements OnInit {
   profileAffiliate() {
     const dialogRef = this.dialog.open(ProfileAffiliateComponent);
     dialogRef.afterClosed().subscribe(result => {
+      this.alert.success("แก้ไขข้อมูลAffiliateสำเร็จ")
       this.getProfile()
     });
   }
@@ -102,6 +105,7 @@ export class ProfileUserComponent implements OnInit {
     data.append('profile', JSON.stringify(this.formProfile.value))
     this.callApi.editProfile(data).subscribe(data => {
       console.log(data);
+      this.alert.success("แก้ไขรูปโปรไฟล์สำเร็จ")
     })
 
   }
