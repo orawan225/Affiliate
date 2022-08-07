@@ -17,7 +17,7 @@
                             <tr>
                                 <th style=" width: 5%;;"> วันที่ </th>
                                 <th style=" width: 5%;"> สินค้า </th>
-                                <th style=" width: 5%;"> จำนวน </th>
+                                <th style=" width: 2%;"> จำนวน </th>
                                 <th style=" width: 5%;"> ราคา </th>
                                 <th style=" width: 5%;"> ยอดสุทธิ </th>
                                 <th style=" width: 10%;"> ที่อยู่ในการจัดส่ง </th>
@@ -37,9 +37,9 @@
                                 <td> {{product.amount}} </td>
                                 <td> {{product.productPrice}} </td>
                                 <td> {{product.productTotal}} </td>
-                                <td> ชื่อผู้รับ : {{profile.fullName}}
-                                    <br> เบอร์โทรศัพท์ : {{profile.tel}}
-                                    <br> ที่อยู่ในการจัดส่ง : {{profile.address}} {{profile.sub}} {{profile.district}} {{profile.province}} {{profile.postalCode}}
+                                <td> ชื่อผู้รับ : {{product.fullName}}
+                                    <br> เบอร์โทรศัพท์ : {{product.tel}}
+                                    <br> ที่อยู่ในการจัดส่ง : {{product.address}} ตำล : {{product.sub}} อำเภอ :{{product.district}} จังหวัด : {{product.province}} รหัสไปรษณีย์ : {{product.postalCode}}
                                 </td>
                                 <td>
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">

@@ -128,7 +128,6 @@ export class PaymentComponent implements OnInit {
     image.readAsDataURL(this.file)
     image.onload = () => {
       this.img = image.result
-      console.log(this.img);
     }
   }
 

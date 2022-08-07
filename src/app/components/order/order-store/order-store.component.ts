@@ -23,9 +23,6 @@ export class OrderStoreComponent implements OnInit {
   constructor(public callApi: CallApiService, private alert: AlertService, private fb: FormBuilder) {
   }
 
-
-
-
   ngOnInit(): void {
     this.getAllOrderByStore()
   }

@@ -1,11 +1,10 @@
 export class product {
-    productId?: string
+    productId?: number
     productName?: string
     productPrice?: number
     productDetail?: string
     status?: boolean
     created?: Date
     updated?: Date
-    storeId?: Number
     image?: string
 }

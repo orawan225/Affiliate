@@ -30,10 +30,8 @@ export class ProductEditComponent implements OnInit {
 
     acrout.queryParams.subscribe((res: any) => {
       this.productId = res.id
-      console.log(this.productId);
     })
 
-    
   }
 
   patchValue(receiveProduct: product) {
@@ -44,7 +42,6 @@ export class ProductEditComponent implements OnInit {
     })
   }
 
-
   ngOnInit(): void {
     this.getProductById()
   }
@@ -52,21 +49,22 @@ export class ProductEditComponent implements OnInit {
   getProductById() {
     this.callApi.getProductById(this.productId).subscribe(res => {
       this.product = res
-      this.img = this.api+res.image
+      this.img = this.api + res.image
       this.patchValue(res)
-      console.log(this.formProduct);
     })
   }
 
 
-  editProductById(productId: string) {
-    delete this.formProduct.value.productId
+  editProductById() {
+    // delete this.formProduct.value.productId
+    console.log(this.formProduct.value);
+
     const data = new FormData()
-    if(this.file) {
+    if (this.file) {
       data.append('file', this.file, this.file.name)
     }
     data.append('product', JSON.stringify(this.formProduct.value))
-    this.callApi.editProductById(productId, data).subscribe(data => {
+    this.callApi.editProductById(this.productId, data).subscribe(data => {
       console.log(data);
       this.alert.success("แก้ไขสำเร็จ")
       setTimeout(() => {
@@ -81,7 +79,6 @@ export class ProductEditComponent implements OnInit {
     image.readAsDataURL(this.file)
     image.onload = () => {
       this.img = image.result
-      console.log(this.img);
     }
   }
 

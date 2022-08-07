@@ -47,7 +47,7 @@ export class ProductStoreComponent implements OnInit {
     })
   }
 
-  setProductIdtolocal(productId: string) {
+  setProductIdtolocal(productId: any) {
     this.router.navigate(['/product-edit'], {queryParams: {id:productId}})
   }
 
