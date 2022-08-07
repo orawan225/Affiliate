@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { async } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { firstValueFrom, lastValueFrom } from 'rxjs';
 import { product } from 'src/app/models/product';
 import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
@@ -26,6 +28,8 @@ export class PaymentComponent implements OnInit {
   orderList: any
 
 
+  productApiforCheckStatus: any = [];
+
 
 
   constructor(private fb: FormBuilder, public cartService: CartService, private callApi: CallApiService,
@@ -49,6 +53,10 @@ export class PaymentComponent implements OnInit {
   ngOnInit(): void {
     this.getProductByStoreId()
     this.getProfile()
+
+
+    this.getProductById();
+
   }
 
   getProfile() {
@@ -90,17 +98,41 @@ export class PaymentComponent implements OnInit {
     })
   }
 
+  getProductById() {
+    this.productList.map((item: any, index: number) => {
+      this.callApi.getProductById(item.productId).subscribe((res: any) => {
+        this.productApiforCheckStatus[index] = res;
+      });
+    })
+  }
+
+
   addOrderDetail() {
 
-    var product = this.productList.filter((product: any) => {
-      var products = {
-        "productId": product.productId,
-        "amount": product.amount,
+    var products: any = [];
+    var productStatusFalse: any = [];
+    this.productList.map((item: any, index: number) => {
+      if (this.productApiforCheckStatus[index].status) {
+        products.push(
+          {
+            "productId": item.productId,
+            "amount": item.amount,
+          }
+        )
       }
-      return products;
-    })
+      else {
+        productStatusFalse.push(item);
+        this.cartService.remove(item.productId);
+        this.alert.error(` ${item.productName} หมดแล้ว`);
+        this.getProductByStoreId()
+      }
+    });
 
-    console.log(product);
+    console.log(this.productApiforCheckStatus);
+
+    console.log(products);
+
+
     this.orderList = this.fb.group({
       fullName: this.profile.fullName,
       tel: this.profile.tel,
@@ -109,17 +141,20 @@ export class PaymentComponent implements OnInit {
       district: this.profile.district,
       province: this.profile.province,
       postalCode: this.profile.postalCode,
-      products: [product]
+      storeId: this.profile.store.storeId,
+      products: [products]
     })
     console.log(this.orderList);
-    console.log(this.productList);
-    this.callApi.addOrderDetail(this.orderList.value).subscribe((res: any) => {
-      console.log(res);
-      this.alert.success("สั่งซื้อสินค้าสำเร็จ")
-      setTimeout(() => {
-        this.router.navigate(['/home'])
-      }, 1000);
-    })
+    if (productStatusFalse.length == 0) {
+      this.callApi.addOrderDetail(this.orderList.value).subscribe((res: any) => {
+        console.log(res);
+        this.alert.success("สั่งซื้อสินค้าสำเร็จ")
+        setTimeout(() => {
+          this.router.navigate(['/home'])
+        }, 1000);
+      })
+    }
+
   }
 
   selectFile(event: any) {
