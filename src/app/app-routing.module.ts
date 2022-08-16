@@ -5,6 +5,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { OrderHistoryComponent } from './components/order/order-history/order-history.component';
+import { OrderProductComponent } from './components/order/order-product/order-product.component';
 import { OrderStoreComponent } from './components/order/order-store/order-store.component';
 
 import { PaymentComponent } from './components/payment/payment.component';
@@ -44,6 +45,8 @@ const routes: Routes = [
   // { path: 'profile-affiliate', component: ProfileAffiliateComponent },
   { path: 'order-history', component: OrderHistoryComponent, canActivate: [GuardService]},
   { path: 'order-store', component: OrderStoreComponent, canActivate: [GuardStoreService]},
+  { path: 'order-product', component: OrderProductComponent, canActivate: [GuardStoreService]},
+  { path: 'payment', component: PaymentComponent, canActivate: [GuardStoreService]},
 
 ];
 

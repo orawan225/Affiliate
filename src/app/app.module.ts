@@ -21,7 +21,7 @@ import { NavbarHeaderComponent } from './components/navbar/navbar-header/navbar-
 import { NavbarFooterComponent } from './components/navbar/navbar-footer/navbar-footer.component';
 import { NavbarLoginComponent } from './components/navbar/navbar-login/navbar-login.component';
 import { NavbarRegisterComponent } from './components/navbar/navbar-register/navbar-register.component';
-import { NavbarStoreComponent } from './components/navbar/navbar-store/navbar-store.component';
+
 
 // <---- Regisger --->
 import { RegisterUserComponent } from './components/register/register-user/register-user.component';
@@ -52,6 +52,7 @@ import { PaymentComponent } from './components/payment/payment.component';
 
 import { OrderHistoryComponent } from './components/order/order-history/order-history.component';
 import { OrderStoreComponent } from './components/order/order-store/order-store.component';
+import { OrderProductComponent } from './components/order/order-product/order-product.component';
 
 
 
@@ -64,7 +65,6 @@ import { OrderStoreComponent } from './components/order/order-store/order-store.
     NavbarFooterComponent,
     NavbarLoginComponent,
     NavbarRegisterComponent,
-    NavbarStoreComponent,
     RegisterUserComponent,
     RegisterCustomerComponent,
     RegisterStoreComponent,
@@ -81,7 +81,8 @@ import { OrderStoreComponent } from './components/order/order-store/order-store.
     OrderStoreComponent,
     ProfileStoreComponent,
     ProfileAffiliateComponent,
-    ProductShareComponent
+    ProductShareComponent,
+    OrderProductComponent
   ],
   imports: [
     BrowserModule,

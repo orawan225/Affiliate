@@ -56,7 +56,6 @@ export class ProductEditComponent implements OnInit {
 
 
   editProductById() {
-    // delete this.formProduct.value.productId
     console.log(this.formProduct.value);
 
     const data = new FormData()

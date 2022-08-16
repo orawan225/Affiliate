@@ -40,7 +40,7 @@ export class CartComponent implements OnInit {
   }
 
   getCart(storeId: any) {
-    this.router.navigate(['/payment'])
+    this.router.navigate(['/order-product'])
     localStorage.setItem("storeId", JSON.stringify(storeId));
   }
 

@@ -94,8 +94,6 @@ export class CallApiService {
   }
 
   public editProductById(productId: any, product: any) {
-    console.log(productId);
-    
     return this.http.put<product>(`${environment.apiUrl}/product/update-product/${productId}`, product, this.header())
 
   }
@@ -107,8 +105,8 @@ export class CallApiService {
 
   //Order
 
-  public createOrder(data: any) {
-    return this.http.post<orderList>(`${environment.apiUrl}/order/create-order`, data, this.header())
+  public createOrder(orderId: string, order: orderList) {
+    return this.http.put<orderList>(`${environment.apiUrl}/order-list/add-silp-by-order/${orderId}`, order, this.header())
   }
 
   public getAllOrderByStore() {
@@ -125,5 +123,9 @@ export class CallApiService {
 
   public getAllByStoreId() {
     return this.http.get<orderDetail>(`${environment.apiUrl}/order-detail/getAllByStoreId`,this.header())
+  }
+  
+  public getAllOrderDetail() {
+    return this.http.get<orderDetail>(`${environment.apiUrl}/order-detail/getAllOrder`,this.header())
   }
 }
