@@ -71,8 +71,4 @@ export class ProductDetailComponent implements OnInit {
     })
   }
 
-  checkProfile(role: any) {
-    this.cookie.setRoleAccount(role)
-  }
-
 }

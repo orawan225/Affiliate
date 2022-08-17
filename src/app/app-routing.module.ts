@@ -45,7 +45,7 @@ const routes: Routes = [
   // { path: 'profile-affiliate', component: ProfileAffiliateComponent },
   { path: 'order-history', component: OrderHistoryComponent, canActivate: [GuardService]},
   { path: 'order-store', component: OrderStoreComponent, canActivate: [GuardStoreService]},
-  { path: 'order-product', component: OrderProductComponent, canActivate: [GuardStoreService]},
+  { path: 'order-product', component: OrderProductComponent, canActivate: [GuardService]},
   { path: 'payment', component: PaymentComponent, canActivate: [GuardStoreService]},
 
 ];
