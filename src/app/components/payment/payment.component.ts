@@ -4,10 +4,12 @@ import { FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { firstValueFrom, lastValueFrom } from 'rxjs';
+import { orderDetail, orderList } from 'src/app/models/order';
 import { product } from 'src/app/models/product';
 import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CartService } from 'src/app/services/cart.service';
+import { CookieServiceService } from 'src/app/services/cookie-service.service';
 import { ProfileUpdateComponent } from '../profile/profile-update/profile-update.component';
 
 @Component({
@@ -25,45 +27,62 @@ export class PaymentComponent implements OnInit {
   profile: any = []
   TotalAmount: any
   TotalPrice: any
-  orderList: any
+  orderListId: any
   producs: any
-
+  user?: string = undefined;
 
   productApiforCheckStatus: any = [];
 
+  orderList: orderList = new orderList()
+  count = 0
 
 
-  constructor(public cartService: CartService, private callApi: CallApiService,
+  constructor(public cartService: CartService, private callApi: CallApiService, private cookie: CookieServiceService,
     private router: Router, private acrout: ActivatedRoute) {
 
-    // acrout.queryParams.subscribe((res: any) => {
-    //   this.orderListId = res.id
-    // })
+    this.user = cookie.getUserId();
+    console.log(this.user);
+
+    acrout.queryParams.subscribe((res: any) => {
+      this.orderListId = res.id
+      this.getProductByStoreId(res.id)
+    })
 
   }
 
   ngOnInit(): void {
-    this.getProductByStoreId()
+
+    this.user = this.cookie.getUserId();
+    console.log(this.user);
 
   }
 
 
-  getProductByStoreId() {
-    this.callApi.getAllOrderDetail().subscribe((res: any) => {
-      this.productList = res
+
+
+  getProductByStoreId(orderId: any) {
+    this.callApi.getOrderDetail(orderId).subscribe((res: orderList) => {
+      // this.productList = res.detail
+      this.orderList = res
       console.log(res);
-      
+      this.orderList.totalAmount = 0
+      this.orderList.detail.forEach((element: orderDetail) => {
+        console.log(typeof element.amount);
+
+        this.orderList.totalAmount += element.amount
+      });
+      console.log(this.orderList);
+
     })
   }
 
 
-  createPayment(orderListId: any) {
+  createPayment() {
     let fileData = new FormData()
     fileData.append('file', this.file, this.file.name)
-
-    // this.callApi.createOrder(orderListId, fileData).subscribe((res: any) => {
-    //   console.log(res);
-    // })
+    this.callApi.createPayment(this.orderListId, fileData).subscribe((res: any) => {
+      console.log(res);
+    })
   }
 
 

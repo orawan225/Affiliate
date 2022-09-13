@@ -22,3 +22,7 @@ thead {
 img {
     width: 400px;
 }
+
+.btn-primary {
+    width: 80%;
+}

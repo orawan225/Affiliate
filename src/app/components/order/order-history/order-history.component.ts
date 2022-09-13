@@ -40,24 +40,15 @@ export class OrderHistoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllOrderByStore()
-    this.getProfile()
   }
 
   getAllOrderByStore() {
     this.callApi.getAllOrderByStore().subscribe((res: any) => {
       this.ordertList = res
       console.log(res);
-      console.log(this.ordertList);
-      
     })
   }
 
-  getProfile() {
-    this.callApi.getProfile().subscribe((res: any) => {
-      this.profile = res.data.profile
-      console.log(this.profile);
-    })
-  }
 
   checkStatusOrderById(orderListId: string) {
     console.log(orderListId);

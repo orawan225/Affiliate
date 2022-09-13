@@ -17,7 +17,6 @@ export class OrderProductComponent implements OnInit {
   productList: any = []
   formPayment: any
   file: any
-  img: any = 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp'
   formAddress: any
   profile: any = []
   TotalAmount: any
@@ -33,16 +32,14 @@ export class OrderProductComponent implements OnInit {
     private dialog: MatDialog, private router: Router, private alert: AlertService) { }
 
   ngOnInit(): void {
-    this.getProductByStoreId()
     this.getProfile()
+    this.getProductByStoreId()
     this.getProductById();
-
   }
 
   getProfile() {
     this.callApi.getProfile().subscribe((res: any) => {
       this.profile = res.data.profile
-      console.log(this.profile);
     })
   }
 
@@ -81,8 +78,6 @@ export class OrderProductComponent implements OnInit {
     var products: any = [];
     var productStatusFalse: any = [];
     this.productList.map((item: any, index: number) => {
-      console.log(this.productApiforCheckStatus);
-      
       if (this.productApiforCheckStatus[index].status) {
         products.push(
           {
@@ -98,8 +93,6 @@ export class OrderProductComponent implements OnInit {
         this.getProductByStoreId()
       }
     });
-
-    console.log(this.productApiforCheckStatus);
 
     console.log(products);
 
@@ -121,24 +114,19 @@ export class OrderProductComponent implements OnInit {
         console.log(res);
         this.alert.success("สั่งซื้อสินค้าสำเร็จ")
         setTimeout(() => {
-          this.router.navigate(['/payment'])
+          this. setOrderListId(res.orderListId)
+          // this.router.navigate(['/payment'])
+
         }, 1000);
       })
     }
 
   }
 
-  // setProductIdtolocal(orderListId : string) {
-  //   this.router.navigate(['/payment'],{queryParams: {id:orderListId}})
-  // }
-
-  selectFile(event: any) {
-    this.file = <File>event.target.files[0]
-    const image = new FileReader();
-    image.readAsDataURL(this.file)
-    image.onload = () => {
-      this.img = image.result
-    }
+  setOrderListId(orderListId : string) {
+    this.router.navigate(['/payment'],{queryParams: {id:orderListId}})
+    console.log(orderListId);
   }
 
 }
+

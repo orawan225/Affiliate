@@ -14,7 +14,7 @@ import { environment } from 'src/environments/environment';
 export class OrderStoreComponent implements OnInit {
 
   formOrder: any
-  ordertList: any = []
+  ordertList: orderList[] = new Array<orderList>()
   file: any
   api = environment.apiUrl
   profile: any = []
@@ -25,17 +25,28 @@ export class OrderStoreComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllOrderByStore()
+    // this.getProductByStoreId()
   }
 
   getAllOrderByStore() {
-    this.callApi.getAllOrderByStore().subscribe((res: any) => {
+    this.callApi.getAllOrderByStore().subscribe((res: orderList[]) => {
       this.ordertList = res
       console.log(this.ordertList);
     })
   }
 
+  
+  // getProductByStoreId() {
+  //   this.callApi.getAllOrderDetail().subscribe((res: any) => {
+  //     this.ordertList = res
+  //     console.log(res);
+      
+  //   })
+  // }
 
-  checkStatusOrderById(orderListId: string) {
+
+
+  checkStatusOrderById(orderListId: any) {
     this.alert.confirm("ทำการแพ็คสินค้าเรียบร้อยหรือไม่ ?").then((result) => {
       if (result.isConfirmed) {
         this.callApi.checkStatusOrderById(orderListId, this.formOrder.value).subscribe(data => {

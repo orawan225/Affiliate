@@ -105,12 +105,12 @@ export class CallApiService {
 
   //Order
 
-  public createOrder(orderId: string, order: orderList) {
-    return this.http.put<orderList>(`${environment.apiUrl}/order-list/add-silp-by-order/${orderId}`, order, this.header())
+  public createPayment(orderId: string, order: any) {
+    return this.http.put<orderList>(`${environment.apiUrl}/order-list/add-slip-by-order/${orderId}`, order, this.header())
   }
 
   public getAllOrderByStore() {
-    return this.http.get<product>(`${environment.apiUrl}/order-detail/getAllByStoreId`, this.header())
+    return this.http.get<orderList[]>(`${environment.apiUrl}/order-list/getMyOrderList`, this.header())
   }
 
   public checkStatusOrderById(orderId: string, order: orderList) {
@@ -125,7 +125,8 @@ export class CallApiService {
     return this.http.get<orderDetail>(`${environment.apiUrl}/order-detail/getAllByStoreId`,this.header())
   }
   
-  public getAllOrderDetail() {
-    return this.http.get<orderDetail>(`${environment.apiUrl}/order-detail/getAllOrder`,this.header())
+  public getOrderDetail(orderId: any) {
+    return this.http.get<orderList>(`${environment.apiUrl}/order-list/getOrderDetail?id=${orderId}`,this.header())
   }
+
 }

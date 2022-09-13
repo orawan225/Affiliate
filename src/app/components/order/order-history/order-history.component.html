@@ -15,14 +15,12 @@
                     <table>
                         <thead>
                             <tr>
-                                <th style=" width: 5%;;"> วันที่ </th>
+                                <th style=" width: 3%;;"> วันที่ </th>
                                 <th style=" width: 5%;"> สินค้า </th>
-                                <th style=" width: 5%;"> จำนวน </th>
-                                <th style=" width: 5%;"> ราคา </th>
+                                <th style=" width: 3%;"> จำนวนทั้งหมด/ชิ้น </th>
                                 <th style=" width: 5%;"> ยอดสุทธิ </th>
                                 <th style=" width: 10%;"> ที่อยู่ในการจัดส่ง </th>
                                 <th style=" width: 5%;"> หลักฐานในการชำระเงิน </th>
-                                <th style=" width: 5%;"> </th>
                             </tr>
                         </thead>
                         <br>
@@ -32,16 +30,55 @@
                                 <td> {{product.date | date: 'HH:mm:ss'}}
                                     <br> {{product.date | date:' d/M/yyyy'}}
                                 </td>
-                                <td> สินค้า </td>
+                                <td>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#Modal">
+                                        รายการสินค้า
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title" id="exampleModalLabel"> รายการสินค้า </h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <table>
+                                                        <thead>
+                                                            <tr>
+                                                                <th style=" width: 5%;"> สินค้า </th>
+                                                                <th style=" width: 3%;"> จำนวน/ชิ้น </th>
+                                                                <th style=" width: 5%;"> ราคา </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <br>
+
+                                                        <tbody *ngFor="let product of ordertList">
+                                                            <tr *ngIf="product.status === 'payment'">
+                                                                <td> สินค้า </td>
+                                                                <td> จำนวน </td>
+                                                                <td> ราคา </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
                                 <td> จำนวน </td>
-                                <td> {{product.price}} </td>
                                 <td> ราคารวม </td>
-                                <td> ชื่อผู้รับ : {{profile.fullName}}
-                                    <br> เบอร์โทรศัพท์ : {{profile.tel}}
-                                    <br> ที่อยู่ในการจัดส่ง : {{profile.address}} {{profile.sub}} {{profile.district}} {{profile.province}} {{profile.postalCode}}
+                                <td> ชื่อผู้รับ : {{product.fullName}}
+                                    <br> เบอร์โทรศัพท์ : {{product.tel}}
+                                    <br> ที่อยู่ในการจัดส่ง : {{product.address}} ตำล : {{product.sub}} อำเภอ : {{product.district}} จังหวัด : {{product.province}} รหัสไปรษณีย์ : {{product.postalCode}}
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         หลักฐานในการชำระเงิน
                                     </button>
                                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -56,9 +93,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-success" (click)="checkStatusOrderById(product.orderListId)"> ยืนยัน </button>
                                 </td>
                             </tr>
                         </tbody>
