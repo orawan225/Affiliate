@@ -16,7 +16,7 @@ export class ProductStoreComponent implements OnInit {
   products: any
   formProduct: any
   api = environment.apiUrl
-
+  
   constructor(private callApi: CallApiService, private router: Router, private fb: FormBuilder, private alert: AlertService) {
     this.formProduct = fb.group({
       productId: [null],
@@ -60,6 +60,14 @@ export class ProductStoreComponent implements OnInit {
         })
         this.alert.success("ลบสินค้าสำเร็จ")
       }
+    })
+  }
+
+
+  searchProduct(keyword: string) {
+    this.callApi.getSearchProduct(keyword).subscribe((res: any) => {
+     this.products = res
+      console.log(res);   
     })
   }
 

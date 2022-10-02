@@ -128,5 +128,9 @@ export class CallApiService {
   public getOrderDetail(orderId: any) {
     return this.http.get<orderList>(`${environment.apiUrl}/order-list/getOrderDetail?id=${orderId}`,this.header())
   }
+  
+  public getSearchProduct(product: string) {
+    return this.http.get<product>(`${environment.apiUrl}/auth/product-search?keyword=${product}`)
+  }
 
 }

@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { affiliate } from 'src/app/models/affiliate';
+import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CookieServiceService } from 'src/app/services/cookie-service.service';
 import { ProfileUserComponent } from '../profile-user/profile-user.component';
@@ -21,7 +22,7 @@ export class ProfileAffiliateComponent implements OnInit {
   user?: string = undefined;
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService,
-    private fb: FormBuilder, private router: Router,  public dialogRef: MatDialogRef<ProfileUserComponent>) {
+    private fb: FormBuilder, private router: Router,  public dialogRef: MatDialogRef<ProfileUserComponent>, private alert: AlertService) {
     this.formProfile = fb.group({
       bankName: [null],
       bankNameAccount: [null],
@@ -60,6 +61,7 @@ export class ProfileAffiliateComponent implements OnInit {
     // data.append('profile', JSON.stringify(this.formProfile.value))
     this.callApi.editProfileAffiliate(this.formProfile.value).subscribe(data => {
       console.log(data);
+      this.alert.success("แก้ไขข้อมูลสำเร็จ")
       this. closeDialog()
     })
   }

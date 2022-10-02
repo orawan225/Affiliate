@@ -15,29 +15,26 @@
                     <table>
                         <thead>
                             <tr>
-                                <th style=" width: 3%;;"> วันที่ </th>
+                                <th style=" width: 5%;;"> วันที่ </th>
                                 <th style=" width: 5%;"> สินค้า </th>
-                                <th style=" width: 3%;"> จำนวนทั้งหมด/ชิ้น </th>
-                                <th style=" width: 5%;"> ยอดสุทธิ </th>
                                 <th style=" width: 10%;"> ที่อยู่ในการจัดส่ง </th>
                                 <th style=" width: 5%;"> หลักฐานในการชำระเงิน </th>
                             </tr>
                         </thead>
                         <br>
 
-                        <tbody *ngFor="let product of ordertList">
-                            <tr *ngIf="product.status === 'payment'">
-                                <td> {{product.date | date: 'HH:mm:ss'}}
-                                    <br> {{product.date | date:' d/M/yyyy'}}
+                        <tbody *ngFor="let order of ordertList ; let i = index">
+                            <tr *ngIf="order.status === 'payment'">
+                                <td> {{order.date | date: 'HH:mm:ss'}}
+                                    <br> {{order.date | date:' d/M/yyyy'}}
                                 </td>
                                 <td>
-                                    <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#Modal">
+                                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#Modal'+i">
                                         รายการสินค้า
                                     </button>
 
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                                    <div class="modal fade" [attr.id]="'Modal'+i" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -54,15 +51,17 @@
                                                             </tr>
                                                         </thead>
                                                         <br>
-
-                                                        <tbody *ngFor="let product of ordertList">
-                                                            <tr *ngIf="product.status === 'payment'">
-                                                                <td> สินค้า </td>
-                                                                <td> จำนวน </td>
-                                                                <td> ราคา </td>
+                                                        <tbody>
+                                                            <tr *ngFor="let res of order.detail">
+                                                                <td> {{res.productName}} </td>
+                                                                <td> {{res.amount}} </td>
+                                                                <td> {{res.productPrice}} </td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
+                                                </div>
+                                                <div class="totalPrice">
+                                                    ยอดสุทธิ {{order.totalPrice}} บาท
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -70,25 +69,24 @@
                                             </div>
                                         </div>
                                     </div>
+
                                 </td>
-                                <td> จำนวน </td>
-                                <td> ราคารวม </td>
-                                <td> ชื่อผู้รับ : {{product.fullName}}
-                                    <br> เบอร์โทรศัพท์ : {{product.tel}}
-                                    <br> ที่อยู่ในการจัดส่ง : {{product.address}} ตำล : {{product.sub}} อำเภอ : {{product.district}} จังหวัด : {{product.province}} รหัสไปรษณีย์ : {{product.postalCode}}
+                                <td> ชื่อผู้รับ : {{order.fullName}}
+                                    <br> เบอร์โทรศัพท์ : {{order.tel}}
+                                    <br> ที่อยู่ในการจัดส่ง : {{order.address}} ตำล : {{order.sub}} อำเภอ : {{order.district}} จังหวัด : {{order.province}} รหัสไปรษณีย์ : {{order.postalCode}}
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        หลักฐานในการชำระเงิน
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#exampleModal'+i">
+                                        หลักฐานการชำระเงิน
                                     </button>
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" [attr.id]="'exampleModal'+i" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-body">
-                                                    <img class="card-img-top" [src]="api+product.image" alt="...">
+                                                    <img class="card-img-top" [src]="api+order.image" alt="...">
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Close </button>
                                                 </div>
                                             </div>
                                         </div>

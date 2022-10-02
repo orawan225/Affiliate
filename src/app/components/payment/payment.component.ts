@@ -83,6 +83,7 @@ export class PaymentComponent implements OnInit {
     this.callApi.createPayment(this.orderListId, fileData).subscribe((res: any) => {
       console.log(res);
     })
+    this.router.navigate(['/home'])
   }
 
 

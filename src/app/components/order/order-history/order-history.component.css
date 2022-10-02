@@ -22,3 +22,9 @@ thead {
 img {
     width: 400px;
 }
+
+.totalPrice {
+    text-align: end;
+    margin-right: 2rem;
+    color: rgb(255, 0, 0);
+}

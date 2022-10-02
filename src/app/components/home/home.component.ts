@@ -30,4 +30,11 @@ export class HomeComponent implements OnInit {
   setProductIdtolocal(productId : string) {
     this.router.navigate(['/product-detail'],{queryParams: {id:productId}})
   }
+
+  searchProduct(keyword: string) {
+    this.callApi.getSearchProduct(keyword).subscribe((res: any) => {
+     this.product = res
+      console.log(res);   
+    })
+  }
 }
