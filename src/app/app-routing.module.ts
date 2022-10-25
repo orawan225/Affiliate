@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AffiliateComponent } from './components/admin/affiliate/affiliate.component';
+import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
+import { StoreComponent } from './components/admin/store/store.component';
+import { UserComponent } from './components/admin/user/user.component';
 
 import { CartComponent } from './components/cart/cart.component';
 import { HomeComponent } from './components/home/home.component';
@@ -47,6 +51,10 @@ const routes: Routes = [
   { path: 'order-store', component: OrderStoreComponent, canActivate: [GuardStoreService]},
   { path: 'order-product', component: OrderProductComponent, canActivate: [GuardService]},
   { path: 'payment', component: PaymentComponent, canActivate: [GuardStoreService]},
+  { path: 'dashboard', component: DashboardComponent},
+  { path: 'user', component: UserComponent},
+  { path: 'affiliate', component: AffiliateComponent},
+  { path: 'store', component: StoreComponent},
 
 ];
 

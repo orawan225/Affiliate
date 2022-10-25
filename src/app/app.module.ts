@@ -13,7 +13,14 @@ import { AppComponent } from './app.component';
 
 // <--- Material --->
 import {MatDialogModule} from '@angular/material/dialog';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
+// import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatSliderModule } from '@angular/material/slider';
+import {MatNativeDateModule} from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
 
 
 // <---- Navbar --->
@@ -55,6 +62,13 @@ import { OrderStoreComponent } from './components/order/order-store/order-store.
 import { OrderProductComponent } from './components/order/order-product/order-product.component';
 
 
+// <---- Admin --->
+import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
+import { UserComponent } from './components/admin/user/user.component';
+import { AffiliateComponent } from './components/admin/affiliate/affiliate.component';
+import { StoreComponent } from './components/admin/store/store.component';
+
+
 
 
 @NgModule({
@@ -82,7 +96,11 @@ import { OrderProductComponent } from './components/order/order-product/order-pr
     ProfileStoreComponent,
     ProfileAffiliateComponent,
     ProductShareComponent,
-    OrderProductComponent
+    OrderProductComponent,
+    DashboardComponent,
+    UserComponent,
+    AffiliateComponent,
+    StoreComponent
   ],
   imports: [
     BrowserModule,
@@ -94,7 +112,15 @@ import { OrderProductComponent } from './components/order/order-product/order-pr
     BrowserAnimationsModule,
     ShareButtonsModule,
     ShareIconsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatSliderModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatIconModule,
+    MatCardModule
+
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

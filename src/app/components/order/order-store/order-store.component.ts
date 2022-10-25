@@ -49,11 +49,12 @@ export class OrderStoreComponent implements OnInit {
   checkStatusOrderById(orderListId: any) {
     this.alert.confirm("ทำการแพ็คสินค้าเรียบร้อยหรือไม่ ?").then((result) => {
       if (result.isConfirmed) {
-        this.callApi.checkStatusOrderById(orderListId, this.formOrder.value).subscribe(data => {
+        this.callApi.checkStatusOrderById(orderListId, this.formOrder).subscribe(data => {
           console.log(data);
         })
         this.alert.success("รอการจัดส่งสินค้า")
       } 
+      this.getAllOrderByStore()
     })
   }
 

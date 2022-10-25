@@ -1,0 +1,19 @@
+#work_banner {
+    height: 40%;
+}
+
+.card-shadow {
+    display: block;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border-radius: 0.35rem;
+    box-shadow: 0 0 0.9em 1px #cec9c9;
+}
+
+.font-opt {
+    color: #000000;
+    font-size: 20px;
+    font-weight: bold;
+}
