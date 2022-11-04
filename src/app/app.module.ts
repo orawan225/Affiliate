@@ -28,6 +28,7 @@ import { NavbarHeaderComponent } from './components/navbar/navbar-header/navbar-
 import { NavbarFooterComponent } from './components/navbar/navbar-footer/navbar-footer.component';
 import { NavbarLoginComponent } from './components/navbar/navbar-login/navbar-login.component';
 import { NavbarRegisterComponent } from './components/navbar/navbar-register/navbar-register.component';
+import { NavbarComponent } from './components/admin/navbar/navbar.component';
 
 
 // <---- Regisger --->
@@ -67,6 +68,9 @@ import { DashboardComponent } from './components/admin/dashboard/dashboard.compo
 import { UserComponent } from './components/admin/user/user.component';
 import { AffiliateComponent } from './components/admin/affiliate/affiliate.component';
 import { StoreComponent } from './components/admin/store/store.component';
+import { MoneyComponent } from './components/admin/money/money.component';
+import { MoneyHistoryComponent } from './components/money-history/money-history.component';
+
 
 
 
@@ -100,7 +104,10 @@ import { StoreComponent } from './components/admin/store/store.component';
     DashboardComponent,
     UserComponent,
     AffiliateComponent,
-    StoreComponent
+    StoreComponent,
+    MoneyComponent,
+    MoneyHistoryComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

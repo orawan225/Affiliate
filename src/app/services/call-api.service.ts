@@ -71,14 +71,14 @@ export class CallApiService {
   }
 
   public getAllStore() {
-    return this.http.get<store[]>(`${environment.apiUrl}/store/getAll-store`, this.header())
+    return this.http.get<store[]>(`${environment.apiUrl}/store/getAllStore-store`, this.header())
   }
 
 
 
   //Product
   public getAllProduct() {
-    return this.http.get<product>(`${environment.apiUrl}/auth/getAll-byStatusIsTrue-product`)
+    return this.http.get<product>(`${environment.apiUrl}/auth/getAllStore-byStatusIsTrue-product`)
   }
 
   public getAllProductByStore() {
@@ -132,5 +132,21 @@ export class CallApiService {
   public getSearchProduct(product: string) {
     return this.http.get<product>(`${environment.apiUrl}/auth/product-search?keyword=${product}`)
   }
+
+
+
+  // admin
+  public getAllUser() {
+    return this.http.get(`${environment.apiUrl}/admin/get-all-user`,this.header())
+  }
+
+  public getAllAffiliate() {
+    return this.http.get(`${environment.apiUrl}/admin/get-all-affiliate`,this.header())
+  }
+
+  public getStore() {
+    return this.http.get(`${environment.apiUrl}/admin/get-all-store`,this.header())
+  }
+
 
 }

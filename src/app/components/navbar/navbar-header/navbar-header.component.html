@@ -59,19 +59,13 @@
                     <li>
                         <a class="dropdown-item" routerLink="/order-history"> ประวัติการสั่งซื้อ </a>
                     </li>
+                    <li *ngIf="role=='AFFILIATE' || role=='ST_AF'">
+                        <a class="dropdown-item" routerLink="/money-history"> ประวัติการถอนเงิน </a>
+                    </li>
                     <li class="nav-item" *ngIf="checkLogin">
                         <a class="nav-link btn-outline-primary rounded-pill px-3" (click)="logout()"> ออกจากระบบ </a>
                     </li>
-                    <!-- <li class="nav-item" *ngIf="role=='AFFILIATE' || role=='ST_AF'" routerLink="/profile-user">
-                        <button class="dropdown-item" type="button" (click)="checkProfile('affiliate')">
-                            โปรไฟล์ Affiliate
-                        </button>
-                    </li>
-                    <li class="nav-item" *ngIf="role=='STORE' || role=='ST_AF'" routerLink="/profile-user">
-                        <button class="dropdown-item" type="button" (click)="checkProfile('store')">
-                            โปรไฟล์ร้าค้า
-                        </button>
-                    </li> -->
+
                 </ul>
             </div>
         </div>

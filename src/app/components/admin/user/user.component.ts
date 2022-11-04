@@ -10,30 +10,19 @@ import { CookieServiceService } from 'src/app/services/cookie-service.service';
 })
 export class UserComponent implements OnInit {
 
-
-  profile: any = []
-  role?: string
   checkLogin: boolean = true
+  user: any = []
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router) { }
 
   ngOnInit(): void {
-    this.checkLogout()
+    this. getUser()
   }
 
-  checkLogout() {
-    if (this.cookie.getToken()) {
-      this.checkLogin = true
-    } else {
-      this.checkLogin = false
-    }
+  getUser() {
+    this.callApi.getAllUser().subscribe(data => {
+      this.user = data
+      console.log(data)
+    })
   }
-
-  logout() {
-    this.cookie.clearCookie()
-    this.checkLogout()
-    this.router.navigate(['/login'])
-  }
-
-
 }

@@ -30,9 +30,5 @@ export class GuardAffiliateService implements CanActivate{
       return false
     }
 
-    
-
-
-
   }
 }

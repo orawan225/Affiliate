@@ -1,0 +1,35 @@
+.backgroundimg {
+    background-image: url('src\assets\img\illustrations\heroheader.png');
+    margin-top: -12px;
+}
+
+table {
+    width: 100%;
+}
+
+th,
+td {
+    text-align: center;
+    border-bottom: 1px solid rgb(233, 233, 233);
+}
+
+thead {
+    background-color: #eff4ff;
+    height: 40px;
+    border: 0.5px solid #d3d8ff
+}
+
+img {
+    width: 400px;
+}
+
+.totalPrice {
+    text-align: end;
+    margin-right: 2rem;
+    color: rgb(255, 0, 0);
+}
+
+.card {
+    margin-left: 8rem;
+    width: 80%;
+}

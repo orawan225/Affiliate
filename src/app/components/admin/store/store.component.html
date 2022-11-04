@@ -1,53 +1,30 @@
-<nav id="main_nav" class="navbar navbar-expand-lg navbar-light bg-white shadow">
-    <div class="container d-flex justify-content-between align-items-center">
-        <a class="navbar-brand h1 mt-2" routerLink="/home">
-            <i class='bx bx-buildings bx-sm text-dark'></i>
-            <span class="text-dark h4"> Affiliate </span> <span class="text-primary h4"> Shop </span>
-        </a>
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler-success" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-        <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="navbar-toggler-success">
-            <div class="flex-fill mb-2">
-                <ul class="nav navbar-nav d-flex justify-content-end text-center text-dark">
-                    <li class="nav-item" *ngIf="!checkLogin">
-                        <a class="nav-link btn-outline-primary rounded-pill px-3" routerLink="/login"> เข้าสู่ระบบ </a>
-                    </li>
-                    <li class="nav-item" *ngIf="checkLogin">
-                        <a class="nav-link btn-outline-primary rounded-pill px-3" (click)="logout()"> ออกจากระบบ </a>
-                    </li>
-                </ul>
-            </div>
-
-        </div>
-    </div>
-</nav>
-
+<app-navbar></app-navbar>
 <section>
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col col">
-                <div class="card" style="border-radius: 1rem;">
+            <h1> รายร้านค้า</h1>
+            <div class="col">
+                <div class="card">
                     <div class="row g-0">
-                        <table class="table " style="text-align: center; ">
+                        <table class="table">
                             <thead>
                                 <tr style="background-color: rgb(167, 161, 240); ">
                                     <th> # </th>
+                                    <th> ชื่อร้าน </th>
                                     <th> ชื่อผู้ใช้งาน </th>
-                                    <th> นามสกุลผู้ใช้งาน </th>
                                     <th> อีเมล </th>
                                     <th> เบอร์โทรศัพท์ </th>
-                                    <th> ชื่อร้านค้า </th>
+                                    <th style="width: 30%;"> ที่อยู่ </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr *ngFor="let element of store">
                                     <td> 1 </td>
-                                    <td> อรวรรณ </td>
-                                    <td> ธรรมจินดา </td>
-                                    <td> orawan@gmail.com </td>
-                                    <td> 0619617548 </td>
-                                    <td> น้ำตาลช็อป </td>
+                                    <td> {{element.fullName}} </td>
+                                    <td> {{element.fullName}} </td>
+                                    <td> {{element.email}} </td>
+                                    <td> {{element.tel}} </td>
+                                    <td> {{element.address}} ตำบล{{element.sub}} อำเภอ{{element.district}} จังหวัด{{element.province}} รหัสไปรษณีย์{{element.postalCode}}</td>
                                 </tr>
                             </tbody>
                         </table>

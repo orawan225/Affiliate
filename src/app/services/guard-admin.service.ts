@@ -6,17 +6,15 @@ import { CookieServiceService } from './cookie-service.service';
 @Injectable({
   providedIn: 'root'
 })
-export class GuardStoreService implements CanActivate{
+export class GuardAdminService implements CanActivate{
 
   constructor(private cookie: CookieServiceService, private router: Router) { }
-
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-
     this.cookie.helper$.decodeToken(this.cookie.getToken())
-    // console.log(this.cookie.helper$.decodeToken(this.cookie.getToken()))
+    console.log(this.cookie.helper$.decodeToken(this.cookie.getToken()))
 
     if (!this.cookie.checkToken()) {
-      if(this.cookie.getRoleAccount() == "STORE" || this.cookie.getRoleAccount() == "ST_AF"){
+      if(this.cookie.getRoleAccount() == "ADMIN" || this.cookie.getRoleAccount() == "ST_AF"){
         return true
       }
       else {
@@ -30,4 +28,6 @@ export class GuardStoreService implements CanActivate{
       return false
     }
   }
+
+  
 }

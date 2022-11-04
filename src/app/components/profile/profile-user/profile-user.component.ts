@@ -64,7 +64,6 @@ export class ProfileUserComponent implements OnInit {
   profileUser() {
     const dialogRef = this.dialog.open(ProfileUpdateComponent);
     dialogRef.afterClosed().subscribe(result => {
-      // this.alert.success("แก้ไขข้อมูลสำเร็จ")
       this.getProfile()
     });
   }
@@ -72,7 +71,6 @@ export class ProfileUserComponent implements OnInit {
   profileStore() {
     const dialogRef = this.dialog.open(ProfileStoreComponent);
     dialogRef.afterClosed().subscribe(result => {
-      // this.alert.success("แก้ไขข้อมูลร้านค้าสำเร็จ")
       this.getProfile()
     });
   }
@@ -80,7 +78,6 @@ export class ProfileUserComponent implements OnInit {
   profileAffiliate() {
     const dialogRef = this.dialog.open(ProfileAffiliateComponent);
     dialogRef.afterClosed().subscribe(result => {
-      // this.alert.success("แก้ไขข้อมูลAffiliateสำเร็จ")
       this.getProfile()
     });
   }

@@ -1,0 +1,41 @@
+img {
+    width: 300px;
+    height: 300px;
+}
+
+.flex-parent {
+    display: flex;
+}
+
+.jc-center {
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.img-fluid {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-outline-primary {
+    float: right;
+}
+
+.payment {
+    margin-left: 6rem;
+    margin-top: 2rem;
+    font-size: 16px;
+}
+
+.productList {
+    margin-right: 6rem;
+}
+
+.btn-primary {
+    text-align: start;
+}
+
+.card-header {
+    text-align: center;
+}

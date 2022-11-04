@@ -10,16 +10,23 @@ import { CookieServiceService } from 'src/app/services/cookie-service.service';
 })
 export class AffiliateComponent implements OnInit {
 
-
-  profile: any = []
-  role?: string
   checkLogin: boolean = true
+  affiliate: any = []
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router) { }
 
   ngOnInit(): void {
     this.checkLogout()
+    this.getAfiliate()
   }
+
+  getAfiliate() {
+    this.callApi.getAllAffiliate().subscribe(data => {
+      this.affiliate = data
+      console.log(data)
+    })
+  }
+
 
   checkLogout() {
     if (this.cookie.getToken()) {

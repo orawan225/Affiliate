@@ -4,28 +4,33 @@ import { CallApiService } from 'src/app/services/call-api.service';
 import { CookieServiceService } from 'src/app/services/cookie-service.service';
 
 @Component({
-  selector: 'app-store',
-  templateUrl: './store.component.html',
-  styleUrls: ['./store.component.css']
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css']
 })
-export class StoreComponent implements OnInit {
+export class NavbarComponent implements OnInit {
 
   checkLogin: boolean = true
-  store: any = []
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router) { }
-
+  
+  
   ngOnInit(): void {
-    this.getStore()
+    this.checkLogout()
   }
 
-
-  getStore() {
-    this.callApi.getStore().subscribe(data => {
-      this.store = data
-      console.log(data)
-    })
+  checkLogout() {
+    if (this.cookie.getToken()) {
+      this.checkLogin = true
+    } else {
+      this.checkLogin = false
+    }
   }
 
+  logout() {
+    this.cookie.clearCookie()
+    this.checkLogout()
+    this.router.navigate(['/login'])
+  }
 
 }

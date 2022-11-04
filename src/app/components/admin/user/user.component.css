@@ -1,21 +1,3 @@
-.h5,
-h5 {
-    margin-left: 11rem;
-    font-size: 1.25rem;
-}
-
-.modal-content {
-    margin-top: 10rem;
-}
-
-.col-3 {
-    text-align: end;
-}
-
-.col {
-    text-align: start;
-}
-
-.row {
-    margin-top: 1rem;
+.table {
+    text-align: center;
 }
