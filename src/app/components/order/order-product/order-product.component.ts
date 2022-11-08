@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CartService } from 'src/app/services/cart.service';
+import { CookieServiceService } from 'src/app/services/cookie-service.service';
 import { ProfileUpdateComponent } from '../../profile/profile-update/profile-update.component';
 
 @Component({
@@ -29,7 +30,7 @@ export class OrderProductComponent implements OnInit {
 
 
   constructor(private fb: FormBuilder, public cartService: CartService, private callApi: CallApiService,
-    private dialog: MatDialog, private router: Router, private alert: AlertService) { }
+    private dialog: MatDialog, private router: Router, private alert: AlertService, private cookie: CookieServiceService,) { }
 
   ngOnInit(): void {
     this.getProfile()
@@ -38,9 +39,12 @@ export class OrderProductComponent implements OnInit {
   }
 
   getProfile() {
-    this.callApi.getProfile().subscribe((res: any) => {
-      this.profile = res.data.profile
-    })
+    const _auth: boolean = this.cookie.getToken() ? true : false;
+    if (_auth) {
+      this.callApi.getProfile().subscribe((res: any) => {
+        this.profile = res.data.profile
+      })
+    }
   }
 
   openDialog() {

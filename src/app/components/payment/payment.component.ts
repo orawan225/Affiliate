@@ -1,16 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { async } from '@angular/core/testing';
-import { FormBuilder } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { firstValueFrom, lastValueFrom } from 'rxjs';
 import { orderDetail, orderList } from 'src/app/models/order';
-import { product } from 'src/app/models/product';
 import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CartService } from 'src/app/services/cart.service';
 import { CookieServiceService } from 'src/app/services/cookie-service.service';
-import { ProfileUpdateComponent } from '../profile/profile-update/profile-update.component';
 
 @Component({
   selector: 'app-payment',
@@ -38,7 +32,7 @@ export class PaymentComponent implements OnInit {
 
 
   constructor(public cartService: CartService, private callApi: CallApiService, private cookie: CookieServiceService,
-    private router: Router, private acrout: ActivatedRoute) {
+    private router: Router, private acrout: ActivatedRoute,private alert: AlertService) {
 
     this.user = cookie.getUserId();
     console.log(this.user);
@@ -82,8 +76,12 @@ export class PaymentComponent implements OnInit {
     fileData.append('file', this.file, this.file.name)
     this.callApi.createPayment(this.orderListId, fileData).subscribe((res: any) => {
       console.log(res);
+      this.alert.success("เพิ่มสินค้าสำเร็จ")
+      setTimeout(() => {
+        this.router.navigate(['/home'])
+      }, 1000);
     })
-    this.router.navigate(['/home'])
+    // this.router.navigate(['/home'])
   }
 
 

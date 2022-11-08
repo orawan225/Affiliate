@@ -55,7 +55,7 @@ export class ProductDetailComponent implements OnInit {
   addProductToCart(product: any) {
     product.amount = 1;
     product.affiliate = this.affiliate
-    this.cartService.addCart(product, true)
+    this.cartService.addCart(product,true)
     this.router.navigate(['/cart'])
   }
 
@@ -64,11 +64,14 @@ export class ProductDetailComponent implements OnInit {
   }
 
   getProfile() {
-    this.callApi.getProfile().subscribe((res: any) => {
-      this.profile = res.data.profile
-      this.role = this.profile.role
-      console.log(this.profile);
-    })
+    const _auth: boolean = this.cookie.getToken() ? true : false;
+    if (_auth) {
+      this.callApi.getProfile().subscribe((res: any) => {
+        this.profile = res.data.profile
+        this.role = this.profile.role
+        console.log(this.profile);
+      })
+    }
   }
 
 }

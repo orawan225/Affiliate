@@ -71,14 +71,14 @@ export class CallApiService {
   }
 
   public getAllStore() {
-    return this.http.get<store[]>(`${environment.apiUrl}/store/getAllStore-store`, this.header())
+    return this.http.get<store[]>(`${environment.apiUrl}/store/getAll-store`, this.header())
   }
 
 
 
   //Product
   public getAllProduct() {
-    return this.http.get<product>(`${environment.apiUrl}/auth/getAllStore-byStatusIsTrue-product`)
+    return this.http.get<product>(`${environment.apiUrl}/auth/getAll-product`)
   }
 
   public getAllProductByStore() {

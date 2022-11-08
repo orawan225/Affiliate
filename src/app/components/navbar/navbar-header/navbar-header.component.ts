@@ -25,10 +25,13 @@ export class NavbarHeaderComponent implements OnInit {
 
   // <---- checkRoleAccuont ---->
   getProfile() {
-    this.callApi.getProfile().subscribe((res: any) => {
-      this.profile = res.data.profile
-      this.role = this.profile.role
-    })
+    const _auth: boolean = this.cookie.getToken() ? true : false;
+    if (_auth) {
+      this.callApi.getProfile().subscribe((res: any) => {
+        this.profile = res.data.profile
+        this.role = this.profile.role
+      })
+    }
   }
 
   checkProfile(role: any) {

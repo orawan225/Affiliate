@@ -83,13 +83,16 @@ export class ProfileUserComponent implements OnInit {
   }
 
   getProfile() {
-    this.callApi.getProfile().subscribe((res: any) => {
-      this.profile = res.data.profile
-      this.store = res.data.profile.store
-      this.affiliate = res.data.profile.affiliate
-      this.img = this.api + this.profile.image
-      this.patchValue(this.profile)
-    })
+    const _auth: boolean = this.cookie.getToken() ? true : false;
+    if (_auth) {
+      this.callApi.getProfile().subscribe((res: any) => {
+        this.profile = res.data.profile
+        this.store = res.data.profile.store
+        this.affiliate = res.data.profile.affiliate
+        this.img = this.api + this.profile.image
+        this.patchValue(this.profile)
+      })
+    }
   }
 
 

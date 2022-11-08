@@ -50,8 +50,14 @@ img {
 }
 
 .payment {
-    margin-top: 2rem;
+    margin-left: 5rem;
+    margin-top: 3rem;
     font-size: 16px;
+}
+
+.productList {
+    margin-top: 3rem;
+    margin-right: 5rem;
 }
 
 .address {

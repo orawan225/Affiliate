@@ -77,27 +77,27 @@ export class CartComponent implements OnInit {
   }
 
 
-  onAmountPlus(productId:number) {
-    for (let index in this.productList) { 
-      if(this.productList[index].productId == productId){
+  onAmountPlus(productId: number) {
+    for (let index in this.productList) {
+      if (this.productList[index].productId == productId) {
         this.productList[index].amount++;
         this.cartService.addCart(this.productList[index], false)
         break;
       }
-    } 
+    }
   }
 
   onAmountMinus(productId: number) {
     for (let index in this.productList) {
-      if(this.productList[index].productId == productId){
+      if (this.productList[index].productId == productId) {
 
         if (this.productList[index].amount > 1) {
           this.productList[index].amount--;
           this.cartService.addCart(this.productList[index], false);
           break;
         }
-      } 
-     }
+      }
+    }
   }
 
   onRemove(indexStore: number, indexItem: number) {

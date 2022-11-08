@@ -10,7 +10,7 @@
                 </div>
             </div>
 
-            <div class="card mt-2 mb-5">
+            <div class="card">
                 <div class="card-body">
                     <table>
                         <thead>
@@ -22,8 +22,6 @@
                                 <th style=" width: 5%;"> </th>
                             </tr>
                         </thead>
-                        <br>
-
                         <tbody *ngFor="let order of ordertList ; let i = index">
                             <tr *ngIf="order.status === 'true'">
                                 <td> {{order.date | date: 'HH:mm:ss'}}
@@ -33,7 +31,6 @@
                                     <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#Modal'+i">
                                         รายการสินค้า
                                     </button>
-
 
                                     <div class="modal fade" [attr.id]="'Modal'+i" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">

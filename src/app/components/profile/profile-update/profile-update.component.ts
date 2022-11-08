@@ -55,10 +55,14 @@ export class ProfileUpdateComponent implements OnInit {
   }
 
   getProfile() {
-    this.callApi.getProfile().subscribe((res: any) => {
-      this.profile = res.data.profile
-      this.patchValue(res.data.profile)
-    })
+    const _auth: boolean = this.cookie.getToken() ? true : false;
+    if (_auth) {
+      this.callApi.getProfile().subscribe((res: any) => {
+        this.profile = res.data.profile
+        this.patchValue(res.data.profile)
+      })
+    }
+    
   }
 
   editProfile() {
