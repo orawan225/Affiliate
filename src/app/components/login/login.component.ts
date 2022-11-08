@@ -26,14 +26,17 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log(this.formLogin.value);
     this.callApi.loginUser(this.formLogin.value).subscribe((res: any) => {
       this.cookie.setToken(res.data.token)
-      let role = this.cookie.helper$.decodeToken(res.data.token).role
+      let role: string = this.cookie.helper$.decodeToken(res.data.token).role
       this.cookie.setRoleAccount(role.trim())
       this.alert.success("เข้าสู่ระบบสำเร็จ")
       setTimeout(() => {
-        this.router.navigate(['/home'])
+        if (role.toUpperCase().trim() == "ADMIN".toUpperCase().trim()) {
+          this.router.navigate(['/dashboard'])
+        } else {
+          this.router.navigate(['/home'])
+        }
       }, 1000);
     }, ((err: any) => {
       if (err.status === 417) {
