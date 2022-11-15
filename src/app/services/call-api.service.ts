@@ -75,7 +75,7 @@ export class CallApiService {
   }
 
   public getTotalMoney() {
-    return this.http.get<store[]>(`${environment.apiUrl}/store/get-my-total-price`, this.header())
+    return this.http.get(`${environment.apiUrl}/store/get-my-total-price`, this.header())
   }
 
   public wathdrawMoney(store: any) {

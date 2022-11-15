@@ -27,7 +27,7 @@ export class ProfileUserComponent implements OnInit {
   showCardRole: any
   img: any
   api = environment.apiUrl
-  totalPrice: any = []
+  totalPrice = 0
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService,
     private ref: ChangeDetectorRef, private fb: FormBuilder, private router: Router,
@@ -118,10 +118,11 @@ export class ProfileUserComponent implements OnInit {
   }
 
   getmoneyStore() {
-    this.callApi.getTotalMoney().subscribe(data => {
-      this.totalPrice = data
+    this.callApi.getTotalMoney().subscribe((data: any) => {
+      this.totalPrice = data.data.total_price
+      console.log(data.total_price);
       console.log(data);
-
+      
     })
   }
 
