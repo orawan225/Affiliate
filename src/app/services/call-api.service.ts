@@ -74,6 +74,15 @@ export class CallApiService {
     return this.http.get<store[]>(`${environment.apiUrl}/store/getAll-store`, this.header())
   }
 
+  public getTotalMoney() {
+    return this.http.get<store[]>(`${environment.apiUrl}/store/get-my-total-price`, this.header())
+  }
+
+  public wathdrawMoney(store: any) {
+    return this.http.put<store>(`${environment.apiUrl}/store/update-order-withdraw-money/`, store, this.header())
+  }
+  
+
 
 
   //Product
@@ -110,11 +119,11 @@ export class CallApiService {
   }
 
   public getAllOrderByStore() {
-    return this.http.get<orderList[]>(`${environment.apiUrl}/order-list/getMyOrderList`, this.header())
+    return this.http.get<orderList[]>(`${environment.apiUrl}/order-list/getMyOrder`, this.header())
   }
 
   public checkStatusOrderById(orderId: string, order: orderList) {
-    return this.http.put<orderList>(`${environment.apiUrl}/order-list/update-order-payment/${orderId}`, order, this.header())
+    return this.http.put<orderList>(`${environment.apiUrl}/store/update-order-success/${orderId}`, order, this.header())
   }
 
   public addOrderDetail(data: any) {
@@ -146,6 +155,14 @@ export class CallApiService {
 
   public getStore() {
     return this.http.get(`${environment.apiUrl}/admin/get-all-store`,this.header())
+  }
+
+  public getOrderStore() {
+    return this.http.get(`${environment.apiUrl}/admin/get-all-order`,this.header())
+  }
+
+  public updateOrderPayment(orderListId: string, order: orderList) {
+    return this.http.put<orderList>(`${environment.apiUrl}/admin/update-order-payment/${orderListId}`, order, this.header())
   }
 
 

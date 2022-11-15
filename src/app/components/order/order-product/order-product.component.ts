@@ -50,7 +50,7 @@ export class OrderProductComponent implements OnInit {
   openDialog() {
     const dialogRef = this.dialog.open(ProfileUpdateComponent);
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      this.getProfile()
     });
   }
 
@@ -78,7 +78,6 @@ export class OrderProductComponent implements OnInit {
 
 
   addOrderDetail() {
-
     var products: any = [];
     var productStatusFalse: any = [];
     this.productList.map((item: any, index: number) => {
@@ -97,10 +96,7 @@ export class OrderProductComponent implements OnInit {
         this.getProductByStoreId()
       }
     });
-
-    console.log(products);
-
-
+    // console.log(products);
     this.orderList = this.fb.group({
       fullName: this.profile.fullName,
       tel: this.profile.tel,

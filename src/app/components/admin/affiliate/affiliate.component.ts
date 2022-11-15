@@ -9,14 +9,11 @@ import { CookieServiceService } from 'src/app/services/cookie-service.service';
   styleUrls: ['./affiliate.component.css']
 })
 export class AffiliateComponent implements OnInit {
-
-  checkLogin: boolean = true
   affiliate: any = []
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router) { }
 
   ngOnInit(): void {
-    this.checkLogout()
     this.getAfiliate()
   }
 
@@ -26,21 +23,5 @@ export class AffiliateComponent implements OnInit {
       console.log(data)
     })
   }
-
-
-  checkLogout() {
-    if (this.cookie.getToken()) {
-      this.checkLogin = true
-    } else {
-      this.checkLogin = false
-    }
-  }
-
-  logout() {
-    this.cookie.clearCookie()
-    this.checkLogout()
-    this.router.navigate(['/login'])
-  }
-
 
 }

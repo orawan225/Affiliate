@@ -17,6 +17,7 @@ export class AlertService {
           timer: 1000
         })
   }
+
   error(mss:string){
     Swal.fire({
           position: 'center',
@@ -28,6 +29,18 @@ export class AlertService {
   }
 
   confirm(mss:string){
+   return Swal.fire({
+      position: 'top',
+      text: mss,
+      icon: 'success',
+      showCancelButton: true,
+      cancelButtonColor: '##d33',
+      confirmButtonColor: '#3085d6',
+      confirmButtonText: 'ตกลง'
+    })
+  }
+
+  warning(mss:string){
    return Swal.fire({
       position: 'top',
       text: mss,

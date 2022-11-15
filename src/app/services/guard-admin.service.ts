@@ -14,7 +14,7 @@ export class GuardAdminService implements CanActivate{
     console.log(this.cookie.helper$.decodeToken(this.cookie.getToken()))
 
     if (!this.cookie.checkToken()) {
-      if(this.cookie.getRoleAccount() == "ADMIN" || this.cookie.getRoleAccount() == "ST_AF"){
+      if(this.cookie.getRoleAccount() == "ADMIN" ){
         return true
       }
       else {

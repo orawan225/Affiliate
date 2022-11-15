@@ -41,3 +41,8 @@ img {
 .btn-success {
     margin-bottom: 1rem;
 }
+
+h1 {
+    color: rgb(4, 0, 255);
+    text-align: center;
+}

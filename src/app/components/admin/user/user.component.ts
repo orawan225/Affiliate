@@ -9,8 +9,6 @@ import { CookieServiceService } from 'src/app/services/cookie-service.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-
-  checkLogin: boolean = true
   user: any = []
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router) { }

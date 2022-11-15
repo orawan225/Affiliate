@@ -1,16 +1,16 @@
-<app-navbar-header></app-navbar-header>
+<app-navbar></app-navbar>
 <div class="backgroundimg">
     <div class="container">
         <div class="row">
             <div class="col-5">
                 <div class="text-title mt-5">
                     <h1>
-                        คำสั่งซื้อของฉัน
+                        รายการคำสั่งซื้อของร้านค้า
                     </h1>
                 </div>
             </div>
 
-            <div class="card mb-5">
+            <div class="card mt-2 mb-5">
                 <div class="card-body">
                     <table>
                         <thead>
@@ -22,15 +22,18 @@
                                 <th style=" width: 5%;"> </th>
                             </tr>
                         </thead>
-                        <tbody *ngFor="let order of ordertList ; let i = index">
-                            <tr>
+                        <br>
+
+                        <tbody *ngFor="let order of order ; let i = index">
+                            <tr *ngIf="order.status === 'wait payment'">
                                 <td> {{order.date | date: 'HH:mm:ss'}}
-                                    <br> {{order.date | date: 'd/M/yyyy'}}
+                                    <br> {{order.date | date:' d/M/yyyy'}}
                                 </td>
                                 <td>
                                     <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#Modal'+i">
                                         รายการสินค้า
                                     </button>
+
 
                                     <div class="modal fade" [attr.id]="'Modal'+i" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
@@ -91,7 +94,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-success" (click)="checkStatusOrderById(order.orderListId)"> ยืนยัน </button>
+                                    <button type="button" class="btn btn-success" (click)="updateOrderPayment(order.orderListId)"> ยืนยัน </button>
                                 </td>
                             </tr>
                         </tbody>

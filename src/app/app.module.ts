@@ -21,6 +21,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
 
 
 // <---- Navbar --->
@@ -70,6 +72,7 @@ import { AffiliateComponent } from './components/admin/affiliate/affiliate.compo
 import { StoreComponent } from './components/admin/store/store.component';
 import { MoneyComponent } from './components/admin/money/money.component';
 import { MoneyHistoryComponent } from './components/money-history/money-history.component';
+import { OrderlistComponent } from './components/admin/orderlist/orderlist.component';
 
 
 
@@ -107,7 +110,8 @@ import { MoneyHistoryComponent } from './components/money-history/money-history.
     StoreComponent,
     MoneyComponent,
     MoneyHistoryComponent,
-    NavbarComponent
+    NavbarComponent,
+    OrderlistComponent
   ],
   imports: [
     BrowserModule,
@@ -126,7 +130,9 @@ import { MoneyHistoryComponent } from './components/money-history/money-history.
     MatNativeDateModule,
     MatInputModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatPaginatorModule,
+    MatTableModule
 
   ],
   providers: [CookieService],

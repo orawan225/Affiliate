@@ -30,11 +30,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-xl-3">
+                <div class="col-sm-6 col-xl-3" routerLink="/orderlist">
                     <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
                         <i class="fa fa-chart-line fa-3x text-primary"></i>
                         <div class="ms-3">
-                            <p class="mb-2">รายการถอนเงิน</p>
+                            <p class="mb-2">รายการคำสั่งซื้อ</p>
                             <h5 class="mb-0">1234</h5>
                         </div>
                     </div>
@@ -90,6 +90,8 @@
                                                 </tr>
                                             </tbody>
                                         </table>
+                                        <!-- <mat-paginator [length]="100" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
+                                        </mat-paginator> -->
                                     </div>
                                 </div>
                             </div>
@@ -106,7 +108,7 @@
                             <div class="col col">
                                 <div class="card">
                                     <div class="row g-0">
-                                        <table class="table">
+                                        <!-- <table class="table">
                                             <thead>
                                                 <tr style="background-color: rgb(167, 161, 240); ">
                                                     <th> # </th>
@@ -117,9 +119,9 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
+                                                <tr *ngFor="let element of user">
                                                     <td> 1 </td>
-                                                    <td> อรวรรณ </td>
+                                                    <td> {{element.fullName}} </td>
                                                     <td> 0619617548 </td>
                                                     <td> 100 </td>
                                                     <td>
@@ -127,7 +129,26 @@
                                                     </td>
                                                 </tr>
                                             </tbody>
-                                        </table>
+                                        </table> -->
+
+
+                                        <div class="mat-elevation-z8">
+                                            <table mat-table [dataSource]="dataSource">
+
+                                                <!-- Name Column -->
+                                                <ng-container matColumnDef="fullName">
+                                                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                                                    <td mat-cell *matCellDef="let element"> {{element.fullName}} </td>
+                                                </ng-container>
+
+                                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                                            </table>
+
+
+                                            <mat-paginator [pageSize]="2" [pageSizeOptions]="[2, 10, 25, 100]" aria-label="Select page">
+                                            </mat-paginator>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -27,10 +27,11 @@ export class ProfileUserComponent implements OnInit {
   showCardRole: any
   img: any
   api = environment.apiUrl
+  totalPrice: any = []
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService,
     private ref: ChangeDetectorRef, private fb: FormBuilder, private router: Router,
-    private dialog: MatDialog,private alert: AlertService) {
+    private dialog: MatDialog, private alert: AlertService) {
     this.formProfile = fb.group({
       fullName: [null],
       email: [null],
@@ -41,6 +42,9 @@ export class ProfileUserComponent implements OnInit {
       province: [null],
       postalCode: [null]
     })
+
+    this.store = cookie.getUserId();  
+    console.log(this.store);
   }
 
   patchValue(receiveProfile: profile) {
@@ -59,6 +63,7 @@ export class ProfileUserComponent implements OnInit {
   ngOnInit(): void {
     this.getProfile()
     this.getRoleProfile()
+    this.getmoneyStore()
   }
 
   profileUser() {
@@ -91,6 +96,8 @@ export class ProfileUserComponent implements OnInit {
         this.affiliate = res.data.profile.affiliate
         this.img = this.api + this.profile.image
         this.patchValue(this.profile)
+        console.log(res);
+
       })
     }
   }
@@ -108,6 +115,27 @@ export class ProfileUserComponent implements OnInit {
       this.alert.success("แก้ไขรูปโปรไฟล์สำเร็จ")
     })
 
+  }
+
+  getmoneyStore() {
+    this.callApi.getTotalMoney().subscribe(data => {
+      this.totalPrice = data
+      console.log(data);
+
+    })
+  }
+
+
+  wathdrawMoney() {
+    this.alert.confirm("ต้องการถอนเงินใช่หรือไม่ ?").then((result) => {
+      if (result.isConfirmed) {
+        this.callApi.wathdrawMoney(this.store).subscribe(data => {
+          console.log(data);
+        })
+        this.alert.success("ทำการถอนเงินสำเร็จ")
+        this.getProfile()
+      } 
+    })
   }
 
 

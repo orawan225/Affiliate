@@ -52,9 +52,9 @@ export class ProductStoreComponent implements OnInit {
   }
 
   deleteProductById(productId: string) {
-    this.alert.confirm("ต้องการลบสินค้าหรือไม่ ?").then((result) => {
+    this.alert.warning("ต้องการลบสินค้าหรือไม่ ?").then((result) => {
       if (result.isConfirmed) {
-        this.callApi.deleteProductById(productId, this.formProduct.value).subscribe(data => {
+        this.callApi.deleteProductById(productId,this.formProduct.value).subscribe(data => {
           this.getAllProductByStore()
           console.log(data);
         })
