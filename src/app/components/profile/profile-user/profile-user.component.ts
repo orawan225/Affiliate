@@ -128,7 +128,7 @@ export class ProfileUserComponent implements OnInit {
 
 
   wathdrawMoney() {
-    this.alert.confirm("ต้องการถอนเงินใช่หรือไม่ ?").then((result) => {
+    this.alert.warning("ต้องการถอนเงินใช่หรือไม่ ?").then((result) => {
       if (result.isConfirmed) {
         this.callApi.wathdrawMoney(this.store).subscribe(data => {
           console.log(data);
