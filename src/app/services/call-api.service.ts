@@ -123,7 +123,7 @@ export class CallApiService {
   }
 
   public checkStatusOrderById(orderId: string, order: orderList) {
-    return this.http.put<orderList>(`${environment.apiUrl}/store/update-order-success/${orderId}`, order, this.header())
+    return this.http.put<orderList>(`${environment.apiUrl}/store/get-order-status-payment/${orderId}`, order, this.header())
   }
 
   public addOrderDetail(data: any) {

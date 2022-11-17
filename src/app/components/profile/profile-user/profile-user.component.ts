@@ -118,10 +118,10 @@ export class ProfileUserComponent implements OnInit {
   }
 
   getmoneyStore() {
-    this.callApi.getTotalMoney().subscribe((data: any) => {
-      this.totalPrice = data.data.total_price
-      console.log(data.total_price);
-      console.log(data);
+    this.callApi.getTotalMoney().subscribe((res: any) => {
+      this.totalPrice = res.data.total_price
+      console.log(res.total_price);
+      console.log(res);
       
     })
   }
