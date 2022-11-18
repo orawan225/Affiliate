@@ -1,31 +1,105 @@
 <app-navbar-header></app-navbar-header>
 <div class="backgroundimg">
     <div class="container">
+        <div class="col-5">
+            <div class="text-title mt-5">
+                <h1>
+                    ประวัติการถอนเงิน
+                </h1>
+            </div>
+        </div>
         <div class="row">
-            <div class="col-5">
-                <div class="text-title mt-5">
-                    <h1>
-                        ประวัติการถอนเงิน
-                    </h1>
+            <div class="col-8">
+                <div class="card mb-5">
+                    <div class="card-body">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style="width: 5%;"> วันที่ </th>
+                                    <th style="width: 8%;"> ชื่อผู้โอน </th>
+                                    <th style="width: 8%;"> ชื่อผู้รับ </th>
+                                    <th style="width: 5%;"> จำนวนเงิน </th>
+                                    <th style="width: 10%;"> หลักฐานในการชำระเงิน </th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let order of ordertList ; let i = index">
+                                <br>
+                                <tr>
+                                    <td> {{order.date | date: 'HH:mm:ss'}}
+                                        <br> {{order.date | date:' d/M/yyyy'}}
+                                    </td>
+                                    <td> อรวรรณ ธรรมจินดา</td>
+                                    <td> อรวรรณ ธรรมจินดา </td>
+                                    <td> 100 </td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#exampleModal'+i">
+                                            หลักฐานการชำระเงิน
+                                        </button>
+                                        <div class="modal fade" [attr.id]="'exampleModal'+i" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-body">
+                                                        <img class="card-img-top" [src]="api+order.image" alt="...">
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Close </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
+            <div class="col-4">
+                <div class="row withdraw-money justify-content-between mb-4">
+                    <div class="card affiliate col-6">
+                        <h2> ยอดเงินการแชร์ </h2>
+                        <p> 100 บาท </p>
+                        <button type="button" class="btn btn-outline-success"> ถอนเงิน </button>
+                    </div>
+                    <div class="card shope col-6">
+                        <h2> ยอดเงินการขาย </h2>
+                        <p> {{totalPrice}} บาท </p>
+                        <button type="button" class="btn btn-outline-success mb-2" (click)="wathdrawMoney()"> ถอนเงิน </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-            <div class="card mt-2 mb-5">
-                <div class="card-body">
+
+
+
+
+
+<!-- <div class="col-5">
+            <div class="text-title mt-5">
+                <h1>
+                    ประวัติการถอนเงิน
+                </h1>
+            </div>
+        </div> -->
+
+<!-- <div class="row money justify-content-between">
+            <div class="col-7">
+                <div class="card mb-5">
                     <table>
                         <thead>
                             <tr>
-                                <th style="width: 10%;"> วันที่ </th>
-                                <th style="width: 10%;"> ชื่อผู้โอน </th>
-                                <th style="width: 10%;"> ชื่อผู้รับ </th>
-                                <th style="width: 10%;"> จำนวนเงิน </th>
+                                <th style="width: 5%;"> วันที่ </th>
+                                <th style="width: 8%;"> ชื่อผู้โอน </th>
+                                <th style="width: 8%;"> ชื่อผู้รับ </th>
+                                <th style="width: 5%;"> จำนวนเงิน </th>
                                 <th style="width: 10%;"> หลักฐานในการชำระเงิน </th>
                             </tr>
                         </thead>
-                        <br>
-
                         <tbody *ngFor="let order of ordertList ; let i = index">
-                            <tr *ngIf="order.status === 'payment'">
+                            <tr>
                                 <td> {{order.date | date: 'HH:mm:ss'}}
                                     <br> {{order.date | date:' d/M/yyyy'}}
                                 </td>
@@ -54,6 +128,19 @@
                     </table>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+
+            <div class="col-5">
+                <div class="row withdraw-money mb-4">
+                    <div class="card affiliate col-5">
+                        <h2> ยอดเงินการแชร์ </h2>
+                        <strong>100 บาท</strong>
+                        <button type="button" class="btn btn-success"> ถอนเงิน </button>
+                    </div>
+                    <div class="card shope col-5">
+                        <h2> ยอดเงินการขาย </h2>
+                        <strong>{{totalPrice}} บาท</strong>
+                        <button type="button" class="btn btn-success" (click)="wathdrawMoney()"> ถอนเงิน </button>
+                    </div>
+                </div>
+            </div>
+        </div> -->

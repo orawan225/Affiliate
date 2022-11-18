@@ -38,7 +38,7 @@ export class DashboardComponent implements OnInit {
 
   getUser() {
     this.callApi.getAllUser().subscribe((data: any) => {
-      // this.user = data
+      this.user = data
       this.dataSource = new MatTableDataSource(data)
       this.dataSource.paginator = this.paginator;
       console.log(data)
@@ -56,10 +56,8 @@ export class DashboardComponent implements OnInit {
     this.ref.detectChanges()
   }
 
-
 }
 
 export interface PeriodicElement {
   fullName: string;
-
 }

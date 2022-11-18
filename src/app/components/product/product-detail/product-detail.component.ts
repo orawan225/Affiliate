@@ -24,7 +24,7 @@ export class ProductDetailComponent implements OnInit {
   role?: string
 
 
-  constructor(private callApi: CallApiService, private router: Router, private fb: FormBuilder, 
+  constructor(private callApi: CallApiService, private router: Router, private fb: FormBuilder,
     private acrout: ActivatedRoute, private cartService: CartService, private cookie: CookieServiceService) {
     this.formProduct = fb.group({
       productId: [null],
@@ -36,7 +36,7 @@ export class ProductDetailComponent implements OnInit {
     acrout.queryParams.subscribe((res: any) => {
       this.productId = res.id
       this.affiliate = res.affiliate || 0
-      console.log(this.affiliate);
+      // console.log(this.affiliate);
     })
   }
 
@@ -55,12 +55,12 @@ export class ProductDetailComponent implements OnInit {
   addProductToCart(product: any) {
     product.amount = 1;
     product.affiliate = this.affiliate
-    this.cartService.addCart(product,true)
+    this.cartService.addCart(product, true)
     this.router.navigate(['/cart'])
   }
 
-  shareProduct(productId : string) {
-    this.router.navigate(['/product-share'],{queryParams: {id:productId}})
+  shareProduct(productId: string) {
+    this.router.navigate(['/product-share'], { queryParams: { id: productId } })
   }
 
   getProfile() {

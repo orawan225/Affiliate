@@ -73,6 +73,7 @@ h3 {
 }
 
 .productDetail {
+    text-align: start;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;

@@ -63,7 +63,7 @@ export class ProfileUserComponent implements OnInit {
   ngOnInit(): void {
     this.getProfile()
     this.getRoleProfile()
-    this.getmoneyStore()
+    // this.getmoneyStore()
   }
 
   profileUser() {
@@ -117,27 +117,27 @@ export class ProfileUserComponent implements OnInit {
 
   }
 
-  getmoneyStore() {
-    this.callApi.getTotalMoney().subscribe((res: any) => {
-      this.totalPrice = res.data.total_price
-      console.log(res.total_price);
-      console.log(res);
+  // getmoneyStore() {
+  //   this.callApi.getTotalMoney().subscribe((res: any) => {
+  //     this.totalPrice = res.data.total_price
+  //     console.log(res.total_price);
+  //     console.log(res);
       
-    })
-  }
+  //   })
+  // }
 
 
-  wathdrawMoney() {
-    this.alert.warning("ต้องการถอนเงินใช่หรือไม่ ?").then((result) => {
-      if (result.isConfirmed) {
-        this.callApi.wathdrawMoney(this.store).subscribe(data => {
-          console.log(data);
-        })
-        this.alert.success("ทำการถอนเงินสำเร็จ")
-        this.getProfile()
-      } 
-    })
-  }
+  // wathdrawMoney() {
+  //   this.alert.warning("ต้องการถอนเงินใช่หรือไม่ ?").then((result) => {
+  //     if (result.isConfirmed) {
+  //       this.callApi.wathdrawMoney(this.store).subscribe(data => {
+  //         console.log(data);
+  //       })
+  //       this.alert.success("ทำการถอนเงินสำเร็จ")
+  //       this.getProfile()
+  //     } 
+  //   })
+  // }
 
 
   selectFile(event: any) {

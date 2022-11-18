@@ -45,28 +45,19 @@ export class PaymentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.user = this.cookie.getUserId();
     console.log(this.user);
 
   }
 
-
-
-
   getProductByStoreId(orderId: any) {
     this.callApi.getOrderDetail(orderId).subscribe((res: orderList) => {
       // this.productList = res.detail
       this.orderList = res
-      console.log(res);
       this.orderList.totalAmount = 0
       this.orderList.detail.forEach((element: orderDetail) => {
-        console.log(typeof element.amount);
-
         this.orderList.totalAmount += element.amount
       });
-      console.log(this.orderList);
-
     })
   }
 
@@ -81,10 +72,7 @@ export class PaymentComponent implements OnInit {
         this.router.navigate(['/home'])
       }, 1000);
     })
-    // this.router.navigate(['/home'])
   }
-
-
 
   selectFile(event: any) {
     this.file = <File>event.target.files[0]

@@ -59,14 +59,21 @@ img {
     margin-right: auto;
 }
 
-.address {
+.user-address {
+    margin-left: 2rem;
+    margin-right: 2rem;
     text-align: center;
+}
+
+.address {
+    /* text-align: start; */
+    margin-top: 2rem;
 }
 
 .btn-primary {
     text-align: start;
 }
 
-.button {
-    margin-bottom: 2rem;
+.productName {
+    text-align: start;
 }

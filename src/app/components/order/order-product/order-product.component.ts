@@ -58,7 +58,6 @@ export class OrderProductComponent implements OnInit {
     this.StoreId = localStorage.getItem("storeId"); 
     if (this.StoreId) {
       this.productList = this.cartService.getCart()
-
       this.productList = this.productList.filter((element: any) => element.storeId == this.StoreId);
       if (this.productList.length) {
         this.TotalAmount = this.cartService.getTotalAmount(this.StoreId)
@@ -125,7 +124,6 @@ export class OrderProductComponent implements OnInit {
 
   setOrderListId(orderListId : string) {
     this.router.navigate(['/payment'],{queryParams: {id:orderListId}})
-    console.log(orderListId);
   }
 
 }

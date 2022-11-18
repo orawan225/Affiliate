@@ -48,7 +48,7 @@ export class AlertService {
       showCancelButton: true,
       cancelButtonColor: '#3085d6',
       confirmButtonColor: '#d33',
-      confirmButtonText: 'ใช่, ฉันต้องการลบข้อมูล'
+      confirmButtonText: 'ตกลง'
     })
   }
 

@@ -39,6 +39,15 @@ export class NavbarHeaderComponent implements OnInit {
     // window.location.href = "/profile-user"
   }
 
+  routeToPage() {
+    const _role = this.cookie.getRoleAccount();
+    if (_role.toUpperCase() === "ADMIN") {
+      this.router.navigate(['/dashboard']);
+    } else {
+      this.router.navigate(['/home']);
+    } 
+  }
+
 
   
   // <---- checkButtonLout---->

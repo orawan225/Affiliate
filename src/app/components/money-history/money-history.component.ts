@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { orderList } from 'src/app/models/order';
 import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
+import { CookieServiceService } from 'src/app/services/cookie-service.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -17,9 +18,11 @@ export class MoneyHistoryComponent implements OnInit {
   file: any
   api = environment.apiUrl
   profile: any = []
+  store: any = []
+  totalPrice = 0
 
 
-  constructor(public callApi: CallApiService, private alert: AlertService, private fb: FormBuilder) {
+  constructor(public callApi: CallApiService, private alert: AlertService, private fb: FormBuilder, private cookie: CookieServiceService) {
     this.formOrder = fb.group({
       orderListId: [null],
       price: [null],
@@ -27,6 +30,9 @@ export class MoneyHistoryComponent implements OnInit {
       date: [null],
       status: [null]
     })
+
+    this.store = cookie.getUserId();  
+    console.log(this.store)
   }
 
   patchValue(receiveOrder: orderList) {
@@ -36,10 +42,9 @@ export class MoneyHistoryComponent implements OnInit {
     })
   }
 
-
-
   ngOnInit(): void {
     this.getAllOrderByStore()
+     this.getmoneyStore()
   }
 
   getAllOrderByStore() {
@@ -62,5 +67,25 @@ export class MoneyHistoryComponent implements OnInit {
     })
   }
 
+  getmoneyStore() {
+    this.callApi.getTotalMoney().subscribe((res: any) => {
+      this.totalPrice = res.data.total_price
+      console.log(res.total_price);
+      console.log(res);
+      
+    })
+  }
+
+
+  wathdrawMoney() {
+    this.alert.warning("ต้องการถอนเงินใช่หรือไม่ ?").then((result) => {
+      if (result.isConfirmed) {
+        this.callApi.wathdrawMoney(this.store).subscribe(data => {
+          console.log(data);
+        })
+        this.alert.success("ทำการถอนเงินสำเร็จ")
+      } 
+    })
+  }
 
 }

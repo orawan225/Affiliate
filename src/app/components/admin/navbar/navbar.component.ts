@@ -33,4 +33,13 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/login'])
   }
 
+  routeToPage() {
+    const _role = this.cookie.getRoleAccount();
+    if (_role.toUpperCase() === "ADMIN") {
+      this.router.navigate(['/dashboard']);
+    } else {
+      this.router.navigate(['/home']);
+    } 
+  }
+
 }

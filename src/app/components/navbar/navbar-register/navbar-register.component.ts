@@ -42,4 +42,13 @@ export class NavbarRegisterComponent implements OnInit {
     this.ref.detectChanges()
   }
 
+  routeToPage() {
+    const _role = this.cookie.getRoleAccount();
+    if (_role.toUpperCase() === "ADMIN") {
+      this.router.navigate(['/dashboard']);
+    } else {
+      this.router.navigate(['/home']);
+    } 
+  }
+
 }
