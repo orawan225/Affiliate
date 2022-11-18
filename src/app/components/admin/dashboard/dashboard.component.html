@@ -65,7 +65,7 @@
                 <section>
                     <div class="container h-100">
                         <div class="row d-flex justify-content-center align-items-center h-100">
-                            <div class="col col">
+                            <div class="col mb-2">
                                 <div class="card">
                                     <div class="row g-0">
                                         <table class="table">
@@ -90,27 +90,26 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <!-- <mat-paginator [length]="100" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
-                                        </mat-paginator> -->
+                                        <mat-paginator [length]="100" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
+                                        </mat-paginator>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
-                <!-- <canvas id="chartResults"></canvas> -->
             </div>
             <div class="container-fluid card-shadow pt-4">
                 <h1 class="font-opt text-success">รายการถอนเงินร้านค้า</h1>
                 <section>
                     <div class="container h-100">
                         <div class="row d-flex justify-content-center align-items-center h-100">
-                            <div class="col col">
+                            <div class="col mb-2">
                                 <div class="card">
                                     <div class="row g-0">
                                         <table class="table">
                                             <thead>
-                                                <tr style="background-color: rgb(167, 161, 240); ">
+                                                <tr>
                                                     <th> # </th>
                                                     <th> ชื่อผู้ใช้งาน </th>
                                                     <th> เบอร์โทรศัพท์ </th>
@@ -130,10 +129,8 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <mat-paginator [pageSize]="1" [pageSizeOptions]="[2, 10, 25, 100]" aria-label="Select page">
+                                        <mat-paginator [length]="100" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
                                         </mat-paginator>
-
-
                                         <!-- <div class="mat-elevation-z8">
                                             <table mat-table [dataSource]="dataSource">
                                                 <ng-container matColumnDef="fullName">
@@ -154,7 +151,6 @@
                         </div>
                     </div>
                 </section>
-                <!-- <canvas id="chartResults"></canvas> -->
             </div>
         </div>
     </div>
