@@ -28,8 +28,9 @@ export class NavbarHeaderComponent implements OnInit {
     const _auth: boolean = this.cookie.getToken() ? true : false;
     if (_auth) {
       this.callApi.getProfile().subscribe((res: any) => {
-        this.profile = res.data.profile
-        this.role = this.profile.role
+        this.profile = res.data.profile;
+        this.role = res.data.profile.role;
+        console.log(this.role);
       })
     }
   }

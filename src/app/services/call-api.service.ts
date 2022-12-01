@@ -165,5 +165,9 @@ export class CallApiService {
     return this.http.put<orderList>(`${environment.apiUrl}/admin/update-order-payment/${orderListId}`, order, this.header())
   }
 
+  public withdrawMoney() {
+    return this.http.get(`${environment.apiUrl}/admin/get-all-order-status-withdraw-money`,this.header())
+  }
+
 
 }

@@ -36,6 +36,14 @@ export class DashboardComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
+
+
+  getWithdrawMoney() {
+    this.callApi.withdrawMoney().subscribe(res => {
+      this.user = res
+    })
+  }
+
   getUser() {
     this.callApi.getAllUser().subscribe((data: any) => {
       this.user = data

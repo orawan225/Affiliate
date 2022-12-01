@@ -50,7 +50,6 @@ export class MoneyHistoryComponent implements OnInit {
   getAllOrderByStore() {
     this.callApi.getAllOrderByStore().subscribe((res: any) => {
       this.ordertList = res
-      console.log(res);
     })
   }
 
@@ -70,9 +69,7 @@ export class MoneyHistoryComponent implements OnInit {
   getmoneyStore() {
     this.callApi.getTotalMoney().subscribe((res: any) => {
       this.totalPrice = res.data.total_price
-      console.log(res.total_price);
-      console.log(res);
-      
+
     })
   }
 

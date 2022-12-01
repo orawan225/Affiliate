@@ -16,8 +16,8 @@
                             <thead>
                                 <tr>
                                     <th style="width: 5%;"> วันที่ </th>
-                                    <th style="width: 8%;"> ชื่อผู้โอน </th>
-                                    <th style="width: 8%;"> ชื่อผู้รับ </th>
+                                    <th style="width: 8%;"> ชื่อลูกค้า </th>
+                                    <th style="width: 8%;"> ที่อยู่ </th>
                                     <th style="width: 5%;"> จำนวนเงิน </th>
                                     <th style="width: 10%;"> หลักฐานในการชำระเงิน </th>
                                 </tr>
@@ -28,9 +28,9 @@
                                     <td> {{order.date | date: 'HH:mm:ss'}}
                                         <br> {{order.date | date:' d/M/yyyy'}}
                                     </td>
-                                    <td> อรวรรณ ธรรมจินดา</td>
-                                    <td> อรวรรณ ธรรมจินดา </td>
-                                    <td> 100 </td>
+                                    <td> {{order.fullName}}</td>
+                                    <td> {{order.address}} ตำบล : {{order.sub}} อำเภอ : {{order.district}} จังหวัด : {{order.province}} {{order.postalCode}} <br> เบอร์โทรศัพท์ {{order.tel}}</td>
+                                    <td> {{order.totalPrice}} </td>
                                     <td>
                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#exampleModal'+i">
                                             หลักฐานการชำระเงิน
