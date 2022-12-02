@@ -56,8 +56,6 @@ export class ProductEditComponent implements OnInit {
 
 
   editProductById() {
-    console.log(this.formProduct.value);
-
     const data = new FormData()
     if (this.file) {
       data.append('file', this.file, this.file.name)

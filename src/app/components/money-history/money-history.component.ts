@@ -23,56 +23,28 @@ export class MoneyHistoryComponent implements OnInit {
 
 
   constructor(public callApi: CallApiService, private alert: AlertService, private fb: FormBuilder, private cookie: CookieServiceService) {
-    this.formOrder = fb.group({
-      orderListId: [null],
-      price: [null],
-      time: [null],
-      date: [null],
-      status: [null]
-    })
-
     this.store = cookie.getUserId();  
     console.log(this.store)
   }
 
-  patchValue(receiveOrder: orderList) {
-    this.formOrder.patchValue({
-      orderListId: receiveOrder.orderListId,
-      status: receiveOrder.status
-    })
-  }
-
   ngOnInit(): void {
-    this.getAllOrderByStore()
+    this.getWithdraw()
      this.getmoneyStore()
   }
 
-  getAllOrderByStore() {
-    this.callApi.getAllOrderByStore().subscribe((res: any) => {
+  getWithdraw() {
+    this.callApi.getWithdraw().subscribe((res: any) => {
       this.ordertList = res
-    })
-  }
-
-
-  checkStatusOrderById(orderListId: string) {
-    console.log(orderListId);
-    this.alert.confirm("ทำการแพ็คสินค้าเรียบร้อยหรือไม่ ?").then((result) => {
-      if (result.isConfirmed) {
-        this.callApi.checkStatusOrderById(orderListId, this.formOrder.value).subscribe(data => {
-          console.log(data);
-        })
-        this.alert.success("รอการจัดส่งสินค้า")
-      }
+      console.log(res);
+      
     })
   }
 
   getmoneyStore() {
     this.callApi.getTotalMoney().subscribe((res: any) => {
       this.totalPrice = res.data.total_price
-
     })
   }
-
 
   wathdrawMoney() {
     this.alert.warning("ต้องการถอนเงินใช่หรือไม่ ?").then((result) => {

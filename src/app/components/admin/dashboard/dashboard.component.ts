@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CookieServiceService } from 'src/app/services/cookie-service.service';
 
@@ -13,44 +14,54 @@ import { CookieServiceService } from 'src/app/services/cookie-service.service';
 })
 export class DashboardComponent implements OnInit {
 
-  displayedColumns: string[] = ['fullName'];
-  dataSource = new MatTableDataSource<PeriodicElement>();
-
   @ViewChild(MatPaginator) paginator: MatPaginator | any;
 
   profile: any = []
   role?: string
   checkLogin: boolean = true
   showCardRole: any
-  user: any = []
+  // user: any = []
   date: Date = new Date()
+
+  user: Observable<any[]> = new Observable();
+  dataSourceUser = new MatTableDataSource<any>();
+  @ViewChild("paginatorUser", { read: MatPaginator }) paginatorUser!: MatPaginator;
+
+  user1: Observable<any[]> = new Observable();
+  dataSourceUser1 = new MatTableDataSource<any>();
+  @ViewChild("paginatorUser1", { read: MatPaginator }) paginatorUser1!: MatPaginator;
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router,
     private ref: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    this.getUser()
+    this.getWithdrawMoney()
   }
-
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }
-
 
 
   getWithdrawMoney() {
-    this.callApi.withdrawMoney().subscribe(res => {
-      this.user = res
+    this.callApi.withdrawMoney().subscribe((res: any) => {
+      this.dataSourceUser = new MatTableDataSource<any>(res);
+      this.dataSourceUser.paginator = this.paginatorUser;
+      this.user = this.dataSourceUser.connect();
+      console.log(res);
     })
   }
 
+  setWithdrawId(withdrawId: any) {
+    this.router.navigate(['/money'], {queryParams: {id:withdrawId}})
+  }
+
   getUser() {
-    this.callApi.getAllUser().subscribe((data: any) => {
-      this.user = data
-      this.dataSource = new MatTableDataSource(data)
-      this.dataSource.paginator = this.paginator;
-      console.log(data)
-    })
+    // this.callApi.getAllUser().subscribe((data: any) => {
+    //   this.dataSourceUser = new MatTableDataSource<any>(data);
+    //   this.dataSourceUser.paginator = this.paginatorUser;
+    //   this.user = this.dataSourceUser.connect();
+
+    //   this.dataSourceUser1 = new MatTableDataSource<any>(data);
+    //   this.dataSourceUser1.paginator = this.paginatorUser1;
+    //   this.user1 = this.dataSourceUser1.connect();
+    // })
   }
 
 
@@ -64,8 +75,4 @@ export class DashboardComponent implements OnInit {
     this.ref.detectChanges()
   }
 
-}
-
-export interface PeriodicElement {
-  fullName: string;
 }

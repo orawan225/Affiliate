@@ -64,7 +64,7 @@ export class PaymentComponent implements OnInit {
 
   createPayment() {
     let fileData = new FormData()
-    fileData.append('file', this.file, this.file.name)
+    fileData.append('file', this.file)
     this.callApi.createPayment(this.orderListId, fileData).subscribe((res: any) => {
       console.log(res);
       this.alert.success("เพิ่มสินค้าสำเร็จ")

@@ -59,7 +59,7 @@
                     <li>
                         <a class="dropdown-item" routerLink="/order-history"> ประวัติการสั่งซื้อ </a>
                     </li>
-                    <li *ngIf="role=='AFFILIATE' || role=='STORE'">
+                    <li *ngIf="role=='AFFILIATE' || role=='STORE' || role=='ST_AF'">
                         <a class="dropdown-item" routerLink="/money-history"> การถอนเงิน </a>
                     </li>
                     <li class="nav-item" *ngIf="checkLogin">

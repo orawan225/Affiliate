@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CookieServiceService } from 'src/app/services/cookie-service.service';
 
@@ -14,10 +15,32 @@ export class MoneyComponent implements OnInit {
   img: any = 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp'
   profile: any = []
   role?: string
+  withdrawId: any
 
-  constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router) { }
+
+  constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router,
+    private acrout: ActivatedRoute, private alert: AlertService) {
+
+    acrout.queryParams.subscribe((res: any) => {
+      this.withdrawId = res.id
+      console.log(res.id);
+      
+    })
+  }
 
   ngOnInit(): void {
+    
+  }
+
+  createWithdraw() {
+    let fileData = new FormData()
+    fileData.append('withdraw', this.file)
+    this.callApi.updateOrderWithdraw(this.withdrawId, fileData).subscribe((res: any) => {
+      this.alert.success("โอนเงินสำเร็จ")
+      setTimeout(() => {
+        this.router.navigate(['/dashboard'])
+      }, 1000);
+    })
   }
 
 

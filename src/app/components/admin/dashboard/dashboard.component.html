@@ -71,15 +71,15 @@
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th> # </th>
-                                                    <th> ชื่อผู้ใช้งาน </th>
-                                                    <th> เบอร์โทรศัพท์ </th>
-                                                    <th> จำนวนเงิน </th>
-                                                    <th> </th>
+                                                    <th style="width: 1%;"> # </th>
+                                                    <th style="width: 10%;"> ชื่อผู้ใช้งาน </th>
+                                                    <th style="width: 10%;"> เบอร์โทรศัพท์ </th>
+                                                    <th style="width: 10%;"> จำนวนเงิน </th>
+                                                    <th style="width: 10%;"> </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
+                                                <tr *ngFor="let element of user1 | async">
                                                     <td> 1 </td>
                                                     <td> อรวรรณ </td>
                                                     <td> 0619617548 </td>
@@ -90,7 +90,7 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <mat-paginator [length]="100" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
+                                        <mat-paginator #paginatorUser1 [pageSizeOptions]="[1, 10, 25, 100]" aria-label="Select page">
                                         </mat-paginator>
                                     </div>
                                 </div>
@@ -110,41 +110,27 @@
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th> # </th>
-                                                    <th> ชื่อผู้ใช้งาน </th>
-                                                    <th> เบอร์โทรศัพท์ </th>
-                                                    <th> จำนวนเงิน </th>
-                                                    <th> </th>
+                                                    <th style="width: 1%;"> # </th>
+                                                    <th style="width: 10%;"> ชื่อผู้ใช้งาน </th>
+                                                    <th style="width: 10%;"> เบอร์โทรศัพท์ </th>
+                                                    <th style="width: 10%;"> จำนวนเงิน </th>
+                                                    <th style="width: 10%;"> </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr *ngFor="let element of user">
+                                                <tr *ngFor="let element of user | async">
                                                     <td> 1 </td>
                                                     <td> {{element.fullName}} </td>
                                                     <td> 0619617548 </td>
-                                                    <td> 100 </td>
+                                                    <td> {{element.totalPrice}} </td>
                                                     <td>
-                                                        <button type="button" class="btn btn-success" routerLink="/money"> ยืนยัน </button>
+                                                        <button type="button" class="btn btn-success" (click)="setWithdrawId(element.withdrawId)"> ยืนยัน </button>
                                                     </td>
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <mat-paginator [length]="100" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
+                                        <mat-paginator #paginatorUser [pageSizeOptions]="[1, 5, 10, 15]" aria-label="Select page">
                                         </mat-paginator>
-                                        <!-- <div class="mat-elevation-z8">
-                                            <table mat-table [dataSource]="dataSource">
-                                                <ng-container matColumnDef="fullName">
-                                                    <th mat-header-cell *matHeaderCellDef> Name </th>
-                                                    <td mat-cell *matCellDef="let element"> {{element.fullName}} </td>
-                                                </ng-container>
-
-                                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                                            </table>
-
-                                            <mat-paginator [pageSize]="2" [pageSizeOptions]="[2, 10, 25, 100]" aria-label="Select page">
-                                            </mat-paginator>
-                                        </div> -->
                                     </div>
                                 </div>
                             </div>

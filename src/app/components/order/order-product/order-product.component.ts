@@ -113,9 +113,7 @@ export class OrderProductComponent implements OnInit {
         console.log(res);
         this.alert.success("สั่งซื้อสินค้าสำเร็จ")
         setTimeout(() => {
-          this. setOrderListId(res.orderListId)
-          // this.router.navigate(['/payment'])
-
+          this.setOrderListId(res.orderListId)
         }, 1000);
       })
     }

@@ -81,6 +81,11 @@ export class CallApiService {
   public wathdrawMoney(store: any) {
     return this.http.put<store>(`${environment.apiUrl}/store/update-order-withdraw-money/`, store, this.header())
   }
+
+  public getWithdraw() {
+    return this.http.get(`${environment.apiUrl}/store/get-all-order-status-withdraw-success-by-store`, this.header())
+  }
+
   
 
 
@@ -119,7 +124,7 @@ export class CallApiService {
   }
 
   public getAllOrderByStore() {
-    return this.http.get<orderList[]>(`${environment.apiUrl}/order-list/getMyOrder`, this.header())
+    return this.http.get<orderList[]>(`${environment.apiUrl}/store/get-order-status-payment`, this.header())
   }
 
   public checkStatusOrderById(orderId: string, order: orderList) {
@@ -168,6 +173,15 @@ export class CallApiService {
   public withdrawMoney() {
     return this.http.get(`${environment.apiUrl}/admin/get-all-order-status-withdraw-money`,this.header())
   }
+
+  public updateOrderWithdraw(withdrawId: string, withdraw: any) {
+    return this.http.put<store>(`${environment.apiUrl}/admin/update-order-withdraw-success-and-add-slip/${withdrawId}`,withdraw, this.header())
+  }
+
+  public showStatusWithdraw() {
+    return this.http.get(`${environment.apiUrl}/admin/get-all-order-status-withdraw-success`,this.header())
+  }
+
 
 
 }

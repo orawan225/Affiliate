@@ -25,7 +25,6 @@ export class OrderStoreComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllOrderByStore()
-    // this.getProductByStoreId()
   }
 
   getAllOrderByStore() {
@@ -34,17 +33,6 @@ export class OrderStoreComponent implements OnInit {
       console.log(this.ordertList);
     })
   }
-
-  
-  // getProductByStoreId() {
-  //   this.callApi.getAllOrderDetail().subscribe((res: any) => {
-  //     this.ordertList = res
-  //     console.log(res);
-      
-  //   })
-  // }
-
-
 
   checkStatusOrderById(orderListId: any) {
     this.alert.confirm("ทำการแพ็คสินค้าเรียบร้อยหรือไม่ ?").then((result) => {

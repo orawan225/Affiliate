@@ -10,6 +10,11 @@
         <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="navbar-toggler-success">
             <div class="flex-fill mb-2">
                 <ul class="nav navbar-nav d-flex justify-content-end text-center text-dark">
+                    <div class="dropdown">
+                        <li class="nav-item">
+                            <a class="nav-link btn-outline-primary rounded-pill px-3" routerLink="/withdraw-history"> ประวัติการถอนเงิน </a>
+                        </li>
+                    </div>
                     <li class="nav-item" *ngIf="!checkLogin">
                         <a class="nav-link btn-outline-primary rounded-pill px-3" routerLink="/login"> เข้าสู่ระบบ </a>
                     </li>

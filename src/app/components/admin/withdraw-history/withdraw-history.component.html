@@ -9,26 +9,26 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-8">
+            <div class="col">
                 <div class="card mb-5">
                     <div class="card-body">
                         <table>
                             <thead>
                                 <tr>
                                     <th style="width: 5%;"> วันที่ </th>
-                                    <!-- <th style="width: 8%;"> ชื่อลูกค้า </th> -->
-                                    <!-- <th style="width: 8%;"> ที่อยู่ </th> -->
+                                    <th style="width: 8%;"> ชื่อลูกค้า </th>
                                     <th style="width: 5%;"> จำนวนเงิน </th>
                                     <th style="width: 10%;"> หลักฐานในการชำระเงิน </th>
                                 </tr>
                             </thead>
-                            <tbody *ngFor="let order of ordertList ; let i = index">
+                            <tbody *ngFor="let item of withdraw ; let i = index">
                                 <br>
                                 <tr>
-                                    <td> {{order.date | date: 'HH:mm:ss'}}
-                                        <br> {{order.date | date:' d/M/yyyy'}}
+                                    <td> {{item.date | date: 'HH:mm:ss'}}
+                                        <br> {{item.date | date:' d/M/yyyy'}}
                                     </td>
-                                    <td> {{order.totalPrice}} </td>
+                                    <td> orawan</td>
+                                    <td> {{item.totalPrice}} </td>
                                     <td>
                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#exampleModal'+i">
                                             หลักฐานการชำระเงิน
@@ -37,7 +37,7 @@
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-body">
-                                                        <img class="card-img-top" [src]="api+order.image" alt="...">
+                                                        <img class="card-img-top" [src]="api+item.image" alt="...">
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Close </button>
@@ -49,22 +49,6 @@
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="row withdraw-money justify-content-between mb-4">
-                    <div class="card affiliate col-6">
-                        <div>
-                            <h2> ยอดเงินการแชร์ </h2>
-                        </div>
-                        <p> 100 บาท </p>
-                        <button type="button" class="btn btn-outline-success"> ถอนเงิน </button>
-                    </div>
-                    <div class="card shope col-6">
-                        <h2> ยอดเงินการขาย </h2>
-                        <p> {{totalPrice}} บาท </p>
-                        <button type="button" class="btn btn-outline-success mb-2" (click)="wathdrawMoney()"> ถอนเงิน </button>
                     </div>
                 </div>
             </div>

@@ -73,6 +73,7 @@ import { StoreComponent } from './components/admin/store/store.component';
 import { MoneyComponent } from './components/admin/money/money.component';
 import { MoneyHistoryComponent } from './components/money-history/money-history.component';
 import { OrderlistComponent } from './components/admin/orderlist/orderlist.component';
+import { WithdrawHistoryComponent } from './components/admin/withdraw-history/withdraw-history.component';
 
 
 
@@ -111,7 +112,8 @@ import { OrderlistComponent } from './components/admin/orderlist/orderlist.compo
     MoneyComponent,
     MoneyHistoryComponent,
     NavbarComponent,
-    OrderlistComponent
+    OrderlistComponent,
+    WithdrawHistoryComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import { MoneyComponent } from './components/admin/money/money.component';
 import { OrderlistComponent } from './components/admin/orderlist/orderlist.component';
 import { StoreComponent } from './components/admin/store/store.component';
 import { UserComponent } from './components/admin/user/user.component';
+import { WithdrawHistoryComponent } from './components/admin/withdraw-history/withdraw-history.component';
 
 import { CartComponent } from './components/cart/cart.component';
 import { HomeComponent } from './components/home/home.component';
@@ -72,7 +73,8 @@ const routes: Routes = [
   { path: 'affiliate', component: AffiliateComponent,canActivate: [GuardAdminService]},
   { path: 'store', component: StoreComponent,canActivate: [GuardAdminService]},
   { path: 'money', component: MoneyComponent,canActivate: [GuardAdminService]},
-  { path: 'orderlist', component: OrderlistComponent,canActivate: [GuardAdminService]}
+  { path: 'orderlist', component: OrderlistComponent,canActivate: [GuardAdminService]},
+  { path: 'withdraw-history', component: WithdrawHistoryComponent,canActivate: [GuardAdminService]}
 
 ];
 
