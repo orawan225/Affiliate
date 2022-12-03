@@ -15,15 +15,13 @@
                     <table>
                         <thead>
                             <tr>
-                                <th style=" width: 5%;;"> วันที่ </th>
+                                <th style=" width: 2%;;"> วันที่ </th>
                                 <th style=" width: 5%;"> สินค้า </th>
-                                <th style=" width: 10%;"> ที่อยู่ในการจัดส่ง </th>
+                                <th style=" width: 10%;"> ข้อมูลลูกค้า </th>
                                 <th style=" width: 5%;"> หลักฐานในการชำระเงิน </th>
                                 <th style=" width: 5%;"> </th>
                             </tr>
                         </thead>
-                        <br>
-
                         <tbody *ngFor="let order of order ; let i = index">
                             <tr *ngIf="order.status === 'wait payment'">
                                 <td> {{order.date | date: 'HH:mm:ss'}}
@@ -70,13 +68,13 @@
                                     </div>
 
                                 </td>
-                                <td> ชื่อผู้รับ : {{order.fullName}}
+                                <td> <br> ชื่อผู้รับ : {{order.fullName}}
                                     <br> เบอร์โทรศัพท์ : {{order.tel}}
-                                    <br> ที่อยู่ในการจัดส่ง : {{order.address}} ตำล : {{order.sub}} อำเภอ : {{order.district}} จังหวัด : {{order.province}} รหัสไปรษณีย์ : {{order.postalCode}}
+                                    <br> ที่อยู่ในการจัดส่ง : {{order.address}} ตำล{{order.sub}} อำเภอ{{order.district}} จังหวัด{{order.province}} {{order.postalCode}}
                                 </td>
                                 <td>
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#exampleModal'+i">
-                                        หลักฐานการชำระเงิน
+                                        การชำระเงิน
                                     </button>
                                     <div class="modal fade" [attr.id]="'exampleModal'+i" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">

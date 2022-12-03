@@ -23,20 +23,20 @@ export class MoneyHistoryComponent implements OnInit {
 
 
   constructor(public callApi: CallApiService, private alert: AlertService, private fb: FormBuilder, private cookie: CookieServiceService) {
-    this.store = cookie.getUserId();  
+    this.store = cookie.getUserId();
     console.log(this.store)
   }
 
   ngOnInit(): void {
     this.getWithdraw()
-     this.getmoneyStore()
+    this.getmoneyStore()
   }
 
   getWithdraw() {
     this.callApi.getWithdraw().subscribe((res: any) => {
       this.ordertList = res
       console.log(res);
-      
+
     })
   }
 
@@ -47,13 +47,14 @@ export class MoneyHistoryComponent implements OnInit {
   }
 
   wathdrawMoney() {
-    this.alert.warning("ต้องการถอนเงินใช่หรือไม่ ?").then((result) => {
+    this.alert.warning("ต้องการถอนเงินใช่หรือไม่ ?").then(async (result) => {
       if (result.isConfirmed) {
-        this.callApi.wathdrawMoney(this.store).subscribe(data => {
+        await this.callApi.wathdrawMoney(this.store).subscribe(async data => {
           console.log(data);
+          await this.alert.success("ทำการถอนเงินสำเร็จ")
+          this.getWithdraw()
         })
-        this.alert.success("ทำการถอนเงินสำเร็จ")
-      } 
+      }
     })
   }
 

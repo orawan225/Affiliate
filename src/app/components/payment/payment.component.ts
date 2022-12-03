@@ -34,8 +34,7 @@ export class PaymentComponent implements OnInit {
   constructor(public cartService: CartService, private callApi: CallApiService, private cookie: CookieServiceService,
     private router: Router, private acrout: ActivatedRoute,private alert: AlertService) {
 
-    this.user = cookie.getUserId();
-    console.log(this.user);
+    // this.user = cookie.getUserId();
 
     acrout.queryParams.subscribe((res: any) => {
       this.orderListId = res.id
@@ -46,7 +45,6 @@ export class PaymentComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.cookie.getUserId();
-    console.log(this.user);
 
   }
 

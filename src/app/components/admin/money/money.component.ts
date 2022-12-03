@@ -22,19 +22,15 @@ export class MoneyComponent implements OnInit {
     private acrout: ActivatedRoute, private alert: AlertService) {
 
     acrout.queryParams.subscribe((res: any) => {
-      this.withdrawId = res.id
-      console.log(res.id);
-      
+      this.withdrawId = res.id 
     })
   }
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
   createWithdraw() {
     let fileData = new FormData()
-    fileData.append('withdraw', this.file)
+    fileData.append('file', this.file)
     this.callApi.updateOrderWithdraw(this.withdrawId, fileData).subscribe((res: any) => {
       this.alert.success("โอนเงินสำเร็จ")
       setTimeout(() => {

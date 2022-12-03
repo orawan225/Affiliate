@@ -9,29 +9,26 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-8">
+            <div class="col-7">
                 <div class="card mb-5">
                     <div class="card-body">
                         <table>
                             <thead>
                                 <tr>
-                                    <th style="width: 5%;"> วันที่ </th>
-                                    <!-- <th style="width: 8%;"> ชื่อลูกค้า </th> -->
-                                    <!-- <th style="width: 8%;"> ที่อยู่ </th> -->
-                                    <th style="width: 5%;"> จำนวนเงิน </th>
-                                    <th style="width: 10%;"> หลักฐานในการชำระเงิน </th>
+                                    <th style="width: 1%;"> เวลา </th>
+                                    <th style="width: 1%;"> วันที่ </th>
+                                    <th style="width: 2%;"> จำนวนเงิน </th>
+                                    <th style="width: 2%;"> หลักฐานในการชำระเงิน </th>
                                 </tr>
                             </thead>
                             <tbody *ngFor="let order of ordertList ; let i = index">
-                                <br>
                                 <tr>
-                                    <td> {{order.date | date: 'HH:mm:ss'}}
-                                        <br> {{order.date | date:' d/M/yyyy'}}
-                                    </td>
+                                    <td> {{order.date | date: 'HH:mm:ss'}} </td>
+                                    <td> {{order.date | date:' d/M/yyyy'}} </td>
                                     <td> {{order.totalPrice}} </td>
                                     <td>
                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#exampleModal'+i">
-                                            หลักฐานการชำระเงิน
+                                            การชำระเงิน
                                         </button>
                                         <div class="modal fade" [attr.id]="'exampleModal'+i" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
@@ -52,12 +49,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4">
-                <div class="row withdraw-money justify-content-between mb-4">
+            <div class="col-5">
+                <div class="row withdraw-money mb-4">
                     <div class="card affiliate col-6">
-                        <div>
-                            <h2> ยอดเงินการแชร์ </h2>
-                        </div>
+                        <h2> ยอดเงินการแชร์ </h2>
                         <p> 100 บาท </p>
                         <button type="button" class="btn btn-outline-success"> ถอนเงิน </button>
                     </div>
