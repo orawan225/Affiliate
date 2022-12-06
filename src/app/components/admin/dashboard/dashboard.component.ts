@@ -45,6 +45,7 @@ export class DashboardComponent implements OnInit {
       this.dataSourceUser.paginator = this.paginatorUser;
       this.user = this.dataSourceUser.connect();
       console.log(res);
+      
     })
   }
 

@@ -9,6 +9,7 @@ import { profile } from '../models/profile';
 import { affiliate } from '../models/affiliate';
 import { BehaviorSubject } from 'rxjs';
 import { orderDetail, orderList } from '../models/order';
+import { withdraw } from '../models/withdraw';
 
 
 @Injectable({
@@ -92,7 +93,7 @@ export class CallApiService {
 
   //Product
   public getAllProduct() {
-    return this.http.get<product>(`${environment.apiUrl}/auth/getAll-product`)
+    return this.http.get<product>(`${environment.apiUrl}/auth/getAll-byStatusIsTrue-product`)
   }
 
   public getAllProductByStore() {
@@ -175,13 +176,14 @@ export class CallApiService {
   }
 
   public updateOrderWithdraw(withdrawId: string, withdraw: any) {
-    return this.http.put<store>(`${environment.apiUrl}/admin/update-order-withdraw-success-and-add-slip/${withdrawId}`,withdraw, this.header())
+    return this.http.put<withdraw>(`${environment.apiUrl}/admin/update-order-withdraw-success-and-add-slip/${withdrawId}`,withdraw, this.header())
   }
 
   public showStatusWithdraw() {
     return this.http.get(`${environment.apiUrl}/admin/get-all-order-status-withdraw-success`,this.header())
   }
 
-
-
+  public getWithdrawById(withdrawId: any) {
+    return this.http.get(`${environment.apiUrl}/admin/get-withdraw-by-id/${withdrawId}`,this.header())
+  }
 }

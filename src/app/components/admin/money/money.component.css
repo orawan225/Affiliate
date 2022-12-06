@@ -39,3 +39,9 @@ img {
 .card-header {
     text-align: center;
 }
+
+.money {
+    margin-left: 20rem;
+    text-align: end;
+    width: 50%;
+}

@@ -111,7 +111,8 @@
                                             <thead>
                                                 <tr>
                                                     <th style="width: 1%;"> # </th>
-                                                    <th style="width: 10%;"> ชื่อผู้ใช้งาน </th>
+                                                    <th style="width: 10%;"> ชื่อร้านค้า </th>
+                                                    <th style="width: 10%;"> ชื่อ-นามสกุล </th>
                                                     <th style="width: 10%;"> เบอร์โทรศัพท์ </th>
                                                     <th style="width: 10%;"> จำนวนเงิน </th>
                                                     <th style="width: 10%;"> </th>
@@ -120,8 +121,9 @@
                                             <tbody>
                                                 <tr *ngFor="let element of user | async">
                                                     <td> 1 </td>
-                                                    <td> {{element.fullName}} </td>
-                                                    <td> 0619617548 </td>
+                                                    <td> {{element.store.store}} </td>
+                                                    <td> {{element.user.fullName}} </td>
+                                                    <td> {{element.user.tel}} </td>
                                                     <td> {{element.totalPrice}} </td>
                                                     <td>
                                                         <button type="button" class="btn btn-success" (click)="setWithdrawId(element.withdrawId)"> ยืนยัน </button>

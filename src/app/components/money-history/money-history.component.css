@@ -38,3 +38,14 @@ p {
     font-size: 18px;
     margin-bottom: 1.5rem;
 }
+
+.empty-cart {
+    text-align: center;
+    margin-bottom: 10pc;
+}
+
+.bi-cart-fill {
+    margin-left: 5rem;
+    margin-top: 6rem;
+    /* margin-bottom: 2rem; */
+}
