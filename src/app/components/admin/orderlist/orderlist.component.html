@@ -23,7 +23,7 @@
                             </tr>
                         </thead>
                         <tbody *ngFor="let order of order ; let i = index">
-                            <tr *ngIf="order.status === 'wait payment'">
+                            <tr>
                                 <td> {{order.date | date: 'HH:mm:ss'}}
                                     <br> {{order.date | date:' d/M/yyyy'}}
                                 </td>

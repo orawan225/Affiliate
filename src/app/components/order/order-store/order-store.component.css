@@ -37,3 +37,21 @@ img {
 .modal-content {
     margin-top: 8rem;
 }
+
+.button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 150px;
+}
+
+.btn-secondary {
+    margin-left: 2px;
+}
+
+.nametrack {
+    margin-left: 20px;
+}
+
+.inputtrack {
+    margin-right: 20px;
+}

@@ -87,6 +87,7 @@ export class CallApiService {
     return this.http.get(`${environment.apiUrl}/store/get-all-order-status-withdraw-success-by-store`, this.header())
   }
 
+
   
 
 
@@ -146,6 +147,10 @@ export class CallApiService {
   
   public getSearchProduct(product: string) {
     return this.http.get<product>(`${environment.apiUrl}/auth/product-search?keyword=${product}`)
+  }
+
+  public trackingNumber(orderId: any, order: orderList) {
+    return this.http.put<orderList>(`${environment.apiUrl}/store/update-order-success/${orderId}`, order, this.header())
   }
 
 

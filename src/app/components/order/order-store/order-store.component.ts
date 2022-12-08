@@ -13,14 +13,16 @@ import { environment } from 'src/environments/environment';
 })
 export class OrderStoreComponent implements OnInit {
 
-  formOrder: any
   ordertList: orderList[] = new Array<orderList>()
   file: any
   api = environment.apiUrl
   profile: any = []
-
+  formTrackNumber: any
 
   constructor(public callApi: CallApiService, private alert: AlertService, private fb: FormBuilder) {
+    this.formTrackNumber = fb.group({
+      trackingNumber: [null]
+    })
   }
 
   ngOnInit(): void {
@@ -34,15 +36,19 @@ export class OrderStoreComponent implements OnInit {
     })
   }
 
-  checkStatusOrderById(orderListId: any) {
-    this.alert.confirm("ทำการแพ็คสินค้าเรียบร้อยหรือไม่ ?").then(async (result) => {
-      if (result.isConfirmed) {
-        await this.callApi.checkStatusOrderById(orderListId, this.formOrder).subscribe(async data => {
-           await this.alert.success("รอการจัดส่งสินค้า")
-           this.getAllOrderByStore()
-        })
-      } 
+  trackingNumber(orderListId: any) {
+    this.callApi.trackingNumber(orderListId, this.formTrackNumber.value).subscribe(res => {
+      this.alert.success("ทำการส่งสินค้าเรียบร้อย")
+      this.getAllOrderByStore()
     })
+    // this.alert.confirm("ทำการแพ็คสินค้าเรียบร้อยหรือไม่ ?").then(async (result) => {
+    //   if (result.isConfirmed) {
+    //     await this.callApi.checkStatusOrderById(orderListId, this.formOrder).subscribe(async data => {
+    //        await this.alert.success("รอการจัดส่งสินค้า")
+    //        this.getAllOrderByStore()
+    //     })
+    //   } 
+    // })
   }
 
 

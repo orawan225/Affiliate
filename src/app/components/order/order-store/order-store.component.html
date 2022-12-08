@@ -91,7 +91,37 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-success" (click)="checkStatusOrderById(order.orderListId)"> ยืนยัน </button>
+                                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        ยืนยัน
+                                    </button>
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h3 class="modal-title" id="exampleModalLabel">
+                                                        กรูณาใส่เลขพัสดุสินค้า </h3>
+                                                </div>
+                                                <form [formGroup]="formTrackNumber" (ngSubmit)="trackingNumber(order.orderListId)">
+                                                    <div class="row mt-3">
+                                                        <div class="col-2 nametrack">
+                                                            เลขพัสดุ :
+                                                        </div>
+                                                        <div class="col inputtrack">
+                                                            <input type="text" name="trackingNumber" id="trackingNumber" class="form-control" placeholder="กรุณากรอกเลขพัสดุ" formControlName="trackingNumber">
+                                                        </div>
+
+                                                        <div class="button">
+                                                            <button type="submit" class="btn btn-success" (click)="trackingNumber(order.orderListId)">
+                                                                ยืนยัน
+                                                            </button>
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> ยกเลิก </button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <button type="button" class="btn btn-success " (click)="checkStatusOrderById(order.orderListId)"> ยืนยัน </button> -->
                                 </td>
                             </tr>
                         </tbody>
