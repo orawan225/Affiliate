@@ -10,6 +10,17 @@
         <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="navbar-toggler-success">
             <div class="flex-fill mb-2">
                 <ul class="nav navbar-nav d-flex justify-content-end text-center text-dark">
+                    <div class="dropdown" *ngIf="role=='USER' || role=='ST_AF'">
+                        <a class="nav-link btn-outline-primary rounded-pill px-3 " role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            ติดตามสินค้า
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li *ngIf="role=='USER' || role=='ST_AF'">
+                                <a class="dropdown-item" routerLink="/order-wait-payment"> สินค้ารอชำระเงิน </a>
+                            </li>
+                        </ul>
+                    </div>
+
                     <div class="dropdown" *ngIf="role=='STORE' || role=='ST_AF'">
                         <a class="nav-link btn-outline-primary rounded-pill px-3 " role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                             รายการของฉัน

@@ -27,11 +27,12 @@ import { ProfileUserComponent } from './components/profile/profile-user/profile-
 import { RegisterCustomerComponent } from './components/register/register-customer/register-customer.component';
 import { RegisterStoreComponent } from './components/register/register-store/register-store.component';
 import { RegisterUserComponent } from './components/register/register-user/register-user.component';
-import { OrderDeliveryComponent } from './components/store/order-delivery/order-delivery.component';
+import { OrderDeliveryComponent } from './components/order/order-delivery/order-delivery.component';
 import { GuardAdminService } from './services/guard-admin.service';
 import { GuardAffiliateService } from './services/guard-affiliate.service';
 import { GuardStoreService } from './services/guard-store.service';
 import { GuardService } from './services/guard.service';
+import { OrderWaitPaymentComponent } from './components/order/order-wait-payment/order-wait-payment.component';
 
 
 
@@ -55,6 +56,7 @@ const routes: Routes = [
   { path: 'order-history', component: OrderHistoryComponent,canActivate: [GuardService]},
   { path: 'order-product', component: OrderProductComponent,canActivate: [GuardService]},
   { path: 'money-history', component: MoneyHistoryComponent,canActivate: [GuardService]},
+  { path: 'order-wait-payment', component: OrderWaitPaymentComponent,canActivate: [GuardService]},
 
 
 

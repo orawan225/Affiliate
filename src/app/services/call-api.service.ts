@@ -122,6 +122,14 @@ export class CallApiService {
     return this.http.put<product>(`${environment.apiUrl}/product/update-productByStatus/${productId}`, product, this.header())
   }
 
+  public getProductWaitPayment() {
+    return this.http.get<product>(`${environment.apiUrl}/order-list/get-my-order-status-is-true`, this.header())
+  }
+  
+ 
+
+
+
 
   //Order
 
@@ -133,9 +141,9 @@ export class CallApiService {
     return this.http.get<orderList[]>(`${environment.apiUrl}/store/get-order-status-payment`, this.header())
   }
 
-  public checkStatusOrderById(orderId: string, order: orderList) {
-    return this.http.put<orderList>(`${environment.apiUrl}/store/update-order-success/${orderId}`, order, this.header())
-  }
+  // public checkStatusOrderById(orderId: string, order: orderList) {
+  //   return this.http.put<orderList>(`${environment.apiUrl}/store/update-order-success/${orderId}`, order, this.header())
+  // }
 
   public addOrderDetail(data: any) {
     return this.http.post<orderDetail>(`${environment.apiUrl}/order-detail/addProducts`, data, this.header())
@@ -155,6 +163,10 @@ export class CallApiService {
 
   public trackingNumber(orderId: any, order: orderList) {
     return this.http.put<orderList>(`${environment.apiUrl}/store/update-order-success/${orderId}`, order, this.header())
+  }
+
+  public deleteOrderProduct(orderListId: string, order: orderDetail) {
+    return this.http.put<orderList>(`${environment.apiUrl}/order-list/update-order-false/${orderListId}`, order, this.header())
   }
 
 

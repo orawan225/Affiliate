@@ -8,8 +8,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./order-delivery.component.css']
 })
 export class OrderDeliveryComponent implements OnInit {
-
-  file: any
+  
   api = environment.apiUrl
   ordertList: any
 
