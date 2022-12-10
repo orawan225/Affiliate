@@ -63,7 +63,7 @@ import { OrderProductComponent } from './components/order/order-product/order-pr
 
 // <---- Store --->
 import { OrderStoreComponent } from './components/order/order-store/order-store.component';
-import { OrderDeliveryComponent } from './components/order/order-delivery/order-delivery.component';
+import { OrderDeliveryComponent } from './components/store/order-delivery/order-delivery.component';
 import { ProductStoreComponent } from './components/product/product-store/product-store.component';
 import { ProductCreateComponent } from './components/product/product-create/product-create.component';
 import { ProductEditComponent } from './components/product/product-edit/product-edit.component';
@@ -89,6 +89,9 @@ import { ProductShareComponent } from './components/product/product-share/produc
 import { MoneyHistoryComponent } from './components/money-history/money-history.component';
 import { ProductDetailComponent } from './components/product/product-detail/product-detail.component';
 import { OrderWaitPaymentComponent } from './components/order/order-wait-payment/order-wait-payment.component';
+import { OrderWaitDeliveryComponent } from './components/order/order-wait-delivery/order-wait-delivery.component';
+import { OrderFollowProductComponent } from './components/order/order-follow-product/order-follow-product.component';
+import { OrderSuccessComponent } from './components/order/order-success/order-success.component';
 
 
 
@@ -130,7 +133,10 @@ import { OrderWaitPaymentComponent } from './components/order/order-wait-payment
     OrderlistComponent,
     WithdrawHistoryComponent,
     OrderDeliveryComponent,
-    OrderWaitPaymentComponent
+    OrderWaitPaymentComponent,
+    OrderWaitDeliveryComponent,
+    OrderFollowProductComponent,
+    OrderSuccessComponent
   ],
   imports: [
     BrowserModule,

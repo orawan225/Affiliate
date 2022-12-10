@@ -35,14 +35,13 @@ export class OrderWaitPaymentComponent implements OnInit {
   }
 
   deleteOrderProductNotPayment(orderListId: any) {
-    this.alert.warning("ต้องการลยรายการสินค้าใช่หรือไม่ ?").then((result) => {
+    this.alert.warning("ต้องการลยรายการสินค้าใช่หรือไม่ ?").then(async (result) => {
       if (result.isConfirmed) {
-        this.callApi.deleteOrderProduct(orderListId, this.formOrder).subscribe(async (res) => {
-          this.alert.success("ลบรายการสินค้าเรียบร้อย")
+        await this.callApi.deleteOrderProduct(orderListId, this.formOrder).subscribe(async (res) => {
+          await this.alert.success("ลบรายการสินค้าเรียบร้อย")
+          this.getProductWatiPaymaent()
         })
       }
-
     })
   }
-
 }

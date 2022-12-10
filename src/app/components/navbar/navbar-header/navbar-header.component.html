@@ -18,6 +18,15 @@
                             <li *ngIf="role=='USER' || role=='ST_AF'">
                                 <a class="dropdown-item" routerLink="/order-wait-payment"> สินค้ารอชำระเงิน </a>
                             </li>
+                            <li *ngIf="role=='USER' || role=='ST_AF'">
+                                <a class="dropdown-item" routerLink="/order-wait-delivery"> รอการจัดส่ง </a>
+                            </li>
+                            <li *ngIf="role=='USER' || role=='ST_AF'">
+                                <a class="dropdown-item" routerLink="/order-success"> รับสินค้า </a>
+                            </li>
+                            <li *ngIf="role=='USER' || role=='ST_AF'">
+                                <a class="dropdown-item" routerLink="/order-history"> ประวัติการสั่งซื้อ </a>
+                            </li>
                         </ul>
                     </div>
 
@@ -70,9 +79,9 @@
                     <li class="nav-item">
                         <button class="dropdown-item" type="button" routerLink="/profile-user"> โปรไฟล์ของฉัน </button>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a class="dropdown-item" routerLink="/order-history"> ประวัติการสั่งซื้อ </a>
-                    </li>
+                    </li> -->
                     <li *ngIf="role=='AFFILIATE' || role=='STORE' || role=='ST_AF'">
                         <a class="dropdown-item" routerLink="/money-history"> การถอนเงิน </a>
                     </li>

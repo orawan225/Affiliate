@@ -12,55 +12,22 @@ import { environment } from 'src/environments/environment';
 })
 export class OrderHistoryComponent implements OnInit {
 
-  formOrder: any
   ordertList: any = []
   file: any
   api = environment.apiUrl
-  profile: any = []
 
 
-  constructor(public callApi: CallApiService, private alert: AlertService, private fb: FormBuilder) {
-    this.formOrder = fb.group({
-      orderListId: [null],
-      price: [null],
-      time: [null],
-      date: [null],
-      status: [null]
-    })
-  }
-
-  patchValue(receiveOrder: orderList) {
-    this.formOrder.patchValue({
-      orderListId: receiveOrder.orderListId,
-      status: receiveOrder.status
-    })
-  }
-
-
+  constructor(public callApi: CallApiService, private alert: AlertService) { }
 
   ngOnInit(): void {
-    this.getAllOrderByStore()
+    this.getOrderHistory()
   }
 
-  getAllOrderByStore() {
-    this.callApi.getAllOrderByStore().subscribe((res: any) => {
+  getOrderHistory() {
+    this.callApi.getOrderHistory().subscribe(res => {
       this.ordertList = res
       console.log(res);
     })
   }
-
-
-  // checkStatusOrderById(orderListId: string) {
-  //   console.log(orderListId);
-  //   this.alert.confirm("ทำการแพ็คสินค้าเรียบร้อยหรือไม่ ?").then((result) => {
-  //     if (result.isConfirmed) {
-  //       this.callApi.checkStatusOrderById(orderListId, this.formOrder.value).subscribe(data => {
-  //         console.log(data);
-  //       })
-  //       this.alert.success("รอการจัดส่งสินค้า")
-  //     }
-  //   })
-  // }
-
 
 }

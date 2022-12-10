@@ -5,7 +5,7 @@
             <div class="col-5">
                 <div class="text-title mt-5">
                     <h1>
-                        ประวัติการสั่งซื้อ
+                        รอการจัดส่งสินค้า
                     </h1>
                 </div>
             </div>
@@ -15,11 +15,10 @@
                     <table>
                         <thead>
                             <tr>
-                                <th style=" width: 2%;;"> วันที่ </th>
-                                <th style=" width: 4%;"> สินค้า </th>
-                                <th style=" width: 10%;"> ที่อยู่ในการจัดส่ง </th>
-                                <th style=" width: 5%;"> เลขพัสดุในการจัดส่ง </th>
-                                <th style=" width: 5%;"> หลักฐานในการชำระเงิน </th>
+                                <th style=" width: 1%;"> วันที่ </th>
+                                <th style=" width: 2%;"> สินค้า </th>
+                                <th style=" width: 5%;"> ที่อยู่ในการจัดส่ง </th>
+                                <th style=" width: 5%;"> ข้อมูลร้านค้า </th>
                             </tr>
                         </thead>
                         <br>
@@ -70,29 +69,13 @@
                                     </div>
 
                                 </td>
+                                <td> <strong>ชื่อผู้รับ</strong> : {{order.fullName}}
+                                    <br> <strong>เบอร์โทรศัพท์</strong> : {{order.tel}}
+                                    <br> <strong>ที่อยู่ในการจัดส่ง</strong> : {{order.address}} ตำบล{{order.sub}} อำเภอ{{order.district}} จังหวัด{{order.province}} {{order.postalCode}}
+                                </td>
                                 <td> ชื่อผู้รับ : {{order.fullName}}
                                     <br> เบอร์โทรศัพท์: {{order.tel}}
                                     <br> ที่อยู่ในการจัดส่ง : {{order.address}} ตำบล{{order.sub}} อำเภอ{{order.district}} จังหวัด{{order.province}} {{order.postalCode}}
-                                </td>
-                                <td>
-                                    {{order.trackingNumber}}
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#exampleModal'+i">
-                                        การชำระเงิน
-                                    </button>
-                                    <div class="modal fade" [attr.id]="'exampleModal'+i" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-body">
-                                                    <img class="card-img-top" [src]="api+order.image" alt="...">
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Close </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </td>
                             </tr>
                         </tbody>
