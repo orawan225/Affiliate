@@ -41,12 +41,6 @@ import { RegisterStoreComponent } from './components/register/register-store/reg
 // <---- Logion --->
 import { LoginComponent } from './components/login/login.component';
 
-// <---- Product --->
-import { ProductDetailComponent } from './components/product/product-detail/product-detail.component';
-import { ProductStoreComponent } from './components/product/product-store/product-store.component';
-import { ProductCreateComponent } from './components/product/product-create/product-create.component';
-import { ProductEditComponent } from './components/product/product-edit/product-edit.component';
-import { ProductShareComponent } from './components/product/product-share/product-share.component';
 
 // <---- Profile --->
 import { ProfileUpdateComponent } from './components/profile/profile-update/profile-update.component';
@@ -58,11 +52,22 @@ import { ProfileAffiliateComponent } from './components/profile/profile-affiliat
 
 import { HomeComponent } from './components/home/home.component';
 import { CartComponent } from './components/cart/cart.component';
-import { PaymentComponent } from './components/payment/payment.component';
 
+
+
+// <---- User --->
+import { PaymentComponent } from './components/payment/payment.component';
 import { OrderHistoryComponent } from './components/order/order-history/order-history.component';
-import { OrderStoreComponent } from './components/order/order-store/order-store.component';
 import { OrderProductComponent } from './components/order/order-product/order-product.component';
+
+
+// <---- Store --->
+import { OrderStoreComponent } from './components/order/order-store/order-store.component';
+import { OrderDeliveryComponent } from './components/store/order-delivery/order-delivery.component';
+import { ProductStoreComponent } from './components/product/product-store/product-store.component';
+import { ProductCreateComponent } from './components/product/product-create/product-create.component';
+import { ProductEditComponent } from './components/product/product-edit/product-edit.component';
+
 
 
 // <---- Admin --->
@@ -71,9 +76,18 @@ import { UserComponent } from './components/admin/user/user.component';
 import { AffiliateComponent } from './components/admin/affiliate/affiliate.component';
 import { StoreComponent } from './components/admin/store/store.component';
 import { MoneyComponent } from './components/admin/money/money.component';
-import { MoneyHistoryComponent } from './components/money-history/money-history.component';
 import { OrderlistComponent } from './components/admin/orderlist/orderlist.component';
 import { WithdrawHistoryComponent } from './components/admin/withdraw-history/withdraw-history.component';
+
+
+// <---- Affiliate --->
+import { ProductShareComponent } from './components/product/product-share/product-share.component';
+
+
+
+
+import { MoneyHistoryComponent } from './components/money-history/money-history.component';
+import { ProductDetailComponent } from './components/product/product-detail/product-detail.component';
 
 
 
@@ -113,7 +127,8 @@ import { WithdrawHistoryComponent } from './components/admin/withdraw-history/wi
     MoneyHistoryComponent,
     NavbarComponent,
     OrderlistComponent,
-    WithdrawHistoryComponent
+    WithdrawHistoryComponent,
+    OrderDeliveryComponent
   ],
   imports: [
     BrowserModule,

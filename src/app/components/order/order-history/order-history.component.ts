@@ -50,17 +50,17 @@ export class OrderHistoryComponent implements OnInit {
   }
 
 
-  checkStatusOrderById(orderListId: string) {
-    console.log(orderListId);
-    this.alert.confirm("ทำการแพ็คสินค้าเรียบร้อยหรือไม่ ?").then((result) => {
-      if (result.isConfirmed) {
-        this.callApi.checkStatusOrderById(orderListId, this.formOrder.value).subscribe(data => {
-          console.log(data);
-        })
-        this.alert.success("รอการจัดส่งสินค้า")
-      }
-    })
-  }
+  // checkStatusOrderById(orderListId: string) {
+  //   console.log(orderListId);
+  //   this.alert.confirm("ทำการแพ็คสินค้าเรียบร้อยหรือไม่ ?").then((result) => {
+  //     if (result.isConfirmed) {
+  //       this.callApi.checkStatusOrderById(orderListId, this.formOrder.value).subscribe(data => {
+  //         console.log(data);
+  //       })
+  //       this.alert.success("รอการจัดส่งสินค้า")
+  //     }
+  //   })
+  // }
 
 
 }

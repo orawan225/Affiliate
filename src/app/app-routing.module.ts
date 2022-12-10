@@ -27,6 +27,7 @@ import { ProfileUserComponent } from './components/profile/profile-user/profile-
 import { RegisterCustomerComponent } from './components/register/register-customer/register-customer.component';
 import { RegisterStoreComponent } from './components/register/register-store/register-store.component';
 import { RegisterUserComponent } from './components/register/register-user/register-user.component';
+import { OrderDeliveryComponent } from './components/store/order-delivery/order-delivery.component';
 import { GuardAdminService } from './services/guard-admin.service';
 import { GuardAffiliateService } from './services/guard-affiliate.service';
 import { GuardStoreService } from './services/guard-store.service';
@@ -62,6 +63,7 @@ const routes: Routes = [
   { path: 'product-create', component: ProductCreateComponent,canActivate: [GuardStoreService]},
   { path: 'order-store', component: OrderStoreComponent,canActivate: [GuardStoreService]},
   { path: 'payment', component: PaymentComponent,canActivate: [GuardStoreService]},
+  { path: 'order-delivery', component: OrderDeliveryComponent,canActivate: [GuardStoreService]},
 
   // GuardAffiliateService
   { path: 'product-share', component: ProductShareComponent,canActivate: [GuardAffiliateService]},

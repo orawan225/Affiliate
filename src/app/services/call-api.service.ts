@@ -87,6 +87,10 @@ export class CallApiService {
     return this.http.get(`${environment.apiUrl}/store/get-all-order-status-withdraw-success-by-store`, this.header())
   }
 
+  public getStatusSuccess() {
+    return this.http.get(`${environment.apiUrl}/store/get-order-status-success`, this.header())
+  }
+
 
   
 
