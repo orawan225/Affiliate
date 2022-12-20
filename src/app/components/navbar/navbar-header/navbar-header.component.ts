@@ -30,6 +30,7 @@ export class NavbarHeaderComponent implements OnInit {
       this.callApi.getProfile().subscribe((res: any) => {
         this.profile = res.data.profile;
         this.role = res.data.profile.role;
+        console.log(this.role);
       })
     }
   }

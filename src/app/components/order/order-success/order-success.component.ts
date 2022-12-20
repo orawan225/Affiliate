@@ -28,7 +28,7 @@ export class OrderSuccessComponent implements OnInit {
   orderSuccess(orderListId: any) {
     this.alert.confirm("คุณได้รับสินค้าแล้วใช่หรือไม่ ?").then(async (result) => {
       if (result.isConfirmed) {
-        await this.callApi.deleteOrderProduct(orderListId, this.formOrder).subscribe(async (res) => {
+        await this.callApi.deliverySuccess(orderListId, this.formOrder).subscribe(async (res) => {
           await this.alert.success("ยืนยันการรับสินค้า")
           this.getOrderSuccess()
         })

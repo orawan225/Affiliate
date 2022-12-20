@@ -20,6 +20,7 @@ export class MoneyHistoryComponent implements OnInit {
   profile: any = []
   store: any = []
   totalPrice = 0
+  role?: string
 
 
   constructor(public callApi: CallApiService, private alert: AlertService, private fb: FormBuilder, private cookie: CookieServiceService) {
@@ -30,6 +31,7 @@ export class MoneyHistoryComponent implements OnInit {
   ngOnInit(): void {
     this.getWithdraw()
     this.getmoneyStore()
+    this.getProfile()
   }
 
   getWithdraw() {
@@ -56,6 +58,16 @@ export class MoneyHistoryComponent implements OnInit {
         })
       }
     })
+  }
+
+  getProfile() {
+    const _auth: boolean = this.cookie.getToken() ? true : false;
+    if (_auth) {
+      this.callApi.getProfile().subscribe((res: any) => {
+        this.profile = res.data.profile;
+        this.role = res.data.profile.role;
+      })
+    }
   }
 
 }

@@ -130,7 +130,7 @@ export class CallApiService {
     return this.http.get<product>(`${environment.apiUrl}/order-list/get-my-order-status-is-true`, this.header())
   }
 
-  public orderSuccess(orderListId: string, order: orderDetail) {
+  public deliverySuccess(orderListId: string, order: orderDetail) {
     return this.http.put<orderList>(`${environment.apiUrl}/order-list/update-order-deliver-status/${orderListId}`, order, this.header())
   }
   
@@ -183,6 +183,11 @@ export class CallApiService {
 
   public getWaitDeliveryOrder() {
     return this.http.get(`${environment.apiUrl}/order-list/get-my-order-status-payment`, this.header())
+  }
+
+  
+  public orderSuccess(orderListId: string, order: orderDetail) {
+    return this.http.put<orderList>(`${environment.apiUrl}/order-list/update-order-deliver-status-is-true/${orderListId}`, order, this.header())
   }
 
 

@@ -1,12 +1,10 @@
 <app-navbar-header></app-navbar-header>
 <div class="backgroundimg">
     <div class="container">
-        <div class="col-5">
-            <div class="text-title mt-5">
-                <h1>
-                    ประวัติการถอนเงิน
-                </h1>
-            </div>
+        <div class="text-title mt-5">
+            <h1>
+                ประวัติการถอนเงิน
+            </h1>
         </div>
         <div class="row">
             <div class="col-7">
@@ -51,12 +49,12 @@
             </div>
             <div class="col-5">
                 <div class="row withdraw-money mb-4">
-                    <div class="card affiliate col-6">
+                    <div class="card affiliate col-6" *ngIf="role=='AFFILIATE' || role=='ST_AF'">
                         <h2> ยอดเงินการแชร์ </h2>
                         <p> 100 บาท </p>
                         <button type="button" class="btn btn-outline-success"> ถอนเงิน </button>
                     </div>
-                    <div class="card shope col-6">
+                    <div class="card shope col-6" *ngIf="role=='STORE' || role=='ST_AF'">
                         <h2> ยอดเงินการขาย </h2>
                         <p> {{totalPrice}} บาท </p>
                         <button type="button" class="btn btn-outline-success mb-2" (click)="wathdrawMoney()"> ถอนเงิน </button>

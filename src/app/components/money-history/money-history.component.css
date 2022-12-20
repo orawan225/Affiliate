@@ -1,6 +1,6 @@
 .backgroundimg {
     background-image: url('src\assets\img\illustrations\heroheader.png');
-    margin-top: -12px;
+    /* margin-top: -12px; */
     min-height: 77vh;
 }
 
