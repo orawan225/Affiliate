@@ -4,7 +4,7 @@
         <div class="col-5">
             <div class="text-title mt-5">
                 <h1>
-                    ประวัติการถอนเงิน
+                    ประวัติการโอนเงิน
                 </h1>
             </div>
         </div>
@@ -18,7 +18,7 @@
                                     <th style="width: 5%;"> วันที่ </th>
                                     <th style="width: 8%;"> ชื่อลูกค้า </th>
                                     <th style="width: 5%;"> จำนวนเงิน </th>
-                                    <th style="width: 10%;"> หลักฐานในการชำระเงิน </th>
+                                    <th style="width: 10%;"> หลักฐานการโอนให้ร้านค้า </th>
                                 </tr>
                             </thead>
                             <tbody *ngFor="let item of withdraw ; let i = index">
@@ -31,7 +31,7 @@
                                     <td> {{item.totalPrice}} </td>
                                     <td>
                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#exampleModal'+i">
-                                            หลักฐานการชำระเงิน
+                                            หลักฐานการโอนเงิน
                                         </button>
                                         <div class="modal fade" [attr.id]="'exampleModal'+i" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
