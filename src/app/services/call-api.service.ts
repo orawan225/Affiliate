@@ -149,10 +149,6 @@ export class CallApiService {
     return this.http.get<orderList[]>(`${environment.apiUrl}/store/get-order-status-payment`, this.header())
   }
 
-  // public checkStatusOrderById(orderId: string, order: orderList) {
-  //   return this.http.put<orderList>(`${environment.apiUrl}/store/update-order-success/${orderId}`, order, this.header())
-  // }
-
   public addOrderDetail(data: any) {
     return this.http.post<orderDetail>(`${environment.apiUrl}/order-detail/addProducts`, data, this.header())
   }
@@ -178,11 +174,11 @@ export class CallApiService {
   }
 
   public getOrderHistory() {
-    return this.http.get(`${environment.apiUrl}/order-list/get-my-order-status-success`, this.header())
+    return this.http.get<orderList>(`${environment.apiUrl}/order-list/get-my-order-deliver-is-true`, this.header())
   }
 
   public getWaitDeliveryOrder() {
-    return this.http.get(`${environment.apiUrl}/order-list/get-my-order-status-payment`, this.header())
+    return this.http.get<orderList>(`${environment.apiUrl}/order-list/get-my-order-status-payment`, this.header())
   }
 
   

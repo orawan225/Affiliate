@@ -29,3 +29,23 @@ img {
     margin-right: 2rem;
     color: rgb(255, 0, 0);
 }
+
+.bi-credit-card {
+    margin-top: 4rem;
+}
+
+.waiting-payment {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+p {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-outline-primary {
+    margin-bottom: 4rem;
+}
