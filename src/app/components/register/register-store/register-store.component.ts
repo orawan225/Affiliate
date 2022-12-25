@@ -29,14 +29,17 @@ export class RegisterStoreComponent implements OnInit {
   }
 
   registerStore() {
+    console.log(this.formRegister.value);
     this.callApi.registerStore(this.formRegister.value).subscribe((res: any) => {
+      // this.cookie.setToken(res.data.token)
+      // let role: string = this.cookie.helper$.decodeToken(res.data.token).role
+      // this.cookie.setRoleAccount(role.trim())
       console.log(res);
       this.alert.success("สมัครสมาชิกสำเร็จ")
       if (this.cookie.getToken()) {
         this.checkLogin = true
         this.router.navigate(['/home'])
       } else {
-        
         this.checkLogin = false
         this.router.navigate(['/login'])
       }

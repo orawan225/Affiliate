@@ -11,7 +11,7 @@ import { CookieServiceService } from 'src/app/services/cookie-service.service';
 export class NavbarHeaderComponent implements OnInit {
 
   profile: any = []
-  role?: string
+  role: string=""
   checkLogin: boolean = true
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router, 
@@ -23,6 +23,7 @@ export class NavbarHeaderComponent implements OnInit {
   }
 
 
+
   // <---- checkRoleAccuont ---->
   getProfile() {
     const _auth: boolean = this.cookie.getToken() ? true : false;
@@ -31,14 +32,11 @@ export class NavbarHeaderComponent implements OnInit {
         this.profile = res.data.profile;
         this.role = res.data.profile.role;
         console.log(this.role);
+        this.cookie.setRoleAccount(this.role)
       })
     }
   }
 
-  // checkProfile(role: any) {
-  //   this.cookie.setRoleAccount(role)
-  //   window.location.href = "/profile-user"
-  // }
 
   routeToPage() {
     const _role = this.cookie.getRoleAccount();

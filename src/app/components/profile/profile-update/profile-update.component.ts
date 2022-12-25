@@ -21,6 +21,7 @@ export class ProfileUpdateComponent implements OnInit {
   file: any
   formProfile: any
   user?: string = undefined;
+  role?: string
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService,
     private fb: FormBuilder, private router: Router, public dialogRef: MatDialogRef<ProfileUserComponent>, private alert: AlertService) {
@@ -59,6 +60,7 @@ export class ProfileUpdateComponent implements OnInit {
     if (_auth) {
       this.callApi.getProfile().subscribe((res: any) => {
         this.profile = res.data.profile
+        this.role = res.data.profile.role;
         this.patchValue(res.data.profile)
       })
     }

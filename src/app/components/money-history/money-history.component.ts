@@ -25,7 +25,6 @@ export class MoneyHistoryComponent implements OnInit {
 
   constructor(public callApi: CallApiService, private alert: AlertService, private fb: FormBuilder, private cookie: CookieServiceService) {
     this.store = cookie.getUserId();
-    console.log(this.store)
   }
 
   ngOnInit(): void {

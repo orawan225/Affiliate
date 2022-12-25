@@ -41,9 +41,6 @@ export class CookieServiceService {
   getRoleAccount() {
     let data = this.cookie.get('roleAccount')
     return data
-    // if (data) {
-    //   return JSON.parse(data)
-    // }
   }
 
   checkToken(): boolean {

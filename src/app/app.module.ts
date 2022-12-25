@@ -63,7 +63,7 @@ import { OrderProductComponent } from './components/order/order-product/order-pr
 
 // <---- Store --->
 import { OrderStoreComponent } from './components/order/order-store/order-store.component';
-import { OrderDeliveryComponent } from './components/store/order-delivery/order-delivery.component';
+import { OrderDeliveryComponent } from './components/order/order-delivery/order-delivery.component';
 import { ProductStoreComponent } from './components/product/product-store/product-store.component';
 import { ProductCreateComponent } from './components/product/product-create/product-create.component';
 import { ProductEditComponent } from './components/product/product-edit/product-edit.component';

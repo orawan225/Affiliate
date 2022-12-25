@@ -30,17 +30,17 @@
                 </button>
             </div>
 
-            <div class="col-xl-4 col-lg-4 col-md-4 mt-5 mb-5" *ngFor="let element of products ">
+            <div class="col-xl-3 col-lg-3 col-md-3 mt-5 mb-5" *ngFor="let element of products">
                 <div class="text-decoration-none project marketing social business ">
                     <div class="service-work overflow-hidden card mb-5 mx-5 m-sm-0">
-                        <img class="card-img-top" [src]="api+element.image" alt="... ">
+                        <img class="card-img-top" [src]="api+element.image" alt="...">
                         <div class="card-body ">
-                            <h5 class="card-title light-300 text-dark mt-1 ">{{element.productName}}</h5>
-                            <p class="card-detail ">{{element.productDetail}}</p>
-                            <span class="text-price text-primary light-300 mt-2 mb-2 ">
-                                <div class="row ">
-                                    <div class="col-10 price ">{{element.productPrice}}</div>
-                                    <div class="col baht "> บาท </div>
+                            <h5 class="card-title light-300 text-dark mt-1">{{element.productName}}</h5>
+                            <p class="card-detail">{{element.productDetail}}</p>
+                            <span class="text-primary light-300 mt-2 mb-2">
+                                <div class="row text-price">
+                                    <div class="col-8 price">{{element.productPrice}}</div>
+                                    <div class="col baht"> บาท </div>
                                 </div>
                             </span>
                         </div>
