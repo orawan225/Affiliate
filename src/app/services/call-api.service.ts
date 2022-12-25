@@ -146,7 +146,7 @@ export class CallApiService {
   }
 
   public getAllOrderByStore() {
-    return this.http.get<orderList[]>(`${environment.apiUrl}/store/get-order-status-payment`, this.header())
+    return this.http.get<orderList[]>(`${environment.apiUrl}/store/get-order-status-payment-by-store`, this.header())
   }
 
   public addOrderDetail(data: any) {
@@ -201,7 +201,7 @@ export class CallApiService {
   }
 
   public getOrderStore() {
-    return this.http.get(`${environment.apiUrl}/admin/get-all-order`,this.header())
+    return this.http.get(`${environment.apiUrl}/admin/get-all-order-by-admin`,this.header())
   }
 
   public updateOrderPayment(orderListId: string, order: orderList) {

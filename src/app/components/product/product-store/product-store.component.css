@@ -1,6 +1,7 @@
 .backgroundimg {
     background-image: url('src\assets\img\illustrations\heroheader.png');
     margin-top: -15px;
+    min-height: 77vh;
 }
 
 .card-body p {
@@ -45,4 +46,20 @@
 
 .card-img-top {
     height: 250px;
+}
+
+.bi-shop {
+    margin-top: 4rem;
+}
+
+.add-product {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+p {
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
