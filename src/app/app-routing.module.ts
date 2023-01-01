@@ -35,6 +35,7 @@ import { GuardService } from './services/guard.service';
 import { OrderWaitPaymentComponent } from './components/order/order-wait-payment/order-wait-payment.component';
 import { OrderWaitDeliveryComponent } from './components/order/order-wait-delivery/order-wait-delivery.component';
 import { OrderSuccessComponent } from './components/order/order-success/order-success.component';
+import { ProfileComponent } from './components/admin/profile/profile.component';
 
 
 
@@ -82,7 +83,8 @@ const routes: Routes = [
   { path: 'store', component: StoreComponent,canActivate: [GuardAdminService]},
   { path: 'money', component: MoneyComponent,canActivate: [GuardAdminService]},
   { path: 'orderlist', component: OrderlistComponent,canActivate: [GuardAdminService]},
-  { path: 'withdraw-history', component: WithdrawHistoryComponent,canActivate: [GuardAdminService]}
+  { path: 'withdraw-history', component: WithdrawHistoryComponent,canActivate: [GuardAdminService]},
+  { path: 'profile', component: ProfileComponent,canActivate: [GuardAdminService]}
 
 ];
 

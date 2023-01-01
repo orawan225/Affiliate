@@ -39,17 +39,6 @@ export class OrderStoreComponent implements OnInit {
   trackingNumber(orderListId: any) {
     this.callApi.trackingNumber(orderListId, this.formTrackNumber.value).subscribe(res => {
       this.alert.success("ทำการส่งสินค้าเรียบร้อย")
-      this.getAllOrderByStore()
     })
-    // this.alert.confirm("ทำการแพ็คสินค้าเรียบร้อยหรือไม่ ?").then(async (result) => {
-    //   if (result.isConfirmed) {
-    //     await this.callApi.checkStatusOrderById(orderListId, this.formOrder).subscribe(async data => {
-    //        await this.alert.success("รอการจัดส่งสินค้า")
-    //        this.getAllOrderByStore()
-    //     })
-    //   } 
-    // })
   }
-
-
 }

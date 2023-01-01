@@ -78,7 +78,7 @@ import { StoreComponent } from './components/admin/store/store.component';
 import { MoneyComponent } from './components/admin/money/money.component';
 import { OrderlistComponent } from './components/admin/orderlist/orderlist.component';
 import { WithdrawHistoryComponent } from './components/admin/withdraw-history/withdraw-history.component';
-
+import { ProfileComponent } from './components/admin/profile/profile.component';
 
 // <---- Affiliate --->
 import { ProductShareComponent } from './components/product/product-share/product-share.component';
@@ -90,8 +90,9 @@ import { MoneyHistoryComponent } from './components/money-history/money-history.
 import { ProductDetailComponent } from './components/product/product-detail/product-detail.component';
 import { OrderWaitPaymentComponent } from './components/order/order-wait-payment/order-wait-payment.component';
 import { OrderWaitDeliveryComponent } from './components/order/order-wait-delivery/order-wait-delivery.component';
-import { OrderFollowProductComponent } from './components/order/order-follow-product/order-follow-product.component';
 import { OrderSuccessComponent } from './components/order/order-success/order-success.component';
+import { ProfileAdminComponent } from './components/admin/profile-admin/profile-admin.component';
+
 
 
 
@@ -135,8 +136,9 @@ import { OrderSuccessComponent } from './components/order/order-success/order-su
     OrderDeliveryComponent,
     OrderWaitPaymentComponent,
     OrderWaitDeliveryComponent,
-    OrderFollowProductComponent,
-    OrderSuccessComponent
+    OrderSuccessComponent,
+    ProfileComponent,
+    ProfileAdminComponent
   ],
   imports: [
     BrowserModule,

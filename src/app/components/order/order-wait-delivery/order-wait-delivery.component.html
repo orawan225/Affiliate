@@ -24,10 +24,10 @@
                     <table *ngIf="ordertList != 0">
                         <thead>
                             <tr>
-                                <th style=" width: 1%;"> วันที่ </th>
-                                <th style=" width: 2%;"> สินค้า </th>
-                                <th style=" width: 5%;"> ที่อยู่ในการจัดส่ง </th>
-                                <th style=" width: 5%;"> ข้อมูลร้านค้า </th>
+                                <th style="width: 1%;"> วันที่ </th>
+                                <th style="width: 2%;"> สินค้า </th>
+                                <th style="width: 5%;"> ที่อยู่ในการจัดส่ง </th>
+                                <th style="width: 5%;"> ข้อมูลร้านค้า </th>
                             </tr>
                         </thead>
                         <br>
@@ -38,7 +38,7 @@
                                     <br> {{order.date | date:' d/M/yyyy'}}
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#Modal'+i">
+                                    <button type="button" class="btn btn-outline-primary mt-5" data-bs-toggle="modal" [attr.data-bs-target]="'#Modal'+i">
                                         รายการสินค้า
                                     </button>
                                     <div class="modal fade" [attr.id]="'Modal'+i" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

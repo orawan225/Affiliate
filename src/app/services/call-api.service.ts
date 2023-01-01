@@ -131,7 +131,7 @@ export class CallApiService {
   }
 
   public deliverySuccess(orderListId: string, order: orderDetail) {
-    return this.http.put<orderList>(`${environment.apiUrl}/order-list/update-order-deliver-status/${orderListId}`, order, this.header())
+    return this.http.put<orderList>(`${environment.apiUrl}/order-list/update-order-deliver-status-is-true/${orderListId}`, order, this.header())
   }
   
  
@@ -222,5 +222,13 @@ export class CallApiService {
 
   public getWithdrawById(withdrawId: any) {
     return this.http.get(`${environment.apiUrl}/admin/get-withdraw-by-id/${withdrawId}`,this.header())
+  }
+
+  public getProfileAdmin() {
+    return this.http.get<profile>(`${environment.apiUrl}/admin/get-my-profile-by-admin`, this.header())
+  }
+
+  public editProfileAdmin(user: any) {
+    return this.http.put<profile>(`${environment.apiUrl}/admin/update-profile-by-admin/`, user, this.header())
   }
 }

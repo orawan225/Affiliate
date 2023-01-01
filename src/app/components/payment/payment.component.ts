@@ -20,7 +20,6 @@ export class PaymentComponent implements OnInit {
   formAddress: any
   profile: any = []
   TotalAmount: any
-  TotalPrice: any
   orderListId: any
   producs: any
   user?: string = undefined;

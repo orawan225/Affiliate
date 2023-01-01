@@ -1,0 +1,29 @@
+img {
+    width: 250px;
+    height: 250px;
+}
+
+.fa-solid {
+    margin-left: 5px;
+}
+
+.bi-pencil-square {
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-left: auto;
+}
+
+.button {
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-success {
+    margin-bottom: 1rem;
+}
+
+h1 {
+    color: rgb(4, 0, 255);
+    text-align: center;
+}
