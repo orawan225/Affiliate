@@ -12,15 +12,25 @@
                 <ul class="nav navbar-nav d-flex justify-content-end text-center text-dark">
                     <div class="dropdown">
                         <li class="nav-item">
-                            <a class="nav-link btn-outline-primary rounded-pill px-3" routerLink="/withdraw-history"> ประวัติการโอน </a>
+                            <a class="nav-link btn-outline-primary rounded-pill px-3" routerLink="/withdraw-history">
+                                ประวัติการโอน </a>
                         </li>
                     </div>
-                    <li class="nav-item" *ngIf="!checkLogin">
-                        <a class="nav-link btn-outline-primary rounded-pill px-3" routerLink="/login"> เข้าสู่ระบบ </a>
-                    </li>
-                    <li class="nav-item" *ngIf="checkLogin">
-                        <a class="nav-link btn-outline-primary rounded-pill px-3" (click)="logout()"> ออกจากระบบ </a>
-                    </li>
+
+                    <div class="dropdown">
+                        <a class="nav-link align-self-center d-flex" role="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class='bx bx-user-circle bx-sm text-primary'></i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <li class="nav-item">
+                                <button class="dropdown-item" type="button" routerLink="/profile-user"> ข้อมูลของฉัน </button>
+                            </li>
+                            <li class="nav-item" *ngIf="checkLogin">
+                                <a class="nav-link btn-outline-primary rounded-pill px-3" (click)="logout()"> ออกจากระบบ
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </ul>
             </div>
         </div>
