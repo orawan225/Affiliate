@@ -10,6 +10,27 @@
         <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="navbar-toggler-success">
             <div class="flex-fill mb-2">
                 <ul class="nav navbar-nav d-flex justify-content-end text-center text-dark">
+                    <div class="dropdown" *ngIf="role=='STORE' || role=='ST_AF'">
+                        <a class="nav-link btn-outline-primary rounded-pill px-3" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown" aria-expanded="false">
+                            รายการร้านค้า
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
+                            <li *ngIf="role=='STORE' || role=='ST_AF'">
+                                <a class="dropdown-item" routerLink="/product-store"> ร้านค้าของฉัน </a>
+                            </li>
+                            <li *ngIf="role=='STORE' || role=='ST_AF'">
+                                <a class="dropdown-item" routerLink="/order-store"> คำสั่งซื้อ </a>
+                            </li>
+                            <li *ngIf="role=='STORE' || role=='ST_AF'">
+                                <a class="dropdown-item" routerLink="/order-delivery"> รายการจัดส่งสินค้า </a>
+                            </li>
+                            <li *ngIf="role=='STORE' || role=='ST_AF'">
+                                <a class="dropdown-item" routerLink="/order-dlv-history"> ประวัติการจัด </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
                     <div class="dropdown" *ngIf="role=='USER'|| role=='STORE'|| role=='ST_AF'">
                         <a class="nav-link btn-outline-primary rounded-pill px-3 " role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                             ติดตามสินค้า
@@ -30,23 +51,6 @@
                         </ul>
                     </div>
 
-                    <div class="dropdown" *ngIf="role=='STORE' || role=='ST_AF'">
-                        <a class="nav-link btn-outline-primary rounded-pill px-3" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown" aria-expanded="false">
-                            รายการของฉัน
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
-                            <li *ngIf="role=='STORE' || role=='ST_AF'">
-                                <a class="dropdown-item" routerLink="/product-store"> ร้านค้าของฉัน </a>
-                            </li>
-                            <li *ngIf="role=='STORE' || role=='ST_AF'">
-                                <a class="dropdown-item" routerLink="/order-store"> คำสั่งซื้อ </a>
-                            </li>
-                            <li *ngIf="role=='STORE' || role=='ST_AF'">
-                                <a class="dropdown-item" routerLink="/order-delivery"> รายการจัดส่งสินค้า </a>
-                            </li>
-
-                        </ul>
-                    </div>
 
                     <div class="dropdown">
                         <a class="nav-link btn-outline-primary rounded-pill px-3" role="button" id="dropdownMenuLink2" data-bs-toggle="dropdown" aria-expanded="false">

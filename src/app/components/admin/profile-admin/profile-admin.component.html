@@ -1,64 +1,62 @@
-<section class="backgroundimg">
-    <div class="container">
-        <div class="row">
-            <h2> ข้อมูลของฉัน </h2>
-            <form [formGroup]="formProfile" (ngSubmit)="editProfile()">
-                <div class="card mb-4 mt-4">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="input-group flex-nowrap">
-                                <span class="input-group-text" id="addon-wrapping"> ชื่อ - นามสกุล </span>
-                                <input type="text" class="form-control" formControlName="fullName">
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="input-group flex-nowrap">
-                                <span class="input-group-text" id="addon-wrapping"> เบอร์โทรศัพท์ </span>
-                                <input type="text" class="form-control" formControlName="tel">
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="input-group flex-nowrap">
-                                <span class="input-group-text" id="addon-wrapping"> อีเมล </span>
-                                <input type="text" class="form-control" formControlName="email">
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="input-group flex-nowrap">
-                                <span class="input-group-text" id="addon-wrapping"> บ้านเลขที่ </span>
-                                <input type="text" class="form-control" formControlName="address">
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="input-group flex-nowrap">
-                                <span class="input-group-text" id="addon-wrapping"> ตำบล </span>
-                                <input type="text" class="form-control" formControlName="sub">
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="input-group flex-nowrap">
-                                <span class="input-group-text" id="addon-wrapping"> อำเภอ </span>
-                                <input type="text" class="form-control" formControlName="district">
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="input-group flex-nowrap">
-                                <span class="input-group-text" id="addon-wrapping"> จังหวัด </span>
-                                <input type="text" class="form-control" formControlName="province">
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="input-group flex-nowrap">
-                                <span class="input-group-text" id="addon-wrapping"> รหัสไปรษณีย์ </span>
-                                <input type="text" class="form-control" formControlName="postalCode">
-                            </div>
-                        </div>
-                        <div class="button mt-3">
-                            <button type="submit" class="btn btn-outline-success"> ยืนยัน </button>
+<div class="container">
+    <div class="row">
+        <h2> ข้อมูลของฉัน </h2>
+        <form [formGroup]="formProfile" (ngSubmit)="editProfile()">
+            <div class="card mb-4 mt-4">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="input-group flex-nowrap">
+                            <span class="input-group-text" id="addon-wrapping"> ชื่อ - นามสกุล </span>
+                            <input type="text" class="form-control" formControlName="fullName">
                         </div>
                     </div>
+                    <div class="row mt-3">
+                        <div class="input-group flex-nowrap">
+                            <span class="input-group-text" id="addon-wrapping"> เบอร์โทรศัพท์ </span>
+                            <input type="text" class="form-control" formControlName="tel">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="input-group flex-nowrap">
+                            <span class="input-group-text" id="addon-wrapping"> อีเมล </span>
+                            <input type="text" class="form-control" formControlName="email">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="input-group flex-nowrap">
+                            <span class="input-group-text" id="addon-wrapping"> บ้านเลขที่ </span>
+                            <input type="text" class="form-control" formControlName="address">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="input-group flex-nowrap">
+                            <span class="input-group-text" id="addon-wrapping"> ตำบล </span>
+                            <input type="text" class="form-control" formControlName="sub">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="input-group flex-nowrap">
+                            <span class="input-group-text" id="addon-wrapping"> อำเภอ </span>
+                            <input type="text" class="form-control" formControlName="district">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="input-group flex-nowrap">
+                            <span class="input-group-text" id="addon-wrapping"> จังหวัด </span>
+                            <input type="text" class="form-control" formControlName="province">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="input-group flex-nowrap">
+                            <span class="input-group-text" id="addon-wrapping"> รหัสไปรษณีย์ </span>
+                            <input type="text" class="form-control" formControlName="postalCode">
+                        </div>
+                    </div>
+                    <div class="button mt-3">
+                        <button type="submit" class="btn btn-outline-success"> ยืนยัน </button>
+                    </div>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
-</section>
+</div>

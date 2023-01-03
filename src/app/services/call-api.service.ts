@@ -40,6 +40,11 @@ export class CallApiService {
     return this.http.post<user>(`${environment.apiUrl}/auth/user-login`, data)
   }
 
+  public getProfilesAdmin() {
+    return this.http.get<profile>(`${environment.apiUrl}/order-list/get-detail-admin`, this.header())
+  }
+
+
 
   //Profile
   public getProfile() {
@@ -88,7 +93,7 @@ export class CallApiService {
   }
 
   public getStatusSuccess() {
-    return this.http.get(`${environment.apiUrl}/store/get-order-status-success`, this.header())
+    return this.http.get(`${environment.apiUrl}/store/get-order-status-success-by-store`, this.header())
   }
 
   public getOrderSuccess() {
@@ -132,6 +137,10 @@ export class CallApiService {
 
   public deliverySuccess(orderListId: string, order: orderDetail) {
     return this.http.put<orderList>(`${environment.apiUrl}/order-list/update-order-deliver-status-is-true/${orderListId}`, order, this.header())
+  }
+
+  public getOrderHistoryDelivery() {
+    return this.http.get<orderList>(`${environment.apiUrl}/store/get-my-order-deliver-is-true-by-store`, this.header())
   }
   
  

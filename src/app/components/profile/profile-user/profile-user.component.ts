@@ -25,7 +25,7 @@ export class ProfileUserComponent implements OnInit {
   affiliate: any = []
   role?: string
   showCardRole: any
-  img: any
+  img: any 
   api = environment.apiUrl
   totalPrice = 0
 

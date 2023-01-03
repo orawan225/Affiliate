@@ -15,7 +15,7 @@
                                 <img [src]="img" alt="avatar" class="img-fluid">
                                 <input type="file" #file placeholder="เลือกรูปภาพ" style="display: none;" (change)="selectFile($event)">
                                 <div class="flex-parent jc-center">
-                                    <button type="button" class="btn btn-success" (click)="file.click()">
+                                    <button type="button" class="btn btn-success mb-2" (click)="file.click()">
                                         เลือกรูปภาพ
                                     </button>
                                 </div>
@@ -27,17 +27,13 @@
 
             <div class="productList col-md-5">
                 <div class="card mb-4">
-                    <div class="card-header">
+                    <div class="card-header py-3">
                         <h2 class="mb-0"> ช่องทางการชำระเงิน </h2>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" *ngFor="let item of profile">
                         <div class="row">
-                            <div class="col-5 mt-4">
-                                <img class="img" src="https://www.matichon.co.th/wp-content/uploads/2019/10/%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%84%E0%B8%97%E0%B8%A201.jpg" alt="">
-                            </div>
                             <div class="col mt-4">
-                                <p> ชื่อบัญชี : นางสาวอรวรรณ ธรรมจินดา </p>
-                                <p> เลขบัญชี : 984-1-99964-1 </p>
+                                <img class="card-img-top" [src]="api+item.image" alt="...">
                             </div>
                         </div>
                     </div>

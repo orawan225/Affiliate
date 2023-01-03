@@ -1,10 +1,9 @@
 <app-navbar></app-navbar>
-<section class="backgroundimg" style="background-color: #eee;">
-    <div class="container py-5">
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="card mb-4 mt-4">
-                    <i class="bi bi-pencil-square" (click)="file.click()">
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card mb-4 mt-4">
+                <i class="bi bi-pencil-square" (click)="file.click()">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                             class="bi bi-pencil-square" viewBox="0 0 16 16">
                             <path
@@ -13,98 +12,97 @@
                                 d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                         </svg>
                     </i>
-                    <div class="card-body text-center">
-                        <img [src]="img" alt="avatar" class="img-fluid">
-                        <br>
-                        <input type="file" #file placeholder="เลือกรูปภาพ" style="display: none;" (change)="selectFile($event)">
+                <div class="card-body text-center">
+                    <img [src]="img" alt="avatar" class="img-fluid">
+                    <br>
+                    <input type="file" #file placeholder="เลือกรูปภาพ" style="display: none;" (change)="selectFile($event)">
+                </div>
+                <div class="button">
+                    <button type="button" class="btn btn-outline-success" (click)="editProfile()"> ยืนยัน </button>
+                </div>
+            </div>
+        </div>
+        <div class="profile col-lg-8">
+            <div class="card mb-4 mt-4">
+                <div class="card-body">
+                    <div class="header">
+                        <h2> ข้อมูลของฉัน
+                            <i class="fa-solid fa-pen-to-square" (click)="profileAdmin()"></i>
+                        </h2>
                     </div>
-                    <div class="button">
-                        <button type="button" class="btn btn-outline-success" (click)="editProfile()"> ยืนยัน </button>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">ชื่อ - นามสกุล</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{fullName}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0"> เบอร์โทรศัพท์ </p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{tel}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0"> อีเมล </p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{email}}</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="profile col-lg-8">
-                <div class="card mb-4 mt-4">
+            <div class="col">
+                <div class="card mb-4">
                     <div class="card-body">
-                        <div class="header">
-                            <h2> ข้อมูลของฉัน
-                                <i class="fa-solid fa-pen-to-square" (click)="profileAdmin()"></i>
-                            </h2>
-                        </div>
                         <div class="row">
                             <div class="col-sm-3">
-                                <p class="mb-0">ชื่อ - นามสกุล</p>
+                                <p class="mb-0"> บ้านเลขที่ </p>
                             </div>
                             <div class="col-sm-9">
-                                <p class="text-muted mb-0">{{fullName}}</p>
+                                <p class="text-muted mb-0">{{address}}</p>
                             </div>
                         </div>
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
-                                <p class="mb-0"> เบอร์โทรศัพท์ </p>
+                                <p class="mb-0"> ตำบล </p>
                             </div>
                             <div class="col-sm-9">
-                                <p class="text-muted mb-0">{{tel}}</p>
+                                <p class="text-muted mb-0">{{sub}}</p>
                             </div>
                         </div>
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
-                                <p class="mb-0"> อีเมล </p>
+                                <p class="mb-0"> อำเภอ </p>
                             </div>
                             <div class="col-sm-9">
-                                <p class="text-muted mb-0">{{email}}</p>
+                                <p class="text-muted mb-0">{{district}}</p>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <p class="mb-0"> บ้านเลขที่ </p>
-                                </div>
-                                <div class="col-sm-9">
-                                    <p class="text-muted mb-0">{{address}}</p>
-                                </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0"> จังหวัด </p>
                             </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <p class="mb-0"> ตำบล </p>
-                                </div>
-                                <div class="col-sm-9">
-                                    <p class="text-muted mb-0">{{sub}}</p>
-                                </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">{{province}}</p>
                             </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <p class="mb-0"> อำเภอ </p>
-                                </div>
-                                <div class="col-sm-9">
-                                    <p class="text-muted mb-0">{{district}}</p>
-                                </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0"> รหัสไปรษณีย์ </p>
                             </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <p class="mb-0"> จังหวัด </p>
-                                </div>
-                                <div class="col-sm-9">
-                                    <p class="text-muted mb-0">{{province}}</p>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <p class="mb-0"> รหัสไปรษณีย์ </p>
-                                </div>
-                                <div class="col-sm-9">
-                                    <p class="text-muted mb-0">{{postalCode}}</p>
-                                </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">{{postalCode}}</p>
                             </div>
                         </div>
                     </div>
@@ -112,4 +110,4 @@
             </div>
         </div>
     </div>
-</section>
+</div>

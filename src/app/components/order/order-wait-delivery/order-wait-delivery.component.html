@@ -19,7 +19,7 @@
                               </svg>
                         </i>
                         <p> ผู้ใช้งานยังไม่มีรายรอการจัดส่งสินค้า </p>
-                        <button type="button" class="btn btn-outline-primary" routerLink="/home"> ซื้อสินค้า </button>
+                        <!-- <button type="button" class="btn btn-outline-primary" routerLink="/home"> ซื้อสินค้า </button> -->
                     </div>
                     <table *ngIf="ordertList != 0">
                         <thead>
@@ -38,7 +38,7 @@
                                     <br> {{order.date | date:' d/M/yyyy'}}
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-outline-primary mt-5" data-bs-toggle="modal" [attr.data-bs-target]="'#Modal'+i">
+                                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#Modal'+i">
                                         รายการสินค้า
                                     </button>
                                     <div class="modal fade" [attr.id]="'Modal'+i" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
