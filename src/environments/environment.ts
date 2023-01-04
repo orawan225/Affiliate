@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  // apiUrl: "http://localhost:8080"
-  apiUrl: "https://api-affiliate.azurewebsites.net"
+  apiUrl: "http://localhost:8080"
+  // apiUrl: "https://api-affiliate.azurewebsites.net"
   // apiUrl: "https://565a-2403-6200-8837-1720-e836-9702-2e5a-67b0.ap.ngrok.io"
 };
 

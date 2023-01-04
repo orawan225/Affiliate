@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { product } from 'src/app/models/product';
+import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CartService } from 'src/app/services/cart.service';
 import { CookieServiceService } from 'src/app/services/cookie-service.service';
@@ -22,10 +23,12 @@ export class ProductDetailComponent implements OnInit {
   showCardRole: any
   profile: any = []
   role?: string
+  storeId: number = 0;
 
 
   constructor(private callApi: CallApiService, private router: Router, private fb: FormBuilder,
-    private acrout: ActivatedRoute, private cartService: CartService, private cookie: CookieServiceService) {
+    private acrout: ActivatedRoute, private cartService: CartService, private cookie: CookieServiceService,
+    private alert: AlertService) {
     this.formProduct = fb.group({
       productId: [null],
       productName: [null],
@@ -48,19 +51,8 @@ export class ProductDetailComponent implements OnInit {
   getProductById() {
     this.callApi.getProductById(this.productId).subscribe((res: any) => {
       this.product = res
-      console.log(res);
+      console.log('sfsfsf', res);
     })
-  }
-
-  addProductToCart(product: any) {
-    product.amount = 1;
-    product.affiliate = this.affiliate
-    this.cartService.addCart(product, true)
-    this.router.navigate(['/cart'])
-  }
-
-  shareProduct(productId: string) {
-    this.router.navigate(['/product-share'], { queryParams: { id: productId } })
   }
 
   getProfile() {
@@ -69,9 +61,31 @@ export class ProductDetailComponent implements OnInit {
       this.callApi.getProfile().subscribe((res: any) => {
         this.profile = res.data.profile
         this.role = this.profile.role
+        this.storeId = this.profile.store?.storeId ?? 0;
         console.log(this.profile);
       })
     }
   }
+
+
+  async addProductToCart(product: any) {
+    await this.callApi.getProfile().subscribe((res: any) => {
+      this.storeId = this.profile.store.storeId
+    })
+    if (this.storeId == this.product.storeId) {
+      await this.alert.error("ไม่สามารถสั่งซื้อสินค้าของร้านตนเองได้");
+    }
+    else {
+      product.amount = 1;
+      product.affiliate = this.affiliate
+      this.cartService.addCart(product, true)
+      this.router.navigate(['/cart'])
+    }
+  }
+
+  shareProduct(productId: string) {
+    this.router.navigate(['/product-share'], { queryParams: { id: productId } })
+  }
+
 
 }
