@@ -19,7 +19,8 @@ export class ProductCreateComponent implements OnInit {
     this.formCreateProduct = fb.group({
       productName: [null],
       productDetail: [null],
-      productPrice: [null]
+      productPrice: [null],
+      priceForShare: [null]
     })
   }
 
