@@ -44,19 +44,29 @@ export class MoneyHistoryComponent implements OnInit {
   getmoneyStore() {
     this.callApi.getTotalMoney().subscribe((res: any) => {
       this.totalPrice = res.data.total_price
+      console.log(this.totalPrice);
     })
   }
 
   wathdrawMoney() {
-    this.alert.warning("ต้องการถอนเงินใช่หรือไม่ ?").then(async (result) => {
-      if (result.isConfirmed) {
-        await this.callApi.wathdrawMoney(this.store).subscribe(async data => {
-          console.log(data);
-          await this.alert.success("ทำการถอนเงินสำเร็จ")
-          this.getWithdraw()
-        })
+    this.callApi.wathdrawMoney(this.store).subscribe(data => {
+      console.log(data);
+    }
+    , ((err: any) => {
+      if (err.status === 417) {
+        this.alert.error(err.error.message)
       }
-    })
+    }))
+
+    // this.alert.warning("ต้องการถอนเงินใช่หรือไม่ ?").then(async (result) => {
+    //   if (result.isConfirmed) {
+    //     await this.callApi.wathdrawMoney(this.store).subscribe(async data => {
+    //       console.log(data);
+    //       await this.alert.success("ทำการถอนเงินสำเร็จ")
+    //       this.getWithdraw()
+    //     })
+    //   }
+    // })
   }
 
   getProfile() {

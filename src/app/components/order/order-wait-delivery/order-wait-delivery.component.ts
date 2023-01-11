@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-order-wait-delivery',
@@ -11,11 +12,14 @@ import { CallApiService } from 'src/app/services/call-api.service';
 export class OrderWaitDeliveryComponent implements OnInit {
 
   ordertList: any
+  profile: any
+  api = environment.apiUrl
 
   constructor(private callApi: CallApiService) { }
 
   ngOnInit(): void {
     this.getWaitDelivery()
+    this.getProfileAdmin()
   }
 
   getWaitDelivery() {
@@ -23,6 +27,13 @@ export class OrderWaitDeliveryComponent implements OnInit {
       this.ordertList = res
       console.log(res);
       
+    })
+  }
+
+  getProfileAdmin(){
+    this.callApi.getProfilesAdmin().subscribe((res: any) => {
+      this.profile = res
+      console.log(res);
     })
   }
 
