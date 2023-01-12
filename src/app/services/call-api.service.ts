@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { environment } from 'src/environments/environment'
 import { user } from '../models/user';
 import { product } from '../models/product';
@@ -240,4 +240,18 @@ export class CallApiService {
   public editProfileAdmin(user: any) {
     return this.http.put<profile>(`${environment.apiUrl}/admin/update-profile-by-admin/`, user, this.header())
   }
+
+  public createPercent(data: any) {
+    // let token = this.cookie.getToken()
+    // const httpHeaders = new HttpHeaders({
+    //   Authorization: `Bearer ${token}`
+    // });
+    // httpHeaders.set('Content-Type', 'multipart/form-data');
+
+    // const formData = new FormData();
+    // formData.set("")
+
+    return this.http.post(`${environment.apiUrl}/admin/create-percent`, data, this.header())
+  }
+
 }

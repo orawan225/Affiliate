@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
@@ -20,8 +21,8 @@ export class DashboardComponent implements OnInit {
   role?: string
   checkLogin: boolean = true
   showCardRole: any
-  // user: any = []
   date: Date = new Date()
+  createPercent: any
 
   user: Observable<any[]> = new Observable();
   dataSourceUser = new MatTableDataSource<any>();
@@ -32,7 +33,11 @@ export class DashboardComponent implements OnInit {
   @ViewChild("paginatorUser1", { read: MatPaginator }) paginatorUser1!: MatPaginator;
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router,
-    private ref: ChangeDetectorRef) { }
+    private ref: ChangeDetectorRef, private fb: FormBuilder) {
+      this.createPercent = fb.group({
+        percent: [null]
+      })
+     }
 
   ngOnInit(): void {
     this.getWithdrawMoney()
@@ -46,6 +51,15 @@ export class DashboardComponent implements OnInit {
       this.user = this.dataSourceUser.connect();
       console.log(res);
       
+    })
+  }
+
+  percentWithdrawMoney(){
+    const data = new FormData();
+    data.append('percent', this.createPercent.value.percent);
+    
+    this.callApi.createPercent(data).subscribe(res => {
+      console.log(res);
     })
   }
 

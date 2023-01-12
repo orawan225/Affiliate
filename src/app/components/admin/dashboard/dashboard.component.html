@@ -8,7 +8,6 @@
                         <i class="fa-solid fa-user fa-3x text-primary"></i>
                         <div class="ms-3">
                             <p class="mb-2"> ผู้ใช้งานทั่วไป </p>
-                            <!-- <h5 class="mb-0">1234</h5> -->
                         </div>
                     </div>
                 </div>
@@ -17,7 +16,6 @@
                         <i class="fa-solid fa-users fa-3x text-primary"></i>
                         <div class="ms-3">
                             <p class="mb-2"> Affiliate </p>
-                            <!-- <h5 class="mb-0">1234</h5> -->
                         </div>
                     </div>
                 </div>
@@ -26,7 +24,6 @@
                         <i class="fa fa-chart-pie fa-3x text-primary"></i>
                         <div class="ms-3">
                             <p class="mb-2"> ร้านค้า </p>
-                            <!-- <h5 class="mb-0">1234</h5> -->
                         </div>
                     </div>
                 </div>
@@ -35,7 +32,6 @@
                         <i class="fa fa-chart-line fa-3x text-primary"></i>
                         <div class="ms-3">
                             <p class="mb-2"> รายการคำสั่งซื้อ </p>
-                            <!-- <h5 class="mb-0">1234</h5> -->
                         </div>
                     </div>
                 </div>
@@ -47,6 +43,26 @@
 <div class="container-fluid">
     <div class="row mt-2">
         <div class="col-lg-3">
+            <div class="row">
+                <div class="col card-shadow mb-2">
+                    <div class="container-fluid pt-4 mb-3">
+                        <h1 class="font-opt text-success"> ค่าธรรมเนียมในการถอนเงิน </h1>
+                        <form [formGroup]="createPercent" (ngSubmit)="percentWithdrawMoney()">
+                            <div class="row mt-3">
+                                <div class="col-4 amount">
+                                    จำนวนเงิน :
+                                </div>
+                                <div class="col-8 input">
+                                    <input type="text" name="percent" id="percent" class="form-control" placeholder="กรุณากรอกค่าธรรมเนียม" formControlName="percent">
+                                </div>
+                                <button type="submit" class="btn btn-success mt-4">
+                                    ยืนยัน
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col card-shadow mb-2">
                     <div class="container-fluid pt-4 mb-3">
@@ -126,7 +142,8 @@
                                                     <td> {{element.user.tel}} </td>
                                                     <td> {{element.totalPrice}} </td>
                                                     <td>
-                                                        <button type="button" class="btn btn-success" (click)="setWithdrawId(element.withdrawId)"> ยืนยัน </button>
+                                                        <button type="button" class="btn btn-success" (click)="setWithdrawId(element.withdrawId)"> ยืนยัน
+                                                        </button>
                                                     </td>
                                                 </tr>
                                             </tbody>
