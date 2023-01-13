@@ -24,6 +24,7 @@ export class CartService {
       if (e.productId == product.productId) {
         if (add == true) {
           this.cart[i].amount++;
+          this.cart[i].linkId = this.cart[i].linkId ? this.cart[i].linkId : product.linkId
         } else {
           this.cart[i].amount = product.amount;
         }

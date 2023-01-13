@@ -85,6 +85,7 @@ export class OrderProductComponent implements OnInit {
           {
             "productId": item.productId,
             "amount": item.amount,
+            "linkId":item.linkId
           }
         )
       }

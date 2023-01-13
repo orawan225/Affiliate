@@ -17,7 +17,7 @@ export class ProductDetailComponent implements OnInit {
 
   formProduct: any
   productId: any
-  affiliate: any;
+  link: any;
   api = environment.apiUrl
   product: any = []
   showCardRole: any
@@ -38,8 +38,7 @@ export class ProductDetailComponent implements OnInit {
 
     acrout.queryParams.subscribe((res: any) => {
       this.productId = res.id
-      this.affiliate = res.affiliate || 0
-      // console.log(this.affiliate);
+      this.link = res.link || null
     })
   }
 
@@ -77,7 +76,7 @@ export class ProductDetailComponent implements OnInit {
     }
     else {
       product.amount = 1;
-      product.affiliate = this.affiliate
+      product.linkId = this.link
       this.cartService.addCart(product, true)
       this.router.navigate(['/cart'])
     }

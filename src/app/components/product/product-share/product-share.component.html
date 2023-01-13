@@ -21,9 +21,9 @@
                                 <div class="price col-8"> ราคา </div>
                                 <div class="priceValue col"> {{product.productPrice}} บาท </div>
                             </div>
-                            <div class="row share-buttons mt-2">
-                                <share-buttons theme="circles-dark" [include]="['copy', 'facebook', 'line']" [showIcon]="true" [showText]="true" [url]="baseUrl" description="Angular Share Buttons" twitterAccount="rodrigokamada" class="share-buttons"></share-buttons>
-                                <!-- {{baseUrl}} -->
+                            <div class="row share-buttons mt-2" (click)="getLinkShareProduct()">
+                                <share-buttons theme="circles-dark" [include]="['copy']" [showIcon]="true" [showText]="true" [url]="baseUrl" description="Angular Share Buttons" twitterAccount="rodrigokamada" class="share-buttons"></share-buttons>
+                                <br> {{baseUrl}}
                             </div>
                         </div>
                     </div>

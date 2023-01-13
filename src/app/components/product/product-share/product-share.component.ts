@@ -14,14 +14,20 @@ export class ProductShareComponent implements OnInit {
 
   formProduct: any
   productId: any
-  baseUrl = ''
+  baseUrl = '5555555555555'
   api = environment.apiUrl
   product: any = []
   url: string = "/product-detail";
-  user?:string = undefined;
+  linkProduct: any
+  link: any
+  // user?: string = undefined;
+  // profiles: any
+  // affiliateId: number = 0
+  // storeId: number = 0
 
-  constructor(private callApi: CallApiService, private fb: FormBuilder, public router: Router, 
-    private acrout: ActivatedRoute,public cookie :CookieServiceService) {
+
+  constructor(private callApi: CallApiService, private fb: FormBuilder, public router: Router,
+    private acrout: ActivatedRoute, public cookie: CookieServiceService) {
     this.formProduct = fb.group({
       productName: [null],
       productPrice: [null],
@@ -31,27 +37,44 @@ export class ProductShareComponent implements OnInit {
     acrout.queryParams.subscribe((res: any) => {
       this.productId = res.id | 0
     })
-    this.user = cookie.getUserId();  
-    console.log(this.user);
-    
+    // this.user = cookie.getUserId();
   }
 
   ngOnInit(): void {
     this.getProductById()
-    this.getLinkShareProduct()
+    // this.getProfile()
+    // this.baseUrl = window.location.port
+    //   ? `${window.location.protocol}//${window.location.hostname}:${window.location.port}${this.router.url}`
+    //   : `${window.location.protocol}//${window.location.hostname}${this.router.url}`;
   }
 
   getProductById() {
     this.callApi.getProductById(this.productId).subscribe((res: any) => {
       this.product = res
-      console.log(res);
     })
   }
 
+  // getProfile() {
+  //   this.callApi.getProfile().subscribe((res: any) => {
+  //     this.profiles = res
+  //     this.affiliateId = res.data.profile.affiliate.affiliateId
+  //     this.storeId = res.data.profile.store.storeId
+  //     console.log(this.storeId);
+  //   })
+  // }
+
   getLinkShareProduct() {
-    this.baseUrl = window.location.port
-      ? `${window.location.protocol}//${window.location.hostname}:${window.location.port}${this.url}?id=${this.productId}&&affiliate=${this.user}`
-      : `${window.location.protocol}//${window.location.hostname}${this.url}?id=?${this.productId}&&affiliate=${this.user}`;
+    this.callApi.shareProduct(this.productId).subscribe((res: any) => {
+      console.log(this.baseUrl);
+      
+      this.linkProduct = res.data.link
+      console.log(this.linkProduct);
+      this.baseUrl = window.location.port
+      ? `${window.location.protocol}//${window.location.hostname}:${window.location.port}${this.url}?id=${this.productId}&link=${res.data.link}`
+      : `${window.location.protocol}//${window.location.hostname}${this.url}?id=${this.productId}&link=${res.data.link}`;
+      
+      navigator.clipboard.writeText(this.baseUrl)
+    })
   }
 
 }

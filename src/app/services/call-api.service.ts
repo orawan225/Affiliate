@@ -70,6 +70,10 @@ export class CallApiService {
     return this.http.post<affiliate>(`${environment.apiUrl}/affiliate/affiliate-register`, data, this.header())
   }
 
+  public shareProduct(productId: any) {
+    return this.http.post(`${environment.apiUrl}/affiliate/affiliate-share-product/${productId}`, productId, this.header())
+  }
+
 
   //Store
   public registerStore(data: any) {
