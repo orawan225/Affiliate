@@ -104,7 +104,7 @@ export class CartComponent implements OnInit {
     var productId = this.productStores[indexStore].products[indexItem].productId;
     this.cartService.remove(productId);
     this.productStores[indexStore].products.splice(indexItem, 1);
-    this.getDataOption()
+    window.location.reload();
   }
 
 }

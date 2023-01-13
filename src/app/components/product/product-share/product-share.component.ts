@@ -20,10 +20,6 @@ export class ProductShareComponent implements OnInit {
   url: string = "/product-detail";
   linkProduct: any
   link: any
-  // user?: string = undefined;
-  // profiles: any
-  // affiliateId: number = 0
-  // storeId: number = 0
 
 
   constructor(private callApi: CallApiService, private fb: FormBuilder, public router: Router,
@@ -37,15 +33,10 @@ export class ProductShareComponent implements OnInit {
     acrout.queryParams.subscribe((res: any) => {
       this.productId = res.id | 0
     })
-    // this.user = cookie.getUserId();
   }
 
   ngOnInit(): void {
     this.getProductById()
-    // this.getProfile()
-    // this.baseUrl = window.location.port
-    //   ? `${window.location.protocol}//${window.location.hostname}:${window.location.port}${this.router.url}`
-    //   : `${window.location.protocol}//${window.location.hostname}${this.router.url}`;
   }
 
   getProductById() {
@@ -54,14 +45,6 @@ export class ProductShareComponent implements OnInit {
     })
   }
 
-  // getProfile() {
-  //   this.callApi.getProfile().subscribe((res: any) => {
-  //     this.profiles = res
-  //     this.affiliateId = res.data.profile.affiliate.affiliateId
-  //     this.storeId = res.data.profile.store.storeId
-  //     console.log(this.storeId);
-  //   })
-  // }
 
   getLinkShareProduct() {
     this.callApi.shareProduct(this.productId).subscribe((res: any) => {
