@@ -84,16 +84,16 @@ export class CallApiService {
     return this.http.get<store[]>(`${environment.apiUrl}/store/getAll-store`, this.header())
   }
 
-  public getTotalMoney() {
-    return this.http.get(`${environment.apiUrl}/store/get-my-total-price`, this.header())
-  }
+  // public getTotalMoney() {
+  //   return this.http.get(`${environment.apiUrl}/user/get-wallet-by-user`, this.header())
+  // }
 
-  public wathdrawMoney(store: any) {
-    return this.http.put<store>(`${environment.apiUrl}/store/update-order-withdraw-money/`, store, this.header())
-  }
+  // public wathdrawMoney(store: any) {
+  //   return this.http.put<store>(`${environment.apiUrl}/store/update-order-withdraw-money/`, store, this.header())
+  // }
 
-  public getWithdraw() {
-    return this.http.get(`${environment.apiUrl}/store/get-all-order-status-withdraw-success-by-store`, this.header())
+  public getWallet() {
+    return this.http.get(`${environment.apiUrl}/user/get-wallet-by-user`, this.header())
   }
 
   public getStatusSuccess() {

@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
 export class ShareLinkComponent implements OnInit {
 
   productId: any
-  linkProduct: link[] = new Array<link>()
+  linkProduct: any
   api = environment.apiUrl
   totalPrice: any
   totalAmount: any
@@ -43,7 +43,7 @@ export class ShareLinkComponent implements OnInit {
       this.productName = res.productName
       this.productPrice = res.productPrice
       console.log(this.links);
-      console.log(this.totalAmount);
+      // console.log(this.totalAmount);
       console.log(this.linkProduct);
     })
   }
