@@ -1,0 +1,68 @@
+<app-navbar-header></app-navbar-header>
+<div class="backgroundimg">
+    <div class="container">
+        <div class="row">
+            <div class="col-5">
+                <div class="text-title mt-5">
+                    <h1>
+                        รายการการแชร์สินค้า
+                    </h1>
+                </div>
+            </div>
+
+            <div class="card mb-5">
+                <div class="card-body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style=" width: 5%;"> วันที่ </th>
+                                <th style=" width: 10%;"> ชื่อผู้แชร์ </th>
+                                <th style=" width: 5%;"> จำนวนชิ้น </th>
+                                <th style=" width: 5%;"> ราคา </th>
+                                <th style=" width: 5%;"> ราคารวม </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of links">
+                                <td>
+                                    <br> {{item.createDate | date: 'HH:mm:ss'}}
+                                    <br> {{item.createDate | date: 'd/M/yyyy'}}
+                                </td>
+                                <td> {{item.userName}} </td>
+                                <td> {{item.amount}} </td>
+                                <td> {{item.price}} </td>
+                                <td> {{item.totalPrice}} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="d-flex justify-content-end">
+                        <div class="card mt-3" style="width:25%;">
+                            <h3> {{productName}} </h3>
+                            <hr>
+                            <div class="mb-4">
+                                <div class="row">
+                                    <strong class="col-6 title"> จำนวนลิงค์ที่ถูกแชร์ </strong>
+                                    <strong class="col data"> {{linkAmount}} ครั้ง</strong>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-6 title"> ราคาสินค้า </div>
+                                    <div class="col data"> {{productPrice}} ชิ้น</div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-6 title"> จำนวนสินค้า </div>
+                                    <div class="col data"> {{totalAmount}} ชิ้น</div>
+                                </div>
+                                <div class="row mt-2 totalPrice">
+                                    <div class="col-6 title"> ยอดสุทธิ </div>
+                                    <div class="col data"> {{totalPrice}} บาท</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

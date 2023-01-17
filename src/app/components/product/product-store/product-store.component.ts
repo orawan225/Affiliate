@@ -16,6 +16,7 @@ export class ProductStoreComponent implements OnInit {
   products: any
   formProduct: any
   api = environment.apiUrl
+  productId: any
   
   constructor(private callApi: CallApiService, private router: Router, private fb: FormBuilder, private alert: AlertService) {
     this.formProduct = fb.group({
@@ -43,6 +44,8 @@ export class ProductStoreComponent implements OnInit {
   getAllProductByStore() {
     this.callApi.getAllProductByStore().subscribe(data => {
       this.products = data
+      console.log(data);
+      
     })
   }
 
@@ -69,5 +72,10 @@ export class ProductStoreComponent implements OnInit {
       console.log(res);   
     })
   }
+
+  shareLink(productId: any) {
+    this.router.navigate(['/share-link'], {queryParams: {id:productId}})
+  }
+
 
 }

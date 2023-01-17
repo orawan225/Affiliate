@@ -13,10 +13,9 @@ import { environment } from 'src/environments/environment';
 })
 export class OrderStoreComponent implements OnInit {
 
-  ordertList: orderList[] = new Array<orderList>()
+  ordersList: orderList[] = new Array<orderList>()
   file: any
   api = environment.apiUrl
-  profile: any = []
   formTrackNumber: any
 
   constructor(public callApi: CallApiService, private alert: AlertService, private fb: FormBuilder) {
@@ -31,8 +30,8 @@ export class OrderStoreComponent implements OnInit {
 
   getAllOrderByStore() {
     this.callApi.getAllOrderByStore().subscribe((res: orderList[]) => {
-      this.ordertList = res
-      console.log(this.ordertList);
+      this.ordersList = res
+      console.log(this.ordersList);
     })
   }
 

@@ -22,7 +22,7 @@ export class ProductDetailComponent implements OnInit {
   product: any = []
   showCardRole: any
   profile: any = []
-  role?: string
+  role: string=""
   storeId: number = 0;
 
 
@@ -61,6 +61,7 @@ export class ProductDetailComponent implements OnInit {
         this.profile = res.data.profile
         this.role = this.profile.role
         this.storeId = this.profile.store?.storeId ?? 0;
+        this.cookie.setRoleAccount(this.role)
         console.log(this.profile);
       })
     }
@@ -85,6 +86,4 @@ export class ProductDetailComponent implements OnInit {
   shareProduct(productId: string) {
     this.router.navigate(['/product-share'], { queryParams: { id: productId } })
   }
-
-
 }

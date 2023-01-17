@@ -27,6 +27,5 @@ export class orderDetail {
     productTotal: number = 0
     orderListId: number = 0
 
-
 }
 

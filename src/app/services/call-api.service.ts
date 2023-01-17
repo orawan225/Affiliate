@@ -104,6 +104,11 @@ export class CallApiService {
     return this.http.get(`${environment.apiUrl}/order-list/get-my-order-status-success`, this.header())
   }
 
+  
+  public getShareLinkSuccess(productId: any) {
+    return this.http.get<product>(`${environment.apiUrl}/store/get-share-link-success-for-store/${productId}`, this.header())
+  }
+
 
   
 
@@ -246,15 +251,6 @@ export class CallApiService {
   }
 
   public createPercent(data: any) {
-    // let token = this.cookie.getToken()
-    // const httpHeaders = new HttpHeaders({
-    //   Authorization: `Bearer ${token}`
-    // });
-    // httpHeaders.set('Content-Type', 'multipart/form-data');
-
-    // const formData = new FormData();
-    // formData.set("")
-
     return this.http.post(`${environment.apiUrl}/admin/create-percent`, data, this.header())
   }
 

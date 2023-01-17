@@ -37,6 +37,7 @@ import { OrderWaitDeliveryComponent } from './components/order/order-wait-delive
 import { OrderSuccessComponent } from './components/order/order-success/order-success.component';
 import { ProfileComponent } from './components/admin/profile/profile.component';
 import { OrderDlvHistoryComponent } from './components/order-dlv-history/order-dlv-history.component';
+import { ShareLinkComponent } from './components/share-link/share-link.component';
 
 
 
@@ -73,6 +74,7 @@ const routes: Routes = [
   { path: 'payment', component: PaymentComponent,canActivate: [GuardStoreService]},
   { path: 'order-delivery', component: OrderDeliveryComponent,canActivate: [GuardStoreService]},
   { path: 'order-dlv-history', component: OrderDlvHistoryComponent,canActivate: [GuardStoreService]},
+  { path: 'share-link', component: ShareLinkComponent,canActivate: [GuardStoreService]},
 
 
   // GuardAffiliateService

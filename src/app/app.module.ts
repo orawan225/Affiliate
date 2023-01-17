@@ -68,7 +68,7 @@ import { ProductStoreComponent } from './components/product/product-store/produc
 import { ProductCreateComponent } from './components/product/product-create/product-create.component';
 import { ProductEditComponent } from './components/product/product-edit/product-edit.component';
 import { OrderDlvHistoryComponent } from './components/order-dlv-history/order-dlv-history.component';
-
+import { ShareLinkComponent } from './components/share-link/share-link.component';
 
 
 // <---- Admin --->
@@ -93,6 +93,7 @@ import { OrderWaitPaymentComponent } from './components/order/order-wait-payment
 import { OrderWaitDeliveryComponent } from './components/order/order-wait-delivery/order-wait-delivery.component';
 import { OrderSuccessComponent } from './components/order/order-success/order-success.component';
 import { ProfileAdminComponent } from './components/admin/profile-admin/profile-admin.component';
+
 
 
 
@@ -140,7 +141,8 @@ import { ProfileAdminComponent } from './components/admin/profile-admin/profile-
     OrderSuccessComponent,
     ProfileComponent,
     ProfileAdminComponent,
-    OrderDlvHistoryComponent
+    OrderDlvHistoryComponent,
+    ShareLinkComponent
   ],
   imports: [
     BrowserModule,
