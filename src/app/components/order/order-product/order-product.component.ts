@@ -113,6 +113,9 @@ export class OrderProductComponent implements OnInit {
       this.callApi.addOrderDetail(this.orderList.value).subscribe((res: any) => {
         console.log(res);
         this.alert.success("สั่งซื้อสินค้าสำเร็จ")
+
+        //ลบสินค้าใน localStorage ในตอนที่สั่งซื้อสินค้าสำเร็จ
+        localStorage.removeItem("cart")
         setTimeout(() => {
           this.setOrderListId(res.orderListId)
         }, 1000);

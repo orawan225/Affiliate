@@ -17,14 +17,26 @@ export class MoneyHistoryComponent implements OnInit {
   wallet: any
   role?: string
   profile: any
+  store: any = []
+  formWithdraw: any
+  percent: any
+
+  get perPlusWithdraw() {
+    return (this.formWithdraw.value.withdraw * 1) + ((this.formWithdraw.value.withdraw * this.percent) / 100)
+  }
 
   constructor(public callApi: CallApiService, private alert: AlertService, private fb: FormBuilder,
-     private cookie: CookieServiceService) {
+    private cookie: CookieServiceService) {
+    this.formWithdraw = fb.group({
+      withdraw: [null]
+    })
+    this.store = cookie.getUserId();
   }
 
   ngOnInit(): void {
     this.getWithdraw()
     this.getProfile()
+    this.getConfig()
   }
 
   getWithdraw() {
@@ -34,26 +46,38 @@ export class MoneyHistoryComponent implements OnInit {
     })
   }
 
-  // wathdrawMoney() {
-  //   this.callApi.wathdrawMoney(this.store).subscribe(data => {
-  //     console.log(data);
-  //   }
-  //   , ((err: any) => {
-  //     if (err.status === 417) {
-  //       this.alert.error(err.error.message)
-  //     }
-  //   }))
+  getConfig() {
+    this.callApi.getconfig().subscribe((res: any) => {
+      this.percent = res.percent
+      console.log(this.percent);
+    })
+  }
 
-  //   this.alert.warning("ต้องการถอนเงินใช่หรือไม่ ?").then(async (result) => {
-  //     if (result.isConfirmed) {
-  //       await this.callApi.wathdrawMoney(this.store).subscribe(async data => {
-  //         console.log(data);
-  //         await this.alert.success("ทำการถอนเงินสำเร็จ")
-  //         this.getWithdraw()
-  //       })
-  //     }
-  //   })
-  // }
+  wathdrawMoneyStore() {
+    this.callApi.wathdrawMoney(this.formWithdraw.value.withdraw).subscribe(res => {
+      console.log(res);
+      this.alert.success("ทำการถอนเงินสำเร็จ")
+      this.getWithdraw()
+    }, ((err: any) => {
+      if (err.status === 417) {
+        this.alert.warning(err.error.message)
+      }
+    })
+    )
+  }
+
+
+  wathdrawMoneyAffiliate() {
+    this.callApi.wathdrawMoneyAffiliate(this.formWithdraw.value.withdraw).subscribe(res => {
+      console.log(res);
+      this.alert.success("ทำการถอนเงินสำเร็จ")
+    }, ((err: any) => {
+      if (err.status === 417) {
+        this.alert.warning(err.error.message)
+      }
+    })
+    )
+  }
 
   getProfile() {
     const _auth: boolean = this.cookie.getToken() ? true : false;
@@ -62,7 +86,7 @@ export class MoneyHistoryComponent implements OnInit {
         this.profile = res.data.profile;
         this.role = res.data.profile.role;
         console.log(this.role);
-        
+
       })
     }
   }

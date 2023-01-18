@@ -49,3 +49,29 @@ p {
     margin-top: 6rem;
     /* margin-bottom: 2rem; */
 }
+
+.withdraw {
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-right: 20px;
+    text-align: end;
+}
+
+.button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: end;
+}
+
+.input-withdraw {
+    text-align: start;
+}
+
+.btn-success {
+    margin-left: 10px;
+}
+
+.btn-secondary {
+    margin-left: 10px;
+    margin-right: 10px;
+}

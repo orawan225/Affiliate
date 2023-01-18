@@ -52,12 +52,74 @@
                     <div class="card affiliate col-6" *ngIf="role=='AFFILIATE' || role=='ST_AF'">
                         <h2> ยอดเงินการแชร์ </h2>
                         <p class="mt-3"> {{item.incomeAffiliate}}</p>
-                        <button type="button" class="btn btn-outline-success"> ถอนเงิน </button>
+                        <button type="button" class="btn btn-outline-success mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                            ถอนเงิน
+                        </button>
+                        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title mt-1"> กรูณาใส่จำนวนเงิน :</h3>
+                                    </div>
+                                    <form [formGroup]="formWithdraw">
+                                        <div class="row mt-2">
+                                            <div class="col-4 withdraw mt-3">
+                                                จำนวนเงินที่ต้องการถอน :
+                                            </div>
+                                            <div class="col-7 input-withdraw mt-2">
+                                                <input type="text" name="withdraw" id="withdraw" class="form-control" placeholder="กรูณาใส่จำนวนเงินที่ต้องการถอน" formControlName="withdraw">
+                                            </div>
+                                            <div class="button">
+                                                <button type="submit" class="btn btn-success" (click)="wathdrawMoneyAffiliate()">
+                                                    ยืนยัน
+                                                </button>
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                    ยกเลิก </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="card shope col-6" *ngIf="role=='STORE' || role=='ST_AF'">
                         <h2> ยอดเงินการขาย </h2>
                         <p class="mt-3"> {{item.incomeStore}} บาท </p>
-                        <button type="button" class="btn btn-outline-success mb-2"> ถอนเงิน </button>
+
+                        <button type="button" class="btn btn-outline-success mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            ถอนเงิน
+                        </button>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title mt-1"> กรูณาใส่จำนวนเงิน :</h3>
+                                    </div>
+                                    <form [formGroup]="formWithdraw">
+                                        <div class="row mt-2">
+                                            <div class="col-4 withdraw mt-3">
+                                                จำนวนเงินที่ต้องการถอน :
+                                            </div>
+                                            <div class="col-7 input-withdraw mt-2">
+                                                <input type="text" name="withdraw" id="withdraw" class="form-control" placeholder="กรูณาใส่จำนวนเงินที่ต้องการถอน" formControlName="withdraw">
+                                            </div>
+                                            <div class="col-4 withdraw mt-3"> ค่าธรรมเนียมในการถอน : </div>
+                                            <div class="col-7 input-withdraw mt-3"> {{percent}} % </div>
+                                            <div class="col-4 withdraw mt-3"> ยอดรวมทั้งหมด : </div>
+                                            <div class="col-7 input-withdraw mt-3"> {{perPlusWithdraw}} บาท</div>
+                                            <!-- <p> {{perPlusWithdraw}}</p> -->
+                                            <div class="button">
+                                                <button type="submit" class="btn btn-success" (click)="wathdrawMoneyStore()">
+                                                    ยืนยัน
+                                                </button>
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                    ยกเลิก </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

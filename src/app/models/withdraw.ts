@@ -3,6 +3,7 @@ export class withdraw {
     Date?: Date
     image?: string
     totalPrice?: string
+    withholdMoney?: number
     status?: string
 
 }

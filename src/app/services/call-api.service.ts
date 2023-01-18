@@ -74,6 +74,10 @@ export class CallApiService {
     return this.http.post(`${environment.apiUrl}/affiliate/affiliate-share-product/${productId}`, productId, this.header())
   }
 
+  public wathdrawMoneyAffiliate(withdraw: any) {
+    return this.http.put(`${environment.apiUrl}/affiliate/withdraw-money-for-affiliate?withdraw=`+ withdraw,{}, this.header())
+  }
+
 
   //Store
   public registerStore(data: any) {
@@ -88,9 +92,9 @@ export class CallApiService {
   //   return this.http.get(`${environment.apiUrl}/user/get-wallet-by-user`, this.header())
   // }
 
-  // public wathdrawMoney(store: any) {
-  //   return this.http.put<store>(`${environment.apiUrl}/store/update-order-withdraw-money/`, store, this.header())
-  // }
+  public wathdrawMoney(withdraw: any) {
+    return this.http.put(`${environment.apiUrl}/store/withdraw-money-for-store?withdraw=`+ withdraw,{}, this.header())
+  }
 
   public getWallet() {
     return this.http.get(`${environment.apiUrl}/user/get-wallet-by-user`, this.header())
@@ -253,5 +257,10 @@ export class CallApiService {
   public createPercent(data: any) {
     return this.http.post(`${environment.apiUrl}/admin/create-config`, data, this.header())
   }
+
+  public getconfig() {
+    return this.http.get(`${environment.apiUrl}/admin/get-config`,this.header())
+  }
+
 
 }
