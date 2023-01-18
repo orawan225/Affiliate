@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="col-3">
                                     <div class="producPrice">
-                                        <p> {{product.productPrice*product.amount}} </p>
+                                        <p> {{product.productPrice*product.amount | number}} </p>
                                     </div>
                                 </div>
                             </div>
@@ -65,7 +65,7 @@
                                     <strong> ยอดสุทธิ </strong>
                                 </div>
                                 <span>
-                                    <strong>{{TotalPrice}} บาท</strong>
+                                    <strong>{{TotalPrice | number}} บาท</strong>
                                 </span>
                             </li>
                         </ul>

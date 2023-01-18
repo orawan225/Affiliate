@@ -42,9 +42,8 @@ export class ShareLinkComponent implements OnInit {
       this.linkAmount = res.linkAmount
       this.productName = res.productName
       this.productPrice = res.productPrice
-      console.log(this.links);
-      // console.log(this.totalAmount);
       console.log(this.linkProduct);
+      
     })
   }
 }

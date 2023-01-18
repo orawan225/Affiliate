@@ -11,7 +11,7 @@ table {
 th,
 td {
     text-align: center;
-    border-bottom: 1px solid rgb(233, 233, 233);
+    border-bottom: 1px solid rgb(255, 255, 255);
 }
 
 thead {
@@ -25,6 +25,7 @@ img {
 }
 
 .totalPrice {
+    font-size: 16px;
     text-align: end;
     margin-right: 2rem;
     color: rgb(255, 0, 0);

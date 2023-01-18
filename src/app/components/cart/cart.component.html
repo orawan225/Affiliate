@@ -46,7 +46,7 @@
                                             {{product.productDetail}}
                                         </div>
                                     </td>
-                                    <td> {{product.productPrice}} </td>
+                                    <td> {{product.productPrice | number}} </td>
                                     <td>
                                         <div class="form-group row amount">
                                             <button class="btn btn-amount" (click)="onAmountMinus(product.productId)">
@@ -67,7 +67,7 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <p>{{product.productPrice *product.amount}}</p>
+                                        <p>{{product.productPrice *product.amount | number}}</p>
                                     </td>
                                     <td>
                                         <i class="bi bi-trash" (click)="onRemove(indexOfstore,indexOfitem)">
@@ -94,7 +94,7 @@
                                     </div>
                                     <div class="totalPrice2">
                                         <p> {{cartService.getTotalAmount(store.storeId)}} รายการ </p>
-                                        <p> {{cartService.getTotalPrice(store.storeId)}} บาท </p>
+                                        <p> {{cartService.getTotalPrice(store.storeId) | number}} บาท </p>
                                     </div>
                                 </div>
                             </div>

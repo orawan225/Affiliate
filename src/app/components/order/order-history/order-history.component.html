@@ -36,8 +36,8 @@
 
                         <tbody *ngFor="let order of ordertList ; let i = index">
                             <tr>
-                                <td> {{order.date | date: 'HH:mm:ss'}}
-                                    <br> {{order.date | date:' d/M/yyyy'}}
+                                <td> {{order.dateStSuccess | date: 'HH:mm:ss'}}
+                                    <br> {{order.dateStSuccess | date:' d/M/yyyy'}}
                                 </td>
                                 <td>
                                     <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#Modal'+i">

@@ -20,7 +20,6 @@
                               </svg>
                         </i>
                         <p> ผู้ใช้งานยังไม่มีรายการสั่งซื้อที่รอการชำระเงิน </p>
-                        <!-- <button type="button" class="btn btn-outline-primary" routerLink="/home"> ซื้อสินค้า </button> -->
                     </div>
                     <table *ngIf="ordertList != 0">
                         <thead>
@@ -48,7 +47,6 @@
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h1 class="modal-title" id="exampleModalLabel"> รายการสินค้า </h1>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
                                                     <table>
@@ -64,13 +62,13 @@
                                                             <tr *ngFor="let res of order.detail">
                                                                 <td> {{res.productName}} </td>
                                                                 <td> {{res.amount}} </td>
-                                                                <td> {{res.productPrice}} </td>
+                                                                <td> {{res.productPrice | number}} </td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>
-                                                <div class="totalPrice">
-                                                    ยอดสุทธิ {{order.totalPrice}} บาท
+                                                <div class="totalPrice mb-3">
+                                                    ยอดสุทธิ {{order.totalPrice | number}} บาท
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

@@ -24,7 +24,7 @@
 }
 
 .card-body span .row .price {
-    text-align: right;
+    text-align: end;
 }
 
 .card-body span .row .baht {

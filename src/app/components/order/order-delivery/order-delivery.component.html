@@ -35,8 +35,8 @@
 
                         <tbody *ngFor="let order of ordertList ; let i = index">
                             <tr>
-                                <td> {{order.date | date: 'HH:mm:ss'}}
-                                    <br> {{order.date | date:' d/M/yyyy'}}
+                                <td> {{order.dateStSuccess | date: 'HH:mm:ss'}}
+                                    <br> {{order.dateStSuccess | date:' d/M/yyyy'}}
                                 </td>
                                 <td>
                                     <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#Modal'+i">
@@ -47,7 +47,6 @@
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h1 class="modal-title" id="exampleModalLabel"> รายการสินค้า </h1>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
                                                     <table>
@@ -63,12 +62,12 @@
                                                             <tr *ngFor="let res of order.detail">
                                                                 <td> {{res.productName}} </td>
                                                                 <td> {{res.amount}} </td>
-                                                                <td> {{res.productPrice}} </td>
+                                                                <td> {{res.productPrice | number }} </td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>
-                                                <div class="totalPrice">
+                                                <div class="totalPrice mb-3">
                                                     ยอดสุทธิ {{order.totalPrice}} บาท
                                                 </div>
                                                 <div class="modal-footer">

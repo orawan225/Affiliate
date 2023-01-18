@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { orderList } from 'src/app/models/order';
-import { wallet } from 'src/app/models/wallet';
 import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CookieServiceService } from 'src/app/services/cookie-service.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-money-history',
@@ -22,7 +19,7 @@ export class MoneyHistoryComponent implements OnInit {
   percent: any
 
   get perPlusWithdraw() {
-    return (this.formWithdraw.value.withdraw * 1) + ((this.formWithdraw.value.withdraw * this.percent) / 100)
+    return Number(this.formWithdraw.value.withdraw) + (Number(this.formWithdraw.value.withdraw * this.percent) / 100)
   }
 
   constructor(public callApi: CallApiService, private alert: AlertService, private fb: FormBuilder,
@@ -55,7 +52,6 @@ export class MoneyHistoryComponent implements OnInit {
 
   wathdrawMoneyStore() {
     this.callApi.wathdrawMoney(this.formWithdraw.value.withdraw).subscribe(res => {
-      console.log(res);
       this.alert.success("ทำการถอนเงินสำเร็จ")
       this.getWithdraw()
     }, ((err: any) => {
@@ -69,7 +65,6 @@ export class MoneyHistoryComponent implements OnInit {
 
   wathdrawMoneyAffiliate() {
     this.callApi.wathdrawMoneyAffiliate(this.formWithdraw.value.withdraw).subscribe(res => {
-      console.log(res);
       this.alert.success("ทำการถอนเงินสำเร็จ")
     }, ((err: any) => {
       if (err.status === 417) {

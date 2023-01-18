@@ -1,6 +1,9 @@
 export class orderList {
     orderListId: number = 0
     date?: string
+    datedateStPayment?: string
+    dateStPayment?: string
+    dateStSuccess?: string
     image?: string
     status?: string
     userId?: string
