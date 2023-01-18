@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CookieServiceService } from 'src/app/services/cookie-service.service';
 
@@ -33,9 +34,13 @@ export class DashboardComponent implements OnInit {
   @ViewChild("paginatorUser1", { read: MatPaginator }) paginatorUser1!: MatPaginator;
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router,
-    private ref: ChangeDetectorRef, private fb: FormBuilder) {
+    private ref: ChangeDetectorRef, private fb: FormBuilder,private alert: AlertService) {
       this.createPercent = fb.group({
-        percent: [null]
+        percent: [null],
+        minimumStore: [null],
+        maximumStore: [null],
+        minimumAffiliate: [null],
+        maxAffiliate: [null]
       })
      }
 
@@ -55,11 +60,9 @@ export class DashboardComponent implements OnInit {
   }
 
   percentWithdrawMoney(){
-    const data = new FormData();
-    data.append('percent', this.createPercent.value.percent);
-    
-    this.callApi.createPercent(data).subscribe(res => {
+    this.callApi.createPercent(this.createPercent.value).subscribe(res => {
       console.log(res);
+      this.alert.success("ตั้งค่าสำเร็จ")
     })
   }
 

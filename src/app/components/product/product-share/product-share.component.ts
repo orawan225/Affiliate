@@ -14,7 +14,7 @@ export class ProductShareComponent implements OnInit {
 
   formProduct: any
   productId: any
-  baseUrl = '5555555555555'
+  baseUrl = ''
   api = environment.apiUrl
   product: any = []
   url: string = "/product-detail";
@@ -48,14 +48,10 @@ export class ProductShareComponent implements OnInit {
 
   getLinkShareProduct() {
     this.callApi.shareProduct(this.productId).subscribe((res: any) => {
-      console.log(this.baseUrl);
-      
       this.linkProduct = res.data.link
-      console.log(this.linkProduct);
       this.baseUrl = window.location.port
       ? `${window.location.protocol}//${window.location.hostname}:${window.location.port}${this.url}?id=${this.productId}&link=${res.data.link}`
       : `${window.location.protocol}//${window.location.hostname}${this.url}?id=${this.productId}&link=${res.data.link}`;
-      
       navigator.clipboard.writeText(this.baseUrl)
     })
   }

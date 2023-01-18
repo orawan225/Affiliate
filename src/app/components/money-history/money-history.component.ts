@@ -15,6 +15,8 @@ import { environment } from 'src/environments/environment';
 export class MoneyHistoryComponent implements OnInit {
 
   wallet: any
+  role?: string
+  profile: any
 
   constructor(public callApi: CallApiService, private alert: AlertService, private fb: FormBuilder,
      private cookie: CookieServiceService) {
@@ -22,6 +24,7 @@ export class MoneyHistoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.getWithdraw()
+    this.getProfile()
   }
 
   getWithdraw() {
@@ -52,14 +55,16 @@ export class MoneyHistoryComponent implements OnInit {
   //   })
   // }
 
-  // getProfile() {
-  //   const _auth: boolean = this.cookie.getToken() ? true : false;
-  //   if (_auth) {
-  //     this.callApi.getProfile().subscribe((res: any) => {
-  //       this.profile = res.data.profile;
-  //       this.role = res.data.profile.role;
-  //     })
-  //   }
-  // }
+  getProfile() {
+    const _auth: boolean = this.cookie.getToken() ? true : false;
+    if (_auth) {
+      this.callApi.getProfile().subscribe((res: any) => {
+        this.profile = res.data.profile;
+        this.role = res.data.profile.role;
+        console.log(this.role);
+        
+      })
+    }
+  }
 
 }

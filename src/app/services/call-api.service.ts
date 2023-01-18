@@ -251,7 +251,7 @@ export class CallApiService {
   }
 
   public createPercent(data: any) {
-    return this.http.post(`${environment.apiUrl}/admin/create-percent`, data, this.header())
+    return this.http.post(`${environment.apiUrl}/admin/create-config`, data, this.header())
   }
 
 }

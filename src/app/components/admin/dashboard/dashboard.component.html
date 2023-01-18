@@ -42,18 +42,42 @@
 
 <div class="container-fluid">
     <div class="row mt-2">
-        <div class="col-lg-3">
+        <div class="col-lg-4">
             <div class="row">
                 <div class="col card-shadow mb-2">
                     <div class="container-fluid pt-4 mb-3">
-                        <h1 class="font-opt text-success"> ค่าธรรมเนียมในการถอนเงิน </h1>
+                        <h1 class="font-opt text-success"> ตั้งค่าระบบ </h1>
                         <form [formGroup]="createPercent" (ngSubmit)="percentWithdrawMoney()">
                             <div class="row mt-3">
-                                <div class="col-4 amount">
-                                    จำนวนเงิน :
+                                <div class="col-5 amount">
+                                    ค่าธรรมเนียมในการถอนเงิน
                                 </div>
-                                <div class="col-8 input">
-                                    <input type="text" name="percent" id="percent" class="form-control" placeholder="กรุณากรอกค่าธรรมเนียม" formControlName="percent">
+                                <div class="col-7 input">
+                                    <input type="text" name="percent" id="percent" class="form-control" placeholder="ค่าธรรมเนียมในการถอนเงิน" formControlName="percent">
+                                </div>
+                                <div class="col-5 amount">
+                                    จำนวนเงินต่ำสุดในการถอนเงินของร้านค้า
+                                </div>
+                                <div class="col-7 input mt-2">
+                                    <input type="text" name="minimumStore" id="minimumStore" class="form-control" placeholder="กรุณากรอกค่าธรรมเนียม" formControlName="minimumStore">
+                                </div>
+                                <div class="col-5 amount">
+                                    จำนวนเงินสูงสุดในการถอนเงินของร้านค้า
+                                </div>
+                                <div class="col-7 input mt-2">
+                                    <input type="text" name="maximumStore" id="maximumStore" class="form-control" placeholder="กรุณากรอกค่าธรรมเนียม" formControlName="maximumStore">
+                                </div>
+                                <div class="col-5 amount">
+                                    จำนวนเงินต่ำสุดในการถอนเงินของตัวแทนขาย
+                                </div>
+                                <div class="col-7 input mt-2">
+                                    <input type="text" name="minimumAffiliate" id="minimumAffiliate" class="form-control" placeholder="กรุณากรอกค่าธรรมเนียม" formControlName="minimumAffiliate">
+                                </div>
+                                <div class="col-5 amount">
+                                    จำนวนเงินสูงสุดในการถอนเงินของตัวแทนขาย
+                                </div>
+                                <div class="col-7 input mt-2">
+                                    <input type="text" name="maxAffiliate" id="maxAffiliate" class="form-control" placeholder="กรุณากรอกค่าธรรมเนียม" formControlName="maxAffiliate">
                                 </div>
                                 <button type="submit" class="btn btn-success mt-4">
                                     ยืนยัน
@@ -75,7 +99,7 @@
             </div>
         </div>
 
-        <div class="col-lg-9 mb-2">
+        <div class="col-lg-8 mb-2">
             <div class="container-fluid card-shadow pt-4 mb-2">
                 <h1 class="font-opt text-success">รายการถอนเงิน Affiliate</h1>
                 <section>
