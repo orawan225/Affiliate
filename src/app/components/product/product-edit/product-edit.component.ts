@@ -25,7 +25,8 @@ export class ProductEditComponent implements OnInit {
     this.formProduct = fb.group({
       productName: [null],
       productPrice: [null],
-      productDetail: [null]
+      productDetail: [null],
+      priceForShare: [null]
     })
 
     acrout.queryParams.subscribe((res: any) => {
@@ -39,6 +40,7 @@ export class ProductEditComponent implements OnInit {
       productName: receiveProduct.productName,
       productPrice: receiveProduct.productPrice,
       productDetail: receiveProduct.productDetail,
+      priceForShare: receiveProduct.priceForShare
     })
   }
 
@@ -51,6 +53,8 @@ export class ProductEditComponent implements OnInit {
       this.product = res
       this.img = this.api + res.image
       this.patchValue(res)
+      console.log(res);
+      
     })
   }
 

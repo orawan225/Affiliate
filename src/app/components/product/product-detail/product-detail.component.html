@@ -18,9 +18,17 @@
                                 <div class="col"> {{product.productDetail}} </div>
                             </div>
                             <div class="productprice row">
-                                <div class="price col"> ราคา
-                                    <span class="priceValue col">{{product.productPrice}} บาท</span>
+                                <div class="price row">
+                                    <span class="priceForShare col">
+                                        ค่าคอม {{product.priceForShare}} บาท
+                                    </span>
+                                    <span class="priceValue col">
+                                        ราคา {{product.productPrice}} บาท
+                                    </span>
                                 </div>
+                                <!-- <div class="price col"> ราคา
+                                    <span class="priceValue col">{{product.productPrice}} บาท</span>
+                                </div> -->
                             </div>
 
                             <div class="button row">

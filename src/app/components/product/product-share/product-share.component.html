@@ -17,9 +17,10 @@
                             <div class="productdetail row">
                                 <div class="col"> {{product.productDetail}} </div>
                             </div>
-                            <div class="productprice row">
-                                <div class="price col-8"> ราคา </div>
-                                <div class="priceValue col"> {{product.productPrice}} บาท </div>
+                            <div class="row">
+                                <div class="col priceForShare">ค่าคอม {{product.priceForShare}} บาท</div>
+                                <div class="col productprice">ราคา {{product.productPrice}} บาท</div>
+
                             </div>
                             <div class="row share-buttons mt-2" (click)="getLinkShareProduct()">
                                 <share-buttons theme="circles-dark" [include]="['copy']" [showIcon]="true" [showText]="true" [url]="baseUrl" description="Angular Share Buttons" twitterAccount="rodrigokamada" class="share-buttons"></share-buttons>

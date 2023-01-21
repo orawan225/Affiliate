@@ -62,7 +62,7 @@ export class ProfileStoreComponent implements OnInit {
     this.callApi.editProfileStore(this.formProfile.value).subscribe(data => {
       console.log(data);
       this.alert.success("แก้ไขข้อมูลสำเร็จ")
-      this. closeDialog()
+      this.closeDialog()
     })
   }
 

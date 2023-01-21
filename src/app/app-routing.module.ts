@@ -36,7 +36,7 @@ import { OrderWaitPaymentComponent } from './components/order/order-wait-payment
 import { OrderWaitDeliveryComponent } from './components/order/order-wait-delivery/order-wait-delivery.component';
 import { OrderSuccessComponent } from './components/order/order-success/order-success.component';
 import { ProfileComponent } from './components/admin/profile/profile.component';
-import { OrderDlvHistoryComponent } from './components/order-dlv-history/order-dlv-history.component';
+import { OrderDlvHistoryComponent } from './components/order/order-dlv-history/order-dlv-history.component';
 import { ShareLinkComponent } from './components/share-link/share-link.component';
 
 

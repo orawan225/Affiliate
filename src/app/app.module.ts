@@ -67,7 +67,7 @@ import { OrderDeliveryComponent } from './components/order/order-delivery/order-
 import { ProductStoreComponent } from './components/product/product-store/product-store.component';
 import { ProductCreateComponent } from './components/product/product-create/product-create.component';
 import { ProductEditComponent } from './components/product/product-edit/product-edit.component';
-import { OrderDlvHistoryComponent } from './components/order-dlv-history/order-dlv-history.component';
+import { OrderDlvHistoryComponent } from './components/order/order-dlv-history/order-dlv-history.component';
 import { ShareLinkComponent } from './components/share-link/share-link.component';
 
 

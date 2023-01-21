@@ -52,6 +52,11 @@
     text-align: start;
 }
 
+.priceForShare {
+    text-align: start;
+    color: rgb(9, 114, 26);
+}
+
 .card-img-top {
     width: 100%;
     height: 300px;

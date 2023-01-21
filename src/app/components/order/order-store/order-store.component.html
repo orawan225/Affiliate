@@ -97,8 +97,8 @@
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h3 class="modal-title" id="exampleModalLabel">
-                                                        กรูณาใส่เลขพัสดุสินค้า </h3>
+                                                    <h3 class="modal-title" id="exampleModalLabel"> กรูณาใส่เลขพัสดุสินค้า </h3>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <form [formGroup]="formTrackNumber" (ngSubmit)="trackingNumber(order.orderListId)">
                                                     <div class="row mt-3">
@@ -110,10 +110,9 @@
                                                         </div>
 
                                                         <div class="button">
-                                                            <button type="submit" class="btn btn-success" (click)="trackingNumber(order.orderListId)">
+                                                            <button type="submit" class="btn btn-success" data-bs-dismiss="modal" (click)="trackingNumber(order.orderListId)">
                                                                 ยืนยัน
                                                             </button>
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> ยกเลิก </button>
                                                         </div>
                                                     </div>
                                                 </form>

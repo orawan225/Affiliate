@@ -62,7 +62,11 @@ export class PaymentComponent implements OnInit {
       setTimeout(() => {
         this.router.navigate(['/home'])
       }, 1000);
-    })
+    }, ((err: any) => {
+      if (err.status === 500) {
+        this.alert.error("กรุณาแนบหลักฐานในการชำระเงิน")
+      }
+    }))
   }
 
   getProfileAdmin(){

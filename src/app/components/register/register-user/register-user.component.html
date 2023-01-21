@@ -23,7 +23,7 @@
                     <section class="contact section-padding" id="contact">
                         <div class="col col-12 mx-auto">
                             <div class="card-body">
-                                <form [formGroup]="formRegister" (ngSubmit)="registerUser()">
+                                <form [formGroup]="formRegister">
                                     <div class="row mt-2">
                                         <div class="col-lg-6 col-6">
                                             <label for="username" class="form-label"> ชื่อ - สกุล </label>
@@ -76,9 +76,30 @@
 
                                         <div class="row">
                                             <div class="button">
-                                                <button type="submit" class="btn btn-outline-primary">
+                                                <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                     ยืนยันสมัครสมาชิก
                                                 </button>
+
+                                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h3 class="modal-title" id="exampleModalLabel"> ยินยอมให้เปิดเผยข้อมลส่วนบุคคล </h3>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                ข้าพเจ้า <strong>{{this.formRegister.value.fullName}}</strong> ยินยอมให้เผยข้อมูลส่วนบุคคลดังต่อไปนี้
+                                                                <br> 1. ชื่อ - สกุล
+                                                                <br> 2. ที่อยู่ที่สามารถติดต่อได้/ เบอร์โทร / อีเมล / ที่อยู่
+                                                                <br> 3. รูปภาพ
+                                                                <br> 4. ข้อมูลธนาคาร
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="registerUser()"> ยินยอม </button>
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> ยกเลิก </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

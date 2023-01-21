@@ -14,7 +14,7 @@ export class RegisterUserComponent implements OnInit {
 
   formRegister: any
 
-  constructor(private callApi: CallApiService, private fb: FormBuilder, private router: Router,private http: HttpClient,
+  constructor(private callApi: CallApiService, private fb: FormBuilder, private router: Router, private http: HttpClient,
     private alert: AlertService) {
     this.formRegister = fb.group({
       fullName: [null],
@@ -35,18 +35,18 @@ export class RegisterUserComponent implements OnInit {
   }
 
   registerUser() {
-    this.callApi.registerUser(this.formRegister.value).subscribe(data => {
+    this.callApi.registerUser(this.formRegister.value).subscribe(async (data) => {
       console.log(data);
-      this.alert.success("สมัครสมาชิกสำเร็จ")
+      await this.alert.success("สมัครสมาชิกสำเร็จ")
       setTimeout(() => {
         this.router.navigate(['/login'])
       }, 1000);
-    },((err: any) => {
+    }, ((err: any) => {
       if (err.status === 417) {
         this.alert.error(err.error.message)
       }
     }))
-   
+
   }
 
 }

@@ -7,4 +7,5 @@ export class product {
     created?: Date
     updated?: Date
     image?: string
+    priceForShare?: number
 }

@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CookieServiceService } from 'src/app/services/cookie-service.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-money-history',
@@ -17,9 +18,12 @@ export class MoneyHistoryComponent implements OnInit {
   store: any = []
   formWithdraw: any
   percent: any
+  ordertList: any
+  api = environment.apiUrl
+  totalPrice: any
 
   get perPlusWithdraw() {
-    return Number(this.formWithdraw.value.withdraw) + (Number(this.formWithdraw.value.withdraw * this.percent) / 100)
+    return (this.formWithdraw.value.withdraw*1) + ((this.formWithdraw.value.withdraw * this.percent) / 100)
   }
 
   constructor(public callApi: CallApiService, private alert: AlertService, private fb: FormBuilder,
@@ -33,7 +37,15 @@ export class MoneyHistoryComponent implements OnInit {
   ngOnInit(): void {
     this.getWithdraw()
     this.getProfile()
-    this.getConfig()
+    this.getconfig()
+  }
+
+
+  getconfig() {
+    this.callApi.getconfig().subscribe((res: any) => {
+      this.percent = res.percent
+      console.log(this.percent);
+    })
   }
 
   getWithdraw() {
@@ -43,12 +55,7 @@ export class MoneyHistoryComponent implements OnInit {
     })
   }
 
-  getConfig() {
-    this.callApi.getconfig().subscribe((res: any) => {
-      this.percent = res.percent
-      console.log(this.percent);
-    })
-  }
+
 
   wathdrawMoneyStore() {
     this.callApi.wathdrawMoney(this.formWithdraw.value.withdraw).subscribe(res => {

@@ -44,6 +44,10 @@ export class CallApiService {
     return this.http.get<profile>(`${environment.apiUrl}/order-list/get-detail-admin`, this.header())
   }
 
+  public getWithdraw() {
+    return this.http.get(`${environment.apiUrl}/user/get-withdraw-by-user`, this.header())
+  }
+
 
 
   //Profile
@@ -260,6 +264,10 @@ export class CallApiService {
 
   public getconfig() {
     return this.http.get(`${environment.apiUrl}/admin/get-config`,this.header())
+  }
+
+  public myWalletAdmin() {
+    return this.http.get(`${environment.apiUrl}/admin/get-my-wallet`,this.header())
   }
 
 

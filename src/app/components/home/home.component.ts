@@ -13,11 +13,13 @@ export class HomeComponent implements OnInit {
 
   product: any = []
   api = environment.apiUrl
+  role?: string
 
   constructor(private callApi: CallApiService, private router: Router) {}
 
   ngOnInit(): void {
     this.getProduct()
+    this.getProfile()
   }
 
   getProduct() {
@@ -26,6 +28,14 @@ export class HomeComponent implements OnInit {
       console.log(data)
     })
   }
+
+  getProfile() {
+      this.callApi.getProfile().subscribe((res: any) => {
+        this.role = res.data.profile.role;
+        console.log(this.role);
+      })
+  }
+
 
   setProductIdtolocal(productId : string) {
     this.router.navigate(['/product-detail'],{queryParams: {id:productId}})

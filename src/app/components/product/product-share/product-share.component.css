@@ -34,6 +34,13 @@
     font-size: 20px;
 }
 
+.priceForShare {
+    margin-left: 1rem;
+    color: rgb(20, 158, 43);
+    margin-top: 3rem;
+    font-size: 20px;
+}
+
 .button {
     margin-top: 3rem;
 }

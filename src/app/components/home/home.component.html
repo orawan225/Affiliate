@@ -55,8 +55,8 @@
                         <p class="card-detail">{{element.productDetail}}</p>
                         <span class="text-price text-danger light-300 mt-2 mb-2">
                             <div class="row">
-                                <div class="col-9 price">ราคา {{element.productPrice}}</div>
-                                <div class="col baht"> บาท </div>
+                                <div class="col" *ngIf="role == 'AFFILIATE' || role == 'ST_AF'"> ค่าคอม {{element.priceForShare}} บาท </div>
+                                <div class="col productPrice"> ราคา {{element.productPrice}} บาท </div>
                             </div>
                         </span>
                     </div>

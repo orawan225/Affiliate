@@ -17,11 +17,11 @@
                                     <th style="width: 2%;"> หลักฐานในการชำระเงิน </th>
                                 </tr>
                             </thead>
-                            <!-- <tbody *ngFor="let order of ordertList ; let i = index">
+                            <tbody *ngFor="let order of ordertList ; let i = index">
                                 <tr>
                                     <td> {{order.date | date: 'HH:mm:ss'}} </td>
-                                    <td> {{order.date | date:' d/M/yyyy'}} </td>
-                                    <td> {{order.totalPrice}} </td>
+                                    <td> {{order.date | date: 'd/M/yyyy'}} </td>
+                                    <td> {{totalPrice}} </td>
                                     <td>
                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#exampleModal'+i">
                                             การชำระเงิน
@@ -40,7 +40,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                            </tbody> -->
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -69,9 +69,8 @@
                                             <div class="col-7 input-withdraw mt-3"> {{percent}} % </div>
                                             <div class="col-4 withdraw mt-3"> ยอดรวมทั้งหมด : </div>
                                             <div class="col-7 input-withdraw mt-3"> {{perPlusWithdraw}} บาท</div>
-                                            <!-- <p> {{perPlusWithdraw}}</p> -->
                                             <div class="button">
-                                                <button type="submit" class="btn btn-success" (click)="wathdrawMoneyAffiliate()">
+                                                <button type="submit" class="btn btn-success" data-bs-dismiss="modal" (click)="wathdrawMoneyAffiliate()">
                                                     ยืนยัน
                                                 </button>
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">

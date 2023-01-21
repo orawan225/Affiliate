@@ -31,3 +31,9 @@ th {
     margin-top: 5px;
     text-align: end;
 }
+
+.wallet {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 50px;
+}

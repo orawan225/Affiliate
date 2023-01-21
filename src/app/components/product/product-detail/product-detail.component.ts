@@ -50,7 +50,7 @@ export class ProductDetailComponent implements OnInit {
   getProductById() {
     this.callApi.getProductById(this.productId).subscribe((res: any) => {
       this.product = res
-      console.log('sfsfsf', res);
+      console.log(res);
     })
   }
 

@@ -24,12 +24,13 @@ export class DashboardComponent implements OnInit {
   showCardRole: any
   date: Date = new Date()
   createPercent: any
+  wallet: any
 
-  user: Observable<any[]> = new Observable();
+  Affiliate: Observable<any[]> = new Observable();
   dataSourceUser = new MatTableDataSource<any>();
   @ViewChild("paginatorUser", { read: MatPaginator }) paginatorUser!: MatPaginator;
 
-  user1: Observable<any[]> = new Observable();
+  Store: Observable<any[]> = new Observable();
   dataSourceUser1 = new MatTableDataSource<any>();
   @ViewChild("paginatorUser1", { read: MatPaginator }) paginatorUser1!: MatPaginator;
 
@@ -46,6 +47,15 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getWithdrawMoney()
+    this.geyMyWallet()
+  }
+
+  geyMyWallet(){
+    this.callApi.myWalletAdmin().subscribe((res: any) => {
+      this.wallet = res.data.income
+      // console.log(this.wallet);
+      
+    })
   }
 
 
@@ -53,7 +63,7 @@ export class DashboardComponent implements OnInit {
     this.callApi.withdrawMoney().subscribe((res: any) => {
       this.dataSourceUser = new MatTableDataSource<any>(res);
       this.dataSourceUser.paginator = this.paginatorUser;
-      this.user = this.dataSourceUser.connect();
+      this.Affiliate = this.dataSourceUser.connect();
       console.log(res);
       
     })
