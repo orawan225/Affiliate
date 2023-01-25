@@ -82,6 +82,10 @@ export class CallApiService {
     return this.http.put(`${environment.apiUrl}/affiliate/withdraw-money-for-affiliate?withdraw=`+ withdraw,{}, this.header())
   }
 
+  public shareHistory() {
+    return this.http.get(`${environment.apiUrl}/affiliate/get-share-link-success-for-affiliate`, this.header())
+  }
+
 
   //Store
   public registerStore(data: any) {
@@ -92,12 +96,12 @@ export class CallApiService {
     return this.http.get<store[]>(`${environment.apiUrl}/store/getAll-store`, this.header())
   }
 
-  // public getTotalMoney() {
-  //   return this.http.get(`${environment.apiUrl}/user/get-wallet-by-user`, this.header())
-  // }
-
   public wathdrawMoney(withdraw: any) {
     return this.http.put(`${environment.apiUrl}/store/withdraw-money-for-store?withdraw=`+ withdraw,{}, this.header())
+  }
+
+  public wathdrawMoneyHistory() {
+    return this.http.get(`${environment.apiUrl}/user/get-withdraw-by-user`, this.header())
   }
 
   public getWallet() {

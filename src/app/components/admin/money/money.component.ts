@@ -14,18 +14,18 @@ export class MoneyComponent implements OnInit {
   file: any
   img: any = 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp'
   withdrawId: any
-  user: any
-  bank: any
-  banknumber: any
-  namebank: any
-  name: any
-  address: any
-  sub: any
-  district: any
-  province: any
-  postalCode: any
-  tel: any
+  withdraw: any
   totalPrice: any
+  withholdMoney: any
+  bankName: string = ''
+  bankNameAccount: any
+  bankNumber: any
+  store: any
+  fullName: any
+  profile: any = {}
+  tel: string = ''
+  withdrawType: string = ''
+
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router,
     private acrout: ActivatedRoute, private alert: AlertService) {
@@ -39,21 +39,22 @@ export class MoneyComponent implements OnInit {
     this.getWiithdrawById()
   }
 
+
   getWiithdrawById() {
     this.callApi.getWithdrawById(this.withdrawId).subscribe((res: any) => {
-      this.user = res.store.store
-      this.bank = res.store.bankNameAccount
-      this.banknumber = res.store.bankNumber
-      this.namebank = res.store.bankName
-      this.name = res.user.fullName
-      this.address = res.user.address
-      this.sub = res.user.sub
-      this.district = res.user.district
-      this.province = res.user.province
-      this.postalCode = res.user.postalCode
-      this.tel= res.user.tel
+      this.profile = res.withdrawType == 'affiliate' ? res.affiliate : res.store
+      this.withdrawType = res.withdrawType
+      this.withdraw = res
       this.totalPrice = res.totalPrice
-      console.log(res);
+      this.withholdMoney = res.withholdMoney
+      this.withholdMoney = res.withholdMoney
+      this.fullName = res.user.fullName
+      this.tel = res.user.tel
+      // this.store = res.store.store
+      // this.bankName = res.store.bankName
+      // this.bankNameAccount = res.store.bankNameAccount 
+      // this.bankNumber = res.store.bankNumber 
+      console.log(this.withdraw);
     })
   }
 
@@ -67,8 +68,6 @@ export class MoneyComponent implements OnInit {
       }, 1000);
     })
   }
-
-
 
   selectFile(event: any) {
     this.file = <File>event.target.files[0]

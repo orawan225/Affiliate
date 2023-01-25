@@ -19,6 +19,7 @@ export class ProductEditComponent implements OnInit {
   file: any
   img: any
   productId: any
+  role?: string
 
   constructor(private callApi: CallApiService, private router: Router,
     private fb: FormBuilder, private alert: AlertService, private acrout: ActivatedRoute) {
@@ -57,6 +58,7 @@ export class ProductEditComponent implements OnInit {
       
     })
   }
+
 
 
   editProductById() {

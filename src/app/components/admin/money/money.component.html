@@ -21,7 +21,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -29,20 +28,20 @@
             <div class="productList col-md-6 mt-5">
                 <div class="card mb-4 mt-5">
                     <div class="card-header py-3">
-                        <h2 class="mb-0"> ข้อมูลร้านค้า </h2>
+                        <h2 class="mb-0"> ข้อมูลผู้ใช้งาน </h2>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <div class="row">
+                                <div class="row" *ngIf="withdrawType == 'store'">
                                     <div class="col-4"> ชื่อร้านค้า :</div>
-                                    <div class="col"> {{user}} </div>
+                                    <div class="col"> {{profile.store}} </div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="row">
                                     <div class="col-4"> ธนาคาร :</div>
-                                    <div class="col"> {{bank}} </div>
+                                    <div class="col"> {{profile.bankName}}</div>
                                 </div>
                             </div>
                         </div>
@@ -50,13 +49,13 @@
                             <div class="col">
                                 <div class="row">
                                     <div class="col-4 mt-2"> ชื่อ-นามสกุล :</div>
-                                    <div class="col mt-2"> {{name}} </div>
+                                    <div class="col mt-2"> {{fullName}} </div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="row">
                                     <div class="col-4 mt-2"> ชื่อบัญชี :</div>
-                                    <div class="col mt-2"> {{namebank}} </div>
+                                    <div class="col mt-2"> {{profile.bankNameAccount}} </div>
                                 </div>
                             </div>
                         </div>
@@ -70,35 +69,24 @@
                             <div class="col">
                                 <div class="row">
                                     <div class="col-4 mt-2"> เลขที่บัญชี :</div>
-                                    <div class="col mt-2"> {{banknumber}} </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col-4 mt-2"> ที่อยู่ :</div>
-                                    <div class="col mt-2"> {{address}} ตำบล{{sub}} อำเภอ{{district}} จังหวัด{{province}}{{postalCode }}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="row">
-                                    <!-- <div class="col-4"> เลขที่บัญชี </div>
-                                    <div class="col"> {{banknumber}} </div> -->
+                                    <div class="col mt-2"> {{profile.bankNumber}} </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="card money mb-4 mt-5">
-                    <div class="card-header py-3">
-                        <div class="row">
+                <div class="mb-4 mt-5">
+                    <div class="py-3">
+                        <div class="row money">
                             <div class="col">
-                                <h2 class="mb-0"> จำนวนเงิน </h2>
+                                <div class="card-header py-3">
+                                    <h2 class="mb-0"> จำนวนเงิน {{totalPrice}} บาท </h2>
+                                </div>
                             </div>
                             <div class="col">
-                                <h2 class="mb-0"> {{totalPrice}} บาท </h2>
+                                <div class="card-header py-3">
+                                    <h2 class="mb-0"> ภาษีหัก ณ ที่จ่าย {{withholdMoney}} บาท </h2>
+                                </div>
                             </div>
                         </div>
                     </div>

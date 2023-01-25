@@ -49,7 +49,7 @@
 
 .priceValue {
     /* padding: 0; */
-    text-align: start;
+    text-align: end;
 }
 
 .priceForShare {

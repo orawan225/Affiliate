@@ -11,10 +11,10 @@ import { CookieServiceService } from 'src/app/services/cookie-service.service';
 export class NavbarHeaderComponent implements OnInit {
 
   profile: any = []
-  role: string=""
+  role: string = ""
   checkLogin: boolean = true
 
-  constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router, 
+  constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router,
     private ref: ChangeDetectorRef) { }
 
   ngOnInit(): void {
@@ -43,12 +43,13 @@ export class NavbarHeaderComponent implements OnInit {
       this.router.navigate(['/dashboard']);
     } else {
       this.router.navigate(['/home']);
-    } 
+    }
   }
 
 
-  
-  // <---- checkButtonLout---->
+
+
+
   checkLogout() {
     if (this.cookie.getToken()) {
       this.checkLogin = true
@@ -69,3 +70,4 @@ export class NavbarHeaderComponent implements OnInit {
   }
 
 }
+

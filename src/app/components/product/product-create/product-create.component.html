@@ -26,20 +26,35 @@
                             <div class="col">
                                 <div class="col-lg-12 col-12 mt-2">
                                     <label for="name" class="form-label"> ชื่อสินค้า : </label>
-                                    <input type="text" name="name" id="name" class="form-control" placeholder="กรุณากรอกรายชื่อสินค้า" formControlName="productName">
+                                    <input type="text" name="name" id="name" class="form-control" placeholder="กรุณากรอกรายชื่อสินค้า" formControlName="productName" [ngClass]="{'is-invalid': submitAdd && formValidAdd.productName.errors}" (ngModelChange)="onChange()">
+                                    <div class="invalid-feedback" *ngIf="submitAdd && formValidAdd.productName.errors">
+                                        <div *ngIf="formValidAdd.productName.errors.required">กรุณากรอกชื่อสินค้า</div>
+                                    </div>
                                 </div>
                                 <div class="col-lg-12 col-12">
                                     <label for="detail" class="form-label"> รายละเอียด : </label>
-                                    <textarea type="text" name="detail" id="detail" class="form-control" rows="3" formControlName="productDetail">
-                                            </textarea>
+                                    <textarea type="text" name="detail" id="detail" class="form-control" rows="3" formControlName="productDetail" [ngClass]="{'is-invalid': submitAdd && formValidAdd.productDetail.errors}" (ngModelChange)="onChange()">
+                                    <div class="invalid-feedback" *ngIf="submitAdd && formValidAdd.productDetail.errors">
+                                        <div *ngIf="formValidAdd.productDetail.errors.required">กรุณากรอกรายละเอียดสินค้่า</div>
+                                    </div>
+                                    </textarea>
                                 </div>
                                 <div class="col-lg-5">
                                     <label for="price" class="form-label" placeholder="0"> ราคา : </label>
-                                    <input type="number" name="price" id="price" class="form-control" placeholder="0" formControlName="productPrice">
+                                    <input type="text" class="form-control" placeholder="0" formControlName="productPrice" [ngClass]="{'is-invalid': submitAdd && formValidAdd.productPrice.errors}" (ngModelChange)="onChange()">
+                                    <div class="invalid-feedback" *ngIf="submitAdd && formValidAdd.productPrice.errors">
+                                        <div *ngIf="formValidAdd.productPrice.errors.required">กรุณากรอกราคาสินค้า</div>
+                                        <div *ngIf="formValidAdd.productPrice.errors['pattern']"> กรุณากรอกตัวเลข 0-9 </div>
+                                    </div>
                                 </div>
                                 <div class="col-lg-5">
-                                    <label for="priceForShare" class="form-label" placeholder="0"> ค่าคอม : </label>
-                                    <input type="number" name="priceForShare" id="priceForShare" class="form-control" placeholder="0" formControlName="priceForShare">
+                                    <label for="priceForShare" class="form-label" placeholder="0"> ค่าคอมมิชชั่น :
+                                    </label>
+                                    <input type="text" class="form-control" placeholder="0" formControlName="priceForShare" [ngClass]="{'is-invalid': submitAdd && formValidAdd.priceForShare.errors}" (ngModelChange)="onChange()">
+                                    <div class="invalid-feedback" *ngIf="submitAdd && formValidAdd.priceForShare.errors">
+                                        <div *ngIf="formValidAdd.priceForShare.errors.required">กรุณากรอกค่าคอมมิชชั่น</div>
+                                        <div *ngIf="formValidAdd.priceForShare.errors['pattern']"> กรุณากรอกตัวเลข 0-9 </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row mt-2">

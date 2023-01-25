@@ -23,7 +23,10 @@
                                 </svg>
                             </i>
                             <label class="input-username"> ชื่อผู้ใช้งาน </label>
-                            <input type="text" class="form-control" formControlName="userName">
+                            <input type="text" class="form-control" formControlName="userName" placeholder=" กรอกชื่อผู้ใช้งาน" [ngClass]="{'is-invalid': submitAdd}" (ngModelChange)="onChange()">
+                            <div class="invalid-feedback" *ngIf="submitAdd && formValidAdd.userName.errors">
+                                <div>กรุณากรอกชื่อผู้ใช้งาน</div>
+                            </div>
                         </div>
                         <div class="form-group mt-2">
                             <i class="bi bi-key">
@@ -34,7 +37,10 @@
                                 </svg>
                             </i>
                             <label class="input-password"> รหัสผ่าน </label>
-                            <input type="password" class="form-control" formControlName="passWord">
+                            <input type="password" class="form-control" formControlName="passWord" placeholder=" กรอกรหัสผ่าน" [ngClass]="{'is-invalid': submitAdd}" (ngModelChange)="onChange()">
+                            <div class="invalid-feedback" *ngIf="submitAdd && formValidAdd.userName.errors">
+                                <div>กรุณากรอกรหัสผ่าน</div>
+                            </div>
                         </div>
                         <div class="button">
                             <button type="submit" class="btn btn-outline-primary btn-lg mt-4"> เข้าสู่ระบบ </button>

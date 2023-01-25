@@ -36,12 +36,6 @@ img {
     text-align: start;
 }
 
-.card-header {
-    text-align: center;
-}
-
 .money {
-    margin-left: 20rem;
-    text-align: end;
-    width: 50%;
+    text-align: center;
 }

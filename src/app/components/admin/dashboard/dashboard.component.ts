@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { withdraw } from 'src/app/models/withdraw';
 import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CookieServiceService } from 'src/app/services/cookie-service.service';
@@ -25,14 +26,19 @@ export class DashboardComponent implements OnInit {
   date: Date = new Date()
   createPercent: any
   wallet: any
+  percent: any
+  minStore: any
+  maxStore: any
+  minAffiliate: any
+  maxAffiliate: any
 
-  Affiliate: Observable<any[]> = new Observable();
-  dataSourceUser = new MatTableDataSource<any>();
-  @ViewChild("paginatorUser", { read: MatPaginator }) paginatorUser!: MatPaginator;
+  affiliate: Observable<any[]> = new Observable();
+  dataSourceAffiliate = new MatTableDataSource<any>();
+  @ViewChild("paginatorAffiliate", { read: MatPaginator }) paginatorAffiliate!: MatPaginator;
 
-  Store: Observable<any[]> = new Observable();
-  dataSourceUser1 = new MatTableDataSource<any>();
-  @ViewChild("paginatorUser1", { read: MatPaginator }) paginatorUser1!: MatPaginator;
+  store: Observable<any[]> = new Observable();
+  dataSourceStore = new MatTableDataSource<any>();
+  @ViewChild("paginatorStore", { read: MatPaginator }) paginatorStore!: MatPaginator;
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router,
     private ref: ChangeDetectorRef, private fb: FormBuilder,private alert: AlertService) {
@@ -48,26 +54,46 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.getWithdrawMoney()
     this.geyMyWallet()
+    this.getConfig()
   }
 
   geyMyWallet(){
     this.callApi.myWalletAdmin().subscribe((res: any) => {
       this.wallet = res.data.income
-      // console.log(this.wallet);
-      
+    })
+  }
+
+  getConfig() {
+    this.callApi.getconfig().subscribe((res: any) => {
+      console.log(res);
+      this.percent = res.percent
+      this.minStore = res.minStore
+      this.maxStore = res.maxStore
+      this.minAffiliate = res.minAffiliate
+      this.maxAffiliate = res.maxAffiliate
     })
   }
 
 
   getWithdrawMoney() {
     this.callApi.withdrawMoney().subscribe((res: any) => {
-      this.dataSourceUser = new MatTableDataSource<any>(res);
-      this.dataSourceUser.paginator = this.paginatorUser;
-      this.Affiliate = this.dataSourceUser.connect();
-      console.log(res);
-      
+      const withdraw: Array<withdraw> = res;
+      console.log(withdraw);
+
+      this.dataSourceAffiliate = new MatTableDataSource<any>(withdraw.filter(x => x.withdrawType == 'affiliate'));
+      this.dataSourceAffiliate.paginator = this.paginatorAffiliate;
+      this.affiliate = this.dataSourceAffiliate.connect();
+
+      this.dataSourceStore = new MatTableDataSource<any>(withdraw.filter(x => x.withdrawType == 'store'));
+      this.dataSourceStore.paginator = this.paginatorStore;
+      this.store = this.dataSourceStore.connect();
     })
   }
+
+  setwithdrawId(withdrawId : string) {
+    this.router.navigate(['/money'],{queryParams: {id:withdrawId}})
+  }
+
 
   percentWithdrawMoney(){
     this.callApi.createPercent(this.createPercent.value).subscribe(res => {
@@ -76,22 +102,14 @@ export class DashboardComponent implements OnInit {
     })
   }
 
-  setWithdrawId(withdrawId: any) {
-    this.router.navigate(['/money'], {queryParams: {id:withdrawId}})
+
+  getRowAF(index: number): number {
+    return (index + 1) + (this.paginatorAffiliate.pageSize * this.paginatorAffiliate.pageIndex);
   }
 
-  getUser() {
-    // this.callApi.getAllUser().subscribe((data: any) => {
-    //   this.dataSourceUser = new MatTableDataSource<any>(data);
-    //   this.dataSourceUser.paginator = this.paginatorUser;
-    //   this.user = this.dataSourceUser.connect();
-
-    //   this.dataSourceUser1 = new MatTableDataSource<any>(data);
-    //   this.dataSourceUser1.paginator = this.paginatorUser1;
-    //   this.user1 = this.dataSourceUser1.connect();
-    // })
+  getRowST(index: number): number {
+    return (index + 1) + (this.paginatorStore.pageSize * this.paginatorStore.pageIndex);
   }
-
 
   getRoleProfile() {
     if (this.cookie.getRoleAccount()) {

@@ -97,7 +97,8 @@
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h3 class="modal-title" id="exampleModalLabel"> กรูณาใส่เลขพัสดุสินค้า </h3>
+                                                    <h3 class="modal-title" id="exampleModalLabel">
+                                                        กรูณาใส่เลขพัสดุสินค้า </h3>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <form [formGroup]="formTrackNumber" (ngSubmit)="trackingNumber(order.orderListId)">
@@ -106,7 +107,11 @@
                                                             เลขพัสดุ :
                                                         </div>
                                                         <div class="col inputtrack">
-                                                            <input type="text" name="trackingNumber" id="trackingNumber" class="form-control" placeholder="กรุณากรอกเลขพัสดุ" formControlName="trackingNumber">
+                                                            <input type="text" name="trackingNumber" id="trackingNumber" class="form-control" placeholder="กรุณากรอกเลขพัสดุ" formControlName="trackingNumber" [ngClass]="{'is-invalid': submitAdd && formValidAdd.trackingNumber.errors}">
+                                                            <div class="invalid-feedback" *ngIf="submitAdd && formValidAdd.trackingNumber.errors">
+                                                                <div *ngIf="formValidAdd.trackingNumber.errors.required">กรุณากรอกเลขพัสดุ</div>
+                                                                <div *ngIf="formValidAdd.trackingNumber.errors['pattern']"> กรุณากรอกตัวเลข 0-9 </div>
+                                                            </div>
                                                         </div>
 
                                                         <div class="button">

@@ -19,7 +19,7 @@
                             </div>
                             <div class="productprice row">
                                 <div class="price row">
-                                    <span class="priceForShare col">
+                                    <span class="priceForShare col" *ngIf="role == 'AFFILIATE' || role == 'ST_AF'">
                                         ค่าคอม {{product.priceForShare}} บาท
                                     </span>
                                     <span class="priceValue col">

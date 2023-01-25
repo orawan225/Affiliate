@@ -10,6 +10,11 @@
         <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="navbar-toggler-success">
             <div class="flex-fill mb-2">
                 <ul class="nav navbar-nav d-flex justify-content-end text-center text-dark">
+                    <div class="dropdown" *ngIf="role=='AFFILIATE' || role=='ST_AF'">
+                        <a class="nav-link btn-outline-primary rounded-pill px-3" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown" aria-expanded="false" routerLink="/share-history">
+                            รายการแชร์สินค้า
+                        </a>
+                    </div>
                     <div class="dropdown" *ngIf="role=='STORE' || role=='ST_AF'">
                         <a class="nav-link btn-outline-primary rounded-pill px-3" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown" aria-expanded="false">
                             รายการร้านค้า
@@ -51,18 +56,18 @@
                     </div>
 
 
-                    <div class="dropdown">
+                    <div class="dropdown" *ngIf="role!='ST_AF'">
                         <a class="nav-link btn-outline-primary rounded-pill px-3" role="button" id="dropdownMenuLink2" data-bs-toggle="dropdown" aria-expanded="false">
                             สมัครสมาชิก
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
-                            <li>
+                            <li *ngIf="role==''">
                                 <a class="dropdown-item" routerLink="/register-user"> สมัครสมาชิก </a>
                             </li>
-                            <li>
+                            <li *ngIf="role=='USER' || role=='STORE'">
                                 <a class="dropdown-item" routerLink="/register-customer"> สมัครสมาชิกสำหรับAffiliate</a>
                             </li>
-                            <li>
+                            <li *ngIf="role=='USER' || role=='AFFILIATE'">
                                 <a class="dropdown-item" routerLink="/register-store"> สมัครสมาชิกสำหรับร้านค้า </a>
                             </li>
                         </ul>
@@ -74,7 +79,7 @@
                 </ul>
             </div>
 
-            <div class="dropdown">
+            <div class="dropdown" *ngIf="checkLogin">
                 <a class="nav-link align-self-center d-flex" role="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class='bx bx-user-circle bx-sm text-primary'></i>
                 </a>
@@ -85,7 +90,7 @@
                     <li *ngIf="role=='AFFILIATE' || role=='STORE' || role=='ST_AF'">
                         <a class="dropdown-item " routerLink="/money-history"> การถอนเงิน </a>
                     </li>
-                    <li class="nav-item" *ngIf="checkLogin">
+                    <li class="nav-item">
                         <a class="nav-link btn-outline-primary rounded-pill px-3" (click)="logout()"> ออกจากระบบ </a>
                     </li>
                 </ul>

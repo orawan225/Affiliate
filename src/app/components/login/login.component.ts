@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { user } from 'src/app/models/user';
 import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CookieServiceService } from 'src/app/services/cookie-service.service';
@@ -14,18 +13,37 @@ import { CookieServiceService } from 'src/app/services/cookie-service.service';
 export class LoginComponent implements OnInit {
 
   formLogin: any;
+  submitAdd: boolean = false;
 
   constructor(private callApi: CallApiService, private fb: FormBuilder, private alert: AlertService, private router: Router, private cookie: CookieServiceService) {
     this.formLogin = fb.group({
-      userName: [null],
-      passWord: [null]
+      userName: [null, [Validators.required]],
+      passWord: [null, [Validators.required]]
     })
   }
 
   ngOnInit(): void {
   }
 
+  get formValidAdd() {
+    return this.formLogin.controls;
+  }
+
+  onChange() {
+    this.submitAdd = false
+  }
+
+
   login() {
+
+    if (this.formLogin.value.userName == "" || this.formLogin.value.userName == null) {
+      this.submitAdd = true;
+    } 
+    // else if ((this.formLogin.value.userName == null && this.formLogin.value.passWord == null)
+    //   || (this.formLogin.value.userName == "" && this.formLogin.passWord == "")) {
+    //   this.submitAdd = true;
+    // }
+
     this.callApi.loginUser(this.formLogin.value).subscribe((res: any) => {
       this.cookie.setToken(res.data.token)
       let role: string = this.cookie.helper$.decodeToken(res.data.token).role

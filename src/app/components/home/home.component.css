@@ -63,3 +63,7 @@ p {
 .productPrice {
     text-align: end;
 }
+
+.priceForShare {
+    color: rgb(54, 74, 255);
+}

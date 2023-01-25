@@ -53,10 +53,10 @@
                     <div class="card-body">
                         <h5 class="card-title light-300 text-dark mt-1 text-center">{{element.productName}}</h5>
                         <p class="card-detail">{{element.productDetail}}</p>
-                        <span class="text-price text-danger light-300 mt-2 mb-2">
+                        <span class="text-price light-300 mt-2 mb-2">
                             <div class="row">
-                                <div class="col" *ngIf="role == 'AFFILIATE' || role == 'ST_AF'"> ค่าคอม {{element.priceForShare}} บาท </div>
-                                <div class="col productPrice"> ราคา {{element.productPrice}} บาท </div>
+                                <div class="col priceForShare" *ngIf="role == 'AFFILIATE' || role == 'ST_AF'"> คอมมิชชัน {{element.priceForShare | number}} บาท </div>
+                                <div class="col text-danger productPrice"> ราคา {{element.productPrice | number }} บาท </div>
                             </div>
                         </span>
                     </div>

@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-product-create',
@@ -14,35 +15,47 @@ export class ProductCreateComponent implements OnInit {
   formCreateProduct: any;
   file: any
   img: any = 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp'
+  submitAdd: boolean = false;
 
   constructor(private callApi: CallApiService, private fb: FormBuilder, private alert: AlertService, private router: Router) {
     this.formCreateProduct = fb.group({
-      productName: [null],
-      productDetail: [null],
-      productPrice: [null],
-      priceForShare: [null]
+      productName: [null, [Validators.required]],
+      productDetail: [null, [Validators.required]],
+      productPrice: [null, [Validators.required, Validators.pattern('^[0-9]*$')]],
+      priceForShare: [null, [Validators.required, Validators.pattern('^[0-9]*$')]],
     })
   }
 
   ngOnInit(): void {
   }
 
+  get formValidAdd() {
+    return this.formCreateProduct.controls;
+  }
+
+  onChange() {
+    this.submitAdd = false
+  }
+
   createProduct() {
-    const fileData = new FormData()
-    fileData.append('file', this.file, this.file.name)
-    fileData.append('product', JSON.stringify(this.formCreateProduct.value))
-    console.log(this.formCreateProduct.value);
-    this.callApi.createProduct(fileData).subscribe(data => {
-      console.log(data);
-      this.alert.success("เพิ่มสินค้าสำเร็จ")
-      setTimeout(() => {
-        this.router.navigate(['/product-store'])
-      }, 1000);
-    }, ((err: any) => {
-      if (err.status === 417) {
-        this.alert.error(err.error.message)
-      }
-    }))
+    this.submitAdd = true;
+    if (this.formCreateProduct.valid) {
+      const fileData = new FormData()
+      fileData.append('file', this.file, this.file.name)
+      fileData.append('product', JSON.stringify(this.formCreateProduct.value))
+      console.log(this.formCreateProduct.value);
+      this.callApi.createProduct(fileData).subscribe(data => {
+        console.log(data);
+        this.alert.success("เพิ่มสินค้าสำเร็จ")
+        setTimeout(() => {
+          this.router.navigate(['/product-store'])
+        }, 1000);
+      }, ((err: any) => {
+        if (err.status === 417) {
+          this.alert.error(err.error.message)
+        }
+      }))
+    }
   }
 
   selectFile(event: any) {

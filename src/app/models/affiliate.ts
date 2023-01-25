@@ -4,5 +4,6 @@ export class affiliate {
     bankName?: string
     bankNumber?: string
     image?: string
+    createDate?: string
 
 }

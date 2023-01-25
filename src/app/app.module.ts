@@ -93,6 +93,7 @@ import { OrderWaitPaymentComponent } from './components/order/order-wait-payment
 import { OrderWaitDeliveryComponent } from './components/order/order-wait-delivery/order-wait-delivery.component';
 import { OrderSuccessComponent } from './components/order/order-success/order-success.component';
 import { ProfileAdminComponent } from './components/admin/profile-admin/profile-admin.component';
+import { ShareHistoryComponent } from './components/share-history/share-history.component';
 
 
 
@@ -142,7 +143,8 @@ import { ProfileAdminComponent } from './components/admin/profile-admin/profile-
     ProfileComponent,
     ProfileAdminComponent,
     OrderDlvHistoryComponent,
-    ShareLinkComponent
+    ShareLinkComponent,
+    ShareHistoryComponent
   ],
   imports: [
     BrowserModule,

@@ -26,52 +26,92 @@
                                 <form [formGroup]="formRegister">
                                     <div class="row mt-2">
                                         <div class="col-lg-6 col-6">
-                                            <label for="username" class="form-label"> ชื่อ - สกุล </label>
-                                            <input type="text" name="username" id="username" class="form-control" placeholder="กรุณากรอกชื่อ - สกุล" formControlName="fullName">
+                                            <label for="fullName" class="form-label"> ชื่อ - สกุล </label>
+                                            <input type="text" name="fullName" id="fullName" class="form-control" placeholder="กรุณากรอกชื่อ - สกุล" formControlName="fullName" [ngClass]="{'is-invalid': submitAdd && formValidAdd.fullName.errors}" (ngModelChange)="onChange()">
+                                            <div class="invalid-feedback" *ngIf="submitAdd && formValidAdd.fullName.errors">
+                                                <div *ngIf="formValidAdd.fullName.errors.required">กรุณากรอกชื่อ-นามสกุล
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div class="col-lg-6 col-6">
                                             <label for="name" class="form-label"> ชื่อผู้ใช้งาน </label>
-                                            <input type="text" name="name" id="name" class="form-control" placeholder="กรุณากรอกชื่อผู้ใช้งาน" formControlName="userName">
+                                            <input type="text" name="name" id="name" class="form-control" placeholder="กรุณากรอกชื่อผู้ใช้งาน" formControlName="userName" [ngClass]="{'is-invalid': submitAdd && formValidAdd.userName.errors}" (ngModelChange)="onChange()">
+                                            <div class="invalid-feedback" *ngIf="submitAdd && formValidAdd.userName.errors">
+                                                <div *ngIf="formValidAdd.userName.errors.required">
+                                                    กรุณากรอกชื่อบัญชีผู้ใช้งาน</div>
+                                            </div>
+
                                         </div>
                                         <div class="col-lg-6 col-6">
                                             <label for="password" class="form-label"> รหัสผ่าน </label>
-                                            <input type="text" name="password" id="password" class="form-control" placeholder="กรุณากรอกรหัสผ่าน" formControlName="passWord">
+                                            <input type="text" name="password" id="password" class="form-control" placeholder="กรุณากรอกรหัสผ่าน" formControlName="passWord" [ngClass]="{'is-invalid': submitAdd && formValidAdd.passWord.errors}" (ngModelChange)="onChange()">
+                                            <div class="invalid-feedback" *ngIf="submitAdd && formValidAdd.passWord.errors">
+                                                <div *ngIf="formValidAdd.passWord.errors.required">กรุณากรอกรหัสผ่าน
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div class="col-lg-6 col-6">
                                             <label for="email" class="form-label"> อีเมล </label>
-                                            <input type="text" name="email" id="email" class="form-control" placeholder="กรุณากรอกอีเมล" formControlName="email">
+                                            <input type="text" name="email" id="email" class="form-control" placeholder="name@example.com" formControlName="email" [ngClass]="{'is-invalid': submitAdd && formValidAdd.email.errors}" (ngModelChange)="onChange()">
+                                            <div class="invalid-feedback" *ngIf="submitAdd && formValidAdd.email.errors">
+                                                <div *ngIf="formValidAdd.email.errors.required">กรุณากรอกอีเมล</div>
+                                                <div *ngIf="formValidAdd.email.errors.email">กรุณากรอกอีเมล ex.name@example.com
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div class="col-lg-6 col-6">
                                             <label for="phone" class="form-label"> เบอร์โทรศัพท์ </label>
-                                            <input type="text" name="phone" id="phone" class="form-control" placeholder="กรุณากรอกเบอร์โทรศัพท์" formControlName="tel">
+                                            <input type="text" [maxLength]="10" name="phone" id="phone" class="form-control" placeholder="กรุณากรอกเบอร์โทรศัพท์" formControlName="tel" [ngClass]="{'is-invalid': submitAdd && formValidAdd.tel.errors}" (ngModelChange)="onChange()">
+                                            <div class="invalid-feedback" *ngIf="submitAdd && formValidAdd.tel.errors">
+                                                <div *ngIf="formValidAdd.tel.errors.required">กรุณากรอกเบอร์โทรศัพท์ </div>
+                                                <div *ngIf="formValidAdd.tel.errors.minlength || formValidAdd.tel.errors['pattern']">กรุณากรอกเบอร์โทรศัพท์จำนวน 10 หลักหรือรูปแบบไม่ถูกต้อง</div>
+                                            </div>
                                         </div>
 
                                         <div class="col-lg-6 col-6">
                                             <label for="address" class="form-label"> ที่อยู่ </label>
-                                            <input type="text" name="address" id="address" class="form-control" placeholder="กรุณากรอกที่อยู่" formControlName="address">
+                                            <input type="text" name="address" id="address" class="form-control" placeholder="กรุณากรอกที่อยู่" formControlName="address" [ngClass]="{'is-invalid': submitAdd && formValidAdd.address.errors}" (ngModelChange)="onChange()">
+                                            <div class="invalid-feedback" *ngIf="submitAdd && formValidAdd.address.errors">
+                                                <div *ngIf="formValidAdd.address.errors.required">กรุณากรอกที่อยู่</div>
+                                            </div>
                                         </div>
 
                                         <div class="col-lg-6 col-6">
                                             <label for="subdistrict" class="form-label"> ตำบล </label>
-                                            <input type="text" name="subdistrict" id="subdistrict" class="form-control" placeholder="กรุณากรอกตำบล" formControlName="sub">
+                                            <input type="text" name="subdistrict" id="subdistrict" class="form-control" placeholder="กรุณากรอกตำบล" formControlName="sub" [ngClass]="{'is-invalid': submitAdd && formValidAdd.sub.errors}" (ngModelChange)="onChange()">
+                                            <div class="invalid-feedback" *ngIf="submitAdd && formValidAdd.sub.errors">
+                                                <div *ngIf="formValidAdd.sub.errors.required">กรุณากรอกตำบล</div>
+                                            </div>
                                         </div>
 
                                         <div class="col-lg-6 col-6">
                                             <label for="district" class="form-label"> อำเภอ </label>
-                                            <input type="text" name="district" id="district" class="form-control" placeholder="กรุณากรอกอำเภอ" formControlName="district">
+                                            <input type="text" name="district" id="district" class="form-control" placeholder="กรุณากรอกอำเภอ" formControlName="district" [ngClass]="{'is-invalid': submitAdd && formValidAdd.district.errors}" (ngModelChange)="onChange()">
+                                            <div class="invalid-feedback" *ngIf="submitAdd && formValidAdd.district.errors">
+                                                <div *ngIf="formValidAdd.district.errors.required">กรุณากรอกอำเภอ</div>
+                                            </div>
                                         </div>
 
                                         <div class="col-lg-6 col-6">
                                             <label for="provincs" class="form-label"> จังหวัด </label>
-                                            <input type="text" name="provincs" id="provincs" class="form-control" placeholder="กรุณากรอกจังหวัด" formControlName="province">
+                                            <input type="text" name="provincs" id="provincs" class="form-control" placeholder="กรุณากรอกจังหวัด" formControlName="province" [ngClass]="{'is-invalid': submitAdd && formValidAdd.province.errors}" (ngModelChange)="onChange()">
+                                            <div class="invalid-feedback" *ngIf="submitAdd && formValidAdd.province.errors">
+                                                <div *ngIf="formValidAdd.province.errors.required">กรุณากรอกจังหวัด
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div class="col-lg-6 col-6">
                                             <label for="postal" class="form-label"> รหัสไปรษณีย์ </label>
-                                            <input type="text" name="postal" id="postal" class="form-control" placeholder="กรุณากรอกรหัสไปรษณีย์" formControlName="postalCode">
+                                            <input type="text" [maxlength]="5" name="postal" id="postal" class="form-control" placeholder="กรุณากรอกรหัสไปรษณีย์" formControlName="postalCode" [ngClass]="{'is-invalid': submitAdd && formValidAdd.postalCode.errors}">
+                                            <div class="invalid-feedback" *ngIf="submitAdd && formValidAdd.postalCode.errors">
+                                                <div *ngIf="formValidAdd.postalCode.errors.required">
+                                                    กรุณากรอกรหัสไปรษณีย์</div>
+                                                <div *ngIf="formValidAdd.postalCode.errors.minlength || formValidAdd.postalCode.errors['pattern']">กรุณากรอกรหัสไปรษณีย์จำนวน 5 หลักหรือรูปแบบไม่ถูกต้อง</div>
+                                            </div>
                                         </div>
 
                                         <div class="row">
@@ -84,17 +124,20 @@
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h3 class="modal-title" id="exampleModalLabel"> ยินยอมให้เปิดเผยข้อมลส่วนบุคคล </h3>
+                                                                <h3 class="modal-title" id="exampleModalLabel">
+                                                                    ยินยอมให้เปิดเผยข้อมูลส่วนบุคคล </h3>
                                                             </div>
                                                             <div class="modal-body">
-                                                                ข้าพเจ้า <strong>{{this.formRegister.value.fullName}}</strong> ยินยอมให้เผยข้อมูลส่วนบุคคลดังต่อไปนี้
+                                                                ข้าพเจ้า
+                                                                <strong>{{this.formRegister.value.fullName}}</strong> ยินยอมให้เผยข้อมูลส่วนบุคคลดังต่อไปนี้
                                                                 <br> 1. ชื่อ - สกุล
                                                                 <br> 2. ที่อยู่ที่สามารถติดต่อได้/ เบอร์โทร / อีเมล / ที่อยู่
                                                                 <br> 3. รูปภาพ
                                                                 <br> 4. ข้อมูลธนาคาร
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="registerUser()"> ยินยอม </button>
+                                                                <button type="submit" class="btn btn-success" data-bs-dismiss="modal" (click)="registerUser()">
+                                                                    ยินยอม </button>
                                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> ยกเลิก </button>
                                                             </div>
                                                         </div>
@@ -104,6 +147,147 @@
                                         </div>
                                     </div>
                                 </form>
+                                <!-- <form [formGroup]="formRegister" (ngSubmit)="onSubmitForm()">
+                                    <div class="row mt-2">
+                                        <div class="col-lg-6 col-6">
+                                            <label for="fullName" class="form-label"> ชื่อ - สกุล </label>
+                                            <input type="text" class="form-control" placeholder="กรุณากรอกชื่อ - สกุล" formControlName="fullName" [ngClass]="{'is-invalid': formRegister.get('fullName')?.invalid && formRegister.get('fullName')?.touched}" (ngModelChange)="onChange()">
+                                            <div class="invalid-feedback" *ngIf="formRegister.get('fullName')?.invalid && formRegister.get('fullName')?.touched">
+                                                <div *ngIf="formRegister.get('fullName')?.hasError('required')">
+                                                    กรุณากรอกชื่อ-นามสกุล
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-6">
+                                            <label for="name" class="form-label"> ชื่อผู้ใช้งาน </label>
+                                            <input type="text" class="form-control" placeholder="กรุณากรอกชื่อผู้ใช้งาน" formControlName="userName" [ngClass]="{'is-invalid': formRegister.get('userName')?.invalid && formRegister.get('userName')?.touched}" (ngModelChange)="onChange()">
+                                            <div class="invalid-feedback" *ngIf="formRegister.get('userName')?.invalid && formRegister.get('userName')?.touched">
+                                                <div *ngIf="formRegister.get('userName')?.hasError('required')">
+                                                    กรุณากรอกชื่อบัญชีผู้ใช้งาน</div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-lg-6 col-6">
+                                            <label for="password" class="form-label"> รหัสผ่าน </label>
+                                            <input type="text" class="form-control" placeholder="กรุณากรอกรหัสผ่าน" formControlName="passWord" [ngClass]="{'is-invalid': formRegister.get('passWord')?.invalid && formRegister.get('passWord')?.touched}" (ngModelChange)="onChange()">
+                                            <div class="invalid-feedback" *ngIf="formRegister.get('passWord')?.invalid && formRegister.get('passWord')?.touched">
+                                                <div *ngIf="formRegister.get('passWord')?.hasError('required')">
+                                                    กรุณากรอกรหัสผ่าน
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-6">
+                                            <label for="email" class="form-label"> อีเมล </label>
+                                            <input type="text" class="form-control" placeholder="name@example.com" formControlName="email" [ngClass]="{'is-invalid': formRegister.get('email')?.invalid && formRegister.get('email')?.touched}" (ngModelChange)="onChange()">
+                                            <div class="invalid-feedback" *ngIf="formRegister.get('email')?.invalid && formRegister.get('email')?.touched">
+                                                <div *ngIf="formRegister.get('email')?.hasError('required')">
+                                                    กรุณากรอกอีเมล</div>
+                                                <div *ngIf="formRegister.get('email')?.hasError('email')">กรุณากรอกอีเมล ex.name@example.com
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-6">
+                                            <label for="phone" class="form-label"> เบอร์โทรศัพท์ </label>
+                                            <input type="text" class="form-control" placeholder="กรุณากรอกเบอร์โทรศัพท์" formControlName="tel" [ngClass]="{'is-invalid': formRegister.get('tel')?.invalid && formRegister.get('tel')?.touched}" (ngModelChange)="onChange()">
+                                            <div class="invalid-feedback" *ngIf="formRegister.get('tel')?.invalid && formRegister.get('tel')?.touched">
+                                                <div *ngIf="formRegister.get('tel')?.hasError('required')">
+                                                    กรุณากรอกเบอร์โทรศัพท์
+                                                </div>
+                                                <div *ngIf="formRegister.get('tel')?.hasError('minLength')">
+                                                    ข้อมูลเบอร์โทรมากกว่า 10 หลัก
+                                                </div>
+                                                <div *ngIf="formRegister.get('tel')?.hasError('maxLength')">
+                                                    ข้อมูลเบอร์โทรน้อยกว่า 10 หลัก
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-6">
+                                            <label for="address" class="form-label"> ที่อยู่ </label>
+                                            <input type="text" class="form-control" placeholder="กรุณากรอกที่อยู่" formControlName="address" [ngClass]="{'is-invalid': formRegister.get('address')?.invalid && formRegister.get('address')?.touched}" (ngModelChange)="onChange()">
+                                            <div class="invalid-feedback" *ngIf="formRegister.get('address')?.invalid && formRegister.get('address')?.touched">
+                                                <div *ngIf="formRegister.get('address')?.hasError('required')">
+                                                    กรุณากรอกที่อยู่</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-6">
+                                            <label for="subdistrict" class="form-label"> ตำบล </label>
+                                            <input type="text" class="form-control" placeholder="กรุณากรอกตำบล" formControlName="sub" [ngClass]="{'is-invalid': formRegister.get('sub')?.invalid && formRegister.get('sub')?.touched}" (ngModelChange)="onChange()">
+                                            <div class="invalid-feedback" *ngIf="formRegister.get('sub')?.invalid && formRegister.get('sub')?.touched">
+                                                <div *ngIf="formRegister.get('sub')?.hasError('required')">กรุณากรอกตำบล
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-6">
+                                            <label for="district" class="form-label"> อำเภอ </label>
+                                            <input type="text" class="form-control" placeholder="กรุณากรอกอำเภอ" formControlName="district" [ngClass]="{'is-invalid': formRegister.get('district')?.invalid && formRegister.get('district')?.touched}" (ngModelChange)="onChange()">
+                                            <div class="invalid-feedback" *ngIf="formRegister.get('district')?.invalid && formRegister.get('district')?.touched">
+                                                <div *ngIf="formRegister.get('district')?.hasError('required')">
+                                                    กรุณากรอกอำเภอ</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-6">
+                                            <label for="provincs" class="form-label"> จังหวัด </label>
+                                            <input type="text" class="form-control" placeholder="กรุณากรอกจังหวัด" formControlName="province" [ngClass]="{'is-invalid': formRegister.get('province')?.invalid && formRegister.get('province')?.touched}" (ngModelChange)="onChange()">
+                                            <div class="invalid-feedback" *ngIf="formRegister.get('province')?.invalid && formRegister.get('province')?.touched">
+                                                <div *ngIf="formRegister.get('province')?.hasError('required')">
+                                                    กรุณากรอกจังหวัด
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-6">
+                                            <label for="postal" class="form-label"> รหัสไปรษณีย์ </label>
+                                            <input type="text" class="form-control" placeholder="กรุณากรอกรหัสไปรษณีย์" formControlName="postalCode" [ngClass]="{'is-invalid': formRegister.get('postalCode')?.invalid && formRegister.get('postalCode')?.touched}">
+                                            <div class="invalid-feedback" *ngIf="formRegister.get('postalCode')?.invalid && formRegister.get('postalCode')?.touched">
+                                                <div *ngIf="formRegister.get('postalCode')?.hasError('required')">
+                                                    กรุณากรอกรหัสไปรษณีย์</div>
+                                                <div *ngIf="formRegister.get('postalCode')?.hasError('minLength')">
+                                                    รหัสไปรษณีย์ควรมี 5 หลัก</div>
+                                                <div *ngIf="formRegister.get('postalCode')?.hasError('maxLength')">
+                                                    รหัสไปรษณีย์ควรมี 5 หลัก</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="button">
+                                                <button class="btn btn-outline-primary" [disabled]="formRegister.invalid" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    ยืนยันสมัครสมาชิก
+                                                </button>
+
+                                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h3 class="modal-title" id="exampleModalLabel">
+                                                                    ยินยอมให้เปิดเผยข้อมูลส่วนบุคคล </h3>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                ข้าพเจ้า
+                                                                <strong>{{this.formRegister.value.fullName}}</strong> ยินยอมให้เผยข้อมูลส่วนบุคคลดังต่อไปนี้
+                                                                <br> 1. ชื่อ - สกุล
+                                                                <br> 2. ที่อยู่ที่สามารถติดต่อได้/ เบอร์โทร / อีเมล / ที่อยู่
+                                                                <br> 3. รูปภาพ
+                                                                <br> 4. ข้อมูลธนาคาร
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="submit" class="btn btn-success" data-bs-dismiss="modal" (click)="registerUser()">
+                                                                    ยินยอม </button>
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> ยกเลิก </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form> -->
                             </div>
                         </div>
                     </section>

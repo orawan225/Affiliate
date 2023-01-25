@@ -23,18 +23,10 @@
                     <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
                         <i class="fa fa-chart-pie fa-3x text-primary"></i>
                         <div class="ms-3">
-                            <p class="mb-2"> ร้านค้า </p>
+                            <p class="mb-2"> ผู้ใช้งานร้านค้า </p>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col-sm-6 col-xl-3" routerLink="/orderlist">
-                    <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-chart-line fa-3x text-primary"></i>
-                        <div class="ms-3">
-                            <p class="mb-2"> รายการคำสั่งซื้อ </p>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>
@@ -48,7 +40,16 @@
                     <div class="container-fluid pt-4 mb-3">
                         <h1 class="font-opt text-success"> เป๋าตัง </h1>
                         <div class="col wallet">
-                            เงินในวอลเล็ต {{wallet}} บาท
+                            <i class="bi bi-coin">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                                    class="bi bi-coin" viewBox="0 0 16 16">
+                                    <path
+                                        d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518l.087.02z" />
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                    <path
+                                        d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
+                                </svg>
+                            </i> {{wallet}} บาท
                         </div>
                     </div>
                 </div>
@@ -57,43 +58,81 @@
                 <div class="col card-shadow mb-2">
                     <div class="container-fluid pt-4 mb-3">
                         <h1 class="font-opt text-success"> ตั้งค่าระบบ </h1>
-                        <form [formGroup]="createPercent" (ngSubmit)="percentWithdrawMoney()">
-                            <div class="row mt-3">
-                                <div class="col-7 amount">
-                                    ค่าธรรมเนียมในการถอนเงิน
-                                </div>
-                                <div class="col-5 input">
-                                    <input type="text" name="percent" id="percent" class="form-control" placeholder="ค่าธรรมเนียมในการถอนเงิน" formControlName="percent">
-                                </div>
-                                <div class="col-7 amount">
-                                    จำนวนเงินต่ำสุดในการถอนเงินของร้านค้า
-                                </div>
-                                <div class="col-5 input mt-2">
-                                    <input type="text" name="minimumStore" id="minimumStore" class="form-control" placeholder="กรุณากรอกค่าธรรมเนียม" formControlName="minimumStore">
-                                </div>
-                                <div class="col-7 amount">
-                                    จำนวนเงินสูงสุดในการถอนเงินของร้านค้า
-                                </div>
-                                <div class="col-5 input mt-2">
-                                    <input type="text" name="maximumStore" id="maximumStore" class="form-control" placeholder="กรุณากรอกค่าธรรมเนียม" formControlName="maximumStore">
-                                </div>
-                                <div class="col-7 amount">
-                                    จำนวนเงินต่ำสุดในการถอนเงินของตัวแทนขาย
-                                </div>
-                                <div class="col-5 input mt-2">
-                                    <input type="text" name="minimumAffiliate" id="minimumAffiliate" class="form-control" placeholder="กรุณากรอกค่าธรรมเนียม" formControlName="minimumAffiliate">
-                                </div>
-                                <div class="col-7 amount">
-                                    จำนวนเงินสูงสุดในการถอนเงินของตัวแทนขาย
-                                </div>
-                                <div class="col-5 input mt-2">
-                                    <input type="text" name="maxAffiliate" id="maxAffiliate" class="form-control" placeholder="กรุณากรอกค่าธรรมเนียม" formControlName="maxAffiliate">
-                                </div>
-                                <button type="submit" class="btn btn-success mt-4">
-                                    ยืนยัน
-                                </button>
+                        <div>
+                            <div class="row">
+                                <div class="col-8">เปอร์เซ็นในการโอน</div>
+                                <div class="col">{{percent}} %</div>
                             </div>
-                        </form>
+                            <div class="row mt-1">
+                                <div class="col-8">ขั้นต่ำในการถอนของร้านค้า</div>
+                                <div class="col">{{minStore}} บาท</div>
+                            </div>
+                            <div class="row mt-1">
+                                <div class="col-8">สุงสุดในการถอนของร้านค้า</div>
+                                <div class="col">{{maxStore}} บาท</div>
+                            </div>
+                            <div class="row mt-1">
+                                <div class="col-8">ขั้นต่ำในการถอนของตัวแทนขาย</div>
+                                <div class="col">{{minAffiliate}} บาท</div>
+                            </div>
+                            <div class="row mt-1">
+                                <div class="col-8">สูงสุดในการถอนของตัวแทนขาย</div>
+                                <div class="col">{{maxAffiliate}} บาท</div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            ตั้งค่า
+                        </button>
+
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title mt-3" id="exampleModalLabel"> ตั้งค่าระบบ </h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form [formGroup]="createPercent" (ngSubmit)="percentWithdrawMoney()">
+                                            <div class="row mt-3">
+                                                <div class="col-6 amount">
+                                                    ค่าธรรมเนียมในการถอนเงิน
+                                                </div>
+                                                <div class="col input">
+                                                    <input type="text" name="percent" id="percent" class="form-control" placeholder="ค่าธรรมเนียมในการถอนเงิน" formControlName="percent">
+                                                </div>
+                                                <div class="col-6 amount">
+                                                    ขั้นต่ำในการถอนของร้านค้า
+                                                </div>
+                                                <div class="col input mt-2">
+                                                    <input type="text" name="minimumStore" id="minimumStore" class="form-control" placeholder="กรุณากรอกค่าธรรมเนียม" formControlName="minimumStore">
+                                                </div>
+                                                <div class="col-6 amount">
+                                                    สุงสุดในการถอนของร้านค้า
+                                                </div>
+                                                <div class="col input mt-2">
+                                                    <input type="text" name="maximumStore" id="maximumStore" class="form-control" placeholder="กรุณากรอกค่าธรรมเนียม" formControlName="maximumStore">
+                                                </div>
+                                                <div class="col-6 amount">
+                                                    ขั้นต่ำในการถอนของตัวแทนขาย
+                                                </div>
+                                                <div class="col input mt-2">
+                                                    <input type="text" name="minimumAffiliate" id="minimumAffiliate" class="form-control" placeholder="กรุณากรอกค่าธรรมเนียม" formControlName="minimumAffiliate">
+                                                </div>
+                                                <div class="col-6 amount">
+                                                    สูงสุดในการถอนของตัวแทนขาย
+                                                </div>
+                                                <div class="col input mt-2">
+                                                    <input type="text" name="maxAffiliate" id="maxAffiliate" class="form-control" placeholder="กรุณากรอกค่าธรรมเนียม" formControlName="maxAffiliate">
+                                                </div>
+                                                <button type="submit" class="btn btn-success mt-4" data-bs-dismiss="modal">
+                                                    ยืนยัน
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -101,85 +140,81 @@
 
         <div class="col-lg-9 mb-2">
             <div class="container-fluid card-shadow pt-4 mb-2">
-                <h1 class="font-opt text-success">รายการถอนเงินตัวแทนขาย</h1>
-                <section>
-                    <div class="container h-100">
-                        <div class="row d-flex justify-content-center align-items-center h-100">
-                            <div class="col mb-2">
-                                <div class="card">
-                                    <div class="row g-0">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th style="width: 1%;"> # </th>
-                                                    <th style="width: 10%;"> ชื่อผู้ใช้งาน </th>
-                                                    <th style="width: 10%;"> เบอร์โทรศัพท์ </th>
-                                                    <th style="width: 10%;"> จำนวนเงิน </th>
-                                                    <th style="width: 10%;"> </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr *ngFor="let element of Affiliate | async">
-                                                    <td> 1 </td>
-                                                    <td> อรวรรณ </td>
-                                                    <td> 0619617548 </td>
-                                                    <td> 100 </td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-success" routerLink="/money"> ยืนยัน </button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <mat-paginator #paginatorUser1 [pageSizeOptions]="[2, 10, 25, 100]" aria-label="Select page">
-                                        </mat-paginator>
-                                    </div>
+                <h1 class="font-opt text-success"> รายการถอนเงินตัวแทนขาย </h1>
+                <div class="container h-100">
+                    <div class="row d-flex justify-content-center align-items-center h-100">
+                        <div class="col mb-2">
+                            <div class="card">
+                                <div class="row g-0">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 1%;"> # </th>
+                                                <th style="width: 10%;"> ชื่อผู้ใช้งาน </th>
+                                                <th style="width: 10%;"> เบอร์โทรศัพท์ </th>
+                                                <th style="width: 10%;"> จำนวนเงิน </th>
+                                                <th style="width: 10%;"> </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let element of affiliate | async; index as i">
+                                                <td> {{ getRowAF(i) }} </td>
+                                                <td> {{element.user.fullName}} </td>
+                                                <td> {{element.user.tel}} </td>
+                                                <td> {{element.totalPrice}} </td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success" (click)="setwithdrawId(element.withdrawId)"> ยืนยัน
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <mat-paginator #paginatorAffiliate [pageSizeOptions]="[5, 25, 50, 100]" aria-label="Select page">
+                                    </mat-paginator>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
             </div>
             <div class="container-fluid card-shadow pt-4">
                 <h1 class="font-opt text-success">รายการถอนเงินร้านค้า</h1>
-                <section>
-                    <div class="container h-100">
-                        <div class="row d-flex justify-content-center align-items-center h-100">
-                            <div class="col mb-2">
-                                <div class="card">
-                                    <div class="row g-0">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th style="width: 1%;"> # </th>
-                                                    <th style="width: 10%;"> ชื่อร้านค้า </th>
-                                                    <th style="width: 10%;"> ชื่อ-นามสกุล </th>
-                                                    <th style="width: 10%;"> เบอร์โทรศัพท์ </th>
-                                                    <th style="width: 10%;"> จำนวนเงิน </th>
-                                                    <th style="width: 10%;"> </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr *ngFor="let element of Store | async">
-                                                    <td> 1 </td>
-                                                    <td> {{element.store.store}} </td>
-                                                    <td> {{element.user.fullName}} </td>
-                                                    <td> {{element.user.tel}} </td>
-                                                    <td> {{element.totalPrice}} </td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-success" (click)="setWithdrawId(element.withdrawId)"> ยืนยัน
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <mat-paginator #paginatorUser [pageSizeOptions]="[3, 5, 10, 15]" aria-label="Select page">
-                                        </mat-paginator>
-                                    </div>
+                <div class="container h-100">
+                    <div class="row d-flex justify-content-center align-items-center h-100">
+                        <div class="col mb-2">
+                            <div class="card">
+                                <div class="row g-0">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 1%;"> # </th>
+                                                <th style="width: 10%;"> ชื่อร้านค้า </th>
+                                                <th style="width: 10%;"> ชื่อ-นามสกุล </th>
+                                                <th style="width: 10%;"> เบอร์โทรศัพท์ </th>
+                                                <th style="width: 10%;"> จำนวนเงิน </th>
+                                                <th style="width: 10%;"> </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let element of store | async; index as i">
+                                                <td> {{ getRowST(i) }} </td>
+                                                <td> {{element.store.store}} </td>
+                                                <td> {{element.user.fullName}} </td>
+                                                <td> {{element.user.tel}} </td>
+                                                <td> {{element.totalPrice}} </td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success" (click)="setwithdrawId(element.withdrawId)"> ยืนยัน</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <mat-paginator #paginatorStore [pageSizeOptions]="[5, 25, 50, 100]" aria-label="Select page">
+                                    </mat-paginator>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
             </div>
         </div>
     </div>

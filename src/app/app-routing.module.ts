@@ -38,6 +38,7 @@ import { OrderSuccessComponent } from './components/order/order-success/order-su
 import { ProfileComponent } from './components/admin/profile/profile.component';
 import { OrderDlvHistoryComponent } from './components/order/order-dlv-history/order-dlv-history.component';
 import { ShareLinkComponent } from './components/share-link/share-link.component';
+import { ShareHistoryComponent } from './components/share-history/share-history.component';
 
 
 
@@ -79,6 +80,7 @@ const routes: Routes = [
 
   // GuardAffiliateService
   { path: 'product-share', component: ProductShareComponent,canActivate: [GuardAffiliateService]},
+  { path: 'share-history', component: ShareHistoryComponent,canActivate: [GuardAffiliateService]},
  
 
   // GuardAdminService

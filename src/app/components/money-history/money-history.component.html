@@ -6,42 +6,66 @@
         </div>
         <div class="row">
             <div class="col-7">
-                <div class="card mb-5">
-                    <div class="card-body">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th style="width: 1%;"> เวลา </th>
-                                    <th style="width: 1%;"> วันที่ </th>
-                                    <th style="width: 2%;"> จำนวนเงิน </th>
-                                    <th style="width: 2%;"> หลักฐานในการชำระเงิน </th>
-                                </tr>
-                            </thead>
-                            <tbody *ngFor="let order of ordertList ; let i = index">
-                                <tr>
-                                    <td> {{order.date | date: 'HH:mm:ss'}} </td>
-                                    <td> {{order.date | date: 'd/M/yyyy'}} </td>
-                                    <td> {{totalPrice}} </td>
-                                    <td>
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#exampleModal'+i">
-                                            การชำระเงิน
-                                        </button>
-                                        <div class="modal fade" [attr.id]="'exampleModal'+i" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-body">
-                                                        <img class="card-img-top" [src]="api+order.image" alt="...">
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Close </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div class="container-fluid card-shadow pt-4 mb-2">
+                    <h1 class="font-opt text-success"> ตัวแทนขาย </h1>
+                    <div class="container h-100">
+                        <div class="row d-flex justify-content-center align-items-center h-100">
+                            <div class="col mb-2">
+                                <div class="card">
+                                    <div class="row g-0">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width: 1%;"> # </th>
+                                                    <th style="width: 10%;"> จำนวนเงิน </th>
+                                                    <th style="width: 10%;"> สถานะ </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let element of affiliate | async; index as i">
+                                                    <td> {{ getRowST(i) }} </td>
+                                                    <td> {{element.totalPrice}} </td>
+                                                    <td> {{element.status == "withdraw success"?"สำเร็จ":"รอการตรวจสอบ"}} </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <mat-paginator #paginatorAffiliate [pageSizeOptions]="[5, 25, 50, 100]" aria-label="Select page">
+                                        </mat-paginator>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid card-shadow pt-4">
+                    <h1 class="font-opt text-success"> ร้านค้า</h1>
+                    <div class="container h-100">
+                        <div class="row d-flex justify-content-center align-items-center h-100">
+                            <div class="col mb-2">
+                                <div class="card">
+                                    <div class="row g-0">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width: 1%;"> # </th>
+                                                    <th style="width: 10%;"> จำนวนเงิน </th>
+                                                    <th style="width: 10%;"> สถานะ </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let element of store | async; index as i">
+                                                    <td> {{ getRowST(i) }} </td>
+                                                    <td> {{element.totalPrice}} </td>
+                                                    <td> {{element.status == "withdraw success"?"สำเร็จ":"รอการตรวจสอบ"}} </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <mat-paginator #paginatorStore [pageSizeOptions]="[5, 25, 50, 100]" aria-label="Select page">
+                                        </mat-paginator>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
