@@ -18,8 +18,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let element of store">
-                                    <td> 1 </td>
+                                <tr *ngFor="let element of store ; let i = index">
+                                    <td> {{i+1}} </td>
                                     <td> {{element.store.store}} </td>
                                     <td> {{element.fullName}} </td>
                                     <td> {{element.email}} </td>
