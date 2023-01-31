@@ -80,9 +80,13 @@ import { MoneyComponent } from './components/admin/money/money.component';
 import { OrderlistComponent } from './components/admin/orderlist/orderlist.component';
 import { WithdrawHistoryComponent } from './components/admin/withdraw-history/withdraw-history.component';
 import { ProfileComponent } from './components/admin/profile/profile.component';
+import { BankComponent } from './components/admin/bank/bank.component';
+import { ProfileAdminComponent } from './components/admin/profile-admin/profile-admin.component';
 
 // <---- Affiliate --->
 import { ProductShareComponent } from './components/product/product-share/product-share.component';
+import { ShareHistoryComponent } from './components/share-history/share-history.component';
+import { ProductbystoreComponent } from './components/productbystore/productbystore.component';
 
 
 
@@ -92,9 +96,8 @@ import { ProductDetailComponent } from './components/product/product-detail/prod
 import { OrderWaitPaymentComponent } from './components/order/order-wait-payment/order-wait-payment.component';
 import { OrderWaitDeliveryComponent } from './components/order/order-wait-delivery/order-wait-delivery.component';
 import { OrderSuccessComponent } from './components/order/order-success/order-success.component';
-import { ProfileAdminComponent } from './components/admin/profile-admin/profile-admin.component';
-import { ShareHistoryComponent } from './components/share-history/share-history.component';
-import { ProductbystoreComponent } from './components/productbystore/productbystore.component';
+
+
 
 
 
@@ -146,6 +149,7 @@ import { ProductbystoreComponent } from './components/productbystore/productbyst
     ShareLinkComponent,
     ShareHistoryComponent,
     ProductbystoreComponent,
+    BankComponent,
   ],
   imports: [
     BrowserModule,

@@ -66,3 +66,7 @@ p {
 .btn-primary {
     text-align: start;
 }
+
+.admin {
+    text-align: end;
+}

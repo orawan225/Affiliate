@@ -7,6 +7,7 @@ import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CookieServiceService } from 'src/app/services/cookie-service.service';
 import { environment } from 'src/environments/environment';
+import { BankComponent } from '../bank/bank.component';
 import { ProfileAdminComponent } from '../profile-admin/profile-admin.component';
 
 @Component({
@@ -29,6 +30,9 @@ export class ProfileComponent implements OnInit {
   district: any
   province: any
   postalCode: any
+  bankNameAccount: any
+  bankName: any
+  bankNumber: any
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService,
     private ref: ChangeDetectorRef, private fb: FormBuilder, private router: Router,
@@ -61,6 +65,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProfile()
+    this.getBankAccount()
   }
 
   getProfile() {
@@ -80,8 +85,26 @@ export class ProfileComponent implements OnInit {
     })
   }
 
+  getBankAccount() {
+    this.callApi.getBankAccount().subscribe((res: any) => {
+      this.bankNameAccount = res.bankNameAccount
+      this.bankName = res.bankName
+      this.bankNumber = res.bankNumber
+      console.log(this.bankNameAccount);
+      
+    })
+
+  }
+
   profileAdmin() {
     const dialogRef = this.dialog.open(ProfileAdminComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      this.getProfile()
+    });
+  }
+
+  bank() {
+    const dialogRef = this.dialog.open(BankComponent);
     dialogRef.afterClosed().subscribe(result => {
       this.getProfile()
     });

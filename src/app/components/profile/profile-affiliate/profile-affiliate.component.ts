@@ -57,11 +57,6 @@ export class ProfileAffiliateComponent implements OnInit {
   }
 
   editProfileAffiliate() {
-    // const data = new FormData()
-    // if (this.file) {
-    //   data.append('file', this.file, this.file.name)
-    // }
-    // data.append('profile', JSON.stringify(this.formProfile.value))
     this.callApi.editProfileAffiliate(this.formProfile.value).subscribe(data => {
       console.log(data);
       this.alert.success("แก้ไขข้อมูลสำเร็จ")

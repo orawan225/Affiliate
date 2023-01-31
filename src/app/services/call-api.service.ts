@@ -278,5 +278,12 @@ export class CallApiService {
     return this.http.get(`${environment.apiUrl}/admin/get-my-wallet`,this.header())
   }
 
+  public getBankAccount() {
+    return this.http.get(`${environment.apiUrl}/admin/get-bank-account`,this.header())
+  }
+
+  public editBank(data: any) {
+    return this.http.post(`${environment.apiUrl}/admin/create-bank-account`, data, this.header())
+  }
 
 }

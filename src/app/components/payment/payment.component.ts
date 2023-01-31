@@ -26,6 +26,10 @@ export class PaymentComponent implements OnInit {
   count = 0
   api = environment.apiUrl
   imge: any
+  bank: any = []
+  bankName: any
+  bankNameAccount: any
+  bankNumber: any
 
   constructor(public cartService: CartService, private callApi: CallApiService, private cookie: CookieServiceService,
     private router: Router, private acrout: ActivatedRoute,private alert: AlertService) {
@@ -40,6 +44,7 @@ export class PaymentComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.cookie.getUserId();
     this.getProfileAdmin()
+    this.getBankadmin()
   }
 
   getProductByStoreId(orderId: any) {
@@ -73,6 +78,15 @@ export class PaymentComponent implements OnInit {
     this.callApi.getProfilesAdmin().subscribe((res: any) => {
       this.profile = res
       console.log(res);
+    })
+  }
+  getBankadmin(){
+    this.callApi.getBankAccount().subscribe((res:any) =>{
+      this.bankName = res.bankName
+      this.bankNumber = res.bankNumber
+      this.bankNameAccount = res.bankNameAccount
+      console.log(this.bank);
+      
     })
   }
 

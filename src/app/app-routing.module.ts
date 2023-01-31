@@ -40,6 +40,7 @@ import { OrderDlvHistoryComponent } from './components/order/order-dlv-history/o
 import { ShareLinkComponent } from './components/share-link/share-link.component';
 import { ShareHistoryComponent } from './components/share-history/share-history.component';
 import { ProductbystoreComponent } from './components/productbystore/productbystore.component';
+import { BankComponent } from './components/admin/bank/bank.component';
 
 
 const routes: Routes = [
@@ -92,7 +93,8 @@ const routes: Routes = [
   { path: 'money', component: MoneyComponent,canActivate: [GuardAdminService]},
   { path: 'orderlist', component: OrderlistComponent,canActivate: [GuardAdminService]},
   { path: 'withdraw-history', component: WithdrawHistoryComponent,canActivate: [GuardAdminService]},
-  { path: 'profile', component: ProfileComponent,canActivate: [GuardAdminService]}
+  { path: 'profile', component: ProfileComponent,canActivate: [GuardAdminService]},
+  { path: 'bank', component: BankComponent,canActivate: [GuardAdminService]}
 
 ];
 
