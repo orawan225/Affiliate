@@ -94,7 +94,7 @@ import { OrderWaitDeliveryComponent } from './components/order/order-wait-delive
 import { OrderSuccessComponent } from './components/order/order-success/order-success.component';
 import { ProfileAdminComponent } from './components/admin/profile-admin/profile-admin.component';
 import { ShareHistoryComponent } from './components/share-history/share-history.component';
-
+import { ProductbystoreComponent } from './components/productbystore/productbystore.component';
 
 
 
@@ -144,7 +144,8 @@ import { ShareHistoryComponent } from './components/share-history/share-history.
     ProfileAdminComponent,
     OrderDlvHistoryComponent,
     ShareLinkComponent,
-    ShareHistoryComponent
+    ShareHistoryComponent,
+    ProductbystoreComponent,
   ],
   imports: [
     BrowserModule,

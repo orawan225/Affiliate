@@ -10,22 +10,6 @@
         <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="navbar-toggler-success">
             <div class="flex-fill mb-2">
                 <ul class="nav navbar-nav d-flex justify-content-end text-center text-dark">
-                    <div class="dropdown">
-                        <a class="nav-link btn-outline-primary rounded-pill px-3 " role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                            สมัครสมาชิก
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li>
-                                <a class="dropdown-item" routerLink="/register-user"> สมัครสมาชิก </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" routerLink="/register-customer"> สมัครสมาชิกสำหรับAffiliate</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" routerLink="/register-store"> สมัครสมาชิกสำหรับร้านค้า </a>
-                            </li>
-                        </ul>
-                    </div>
                     <li class="nav-item" *ngIf="!checkLogin">
                         <a class="nav-link btn-outline-primary rounded-pill px-3" routerLink="/login"> เข้าสู่ระบบ </a>
                     </li>

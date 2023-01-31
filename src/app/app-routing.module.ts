@@ -39,7 +39,7 @@ import { ProfileComponent } from './components/admin/profile/profile.component';
 import { OrderDlvHistoryComponent } from './components/order/order-dlv-history/order-dlv-history.component';
 import { ShareLinkComponent } from './components/share-link/share-link.component';
 import { ShareHistoryComponent } from './components/share-history/share-history.component';
-
+import { ProductbystoreComponent } from './components/productbystore/productbystore.component';
 
 
 const routes: Routes = [
@@ -49,6 +49,7 @@ const routes: Routes = [
   { path: 'register-customer', component: RegisterCustomerComponent},
   { path: 'register-store', component: RegisterStoreComponent},
   { path: 'product-detail', component: ProductDetailComponent},
+  { path: 'productByStore', component: ProductbystoreComponent},
   { path: 'login', component: LoginComponent},
 
 

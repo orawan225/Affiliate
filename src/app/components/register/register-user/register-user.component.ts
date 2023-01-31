@@ -13,18 +13,6 @@ import { Validators } from '@angular/forms';
 })
 export class RegisterUserComponent implements OnInit {
 
-  // formRegister: FormGroup = new FormGroup({
-  //   fullName: new FormControl(''),
-  //   userName: new FormControl(''),
-  //   passWord: new FormControl(''),
-  //   email: new FormControl(''),
-  //   tel: new FormControl(''),
-  //   address: new FormControl(''),
-  //   sub: new FormControl(''),
-  //   district: new FormControl(''),
-  //   province: new FormControl(''),
-  //   postalCode: new FormControl(''),
-  // })
   submitAdd: boolean = false;
   formRegister: any
 
@@ -58,9 +46,6 @@ export class RegisterUserComponent implements OnInit {
 
 
   registerUser() {
-    // if (this.formRegister.value.userName == "" || this.formRegister.value.userName == null) {
-    //   this.submitAdd = true; 
-    // } 
     this.submitAdd = true;
     if (this.formRegister.valid) {
       this.callApi.registerUser(this.formRegister.value).subscribe(async (data) => {

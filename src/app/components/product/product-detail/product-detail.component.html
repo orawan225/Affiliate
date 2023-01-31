@@ -10,7 +10,7 @@
                         </div>
                         <div class="product col-6 mt-4">
                             <div class="productname row mt-1">
-                                <div class="col">
+                                <div class="col" (click)="productByStore(product.storeId)">
                                     <strong>{{product.productName}}</strong>
                                 </div>
                             </div>
@@ -26,9 +26,6 @@
                                         ราคา {{product.productPrice}} บาท
                                     </span>
                                 </div>
-                                <!-- <div class="price col"> ราคา
-                                    <span class="priceValue col">{{product.productPrice}} บาท</span>
-                                </div> -->
                             </div>
 
                             <div class="button row">

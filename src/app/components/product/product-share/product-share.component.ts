@@ -37,6 +37,7 @@ export class ProductShareComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProductById()
+    this.getLinkShareProduct()
   }
 
   getProductById() {
@@ -49,6 +50,8 @@ export class ProductShareComponent implements OnInit {
   getLinkShareProduct() {
     this.callApi.shareProduct(this.productId).subscribe((res: any) => {
       this.linkProduct = res.data.link
+      console.log(this.linkProduct);
+      
       this.baseUrl = window.location.port
       ? `${window.location.protocol}//${window.location.hostname}:${window.location.port}${this.url}?id=${this.productId}&link=${res.data.link}`
       : `${window.location.protocol}//${window.location.hostname}${this.url}?id=${this.productId}&link=${res.data.link}`;

@@ -25,7 +25,7 @@
                     <table *ngIf="ordertList != 0">
                         <thead>
                             <tr>
-                                <th style=" width: 2%;;"> วันที่ </th>
+                                <th style=" width: 2%;;"> วันที่จัดส่ง </th>
                                 <th style=" width: 4%;"> สินค้า </th>
                                 <th style=" width: 10%;"> ที่อยู่ในการจัดส่ง </th>
                                 <th style=" width: 5%;"> เลขพัสดุในการจัดส่ง </th>
@@ -36,8 +36,8 @@
 
                         <tbody *ngFor="let order of ordertList ; let i = index">
                             <tr>
-                                <td> {{order.dateStSuccess | date: 'HH:mm:ss'}}
-                                    <br> {{order.dateStSuccess | date:' d/M/yyyy'}}
+                                <td> {{order.dateStPayment | date: 'HH:mm:ss'}}
+                                    <br> {{order.dateStPayment | date:' d/M/yyyy'}}
                                 </td>
                                 <td>
                                     <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#Modal'+i">
@@ -54,6 +54,7 @@
                                                     <table>
                                                         <thead>
                                                             <tr>
+                                                                <th style=" width: 5%;"> วันที่สั่งซื้อ </th>
                                                                 <th style=" width: 5%;"> สินค้า </th>
                                                                 <th style=" width: 3%;"> จำนวน/ชิ้น </th>
                                                                 <th style=" width: 5%;"> ราคา </th>
@@ -62,14 +63,15 @@
                                                         <br>
                                                         <tbody>
                                                             <tr *ngFor="let res of order.detail">
-                                                                <td> {{res.productName}} </td>
+                                                                <td> {{order.date | date: 'HH:mm:ss'}}
+                                                                    <br> {{order.date | date:' d/M/yyyy'}} </td>
                                                                 <td> {{res.amount}} </td>
                                                                 <td> {{res.productPrice}} </td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>
-                                                <div class="totalPrice">
+                                                <div class="totalPrice mb-3">
                                                     ยอดสุทธิ {{order.totalPrice}} บาท
                                                 </div>
                                                 <div class="modal-footer">

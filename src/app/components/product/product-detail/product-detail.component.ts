@@ -86,4 +86,8 @@ export class ProductDetailComponent implements OnInit {
   shareProduct(productId: string) {
     this.router.navigate(['/product-share'], { queryParams: { id: productId } })
   }
+
+  productByStore(storeId: string) {
+    this.router.navigate(['/productByStore'], { queryParams: { id: storeId } })
+  }
 }

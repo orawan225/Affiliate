@@ -21,7 +21,7 @@ export class OrderStoreComponent implements OnInit {
 
   constructor(public callApi: CallApiService, private alert: AlertService, private fb: FormBuilder) {
     this.formTrackNumber = fb.group({
-      trackingNumber: [null, Validators.required, Validators.pattern('^[0-9]*$')]
+      trackingNumber: null
     })
   }
 
@@ -29,9 +29,6 @@ export class OrderStoreComponent implements OnInit {
     this.getAllOrderByStore()
   }
 
-  get formValidAdd() {
-    return this.formTrackNumber.controls;
-  }
 
 
   getAllOrderByStore() {
@@ -42,12 +39,9 @@ export class OrderStoreComponent implements OnInit {
   }
 
   trackingNumber(orderListId: any) {
-    this.submitAdd = true;
-    if (this.formTrackNumber.validl) {
-      this.callApi.trackingNumber(orderListId, this.formTrackNumber.value).subscribe(res => {
-        this.alert.success("ทำการส่งสินค้าเรียบร้อย")
-        this.getAllOrderByStore()
-      })
-    }
+    this.callApi.trackingNumber(orderListId, this.formTrackNumber.value).subscribe(res => {
+      this.alert.success("ทำการส่งสินค้าเรียบร้อย")
+      this.getAllOrderByStore()
+    })
   }
 }

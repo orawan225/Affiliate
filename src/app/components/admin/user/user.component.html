@@ -17,8 +17,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let element of user">
-                                    <td> 1 </td>
+                                <tr *ngFor="let element of user | async; index as i">
+                                    <td> {{element.index(i)}} </td>
                                     <td> {{element.fullName}} </td>
                                     <td> {{element.email}} </td>
                                     <td> {{element.tel}} </td>

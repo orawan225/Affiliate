@@ -23,4 +23,8 @@ export class UserComponent implements OnInit {
       console.log(data)
     })
   }
+
+  getRowAF(index: number): number {
+    return index + 1;
+  }
 }

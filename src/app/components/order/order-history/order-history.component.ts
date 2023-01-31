@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { orderList } from 'src/app/models/order';
 import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
@@ -17,7 +18,7 @@ export class OrderHistoryComponent implements OnInit {
   api = environment.apiUrl
 
 
-  constructor(public callApi: CallApiService, private alert: AlertService) { }
+  constructor(public callApi: CallApiService, private alert: AlertService, private router: Router) { }
 
   ngOnInit(): void {
     this.getOrderHistory()
@@ -28,6 +29,10 @@ export class OrderHistoryComponent implements OnInit {
       this.ordertList = res
       console.log(res);
     })
+  }
+
+  routerLink() {
+    this.router.navigate(['/product-detail'])
   }
 
 }

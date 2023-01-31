@@ -90,14 +90,14 @@
             <div class="col-md-3 admin">
                 <div class="card mb-4">
                     <div class="card-header py-3">
-                        <h2 class="mb-0"> ช่องทางติดต่อรายการสินค้า </h2>
+                        <h2 class="mb-0"> ช่องทางติดต่อ </h2>
                     </div>
                     <div class="contact mt-3" *ngFor="let item of profile">
                         <div class="row">
                             <div class="col">
                                 <img class="card-img-top" [src]="api+item.image" alt="...">
-                                <p class="mt-3"> ชือ : {{item.fullName}}</p>
-                                <p> เบอร์โทรศัพท์ : {{item.tel}}</p>
+                                <!-- <p class="mt-3"> ชือ : {{item.fullName}}</p> -->
+                                <p class="mt-3"> เบอร์ติดต่อ : {{item.tel}}</p>
                                 <p> ที่อยู่ : {{item.address}} ตำบล{{item.sub}} อำเภอ{{item.district}} จังหวัด{{item.province}} {{item.postalCode}}</p>
                             </div>
                         </div>

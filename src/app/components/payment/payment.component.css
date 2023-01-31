@@ -17,10 +17,10 @@ p {
     text-align: center;
 }
 
-img {
-    width: 300px;
-    height: 300px;
-    margin-left: 40px;
+.card-img-top {
+    width: 250px;
+    height: 250px;
+    margin-left: 65px;
 }
 
 .flex-parent {
@@ -33,6 +33,8 @@ img {
 }
 
 .img-fluid {
+    width: 350px;
+    height: 350px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -40,6 +42,10 @@ img {
 
 .btn-outline-primary {
     float: right;
+}
+
+p {
+    margin-top: 10px;
 }
 
 .payment {

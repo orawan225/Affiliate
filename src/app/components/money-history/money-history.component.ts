@@ -94,9 +94,9 @@ export class MoneyHistoryComponent implements OnInit {
 
 
   wathdrawMoneyStore() {
-    this.callApi.wathdrawMoney(this.formWithdraw.value.withdraw).subscribe(res => {
+    this.callApi.wathdrawMoney(this.formWithdraw.value.withdraw).subscribe( res => {
       this.alert.success("ทำการถอนเงินสำเร็จ")
-      this.getWithdraw()
+       this.getWithdraw()
     }, ((err: any) => {
       if (err.status === 417) {
         this.alert.warning(err.error.message)
@@ -109,6 +109,7 @@ export class MoneyHistoryComponent implements OnInit {
   wathdrawMoneyAffiliate() {
     this.callApi.wathdrawMoneyAffiliate(this.formWithdraw.value.withdraw).subscribe(res => {
       this.alert.success("ทำการถอนเงินสำเร็จ")
+      this.getWithdraw()
     }, ((err: any) => {
       if (err.status === 417) {
         this.alert.warning(err.error.message)

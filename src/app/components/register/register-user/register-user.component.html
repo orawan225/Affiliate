@@ -108,8 +108,7 @@
                                             <label for="postal" class="form-label"> รหัสไปรษณีย์ </label>
                                             <input type="text" [maxlength]="5" name="postal" id="postal" class="form-control" placeholder="กรุณากรอกรหัสไปรษณีย์" formControlName="postalCode" [ngClass]="{'is-invalid': submitAdd && formValidAdd.postalCode.errors}">
                                             <div class="invalid-feedback" *ngIf="submitAdd && formValidAdd.postalCode.errors">
-                                                <div *ngIf="formValidAdd.postalCode.errors.required">
-                                                    กรุณากรอกรหัสไปรษณีย์</div>
+                                                <div *ngIf="formValidAdd.postalCode.errors.required"> กรุณากรอกรหัสไปรษณีย์</div>
                                                 <div *ngIf="formValidAdd.postalCode.errors.minlength || formValidAdd.postalCode.errors['pattern']">กรุณากรอกรหัสไปรษณีย์จำนวน 5 หลักหรือรูปแบบไม่ถูกต้อง</div>
                                             </div>
                                         </div>

@@ -34,7 +34,7 @@ export class OrderlistComponent implements OnInit {
   }
 
   updateOrderPayment(orderListId: any) {
-    this.alert.confirm("ทำการยืนยันสินค้าใช่หรือไม่ ?").then(async (result) => {
+    this.alert.confirm("ทำการยืนยันคำสั่งซื้อใช่หรือไม่ ?").then(async (result) => {
       if (result.isConfirmed) {
         await this.callApi.updateOrderPayment(orderListId, this.formOrder).subscribe(async (data) => {
           await this.alert.success("รอการจัดส่งสินค้า")

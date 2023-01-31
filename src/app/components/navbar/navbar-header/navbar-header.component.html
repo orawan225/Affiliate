@@ -35,21 +35,21 @@
                         </ul>
                     </div>
 
-                    <div class="dropdown" *ngIf="role=='USER'|| role=='STORE'|| role=='ST_AF'">
+                    <div class="dropdown" *ngIf="role=='USER'|| role=='STORE' || role=='AFFILIATE' || role=='ST_AF'">
                         <a class="nav-link btn-outline-primary rounded-pill px-3 " role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                             ติดตามสินค้า
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li *ngIf="role=='USER' || role=='STORE' || role=='ST_AF'">
+                            <li *ngIf="role=='USER' || role=='STORE' || role=='AFFILIATE' || role=='ST_AF'">
                                 <a class="dropdown-item" routerLink="/order-wait-payment"> สินค้ารอชำระเงิน </a>
                             </li>
-                            <li *ngIf="role=='USER' || role=='STORE' || role=='ST_AF'">
+                            <li *ngIf="role=='USER' || role=='STORE' || role=='AFFILIATE' || role=='ST_AF'">
                                 <a class="dropdown-item" routerLink="/order-wait-delivery"> รอการจัดส่ง </a>
                             </li>
-                            <li *ngIf="role=='USER' || role=='STORE' || role=='ST_AF'">
+                            <li *ngIf="role=='USER' || role=='STORE' || role=='AFFILIATE' || role=='ST_AF'">
                                 <a class="dropdown-item" routerLink="/order-success"> รับสินค้า </a>
                             </li>
-                            <li *ngIf="role=='USER' || role=='STORE' || role=='ST_AF'">
+                            <li *ngIf="role=='USER' || role=='STORE' || role=='AFFILIATE' || role=='ST_AF'">
                                 <a class="dropdown-item " routerLink="/order-history"> ประวัติการสั่งซื้อ </a>
                             </li>
                         </ul>

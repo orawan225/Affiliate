@@ -48,6 +48,10 @@ export class CallApiService {
     return this.http.get(`${environment.apiUrl}/user/get-withdraw-by-user`, this.header())
   }
 
+  public getProductByStore(storeId: any) {
+    return this.http.get(`${environment.apiUrl}/auth/getAll-productByStoreId/${storeId}`)
+  }
+
 
 
   //Profile

@@ -21,7 +21,7 @@ export class RegisterCustomerComponent implements OnInit {
     private cookie: CookieServiceService, private alert: AlertService) {
     this.formRegister = fb.group({
       bankNameAccount: [null, [Validators.required]],
-      bankNumber: [null, [Validators.required,Validators.pattern('^[0-9]*$')]],
+      bankNumber: [null, [Validators.required,Validators.pattern('^[0-9]*$'), Validators.minLength(10)]],
       bankName: [null, [Validators.required]]
     })
   }
@@ -34,8 +34,10 @@ export class RegisterCustomerComponent implements OnInit {
   }
 
   onChange() {
-    this.submitAdd = false
+    this.submitAdd = true
   }
+
+
 
   registerCustomer() {
     this.submitAdd = true;

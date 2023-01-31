@@ -32,6 +32,7 @@
                     </div>
                     <div class="card-body" *ngFor="let item of profile">
                         <img class="card-img-top" [src]="api+item.image" alt="...">
+                        <p> เบอร์ติดต่อ : {{item.tel}}</p>
                     </div>
                 </div>
                 <div class="card mb-4 mt-5">
