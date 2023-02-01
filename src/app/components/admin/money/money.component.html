@@ -11,14 +11,14 @@
                             </a>
                         </div>
                         <div class="row">
-                            <div class="image mt-2">
+                            <div class="image mt-2" (click)="file.click()">
                                 <img [src]="img" alt="avatar" class="img-fluid">
                                 <input type="file" #file placeholder="เลือกรูปภาพ" style="display: none;" (change)="selectFile($event)">
-                                <div class="flex-parent jc-center">
+                                <!-- <div class="flex-parent jc-center">
                                     <button type="button" class="btn btn-success" (click)="file.click()">
                                         เลือกรูปภาพ
                                     </button>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
