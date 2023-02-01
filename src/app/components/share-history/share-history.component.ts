@@ -13,7 +13,8 @@ export class ShareHistoryComponent implements OnInit {
   ordertList: any = []
   file: any
   api = environment.apiUrl
-
+  baseUrl: any
+  productId: any
 
   constructor(public callApi: CallApiService, private alert: AlertService) { }
 
@@ -22,9 +23,9 @@ export class ShareHistoryComponent implements OnInit {
   }
 
   getOrderHistory() {
-    this.callApi.shareHistory().subscribe(res => {
+    this.callApi.shareHistory().subscribe((res: any) => {
       this.ordertList = res
-      console.log(res);
+      console.log(this.ordertList);
     })
   }
 

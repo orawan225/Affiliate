@@ -81,7 +81,15 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h3 class="modal-title mt-1"> กรูณาใส่จำนวนเงิน : </h3>
+                                        <h3 class="modal-title"> เงื่อไขในการถอนเงิน </h3>
+                                        <div class="col mt-5">
+                                            <div class="row">
+                                                1. ขั้นต่ำในการถอนเงินต้องมากกว่า {{minAffiliate}} บาท ขึ้นไป
+                                            </div>
+                                            <div class="row">
+                                                2. ยอดสูงสุดในการถอนเงินต้องน้อยกว่า {{maxAffiliate}} บาท ขึ้นไป
+                                            </div>
+                                        </div>
                                     </div>
                                     <form [formGroup]="formWithdraw">
                                         <div class="row mt-2">
@@ -94,7 +102,7 @@
                                             <div class="col-4 withdraw mt-3"> ยอดรวมทั้งหมด : </div>
                                             <div class="col-7 input-withdraw mt-3"> {{perPlusWithdraw}} บาท</div>
                                             <div class="button">
-                                                <button type="submit" class="btn btn-success" data-bs-dismiss="modal">
+                                                <button type="submit" class="btn btn-success" data-bs-dismiss="modal" (click)="wathdrawMoneyAffiliate()">
                                                     ยืนยัน
                                                 </button>
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
@@ -117,7 +125,15 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h3 class="modal-title mt-1"> กรูณาใส่จำนวนเงิน :</h3>
+                                        <h3 class="modal-title"> เงื่อไขในการถอนเงิน </h3>
+                                        <div class="col mt-5">
+                                            <div class="row">
+                                                1. ขั้นต่ำในการถอนเงินต้องมากกว่า {{minStore}} บาท ขึ้นไป
+                                            </div>
+                                            <div class="row">
+                                                2. ยอดสูงสุดในการถอนเงินต้องน้อยกว่า {{maxStore}} บาท ขึ้นไป
+                                            </div>
+                                        </div>
                                     </div>
                                     <form [formGroup]="formWithdraw">
                                         <div class="row mt-2">

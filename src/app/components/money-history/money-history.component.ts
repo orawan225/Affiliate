@@ -26,6 +26,10 @@ export class MoneyHistoryComponent implements OnInit {
   api = environment.apiUrl
   totalPrice: any
   wathdrawMoneyHistory: any
+  minAffiliate: any
+  maxAffiliate: any
+  minStore: any
+  maxStore: any
 
   get perPlusWithdraw() {
     return (this.formWithdraw.value.withdraw*1) + ((this.formWithdraw.value.withdraw * this.percent) / 100)
@@ -57,7 +61,11 @@ export class MoneyHistoryComponent implements OnInit {
   getconfig() {
     this.callApi.getconfig().subscribe((res: any) => {
       this.percent = res.percent
-      console.log(this.percent);
+      this.maxStore = res.maxStore
+      this.minStore = res.minStore
+      this.maxAffiliate = res.maxAffiliate
+      this.minAffiliate = res.minAffiliate
+      console.log(res);
       
     })
   }
