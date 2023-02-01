@@ -133,9 +133,7 @@ export class MoneyHistoryComponent implements OnInit {
         this.profile = res.data.profile;
         this.role = res.data.profile.role;
         console.log(this.role);
-
       })
     }
   }
-
 }
