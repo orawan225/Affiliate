@@ -50,10 +50,6 @@ export class MoneyComponent implements OnInit {
       this.withholdMoney = res.withholdMoney
       this.fullName = res.user.fullName
       this.tel = res.user.tel
-      // this.store = res.store.store
-      // this.bankName = res.store.bankName
-      // this.bankNameAccount = res.store.bankNameAccount 
-      // this.bankNumber = res.store.bankNumber 
       console.log(this.withdraw);
     })
   }

@@ -39,9 +39,10 @@ export class OrderStoreComponent implements OnInit {
   }
 
   trackingNumber(orderListId: any) {
-    this.callApi.trackingNumber(orderListId, this.formTrackNumber.value).subscribe(res => {
+    this.callApi.trackingNumber(orderListId,this.formTrackNumber.value).subscribe( res => {
       this.alert.success("ทำการส่งสินค้าเรียบร้อย")
       this.getAllOrderByStore()
+      window.location.reload();
     })
   }
 }
