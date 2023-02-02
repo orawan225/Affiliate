@@ -108,12 +108,17 @@ export class MoneyHistoryComponent implements OnInit {
        this.getWithdraw()
     }, ((err: any) => {
       if (err.status === 417) {
-        this.alert.warning(err.error.message)
+        this.alert.warning("ทำการถอนเงินสำเร็จ")
+      }
+      else if (err.status === 400) {
+        this.alert.warning("กรุณากรอกจำนวนที่ต้องการถอนเงิน")
+      }
+      else if (err.status === 500) {
+        this.alert.warning("ยอดเงินของคุณไม่เพียงพอสำหรับการถอนเงินในครั้งนี้")
       }
     })
     )
   }
-
 
   wathdrawMoneyAffiliate() {
     this.callApi.wathdrawMoneyAffiliate(this.formWithdraw.value.withdraw).subscribe(res => {
@@ -122,7 +127,13 @@ export class MoneyHistoryComponent implements OnInit {
       this.getWithdraw()
     }, ((err: any) => {
       if (err.status === 417) {
-        this.alert.warning(err.error.message)
+        this.alert.warning("ทำการถอนเงินสำเร็จ")
+      }
+      else if (err.status === 400) {
+        this.alert.warning("กรุณากรอกจำนวนที่ต้องการถอนเงิน")
+      }
+      else if (err.status === 500) {
+        this.alert.warning("ยอดเงินของคุณไม่เพียงพอสำหรับการถอนเงินในครั้งนี้")
       }
     })
     )
