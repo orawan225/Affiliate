@@ -104,6 +104,7 @@ export class MoneyHistoryComponent implements OnInit {
   wathdrawMoneyStore() {
     this.callApi.wathdrawMoney(this.formWithdraw.value.withdraw).subscribe( res => {
       this.alert.success("ทำการถอนเงินสำเร็จ")
+      window.location.reload();
        this.getWithdraw()
     }, ((err: any) => {
       if (err.status === 417) {
@@ -117,6 +118,7 @@ export class MoneyHistoryComponent implements OnInit {
   wathdrawMoneyAffiliate() {
     this.callApi.wathdrawMoneyAffiliate(this.formWithdraw.value.withdraw).subscribe(res => {
       this.alert.success("ทำการถอนเงินสำเร็จ")
+      window.location.reload();
       this.getWithdraw()
     }, ((err: any) => {
       if (err.status === 417) {
