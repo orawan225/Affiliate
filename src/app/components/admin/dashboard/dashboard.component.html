@@ -94,36 +94,41 @@
                                     <div class="modal-body">
                                         <form [formGroup]="createPercent" (ngSubmit)="percentWithdrawMoney()">
                                             <div class="row mt-3">
-                                                <div class="col-6 amount">
+                                                <div class="col-6 amount mt-2">
                                                     ค่าธรรมเนียมในการถอนเงิน
                                                 </div>
                                                 <div class="col input">
                                                     <input type="text" name="percent" id="percent" class="form-control" placeholder="ค่าธรรมเนียมในการถอนเงิน" formControlName="percent">
                                                 </div>
-                                                <div class="col-6 amount">
+                                                <div class="col-2"> %</div>
+                                                <div class="col-6 amount mt-3">
                                                     ขั้นต่ำในการถอนของร้านค้า
                                                 </div>
                                                 <div class="col input mt-2">
-                                                    <input type="text" name="minimumStore" id="minimumStore" class="form-control" placeholder="กรุณากรอกค่าธรรมเนียม" formControlName="minimumStore">
+                                                    <input type="text" name="minimumStore" id="minimumStore" class="form-control" placeholder="กรุณากรอกค่าธรรมเนียม" formControlName="minStore">
                                                 </div>
-                                                <div class="col-6 amount">
+                                                <div class="col-2 mt-3"> บาท </div>
+                                                <div class="col-6 amount mt-3">
                                                     สุงสุดในการถอนของร้านค้า
                                                 </div>
                                                 <div class="col input mt-2">
-                                                    <input type="text" name="maximumStore" id="maximumStore" class="form-control" placeholder="กรุณากรอกค่าธรรมเนียม" formControlName="maximumStore">
+                                                    <input type="text" name="maximumStore" id="maximumStore" class="form-control" placeholder="กรุณากรอกค่าธรรมเนียม" formControlName="maxStore">
                                                 </div>
-                                                <div class="col-6 amount">
+                                                <div class="col-2 mt-3"> บาท </div>
+                                                <div class="col-6 amount mt-3">
                                                     ขั้นต่ำในการถอนของตัวแทนขาย
                                                 </div>
                                                 <div class="col input mt-2">
-                                                    <input type="text" name="minimumAffiliate" id="minimumAffiliate" class="form-control" placeholder="กรุณากรอกค่าธรรมเนียม" formControlName="minimumAffiliate">
+                                                    <input type="text" name="minimumAffiliate" id="minimumAffiliate" class="form-control" placeholder="กรุณากรอกค่าธรรมเนียม" formControlName="minAffiliate">
                                                 </div>
-                                                <div class="col-6 amount">
+                                                <div class="col-2 mt-3"> บาท </div>
+                                                <div class="col-6 amount mt-3">
                                                     สูงสุดในการถอนของตัวแทนขาย
                                                 </div>
                                                 <div class="col input mt-2">
                                                     <input type="text" name="maxAffiliate" id="maxAffiliate" class="form-control" placeholder="กรุณากรอกค่าธรรมเนียม" formControlName="maxAffiliate">
                                                 </div>
+                                                <div class="col-2 mt-3"> บาท </div>
                                                 <button type="submit" class="btn btn-success mt-4" data-bs-dismiss="modal">
                                                     ยืนยัน
                                                 </button>

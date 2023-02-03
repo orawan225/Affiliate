@@ -3,7 +3,9 @@ import { FormBuilder } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { Config } from '@fortawesome/fontawesome-svg-core';
 import { Observable } from 'rxjs';
+import { configSystem } from 'src/app/models/configSystem';
 import { withdraw } from 'src/app/models/withdraw';
 import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
@@ -26,7 +28,7 @@ export class DashboardComponent implements OnInit {
   date: Date = new Date()
   createPercent: any
   wallet: any
-  percent: any
+  percent: any 
   minStore: any
   maxStore: any
   minAffiliate: any
@@ -44,12 +46,22 @@ export class DashboardComponent implements OnInit {
     private ref: ChangeDetectorRef, private fb: FormBuilder,private alert: AlertService) {
       this.createPercent = fb.group({
         percent: [null],
-        minimumStore: [null],
-        maximumStore: [null],
-        minimumAffiliate: [null],
+        minStore: [null],
+        maxStore: [null],
+        minAffiliate: [null],
         maxAffiliate: [null]
       })
      }
+
+     patchValue(receiveConfig: configSystem) {
+      this.createPercent.patchValue({
+        percent: receiveConfig.percent,
+        minStore: receiveConfig.minStore,
+        maxStore: receiveConfig.maxStore,
+        minAffiliate: receiveConfig.minAffiliate,
+        maxAffiliate: receiveConfig.maxAffiliate
+      })
+    }
 
   ngOnInit(): void {
     this.getWithdrawMoney()
@@ -71,6 +83,7 @@ export class DashboardComponent implements OnInit {
       this.maxStore = res.maxStore
       this.minAffiliate = res.minAffiliate
       this.maxAffiliate = res.maxAffiliate
+      this.patchValue(res)
     })
   }
 

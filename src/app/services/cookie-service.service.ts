@@ -8,8 +8,6 @@ import { CookieService } from 'ngx-cookie-service';
 export class CookieServiceService {
   helper$ = new JwtHelperService()
   constructor(private cookie: CookieService) {
-    // console.log(this.helper$.isTokenExpired(this.getToken()));
-    // console.log(this.helper$.decodeToken(this.getToken()).principal);
   }
 
   _token: string = "token"

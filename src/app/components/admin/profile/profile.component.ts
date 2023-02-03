@@ -107,6 +107,7 @@ export class ProfileComponent implements OnInit {
     const dialogRef = this.dialog.open(BankComponent);
     dialogRef.afterClosed().subscribe(result => {
       this.getProfile()
+      window.location.reload();
     });
   }
 
