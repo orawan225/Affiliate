@@ -53,6 +53,8 @@ export class ProductCreateComponent implements OnInit {
       }, ((err: any) => {
         if (err.status === 417) {
           this.alert.error(err.error.message)
+        } else if (err.status === 417){
+          this.alert.warnings("โปรดเลือกรูปภาพที่มีขนาดน้อยกว่า 1MB")
         }
       }))
     }

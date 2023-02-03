@@ -79,7 +79,7 @@ export class ProfileComponent implements OnInit {
       this.district = res.district
       this.province = res.province
       this.postalCode = res.postalCode
-      this.img = this.api+ res.image
+      this.img = this.api + res.image
       this.patchValue(this.profile)
       console.log(res);
     })
@@ -91,7 +91,7 @@ export class ProfileComponent implements OnInit {
       this.bankName = res.bankName
       this.bankNumber = res.bankNumber
       console.log(this.bankNameAccount);
-      
+
     })
 
   }
@@ -120,7 +120,11 @@ export class ProfileComponent implements OnInit {
     this.callApi.editProfileAdmin(data).subscribe(data => {
       console.log(data);
       this.alert.success("แก้ไขรูปโปรไฟล์สำเร็จ")
-    })
+    }, ((err: any) => {
+      if (err.status === 500) {
+        this.alert.warnings("โปรดเลือกรูปภาพที่มีขนาดน้อยกว่า 1MB")
+      }
+    }))
   }
 
   selectFile(event: any) {

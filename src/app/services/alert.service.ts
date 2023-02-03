@@ -52,5 +52,17 @@ export class AlertService {
     })
   }
 
+  warnings(mss:string){
+   return Swal.fire({
+      position: 'top',
+      text: mss,
+      icon: 'warning',
+      showCancelButton: true,
+      cancelButtonColor: '#3085d6',
+      // confirmButtonColor: '#d33',
+      confirmButtonText: 'ตกลง'
+    })
+  }
+
 
 }

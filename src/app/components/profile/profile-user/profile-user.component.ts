@@ -112,8 +112,11 @@ export class ProfileUserComponent implements OnInit {
     this.callApi.editProfile(data).subscribe(data => {
       console.log(data);
       this.alert.success("แก้ไขรูปโปรไฟล์สำเร็จ")
-    })
-
+    }, ((err: any) => {
+      if (err.status === 500) {
+        this.alert.warnings("โปรดเลือกรูปภาพที่มีขนาดน้อยกว่า 1MB")
+      }
+    }))
   }
 
   selectFile(event: any) {
