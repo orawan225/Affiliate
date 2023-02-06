@@ -23,5 +23,6 @@ export class AffiliateComponent implements OnInit {
       console.log(data)
     })
   }
+  
 
 }
