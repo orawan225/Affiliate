@@ -40,6 +40,11 @@ export class CartService {
     localStorage.setItem(this.key, JSON.stringify(this.cart));
   }
 
+  updateCart(cart: any){
+    localStorage.setItem(this.key, JSON.stringify(cart));
+  }
+
+
   getCart() {
     let product = []
     let local = localStorage.getItem(this.key)

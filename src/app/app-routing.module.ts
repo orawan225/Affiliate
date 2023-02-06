@@ -41,6 +41,7 @@ import { ShareLinkComponent } from './components/share-link/share-link.component
 import { ShareHistoryComponent } from './components/share-history/share-history.component';
 import { ProductbystoreComponent } from './components/productbystore/productbystore.component';
 import { BankComponent } from './components/admin/bank/bank.component';
+import { OrderUserComponent } from './components/order/order-user/order-user.component';
 
 
 const routes: Routes = [
@@ -67,6 +68,8 @@ const routes: Routes = [
   { path: 'order-wait-payment', component: OrderWaitPaymentComponent,canActivate: [GuardService]},
   { path: 'order-wait-delivery', component: OrderWaitDeliveryComponent,canActivate: [GuardService]},
   { path: 'order-success', component: OrderSuccessComponent,canActivate: [GuardService]},
+  { path: 'order-success', component: OrderSuccessComponent,canActivate: [GuardService]},
+  { path: 'order-user', component: OrderUserComponent,canActivate: [GuardService]},
 
 
 

@@ -115,7 +115,15 @@ export class OrderProductComponent implements OnInit {
         this.alert.success("สั่งซื้อสินค้าสำเร็จ")
 
         //ลบสินค้าใน localStorage ในตอนที่สั่งซื้อสินค้าสำเร็จ
-        localStorage.removeItem("cart")
+           // localStorage.removeItem("cart")
+           let product: any = this.cartService.getCart();
+           product = product.filter((p: any) => 
+              p.storeId != this.StoreId
+            )
+            //console.log(product);
+            
+            this.cartService.updateCart(product)
+
         setTimeout(() => {
           this.setOrderListId(res.orderListId)
         }, 1000);

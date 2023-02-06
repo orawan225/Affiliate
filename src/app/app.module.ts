@@ -59,6 +59,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { OrderHistoryComponent } from './components/order/order-history/order-history.component';
 import { OrderProductComponent } from './components/order/order-product/order-product.component';
+import { OrderUserComponent } from './components/order/order-user/order-user.component';
 
 
 // <---- Store --->
@@ -150,6 +151,7 @@ import { OrderSuccessComponent } from './components/order/order-success/order-su
     ShareHistoryComponent,
     ProductbystoreComponent,
     BankComponent,
+    OrderUserComponent
   ],
   imports: [
     BrowserModule,

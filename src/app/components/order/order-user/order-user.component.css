@@ -1,0 +1,53 @@
+.backgroundimg {
+    background-image: url('src\assets\img\illustrations\heroheader.png');
+    margin-top: -12px;
+    min-height: 77vh;
+}
+
+table {
+    width: 100%;
+}
+
+th,
+td {
+    text-align: center;
+    border-bottom: 1px solid rgb(237, 227, 227);
+}
+
+thead {
+    background-color: #eff4ff;
+    height: 40px;
+    border: 0.5px solid #d3d8ff
+}
+
+img {
+    width: 400px;
+}
+
+.totalPrice {
+    font-size: 16px;
+    text-align: end;
+    margin-right: 2rem;
+    color: rgb(255, 0, 0);
+}
+
+.bi-credit-card {
+    margin-top: 4rem;
+}
+
+.waiting-payment {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+p {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 5rem;
+}
+
+.card-img-top {
+    width: 80%;
+    height: 80%;
+}

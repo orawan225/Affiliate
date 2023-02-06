@@ -41,6 +41,9 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <li *ngIf="role=='USER' || role=='STORE' || role=='AFFILIATE' || role=='ST_AF'">
+                                <a class="dropdown-item" routerLink="/order-user"> คำสั่งซื้อที่รอการตรวจสอบ </a>
+                            </li>
+                            <li *ngIf="role=='USER' || role=='STORE' || role=='AFFILIATE' || role=='ST_AF'">
                                 <a class="dropdown-item" routerLink="/order-wait-payment"> สินค้ารอชำระเงิน </a>
                             </li>
                             <li *ngIf="role=='USER' || role=='STORE' || role=='AFFILIATE' || role=='ST_AF'">

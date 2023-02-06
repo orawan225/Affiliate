@@ -51,6 +51,11 @@ export class CallApiService {
   public getProductByStore(storeId: any) {
     return this.http.get(`${environment.apiUrl}/auth/getAll-productByStoreId/${storeId}`)
   }
+  
+  public getOrderByUser() {
+    return this.http.get(`${environment.apiUrl}/order-list/get-my-order-status-wait-payment`, this.header())
+  }
+
 
 
 

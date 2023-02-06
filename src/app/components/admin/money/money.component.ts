@@ -57,12 +57,18 @@ export class MoneyComponent implements OnInit {
   createWithdraw() {
     let fileData = new FormData()
     fileData.append('file', this.file)
+    if( this.file == null){
+      this.alert.error("กรุณาแนบหลักฐานในการโอน")
+      return
+    }
     this.callApi.updateOrderWithdraw(this.withdrawId, fileData).subscribe((res: any) => {
+      //console.log(res);
       this.alert.success("โอนเงินสำเร็จ")
       setTimeout(() => {
         this.router.navigate(['/dashboard'])
       }, 1000);
-    })
+    }
+    )
   }
 
   selectFile(event: any) {
