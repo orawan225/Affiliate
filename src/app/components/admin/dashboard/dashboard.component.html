@@ -155,6 +155,7 @@
                                         <thead>
                                             <tr>
                                                 <th style="width: 1%;"> # </th>
+                                                <th style="width: 5%;"> วันที่ </th>
                                                 <th style="width: 10%;"> ชื่อผู้ใช้งาน </th>
                                                 <th style="width: 10%;"> เบอร์โทรศัพท์ </th>
                                                 <th style="width: 10%;"> จำนวนเงิน </th>
@@ -164,6 +165,9 @@
                                         <tbody>
                                             <tr *ngFor="let element of affiliate | async; index as i">
                                                 <td> {{ getRowAF(i) }} </td>
+                                                <td> {{element.date | date: 'HH:mm:ss'}}
+                                                    <br> {{element.date | date:' d/M/yyyy'}}
+                                                </td>
                                                 <td> {{element.user.fullName}} </td>
                                                 <td> {{element.user.tel}} </td>
                                                 <td> {{element.totalPrice}} </td>
@@ -193,6 +197,7 @@
                                         <thead>
                                             <tr>
                                                 <th style="width: 1%;"> # </th>
+                                                <th style="width: 5%;"> วันที่ </th>
                                                 <th style="width: 10%;"> ชื่อร้านค้า </th>
                                                 <th style="width: 10%;"> ชื่อ-นามสกุล </th>
                                                 <th style="width: 10%;"> เบอร์โทรศัพท์ </th>
@@ -203,6 +208,9 @@
                                         <tbody>
                                             <tr *ngFor="let element of store | async; index as i">
                                                 <td> {{ getRowST(i) }} </td>
+                                                <td> {{element.date | date: 'HH:mm:ss'}}
+                                                    <br> {{element.date | date:' d/M/yyyy'}}
+                                                </td>
                                                 <td> {{element.store.store}} </td>
                                                 <td> {{element.user.fullName}} </td>
                                                 <td> {{element.user.tel}} </td>
