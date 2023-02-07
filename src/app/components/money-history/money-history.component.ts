@@ -108,7 +108,7 @@ export class MoneyHistoryComponent implements OnInit {
        this.getWithdraw()
     }, ((err: any) => {
       if (err.status === 417) {
-        this.alert.warning("ทำการถอนเงินสำเร็จ")
+        this.alert.warnings("ถอนเงินไม่สำเร็จ")
       }
       else if (err.status === 400) {
         this.alert.warning("กรุณากรอกจำนวนที่ต้องการถอนเงิน")
@@ -127,7 +127,7 @@ export class MoneyHistoryComponent implements OnInit {
       this.getWithdraw()
     }, ((err: any) => {
       if (err.status === 417) {
-        this.alert.warning("ทำการถอนเงินสำเร็จ")
+        this.alert.warnings("ถอนเงินไม่สำเร็จ")
       }
       else if (err.status === 400) {
         this.alert.warning("กรุณากรอกจำนวนที่ต้องการถอนเงิน")

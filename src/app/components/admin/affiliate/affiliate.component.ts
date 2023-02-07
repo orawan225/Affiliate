@@ -10,6 +10,7 @@ import { CookieServiceService } from 'src/app/services/cookie-service.service';
 })
 export class AffiliateComponent implements OnInit {
   affiliate: any = []
+  user: any
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router) { }
 
@@ -21,6 +22,13 @@ export class AffiliateComponent implements OnInit {
     this.callApi.getAllAffiliate().subscribe(data => {
       this.affiliate = data
       console.log(data)
+    })
+  }
+
+  userNameSearch(keyword: string) {
+    this.callApi.usernameSearch(keyword).subscribe((res: any) => {
+     this.user = res
+      console.log(res);   
     })
   }
   

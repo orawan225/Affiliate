@@ -11,7 +11,7 @@ table {
 th,
 td {
     text-align: center;
-    border-bottom: 1px solid rgb(230, 227, 227);
+    border-bottom: 1px solid rgb(233, 233, 233);
 }
 
 thead {
@@ -31,14 +31,14 @@ img {
     color: rgb(255, 0, 0);
 }
 
-.bi-credit-card {
-    margin-top: 4rem;
-}
-
-.waiting-payment {
-    margin-top: 1rem;
+.wait-delivery {
+    margin-top: 3rem;
     margin-bottom: 1rem;
     text-align: center;
+}
+
+.bi-truckd {
+    margin-top: 4rem;
 }
 
 p {

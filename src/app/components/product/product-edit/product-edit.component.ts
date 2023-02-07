@@ -55,7 +55,6 @@ export class ProductEditComponent implements OnInit {
       this.img = this.api + res.image
       this.patchValue(res)
       console.log(res);
-      
     })
   }
 

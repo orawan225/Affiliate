@@ -14,7 +14,6 @@ import { AppComponent } from './app.component';
 // <--- Material --->
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-// import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatNativeDateModule} from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -60,6 +59,8 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { OrderHistoryComponent } from './components/order/order-history/order-history.component';
 import { OrderProductComponent } from './components/order/order-product/order-product.component';
 import { OrderUserComponent } from './components/order/order-user/order-user.component';
+import { OrderWaitPaymentComponent } from './components/order/order-wait-payment/order-wait-payment.component';
+import { OrderWaitDeliveryComponent } from './components/order/order-wait-delivery/order-wait-delivery.component';
 
 
 // <---- Store --->
@@ -78,11 +79,12 @@ import { UserComponent } from './components/admin/user/user.component';
 import { AffiliateComponent } from './components/admin/affiliate/affiliate.component';
 import { StoreComponent } from './components/admin/store/store.component';
 import { MoneyComponent } from './components/admin/money/money.component';
-import { OrderlistComponent } from './components/admin/orderlist/orderlist.component';
+import { OrderlistComponent } from './components/admin/order/orderlist/orderlist.component';
 import { WithdrawHistoryComponent } from './components/admin/withdraw-history/withdraw-history.component';
 import { ProfileComponent } from './components/admin/profile/profile.component';
 import { BankComponent } from './components/admin/bank/bank.component';
 import { ProfileAdminComponent } from './components/admin/profile-admin/profile-admin.component';
+import { UpdateUserComponent } from './components/admin/update/update-user/update-user.component';
 
 // <---- Affiliate --->
 import { ProductShareComponent } from './components/product/product-share/product-share.component';
@@ -94,9 +96,9 @@ import { ProductbystoreComponent } from './components/productbystore/productbyst
 
 import { MoneyHistoryComponent } from './components/money-history/money-history.component';
 import { ProductDetailComponent } from './components/product/product-detail/product-detail.component';
-import { OrderWaitPaymentComponent } from './components/order/order-wait-payment/order-wait-payment.component';
-import { OrderWaitDeliveryComponent } from './components/order/order-wait-delivery/order-wait-delivery.component';
 import { OrderSuccessComponent } from './components/order/order-success/order-success.component';
+import { OrderlistUserComponent } from './components/admin/order/orderlist-user/orderlist-user.component';
+
 
 
 
@@ -151,7 +153,9 @@ import { OrderSuccessComponent } from './components/order/order-success/order-su
     ShareHistoryComponent,
     ProductbystoreComponent,
     BankComponent,
-    OrderUserComponent
+    UpdateUserComponent,
+    OrderUserComponent,
+    OrderlistUserComponent
   ],
   imports: [
     BrowserModule,

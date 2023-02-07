@@ -10,10 +10,21 @@
         <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="navbar-toggler-success">
             <div class="flex-fill mb-2">
                 <ul class="nav navbar-nav d-flex justify-content-end text-center text-dark">
+                    <div class="dropdown">
+                        <a class="nav-link btn-outline-primary rounded-pill px-3 " role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            รายการสินค้า
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li class="nav-item">
+                                <a class="nav-link btn-outline-primary rounded-pill px-3" routerLink="/orderlist"> รายการคำสั่งซื้อ </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn-outline-primary rounded-pill px-3" routerLink="/orderlist-user"> รายการรอรับสินค้า </a>
+                            </li>
+                        </ul>
+                    </div>
 
-                    <li class="nav-item">
-                        <a class="nav-link btn-outline-primary rounded-pill px-3" routerLink="/orderlist"> รายการคำสั่งซื้อ </a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link btn-outline-primary rounded-pill px-3" routerLink="/withdraw-history"> ประวัติการโอน </a>
                     </li>

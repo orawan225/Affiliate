@@ -10,6 +10,7 @@ import { CookieServiceService } from 'src/app/services/cookie-service.service';
 })
 export class StoreComponent implements OnInit {
   store: any = []
+  user: any
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router) { }
 
@@ -22,6 +23,13 @@ export class StoreComponent implements OnInit {
     this.callApi.getStore().subscribe(data => {
       this.store = data
       console.log(data)
+    })
+  }
+
+  userNameSearch(keyword: string) {
+    this.callApi.usernameSearch(keyword).subscribe((res: any) => {
+     this.user = res
+      console.log(res);   
     })
   }
 

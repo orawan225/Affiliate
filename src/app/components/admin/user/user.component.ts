@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CookieServiceService } from 'src/app/services/cookie-service.service';
+import { UpdateUserComponent } from '../update/update-user/update-user.component';
 
 @Component({
   selector: 'app-user',
@@ -10,8 +11,10 @@ import { CookieServiceService } from 'src/app/services/cookie-service.service';
 })
 export class UserComponent implements OnInit {
   user: any = []
+  userName: any
 
-  constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router) { }
+  constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router,
+    ) { }
 
   ngOnInit(): void {
     this. getUser()
@@ -24,7 +27,15 @@ export class UserComponent implements OnInit {
     })
   }
 
-  getRowAF(index: number): number {
-    return index + 1;
+  userNameSearch(keyword: string) {
+    this.callApi.usernameSearch(keyword).subscribe((res: any) => {
+     this.userName = res
+      console.log(res);   
+    })
   }
+
+  setUserId(userId : string) {
+    this.router.navigate(['/update-user'],{queryParams: {id:userId}})
+  }
+
 }

@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AffiliateComponent } from './components/admin/affiliate/affiliate.component';
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 import { MoneyComponent } from './components/admin/money/money.component';
-import { OrderlistComponent } from './components/admin/orderlist/orderlist.component';
+import { OrderlistComponent } from './components/admin/order/orderlist/orderlist.component';
 import { StoreComponent } from './components/admin/store/store.component';
 import { UserComponent } from './components/admin/user/user.component';
 import { WithdrawHistoryComponent } from './components/admin/withdraw-history/withdraw-history.component';
@@ -42,6 +42,8 @@ import { ShareHistoryComponent } from './components/share-history/share-history.
 import { ProductbystoreComponent } from './components/productbystore/productbystore.component';
 import { BankComponent } from './components/admin/bank/bank.component';
 import { OrderUserComponent } from './components/order/order-user/order-user.component';
+import { UpdateUserComponent } from './components/admin/update/update-user/update-user.component';
+import { OrderlistUserComponent } from './components/admin/order/orderlist-user/orderlist-user.component';
 
 
 const routes: Routes = [
@@ -97,7 +99,10 @@ const routes: Routes = [
   { path: 'orderlist', component: OrderlistComponent,canActivate: [GuardAdminService]},
   { path: 'withdraw-history', component: WithdrawHistoryComponent,canActivate: [GuardAdminService]},
   { path: 'profile', component: ProfileComponent,canActivate: [GuardAdminService]},
-  { path: 'bank', component: BankComponent,canActivate: [GuardAdminService]}
+  { path: 'bank', component: BankComponent,canActivate: [GuardAdminService]},
+  { path: 'update-user', component: UpdateUserComponent,canActivate: [GuardAdminService]},
+  { path: 'orderlist-user', component: OrderlistUserComponent,canActivate: [GuardAdminService]},
+
 
 ];
 

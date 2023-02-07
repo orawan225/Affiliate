@@ -51,7 +51,7 @@ export class CallApiService {
   public getProductByStore(storeId: any) {
     return this.http.get(`${environment.apiUrl}/auth/getAll-productByStoreId/${storeId}`)
   }
-  
+
   public getOrderByUser() {
     return this.http.get(`${environment.apiUrl}/order-list/get-my-order-status-wait-payment`, this.header())
   }
@@ -67,7 +67,7 @@ export class CallApiService {
   public editProfile(user: any) {
     return this.http.put<profile>(`${environment.apiUrl}/user/update-profile/`, user, this.header())
   }
-  
+
   public editProfileStore(user: any) {
     return this.http.put<profile>(`${environment.apiUrl}/store/store-update/`, user, this.header())
   }
@@ -88,7 +88,7 @@ export class CallApiService {
   }
 
   public wathdrawMoneyAffiliate(withdraw: any) {
-    return this.http.put(`${environment.apiUrl}/affiliate/withdraw-money-for-affiliate?withdraw=`+ withdraw,{}, this.header())
+    return this.http.put(`${environment.apiUrl}/affiliate/withdraw-money-for-affiliate?withdraw=` + withdraw, {}, this.header())
   }
 
   public shareHistory() {
@@ -106,7 +106,7 @@ export class CallApiService {
   }
 
   public wathdrawMoney(withdraw: any) {
-    return this.http.put(`${environment.apiUrl}/store/withdraw-money-for-store?withdraw=`+ withdraw,{}, this.header())
+    return this.http.put(`${environment.apiUrl}/store/withdraw-money-for-store?withdraw=` + withdraw, {}, this.header())
   }
 
   public wathdrawMoneyHistory() {
@@ -125,13 +125,13 @@ export class CallApiService {
     return this.http.get(`${environment.apiUrl}/order-list/get-my-order-status-success`, this.header())
   }
 
-  
+
   public getShareLinkSuccess(productId: any) {
     return this.http.get<product>(`${environment.apiUrl}/store/get-share-link-success-for-store/${productId}`, this.header())
   }
 
 
-  
+
 
 
 
@@ -141,7 +141,7 @@ export class CallApiService {
   }
 
   public getAllProductByStore() {
-    return this.http.get<product>(`${environment.apiUrl}/product/getMy-productByStoreIsTrue`, this.header())
+    return this.http.get<product>(`${environment.apiUrl}/product/get-my-product-by-store-is-true`, this.header())
   }
 
   public getProductById(productId: any) {
@@ -172,8 +172,8 @@ export class CallApiService {
   public getOrderHistoryDelivery() {
     return this.http.get<orderList>(`${environment.apiUrl}/store/get-my-order-deliver-is-true-by-store`, this.header())
   }
-  
- 
+
+
 
 
 
@@ -193,13 +193,13 @@ export class CallApiService {
   }
 
   public getAllByStoreId() {
-    return this.http.get<orderDetail>(`${environment.apiUrl}/order-detail/getAllByStoreId`,this.header())
+    return this.http.get<orderDetail>(`${environment.apiUrl}/order-detail/getAllByStoreId`, this.header())
   }
-  
+
   public getOrderDetail(orderId: any) {
-    return this.http.get<orderList>(`${environment.apiUrl}/order-list/getOrderDetail?id=${orderId}`,this.header())
+    return this.http.get<orderList>(`${environment.apiUrl}/order-list/getOrderDetail?id=${orderId}`, this.header())
   }
-  
+
   public getSearchProduct(product: string) {
     return this.http.get<product>(`${environment.apiUrl}/auth/product-search?keyword=${product}`)
   }
@@ -220,7 +220,7 @@ export class CallApiService {
     return this.http.get<orderList>(`${environment.apiUrl}/order-list/get-my-order-status-payment`, this.header())
   }
 
-  
+
   public orderSuccess(orderListId: string, order: orderDetail) {
     return this.http.put<orderList>(`${environment.apiUrl}/order-list/update-order-deliver-status-is-true/${orderListId}`, order, this.header())
   }
@@ -228,19 +228,19 @@ export class CallApiService {
 
   // admin
   public getAllUser() {
-    return this.http.get(`${environment.apiUrl}/admin/get-all-user`,this.header())
+    return this.http.get(`${environment.apiUrl}/admin/get-all-user`, this.header())
   }
 
   public getAllAffiliate() {
-    return this.http.get(`${environment.apiUrl}/admin/get-all-affiliate`,this.header())
+    return this.http.get(`${environment.apiUrl}/admin/get-all-affiliate`, this.header())
   }
 
   public getStore() {
-    return this.http.get(`${environment.apiUrl}/admin/get-all-store`,this.header())
+    return this.http.get(`${environment.apiUrl}/admin/get-all-store`, this.header())
   }
 
   public getOrderStore() {
-    return this.http.get(`${environment.apiUrl}/admin/get-all-order-by-admin`,this.header())
+    return this.http.get(`${environment.apiUrl}/admin/get-all-order-by-admin`, this.header())
   }
 
   public updateOrderPayment(orderListId: string, order: orderList) {
@@ -248,19 +248,19 @@ export class CallApiService {
   }
 
   public withdrawMoney() {
-    return this.http.get(`${environment.apiUrl}/admin/get-all-order-status-withdraw-money`,this.header())
+    return this.http.get(`${environment.apiUrl}/admin/get-all-order-status-withdraw-money`, this.header())
   }
 
   public updateOrderWithdraw(withdrawId: string, withdraw: any) {
-    return this.http.put<withdraw>(`${environment.apiUrl}/admin/update-order-withdraw-success-and-add-slip/${withdrawId}`,withdraw, this.header())
+    return this.http.put<withdraw>(`${environment.apiUrl}/admin/update-order-withdraw-success-and-add-slip/${withdrawId}`, withdraw, this.header())
   }
 
   public showStatusWithdraw() {
-    return this.http.get(`${environment.apiUrl}/admin/get-all-order-status-withdraw-success`,this.header())
+    return this.http.get(`${environment.apiUrl}/admin/get-all-order-status-withdraw-success`, this.header())
   }
 
   public getWithdrawById(withdrawId: any) {
-    return this.http.get(`${environment.apiUrl}/admin/get-withdraw-by-id/${withdrawId}`,this.header())
+    return this.http.get(`${environment.apiUrl}/admin/get-withdraw-by-id/${withdrawId}`, this.header())
   }
 
   public getProfileAdmin() {
@@ -276,19 +276,40 @@ export class CallApiService {
   }
 
   public getconfig() {
-    return this.http.get(`${environment.apiUrl}/admin/get-config`,this.header())
+    return this.http.get(`${environment.apiUrl}/admin/get-config`, this.header())
   }
 
   public myWalletAdmin() {
-    return this.http.get(`${environment.apiUrl}/admin/get-my-wallet`,this.header())
+    return this.http.get(`${environment.apiUrl}/admin/get-my-wallet`, this.header())
   }
 
   public getBankAccount() {
-    return this.http.get(`${environment.apiUrl}/admin/get-bank-account`,this.header())
+    return this.http.get(`${environment.apiUrl}/admin/get-bank-account`, this.header())
   }
 
   public editBank(data: any) {
     return this.http.post(`${environment.apiUrl}/admin/create-bank-account`, data, this.header())
   }
+
+  public usernameSearch(user: string) {
+    return this.http.get(`${environment.apiUrl}/auth/product-search?keyword=${user}`)
+  }
+
+  public getUserById(userId: any) {
+    return this.http.get(`${environment.apiUrl}/admin/get-user-by-id/${userId}`, this.header())
+  }
+
+  public editProfileUser(userId: string, user: any) {
+    return this.http.put<profile>(`${environment.apiUrl}/admin/update-user-account-by-admin/${userId}`,user, this.header())
+  }
+
+  public getAllOderUser() {
+    return this.http.get(`${environment.apiUrl}/admin/get-all-order-status-delivery-is-false`, this.header())
+  }
+
+  public orderdeliverySuccess(orderListId: string, order:any) {
+    return this.http.put<orderList>(`${environment.apiUrl}/admin/update-order-deliver-status-is-true/${orderListId}`, order, this.header())
+  }
+
 
 }
