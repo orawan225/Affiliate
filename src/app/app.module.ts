@@ -61,6 +61,7 @@ import { OrderProductComponent } from './components/order/order-product/order-pr
 import { OrderUserComponent } from './components/order/order-user/order-user.component';
 import { OrderWaitPaymentComponent } from './components/order/order-wait-payment/order-wait-payment.component';
 import { OrderWaitDeliveryComponent } from './components/order/order-wait-delivery/order-wait-delivery.component';
+import { OrderSuccessComponent } from './components/order/order-success/order-success.component';
 
 
 // <---- Store --->
@@ -85,6 +86,10 @@ import { ProfileComponent } from './components/admin/profile/profile.component';
 import { BankComponent } from './components/admin/bank/bank.component';
 import { ProfileAdminComponent } from './components/admin/profile-admin/profile-admin.component';
 import { UpdateUserComponent } from './components/admin/update/update-user/update-user.component';
+import { OrderlistUserComponent } from './components/admin/order/orderlist-user/orderlist-user.component';
+import { OrderlistPaymentComponent } from './components/admin/order/orderlist-payment/orderlist-payment.component';
+
+
 
 // <---- Affiliate --->
 import { ProductShareComponent } from './components/product/product-share/product-share.component';
@@ -96,9 +101,6 @@ import { ProductbystoreComponent } from './components/productbystore/productbyst
 
 import { MoneyHistoryComponent } from './components/money-history/money-history.component';
 import { ProductDetailComponent } from './components/product/product-detail/product-detail.component';
-import { OrderSuccessComponent } from './components/order/order-success/order-success.component';
-import { OrderlistUserComponent } from './components/admin/order/orderlist-user/orderlist-user.component';
-
 
 
 
@@ -155,7 +157,8 @@ import { OrderlistUserComponent } from './components/admin/order/orderlist-user/
     BankComponent,
     UpdateUserComponent,
     OrderUserComponent,
-    OrderlistUserComponent
+    OrderlistUserComponent,
+    OrderlistPaymentComponent
   ],
   imports: [
     BrowserModule,

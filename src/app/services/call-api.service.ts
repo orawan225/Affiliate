@@ -311,5 +311,8 @@ export class CallApiService {
     return this.http.put<orderList>(`${environment.apiUrl}/admin/update-order-deliver-status-is-true/${orderListId}`, order, this.header())
   }
 
+  public getAllOrderDelivery() {
+    return this.http.get(`${environment.apiUrl}/admin/get-all-order-status-payment`, this.header())
+  }
 
 }
