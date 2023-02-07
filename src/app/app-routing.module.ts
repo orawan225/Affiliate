@@ -45,6 +45,9 @@ import { OrderUserComponent } from './components/order/order-user/order-user.com
 import { UpdateUserComponent } from './components/admin/update/update-user/update-user.component';
 import { OrderlistUserComponent } from './components/admin/order/orderlist-user/orderlist-user.component';
 import { OrderlistPaymentComponent } from './components/admin/order/orderlist-payment/orderlist-payment.component';
+import { UpdateAffiliateComponent } from './components/admin/update/update-affiliate/update-affiliate.component';
+import { UpdateStoreComponent } from './components/admin/update/update-store/update-store.component';
+
 
 
 const routes: Routes = [
@@ -102,6 +105,8 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent,canActivate: [GuardAdminService]},
   { path: 'bank', component: BankComponent,canActivate: [GuardAdminService]},
   { path: 'update-user', component: UpdateUserComponent,canActivate: [GuardAdminService]},
+  { path: 'update-affiliate', component: UpdateAffiliateComponent,canActivate: [GuardAdminService]},
+  { path: 'update-store', component: UpdateStoreComponent,canActivate: [GuardAdminService]},
   { path: 'orderlist-user', component: OrderlistUserComponent,canActivate: [GuardAdminService]},
   { path: 'orderlist-payment', component: OrderlistPaymentComponent,canActivate: [GuardAdminService]},
 

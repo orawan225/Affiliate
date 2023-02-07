@@ -8,17 +8,15 @@ import { CallApiService } from 'src/app/services/call-api.service';
 import { CookieServiceService } from 'src/app/services/cookie-service.service';
 
 @Component({
-  selector: 'app-update-user',
-  templateUrl: './update-user.component.html',
-  styleUrls: ['./update-user.component.css']
+  selector: 'app-update-affiliate',
+  templateUrl: './update-affiliate.component.html',
+  styleUrls: ['./update-affiliate.component.css']
 })
-export class UpdateUserComponent implements OnInit {
-
+export class UpdateAffiliateComponent implements OnInit {
   userId: any
   user: any = []
   formProfile: any
-  file: any
-  fullName: any
+  store: any
 
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router,
@@ -64,7 +62,9 @@ export class UpdateUserComponent implements OnInit {
   getUserId() {
     this.callApi.getUserById(this.userId).subscribe((res: any) => {
       this.user = res.user
+      this.store = res
       this.patchValue(res.user)
+      console.log(this.store);
       console.log(this.user);
     })
   }
@@ -75,7 +75,7 @@ export class UpdateUserComponent implements OnInit {
     this.callApi.editProfileUser(this.userId, data).subscribe(data => {
       console.log(data);
       this.alert.success("แก้ไขข้อมูลสำเร็จ")
-      this.router.navigate(['/user'])
+      this.router.navigate(['/affiliate'])
     })
   }
 }

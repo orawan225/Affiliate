@@ -291,9 +291,6 @@ export class CallApiService {
     return this.http.post(`${environment.apiUrl}/admin/create-bank-account`, data, this.header())
   }
 
-  public usernameSearch(user: string) {
-    return this.http.get(`${environment.apiUrl}/auth/product-search?keyword=${user}`)
-  }
 
   public getUserById(userId: any) {
     return this.http.get(`${environment.apiUrl}/admin/get-user-by-id/${userId}`, this.header())
@@ -313,6 +310,10 @@ export class CallApiService {
 
   public getAllOrderDelivery() {
     return this.http.get(`${environment.apiUrl}/admin/get-all-order-status-payment`, this.header())
+  }
+
+  public usernameSearch(user: string) {
+    return this.http.get(`${environment.apiUrl}/admin/get-username-search?keyword=${user}`,this.header())
   }
 
 }

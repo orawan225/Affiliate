@@ -1,0 +1,58 @@
+.backgroundimg {
+    background-image: url('src\assets\img\illustrations\heroheader.png');
+    margin-top: -10px;
+}
+
+h2 {
+    text-align: center;
+}
+
+img {
+    width: 250px;
+    height: 250px;
+}
+
+.fa-solid {
+    margin-left: 5px;
+}
+
+.bi-pencil-square {
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-left: auto;
+}
+
+.button {
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.affiliate {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.shope {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.input-group-text {
+    width: 27%;
+}
+
+h2 {
+    text-align: center;
+}
+
+.btn-outline-success {
+    float: right;
+}
+
+.card {
+    margin-left: 5rem;
+    margin-right: 5rem;
+    margin-top: 4rem;
+    margin-bottom: 6rem;
+}

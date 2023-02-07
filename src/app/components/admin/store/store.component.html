@@ -2,7 +2,7 @@
 <div class="container py-5 h-100">
     <div class="col">
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="ค้นหา" aria-describedby="basic-addon2" #input (input)="userNameSearch(input.value)">
+            <input type="text" class="form-control" placeholder="ค้นหา" aria-describedby="basic-addon2" #input (input)="searchUser(input.value)">
             <span class="input-group-text" id="basic-addon2">
                 <i class="bi bi-search">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -23,21 +23,25 @@
                         <thead>
                             <tr style="background-color: rgb(167, 161, 240); ">
                                 <th> # </th>
-                                <th> ชื่อร้าน </th>
+                                <!-- <th> ชื่อร้าน </th> -->
                                 <th> ชื่อผู้ใช้งาน </th>
                                 <th> อีเมล </th>
                                 <th> เบอร์โทรศัพท์ </th>
                                 <th style="width: 30%;"> ที่อยู่ </th>
+                                <th style="width: 10%;"> </th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let element of store ; let i = index">
                                 <td> {{i+1}} </td>
-                                <td> {{element.store.store}} </td>
+                                <!-- <td> {{element.store.store}} </td> -->
                                 <td> {{element.fullName}} </td>
                                 <td> {{element.email}} </td>
                                 <td> {{element.tel}} </td>
                                 <td> {{element.address}} ตำบล{{element.sub}} อำเภอ{{element.district}} จังหวัด{{element.province}} รหัสไปรษณีย์{{element.postalCode}}</td>
+                                <td>
+                                    <button type="button" class="btn btn-warning" (click)="setUserId(element.userId)"> แก้ไข </button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

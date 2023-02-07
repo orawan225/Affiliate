@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-orderlist-user',
@@ -11,6 +12,7 @@ export class OrderlistUserComponent implements OnInit {
 
   ordertList: any
   formOrder: any
+  api = environment.apiUrl
 
   constructor(private callApi: CallApiService, private alert: AlertService) { }
 

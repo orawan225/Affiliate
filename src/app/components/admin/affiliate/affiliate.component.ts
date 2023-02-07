@@ -10,7 +10,7 @@ import { CookieServiceService } from 'src/app/services/cookie-service.service';
 })
 export class AffiliateComponent implements OnInit {
   affiliate: any = []
-  user: any
+  // userName: any = []
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router) { }
 
@@ -25,11 +25,21 @@ export class AffiliateComponent implements OnInit {
     })
   }
 
-  userNameSearch(keyword: string) {
+  searchUser(keyword: string) {
     this.callApi.usernameSearch(keyword).subscribe((res: any) => {
-     this.user = res
-      console.log(res);   
+      console.log(res);
+      // this.user = res.user
+      this.affiliate = [];
+      res.forEach((element: any) => {
+        this.affiliate.push(element.affiliate);
+      });
+      console.log(this.affiliate);
+
     })
+  }
+
+  setUserId(userId: string) {
+    this.router.navigate(['/update-affiliate'], { queryParams: { id: userId } })
   }
   
 

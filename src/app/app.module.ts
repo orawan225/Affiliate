@@ -101,6 +101,8 @@ import { ProductbystoreComponent } from './components/productbystore/productbyst
 
 import { MoneyHistoryComponent } from './components/money-history/money-history.component';
 import { ProductDetailComponent } from './components/product/product-detail/product-detail.component';
+import { UpdateAffiliateComponent } from './components/admin/update/update-affiliate/update-affiliate.component';
+import { UpdateStoreComponent } from './components/admin/update/update-store/update-store.component';
 
 
 
@@ -158,7 +160,9 @@ import { ProductDetailComponent } from './components/product/product-detail/prod
     UpdateUserComponent,
     OrderUserComponent,
     OrderlistUserComponent,
-    OrderlistPaymentComponent
+    OrderlistPaymentComponent,
+    UpdateAffiliateComponent,
+    UpdateStoreComponent
   ],
   imports: [
     BrowserModule,
