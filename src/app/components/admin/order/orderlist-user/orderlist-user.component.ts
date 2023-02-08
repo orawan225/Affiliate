@@ -32,6 +32,7 @@ export class OrderlistUserComponent implements OnInit {
       if (result.isConfirmed) {
         await this.callApi.orderdeliverySuccess(orderListId, this.formOrder).subscribe(async (res) => {
           await this.alert.success("ยืนยันการรับสินค้า")
+          window.location.reload();
           this.getAllOderUser()
         })
       }

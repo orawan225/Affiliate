@@ -11,11 +11,11 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./orderlist.component.css']
 })
 export class OrderlistComponent implements OnInit {
- 
+
 
   @ViewChild(MatPaginator) paginator: MatPaginator | any;
 
-  constructor(public callApi: CallApiService, private alert: AlertService, private fb: FormBuilder) {}
+  constructor(public callApi: CallApiService, private alert: AlertService, private fb: FormBuilder) { }
 
 
   formOrder: any
@@ -36,11 +36,13 @@ export class OrderlistComponent implements OnInit {
   updateOrderPayment(orderListId: any) {
     this.alert.confirm("ทำการยืนยันคำสั่งซื้อใช่หรือไม่ ?").then(async (result) => {
       if (result.isConfirmed) {
-        await this.callApi.updateOrderPayment(orderListId, this.formOrder).subscribe(async (data) => {
-          await this.alert.success("รอการจัดส่งสินค้า")
+        this.callApi.updateOrderPayment(orderListId, this.formOrder).subscribe(data => {
+          this.alert.success("รอการจัดส่งสินค้า")
+          window.location.reload();
           this.getAllOrderStore()
+
         })
-      } 
+      }
 
     })
   }

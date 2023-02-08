@@ -28,8 +28,6 @@
                                     <th style="width: 5%;"> ที่อยู่ในการจัดส่ง </th>
                                 </tr>
                             </thead>
-                            <br>
-
                             <tbody *ngFor="let order of ordertList ; let i = index">
                                 <tr>
                                     <td> {{order.dateStPayment | date: 'HH:mm:ss'}}
@@ -77,7 +75,8 @@
                                         </div>
 
                                     </td>
-                                    <td> <strong>ชื่อผู้รับ</strong> : {{order.fullName}}
+                                    <td>
+                                        <br> <strong>ชื่อผู้รับ</strong> : {{order.fullName}}
                                         <br> <strong>เบอร์โทรศัพท์</strong> : {{order.tel}}
                                         <br> <strong>ที่อยู่ในการจัดส่ง</strong> : {{order.address}} ตำบล{{order.sub}} อำเภอ{{order.district}} จังหวัด{{order.province}} {{order.postalCode}}
                                     </td>

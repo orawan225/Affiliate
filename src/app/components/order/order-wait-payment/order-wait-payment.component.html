@@ -14,10 +14,12 @@
                 <div class="card-body">
                     <div class="waiting-payment" *ngIf="ordertList == 0">
                         <i class="bi bi-credit-card">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16">
-                                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z"/>
-                                <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z"/>
-                              </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
+                                class="bi bi-credit-card" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z" />
+                                <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z" />
+                            </svg>
                         </i>
                         <p> ผู้ใช้งานยังไม่มีรายการสั่งซื้อที่รอการชำระเงิน </p>
                     </div>
@@ -30,66 +32,64 @@
                                 <th style=" width: 2%;"> ชำระเงิน </th>
                                 <th style=" width: 2%;"> ลบรายการสินค้า </th>
                             </tr>
-                        </thead>
-                        <br>
-
-                        <tbody *ngFor="let order of ordertList ; let i = index">
-                            <tr>
-                                <td> {{order.date | date: 'HH:mm:ss'}}
-                                    <br> {{order.date | date:' d/M/yyyy'}}
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#Modal'+i">
+                            <tbody *ngFor="let order of ordertList ; let i = index">
+                                <tr>
+                                    <td> {{order.date | date: 'HH:mm:ss'}}
+                                        <br> {{order.date | date:' d/M/yyyy'}}
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#Modal'+i">
                                         รายการสินค้า
                                     </button>
-                                    <div class="modal fade" [attr.id]="'Modal'+i" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h1 class="modal-title" id="exampleModalLabel"> รายการสินค้า </h1>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <table>
-                                                        <thead>
-                                                            <tr>
-                                                                <th style=" width: 5%;"> สินค้า </th>
-                                                                <th style=" width: 3%;"> จำนวน/ชิ้น </th>
-                                                                <th style=" width: 5%;"> ราคา </th>
-                                                            </tr>
-                                                        </thead>
-                                                        <br>
-                                                        <tbody>
-                                                            <tr *ngFor="let res of order.detail">
-                                                                <td> {{res.productName}} </td>
-                                                                <td> {{res.amount}} </td>
-                                                                <td> {{res.productPrice | number}} </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <div class="totalPrice mb-3">
-                                                    ยอดสุทธิ {{order.totalPrice | number}} บาท
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <div class="modal fade" [attr.id]="'Modal'+i" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title" id="exampleModalLabel"> รายการสินค้า </h1>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <table>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th style=" width: 5%;"> สินค้า </th>
+                                                                    <th style=" width: 3%;"> จำนวน/ชิ้น </th>
+                                                                    <th style=" width: 5%;"> ราคา </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <br>
+                                                            <tbody>
+                                                                <tr *ngFor="let res of order.detail">
+                                                                    <td> {{res.productName}} </td>
+                                                                    <td> {{res.amount}} </td>
+                                                                    <td> {{res.productPrice | number}} </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="totalPrice mb-3">
+                                                        ยอดสุทธิ {{order.totalPrice | number}} บาท
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                </td>
-                                <td> ชื่อผู้รับ : {{order.fullName}}
-                                    <br> เบอร์โทรศัพท์: {{order.tel}}
-                                    <br> ที่อยู่ในการจัดส่ง : {{order.address}} ตำบล{{order.sub}} อำเภอ{{order.district}} จังหวัด{{order.province}} {{order.postalCode}}
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-outline-success" (click)="setOrderListId(order.orderListId)"> ยืนยัน </button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-outline-danger" (click)="deleteOrderProductNotPayment(order.orderListId)"> ลบ </button>
-                                </td>
-                            </tr>
-                        </tbody>
+                                    </td>
+                                    <td>
+                                        <br> ชื่อผู้รับ : {{order.fullName}}
+                                        <br> เบอร์โทรศัพท์: {{order.tel}}
+                                        <br> ที่อยู่ในการจัดส่ง : {{order.address}} ตำบล{{order.sub}} อำเภอ{{order.district}} จังหวัด{{order.province}} {{order.postalCode}}
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-success" (click)="setOrderListId(order.orderListId)"> ยืนยัน </button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-danger" (click)="deleteOrderProductNotPayment(order.orderListId)"> ลบ </button>
+                                    </td>
+                                </tr>
+                            </tbody>
                     </table>
                 </div>
             </div>

@@ -111,10 +111,10 @@ export class MoneyHistoryComponent implements OnInit {
         this.alert.warnings("ถอนเงินไม่สำเร็จ")
       }
       else if (err.status === 400) {
-        this.alert.warning("กรุณากรอกจำนวนที่ต้องการถอนเงิน")
+        this.alert.warnings("กรุณากรอกจำนวนที่ต้องการถอนเงิน")
       }
       else if (err.status === 500) {
-        this.alert.warning("ยอดเงินของคุณไม่เพียงพอสำหรับการถอนเงินในครั้งนี้")
+        this.alert.warnings("ยอดเงินของคุณไม่เพียงพอสำหรับการถอนเงินในครั้งนี้")
       }
     })
     )

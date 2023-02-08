@@ -32,8 +32,6 @@
                                 <th style=" width: 5%;"> หลักฐานในการชำระเงิน </th>
                             </tr>
                         </thead>
-                        <br>
-
                         <tbody *ngFor="let order of ordertList ; let i = index">
                             <tr>
                                 <td> {{order.dateStSuccess | date: 'HH:mm:ss'}}
@@ -79,7 +77,8 @@
                                     </div>
 
                                 </td>
-                                <td> ชื่อผู้รับ : {{order.fullName}}
+                                <td>
+                                    <br> ชื่อผู้รับ : {{order.fullName}}
                                     <br> เบอร์โทรศัพท์: {{order.tel}}
                                     <br> ที่อยู่ในการจัดส่ง : {{order.address}} ตำบล{{order.sub}} อำเภอ{{order.district}} จังหวัด{{order.province}} {{order.postalCode}}
                                 </td>

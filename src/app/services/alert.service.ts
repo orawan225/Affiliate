@@ -57,9 +57,9 @@ export class AlertService {
       position: 'top',
       text: mss,
       icon: 'warning',
-      showCancelButton: true,
+      // showCancelButton: true,
       cancelButtonColor: '#3085d6',
-      // confirmButtonColor: '#d33',
+      confirmButtonColor: '#d33',
       confirmButtonText: 'ตกลง'
     })
   }
