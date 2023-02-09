@@ -55,17 +55,9 @@ export class ProductShareComponent implements OnInit {
       this.baseUrl = window.location.port
         ? `${window.location.protocol}//${window.location.hostname}:${window.location.port}${this.url}?id=${this.productId}&link=${res.data.link}`
         : `${window.location.protocol}//${window.location.hostname}${this.url}?id=${this.productId}&link=${res.data.link}`;
-      // navigator.clipboard.writeText(this.baseUrl)
 
       this.clipboard.copy(this.baseUrl);
-      
 
-  
-     
-        // if (window.isSecureContext && navigator.clipboard) {
-        //   navigator.clipboard.writeText(content);
-        // } 
-     
     })
   }
 
