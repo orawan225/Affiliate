@@ -108,7 +108,7 @@ export class ProfileUserComponent implements OnInit {
     if (this.file) {
       data.append('file', this.file, this.file.name)
     }
-    
+    data.append('profile', JSON.stringify(this.formProfile.value))
     this.callApi.editProfile(data).subscribe(data => {
       console.log(data);
       this.alert.success("แก้ไขรูปโปรไฟล์สำเร็จ")

@@ -65,7 +65,7 @@ export class CallApiService {
   }
 
   public editProfile(user: any) {
-    return this.http.put<profile>(`${environment.apiUrl}/user/update-profile/`, user, this.header())
+    return this.http.put<profile>(`${environment.apiUrl}/user/update-profile`, user, this.header())
   }
 
   public editProfileStore(user: any) {
