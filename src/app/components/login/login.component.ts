@@ -35,28 +35,26 @@ export class LoginComponent implements OnInit {
 
 
   login() {
-
-    if (this.formLogin.value.userName == "" || this.formLogin.value.userName == null) {
-      this.submitAdd = true;
-    } 
-    this.callApi.loginUser(this.formLogin.value).subscribe((res: any) => {
-      this.cookie.setToken(res.data.token)
-      let role: string = this.cookie.helper$.decodeToken(res.data.token).role
-      this.cookie.setRoleAccount(role.trim())
-      this.alert.success("เข้าสู่ระบบสำเร็จ")
-      setTimeout(() => {
-        if (role.toUpperCase().trim() == "ADMIN".toUpperCase().trim()) {
-          this.router.navigate(['/dashboard'])
-        } else {
-          this.router.navigate(['/home'])
+    this.submitAdd = true;
+    if (this.formLogin.valid) {
+      this.callApi.loginUser(this.formLogin.value).subscribe((res: any) => {
+        this.cookie.setToken(res.data.token)
+        let role: string = this.cookie.helper$.decodeToken(res.data.token).role
+        this.cookie.setRoleAccount(role.trim())
+        this.alert.success("เข้าสู่ระบบสำเร็จ")
+        setTimeout(() => {
+          if (role.toUpperCase().trim() == "ADMIN".toUpperCase().trim()) {
+            this.router.navigate(['/dashboard'])
+          } else {
+            this.router.navigate(['/home'])
+          }
+        }, 1000);
+      }, ((err: any) => {
+        if (err.status === 417) {
+          this.alert.error("เข้าสู่ระบบไม่สำเร็จ")
         }
-      }, 1000);
-    }, ((err: any) => {
-      if (err.status === 417) {
-        this.alert.error("เข้าสู่ระบบไม่สำเร็จ")
-      }
-    }))
-
+      }))
+    }
   }
 
 }
