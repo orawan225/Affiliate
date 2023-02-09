@@ -9,7 +9,8 @@ import { CookieServiceService } from 'src/app/services/cookie-service.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  user: any = []
+  user: Array<any> = []
+  user2: Array<any> = []
   userName: any = []
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router,
@@ -20,23 +21,15 @@ export class UserComponent implements OnInit {
   }
 
   getUser() {
-    this.callApi.getAllUser().subscribe(data => {
+    this.callApi.getAllUser().subscribe((data: any) => {
       this.user = data
+      this.user2 = data
       console.log(data)
     })
   }
 
   searchUser(keyword: string) {
-    this.callApi.usernameSearch(keyword).subscribe((res: any) => {
-      console.log(res);
-      // this.user = res.user
-      this.user = [];
-      res.forEach((element: any) => {
-        this.user.push(element.user);
-      });
-      console.log(this.user);
-
-    })
+    this.user = this.user2.filter((data: any) => data.userName.toLowerCase().includes(keyword.toLowerCase()))
   }
 
   setUserId(userId: string) {

@@ -3,8 +3,8 @@ export class configSystem {
     percent?: number
     minStore?: number
     maxStore?: number
-    maxAffiliate?: number
     minAffiliate?: number
+    maxAffiliate?: number
 
 
 }

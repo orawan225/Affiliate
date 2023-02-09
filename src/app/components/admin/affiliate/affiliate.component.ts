@@ -9,8 +9,10 @@ import { CookieServiceService } from 'src/app/services/cookie-service.service';
   styleUrls: ['./affiliate.component.css']
 })
 export class AffiliateComponent implements OnInit {
-  affiliate: any = []
-  // userName: any = []
+  
+  affiliate: Array<any> = []
+  affiliate2: Array<any> = []
+  userName: any = []
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router) { }
 
@@ -19,23 +21,15 @@ export class AffiliateComponent implements OnInit {
   }
 
   getAfiliate() {
-    this.callApi.getAllAffiliate().subscribe(data => {
+    this.callApi.getAllAffiliate().subscribe((data: any) => {
       this.affiliate = data
+      this.affiliate2 = data
       console.log(data)
     })
   }
 
   searchUser(keyword: string) {
-    this.callApi.usernameSearch(keyword).subscribe((res: any) => {
-      console.log(res);
-      // this.user = res.user
-      this.affiliate = [];
-      res.forEach((element: any) => {
-        this.affiliate.push(element.affiliate);
-      });
-      console.log(this.affiliate);
-
-    })
+    this.affiliate = this.affiliate2.filter((data: any) => data.userName.toLowerCase().includes(keyword.toLowerCase()))
   }
 
   setUserId(userId: string) {

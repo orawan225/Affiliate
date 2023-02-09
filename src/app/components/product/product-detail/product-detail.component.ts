@@ -73,7 +73,7 @@ export class ProductDetailComponent implements OnInit {
       this.storeId = this.profile.store.storeId
     })
     if (this.storeId == this.product.storeId) {
-      await this.alert.error("ไม่สามารถสั่งซื้อสินค้าของร้านตนเองได้");
+      await this.alert.error("ไม่สามารถสั่งซื้อสินค้าจากร้านตนเองได้");
     }
     else {
       product.amount = 1;

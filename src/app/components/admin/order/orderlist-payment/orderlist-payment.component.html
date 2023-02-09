@@ -25,6 +25,7 @@
                         <thead>
                             <tr>
                                 <th style=" width: 2%;;"> วันที่ </th>
+                                <th style=" width: 2%;;"> ร้านค้า </th>
                                 <th style=" width: 4%;"> สินค้า </th>
                                 <th style=" width: 5%;"> ที่อยู่ในการจัดส่ง </th>
                                 <th style=" width: 5%;"> หลักฐานในการชำระเงิน </th>
@@ -35,6 +36,7 @@
                                 <td> {{order.dateStPayment | date: 'HH:mm:ss'}}
                                     <br> {{order.dateStPayment | date:' d/M/yyyy'}}
                                 </td>
+                                <td>{{order.store}}</td>
                                 <td>
                                     <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#Modal'+i">
                                         รายการสินค้า

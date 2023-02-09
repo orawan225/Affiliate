@@ -39,11 +39,6 @@ export class LoginComponent implements OnInit {
     if (this.formLogin.value.userName == "" || this.formLogin.value.userName == null) {
       this.submitAdd = true;
     } 
-    // else if ((this.formLogin.value.userName == null && this.formLogin.value.passWord == null)
-    //   || (this.formLogin.value.userName == "" && this.formLogin.passWord == "")) {
-    //   this.submitAdd = true;
-    // }
-
     this.callApi.loginUser(this.formLogin.value).subscribe((res: any) => {
       this.cookie.setToken(res.data.token)
       let role: string = this.cookie.helper$.decodeToken(res.data.token).role
@@ -58,7 +53,7 @@ export class LoginComponent implements OnInit {
       }, 1000);
     }, ((err: any) => {
       if (err.status === 417) {
-        this.alert.error(err.error.message)
+        this.alert.error("เข้าสู่ระบบไม่สำเร็จ")
       }
     }))
 

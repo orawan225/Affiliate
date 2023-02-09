@@ -28,11 +28,12 @@ export class DashboardComponent implements OnInit {
   date: Date = new Date()
   createPercent: any
   wallet: any
-  percent: any 
+  percent: any
   minStore: any
   maxStore: any
   minAffiliate: any
   maxAffiliate: any
+  config: any
 
   affiliate: Observable<any[]> = new Observable();
   dataSourceAffiliate = new MatTableDataSource<any>();
@@ -43,25 +44,27 @@ export class DashboardComponent implements OnInit {
   @ViewChild("paginatorStore", { read: MatPaginator }) paginatorStore!: MatPaginator;
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router,
-    private ref: ChangeDetectorRef, private fb: FormBuilder,private alert: AlertService) {
-      this.createPercent = fb.group({
-        percent: [null],
-        minStore: [null],
-        maxStore: [null],
-        minAffiliate: [null],
-        maxAffiliate: [null]
-      })
-     }
+    private ref: ChangeDetectorRef, private fb: FormBuilder, private alert: AlertService) {
+    this.createPercent = fb.group({
+      percent: [null],
+      minimumStore: [null],
+      maximumStore: [null],
+      minimumAffiliate: [null],
+      maxAffiliate: [null]
+    })
+    
+  }
 
-     patchValue(receiveConfig: configSystem) {
-      this.createPercent.patchValue({
-        percent: receiveConfig.percent,
-        minStore: receiveConfig.minStore,
-        maxStore: receiveConfig.maxStore,
-        minAffiliate: receiveConfig.minAffiliate,
-        maxAffiliate: receiveConfig.maxAffiliate
-      })
-    }
+  patchValue(receiveConfig: configSystem) {
+    this.createPercent.patchValue({
+      percent: receiveConfig.percent,
+      minimumStore: receiveConfig.minStore,
+      maximumStore: receiveConfig.maxStore,
+      minimumAffiliate: receiveConfig.minAffiliate,
+      maxAffiliate: receiveConfig.maxAffiliate
+    })
+
+  }
 
   ngOnInit(): void {
     this.getWithdrawMoney()
@@ -69,7 +72,7 @@ export class DashboardComponent implements OnInit {
     this.getConfig()
   }
 
-  geyMyWallet(){
+  geyMyWallet() {
     this.callApi.myWalletAdmin().subscribe((res: any) => {
       this.wallet = res.data.income
     })
@@ -77,6 +80,7 @@ export class DashboardComponent implements OnInit {
 
   getConfig() {
     this.callApi.getconfig().subscribe((res: any) => {
+      this.config = res
       console.log(res);
       this.percent = res.percent
       this.minStore = res.minStore
@@ -84,6 +88,18 @@ export class DashboardComponent implements OnInit {
       this.minAffiliate = res.minAffiliate
       this.maxAffiliate = res.maxAffiliate
       this.patchValue(res)
+    })
+  }
+
+  percentWithdrawMoney() {
+    this.callApi.createPercent(this.createPercent.value).subscribe(res => {
+      console.log(res);
+      this.alert.success("ตั้งค่าสำเร็จ")
+
+      setTimeout(() => {
+        this.getConfig()
+      }, 1000);
+      
     })
   }
 
@@ -103,18 +119,9 @@ export class DashboardComponent implements OnInit {
     })
   }
 
-  setwithdrawId(withdrawId : string) {
-    this.router.navigate(['/money'],{queryParams: {id:withdrawId}})
+  setwithdrawId(withdrawId: string) {
+    this.router.navigate(['/money'], { queryParams: { id: withdrawId } })
   }
-
-
-  percentWithdrawMoney(){
-    this.callApi.createPercent(this.createPercent.value).subscribe(res => {
-      console.log(res);
-      this.alert.success("ตั้งค่าสำเร็จ")
-    })
-  }
-
 
   getRowAF(index: number): number {
     return (index + 1) + (this.paginatorAffiliate.pageSize * this.paginatorAffiliate.pageIndex);
