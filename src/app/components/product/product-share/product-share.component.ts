@@ -1,3 +1,4 @@
+import { Clipboard } from '@angular/cdk/clipboard';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -23,7 +24,7 @@ export class ProductShareComponent implements OnInit {
 
 
   constructor(private callApi: CallApiService, private fb: FormBuilder, public router: Router,
-    private acrout: ActivatedRoute, public cookie: CookieServiceService) {
+    private acrout: ActivatedRoute, public cookie: CookieServiceService, private clipboard: Clipboard) {
     this.formProduct = fb.group({
       productName: [null],
       productPrice: [null],
@@ -37,7 +38,6 @@ export class ProductShareComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProductById()
-    this.getLinkShareProduct()
   }
 
   getProductById() {
@@ -51,11 +51,21 @@ export class ProductShareComponent implements OnInit {
     this.callApi.shareProduct(this.productId).subscribe((res: any) => {
       this.linkProduct = res.data.link
       console.log(this.linkProduct);
-      
+
       this.baseUrl = window.location.port
-      ? `${window.location.protocol}//${window.location.hostname}:${window.location.port}${this.url}?id=${this.productId}&link=${res.data.link}`
-      : `${window.location.protocol}//${window.location.hostname}${this.url}?id=${this.productId}&link=${res.data.link}`;
-      navigator.clipboard.writeText(this.baseUrl)
+        ? `${window.location.protocol}//${window.location.hostname}:${window.location.port}${this.url}?id=${this.productId}&link=${res.data.link}`
+        : `${window.location.protocol}//${window.location.hostname}${this.url}?id=${this.productId}&link=${res.data.link}`;
+      // navigator.clipboard.writeText(this.baseUrl)
+
+      this.clipboard.copy(this.baseUrl);
+      
+
+  
+     
+        // if (window.isSecureContext && navigator.clipboard) {
+        //   navigator.clipboard.writeText(content);
+        // } 
+     
     })
   }
 
