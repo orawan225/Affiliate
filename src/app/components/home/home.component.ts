@@ -30,15 +30,15 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  // getProfile() {
-  //   const _auth: boolean = this.cookie.getToken() ? true : false;
-  //   if (_auth) {
-  //     this.callApi.getProfile().subscribe((res: any) => {
-  //       this.role = res.data.profile.role;
-  //       console.log(this.role);
-  //     })
-  //   }
-  // }
+  getProfile() {
+    const _auth: boolean = this.cookie.getToken() ? true : false;
+    if (_auth) {
+      this.callApi.getProfile().subscribe((res: any) => {
+        this.role = res.data.profile.role;
+        console.log(this.role);
+      })
+    }
+  }
 
 
   setProductIdtolocal(productId : string) {
