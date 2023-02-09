@@ -72,3 +72,23 @@ h3 {
     text-align: end;
     margin-right: 20px;
 }
+
+.product-share {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.bi-share-fill {
+    margin-top: 4rem;
+}
+
+p {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 5rem;
+}
+
+.test {
+    display: none;
+}

@@ -45,7 +45,7 @@
                                         </div>
                                         <div class="col-lg-6 col-6">
                                             <label for="password" class="form-label"> รหัสผ่าน </label>
-                                            <input type="text" name="password" id="password" class="form-control" placeholder="กรุณากรอกรหัสผ่าน" formControlName="passWord" [ngClass]="{'is-invalid': submitAdd && formValidAdd.passWord.errors}" (ngModelChange)="onChange()">
+                                            <input type="password" name="password" id="password" class="form-control" placeholder="กรุณากรอกรหัสผ่าน" formControlName="passWord" [ngClass]="{'is-invalid': submitAdd && formValidAdd.passWord.errors}" (ngModelChange)="onChange()">
                                             <div class="invalid-feedback" *ngIf="submitAdd && formValidAdd.passWord.errors">
                                                 <div *ngIf="formValidAdd.passWord.errors.required">กรุณากรอกรหัสผ่าน
                                                 </div>

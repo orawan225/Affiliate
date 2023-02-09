@@ -14,6 +14,8 @@ export class OrderWaitDeliveryComponent implements OnInit {
   ordertList: any
   profile: any
   api = environment.apiUrl
+  hide: boolean = true
+  order: boolean = false
 
   constructor(private callApi: CallApiService) { }
 
@@ -26,11 +28,17 @@ export class OrderWaitDeliveryComponent implements OnInit {
     this.callApi.getWaitDeliveryOrder().subscribe(res => {
       this.ordertList = res
       console.log(res);
-      
+      if (this.ordertList == 0) {
+        this.hide = false
+        this.order = false
+      }
+      else {
+        this.order = true
+      }
     })
   }
 
-  getProfileAdmin(){
+  getProfileAdmin() {
     this.callApi.getProfilesAdmin().subscribe((res: any) => {
       this.profile = res
       console.log(res);

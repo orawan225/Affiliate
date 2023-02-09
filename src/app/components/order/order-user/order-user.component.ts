@@ -13,17 +13,26 @@ export class OrderUserComponent implements OnInit {
 
   ordertList: any
   api = environment.apiUrl
+  hide: boolean = true
+  order: boolean = false
 
   constructor(private callApi: CallApiService, private router: Router, private alert: AlertService) { }
 
   ngOnInit(): void {
-    this.  getOrder()
+    this.getOrder()
   }
 
   getOrder() {
     this.callApi.getOrderByUser().subscribe(res => {
       this.ordertList = res
-      //console.log(this.ordertList);
+      console.log(this.ordertList);
+      if (this.ordertList == 0) {
+        this.hide = false
+        this.order = false
+      }
+      else {
+        this.order = true
+      }
     })
   }
 

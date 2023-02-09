@@ -11,10 +11,8 @@ import { environment } from 'src/environments/environment';
 export class ShareHistoryComponent implements OnInit {
 
   ordertList: any = []
-  file: any
   api = environment.apiUrl
-  baseUrl: any
-  productId: any
+
 
   constructor(public callApi: CallApiService, private alert: AlertService) { }
 

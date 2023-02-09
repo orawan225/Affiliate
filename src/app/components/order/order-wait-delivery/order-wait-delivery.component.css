@@ -57,3 +57,7 @@ img {
 h2 {
     text-align: center;
 }
+
+.test {
+    display: none;
+}

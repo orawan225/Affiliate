@@ -14,6 +14,8 @@ export class OrderWaitPaymentComponent implements OnInit {
   api = environment.apiUrl
   ordertList: any
   formOrder: any
+  hide: boolean = true
+  order: boolean = false
 
   constructor(private callApi: CallApiService, private router: Router, private alert: AlertService) { }
 
@@ -26,6 +28,13 @@ export class OrderWaitPaymentComponent implements OnInit {
     this.callApi.getProductWaitPayment().subscribe(res => {
       this.ordertList = res
       console.log(res);
+      if (this.ordertList == 0) {
+        this.hide = false
+        this.order = false
+      }
+      else {
+        this.order = true
+      }
 
     })
   }
@@ -35,7 +44,7 @@ export class OrderWaitPaymentComponent implements OnInit {
   }
 
   deleteOrderProductNotPayment(orderListId: any) {
-    this.alert.warning("ต้องการลยรายการสินค้าใช่หรือไม่ ?").then(async (result) => {
+    this.alert.warning("ต้องการลบรายการสินค้าใช่หรือไม่ ?").then(async (result) => {
       if (result.isConfirmed) {
         await this.callApi.deleteOrderProduct(orderListId, this.formOrder).subscribe(async (res) => {
           await this.alert.success("ลบรายการสินค้าเรียบร้อย")

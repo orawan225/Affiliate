@@ -11,6 +11,8 @@ export class OrderSuccessComponent implements OnInit {
 
   ordertList: any
   formOrder: any
+  hide: boolean = true
+  order: boolean = false
 
   constructor(private callApi: CallApiService, private alert: AlertService) { }
 
@@ -22,6 +24,13 @@ export class OrderSuccessComponent implements OnInit {
     this.callApi.getOrderSuccess().subscribe(res => {
       this.ordertList = res
       console.log(res);
+      if (this.ordertList == 0) {
+        this.hide = false
+        this.order = false
+      }
+      else {
+        this.order = true
+      }
     })
   }
 

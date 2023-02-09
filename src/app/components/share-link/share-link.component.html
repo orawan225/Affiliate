@@ -12,13 +12,23 @@
 
             <div class="card mb-5">
                 <div class="card-body">
-                    <table>
+                    <div class="product-share" [ngClass]="{'test' : hide == true}" *ngIf="ordertList == false">
+                        <i class="bi bi-share-fill">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
+                                class="bi bi-people-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                            </svg>
+                        </i>
+                        <p> ยังไม่มีรายการแชร์สินค้า </p>
+                    </div>
+                    <table *ngIf="ordertList == true">
                         <thead>
                             <tr>
                                 <th style=" width: 2%;"> # </th>
                                 <th style=" width: 5%;"> วันที่ </th>
                                 <th style=" width: 10%;"> ชื่อผู้แชร์ </th>
-                                <th style=" width: 5%;"> จำนวนชิ้น </th>
+                                <th style=" width: 5%;"> จำนวนลิงค์ที่ถูกแชร์ </th>
                                 <th style=" width: 5%;"> ราคา </th>
                                 <th style=" width: 5%;"> ราคารวม </th>
 
@@ -38,21 +48,21 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="d-flex justify-content-end">
+                    <div class="d-flex justify-content-end" *ngIf="ordertList == true">
                         <div class="card mt-3" style="width:25%;">
                             <h3> {{productName}} </h3>
                             <hr>
                             <div class="mb-4">
                                 <div class="row">
-                                    <strong class="col-6 title"> จำนวนลิงค์ที่ถูกแชร์ </strong>
-                                    <strong class="col data"> {{linkAmount}} ครั้ง</strong>
-                                </div>
-                                <div class="row mt-2">
                                     <div class="col-6 title"> ราคาสินค้า </div>
                                     <div class="col data"> {{productPrice | number}} ชิ้น</div>
                                 </div>
                                 <div class="row mt-2">
-                                    <div class="col-6 title"> จำนวนสินค้า </div>
+                                    <div class="col-6 title"> ขายได้จากการแชร์ </div>
+                                    <div class="col data"> {{linkAmount}} ครั้ง</div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-6 title"> จำนวนที่ขายได้ </div>
                                     <div class="col data"> {{totalAmount}} ชิ้น</div>
                                 </div>
                                 <div class="row mt-2 totalPrice">

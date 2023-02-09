@@ -16,7 +16,7 @@ export class OrderHistoryComponent implements OnInit {
   ordertList: any = []
   file: any
   api = environment.apiUrl
-
+  hide: boolean = true
 
   constructor(public callApi: CallApiService, private alert: AlertService, private router: Router) { }
 
@@ -27,6 +27,7 @@ export class OrderHistoryComponent implements OnInit {
   getOrderHistory() {
     this.callApi.getOrderHistory().subscribe(res => {
       this.ordertList = res
+      this.hide = false
       console.log(res);
     })
   }

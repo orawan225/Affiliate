@@ -10,7 +10,7 @@
             <div class="col-8">
                 <div class="card">
                     <div class="card-body">
-                        <div class="wait-delivery" *ngIf="ordertList == 0">
+                        <div class="wait-delivery" [ngClass]="{'test' : hide == true}" *ngIf="order == false">
                             <i class="bi bi-truck">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
                                     class="bi bi-truck" viewBox="0 0 16 16">
@@ -20,7 +20,7 @@
                             </i>
                             <p> ผู้ใช้งานยังไม่มีรายรอการจัดส่งสินค้า </p>
                         </div>
-                        <table *ngIf="ordertList != 0">
+                        <table *ngIf="order ==  true">
                             <thead>
                                 <tr>
                                     <th style="width: 1%;"> # </th>

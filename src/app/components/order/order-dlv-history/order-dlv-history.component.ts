@@ -13,6 +13,8 @@ export class OrderDlvHistoryComponent implements OnInit {
   ordertList: any = []
   file: any
   api = environment.apiUrl
+  hide: boolean = true
+  order: boolean = false
 
 
   constructor(public callApi: CallApiService, private alert: AlertService) { }
@@ -25,6 +27,13 @@ export class OrderDlvHistoryComponent implements OnInit {
     this.callApi.getOrderHistoryDelivery().subscribe(res => {
       this.ordertList = res
       console.log(res);
+      if (this.ordertList == 0) {
+        this.hide = false
+        this.order = false
+      }
+      else {
+        this.order = true
+      }
     })
   }
 
