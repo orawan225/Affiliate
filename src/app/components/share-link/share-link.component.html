@@ -15,6 +15,7 @@
                     <table>
                         <thead>
                             <tr>
+                                <th style=" width: 2%;"> # </th>
                                 <th style=" width: 5%;"> วันที่ </th>
                                 <th style=" width: 10%;"> ชื่อผู้แชร์ </th>
                                 <th style=" width: 5%;"> จำนวนชิ้น </th>
@@ -24,7 +25,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let item of links">
+                            <tr *ngFor="let item of links ; let i = index">
+                                <td> {{i+1}} </td>
                                 <td>
                                     <br> {{item.createDate | date: 'HH:mm:ss'}}
                                     <br> {{item.createDate | date: 'd/M/yyyy'}}

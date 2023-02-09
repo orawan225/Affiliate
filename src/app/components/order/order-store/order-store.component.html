@@ -15,7 +15,8 @@
                     <table>
                         <thead>
                             <tr>
-                                <th style=" width: 1%;;"> วันที่ </th>
+                                <th style=" width: 2%;;"> # </th>
+                                <th style=" width: 2%;;"> วันที่ </th>
                                 <th style=" width: 4%;"> สินค้า </th>
                                 <th style=" width: 8%;"> ที่อยู่ในการจัดส่ง </th>
                                 <th style=" width: 5%;"> หลักฐานในการชำระเงิน </th>
@@ -24,6 +25,7 @@
                         </thead>
                         <tbody *ngFor="let order of ordersList ; let i = index">
                             <tr>
+                                <td> {{i+1}} </td>
                                 <td> {{order.dateStPayment | date: 'HH:mm:ss'}}
                                     <br> {{order.dateStPayment | date: 'd/M/yyyy'}}
                                 </td>

@@ -24,12 +24,7 @@ export class OrderUserComponent implements OnInit {
     this.callApi.getOrderByUser().subscribe(res => {
       this.ordertList = res
       //console.log(this.ordertList);
-      
     })
   }
-
-  
-
-
 
 }

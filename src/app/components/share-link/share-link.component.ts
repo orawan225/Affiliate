@@ -45,14 +45,8 @@ export class ShareLinkComponent implements OnInit {
       this.linkAmount = res.linkAmount
       this.productName = res.productName
       this.productPrice = res.productPrice
-
-      this.linkProduct = res.links
-      this.baseUrl = window.location.port
-      ? `${window.location.protocol}//${window.location.hostname}:${window.location.port}${this.url}?id=${this.productId}&link=${res.data.link}`
-      : `${window.location.protocol}//${window.location.hostname}${this.url}?id=${this.productId}&link=${res.data.link}`;
-      navigator.clipboard.writeText(this.baseUrl)
-      console.log(this.linkProduct);
-      
+      console.log(res);
+    
     })
   }
 }
