@@ -25,7 +25,7 @@ export class OrderUserComponent implements OnInit {
   getOrder() {
     this.callApi.getOrderByUser().subscribe(res => {
       this.ordertList = res
-      console.log(this.ordertList);
+      //console.log(this.ordertList);
       if (this.ordertList == 0) {
         this.hide = false
         this.order = false

@@ -12,7 +12,8 @@ export class ShareHistoryComponent implements OnInit {
 
   ordertList: any = []
   api = environment.apiUrl
-
+  hide: boolean = true
+  order: boolean = false
 
   constructor(public callApi: CallApiService, private alert: AlertService) { }
 
@@ -23,7 +24,14 @@ export class ShareHistoryComponent implements OnInit {
   getOrderHistory() {
     this.callApi.shareHistory().subscribe((res: any) => {
       this.ordertList = res
-      console.log(this.ordertList);
+      //console.log(this.ordertList);
+      if (this.ordertList == 0) {
+        this.hide = false
+        this.order = false
+      }
+      else {
+        this.order = true
+      }
     })
   }
 

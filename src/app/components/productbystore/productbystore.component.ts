@@ -28,7 +28,7 @@ export class ProductbystoreComponent implements OnInit {
   getAllProductByStore() {
     this.callApi.getProductByStore(this.storeId).subscribe(data => {
       this.products = data
-      console.log(data);
+      //console.log(data);
     })
   }
 

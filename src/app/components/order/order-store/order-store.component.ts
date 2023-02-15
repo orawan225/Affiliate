@@ -17,7 +17,9 @@ export class OrderStoreComponent implements OnInit {
   file: any
   api = environment.apiUrl
   formTrackNumber: any
-  submitAdd: boolean = false;
+
+  hide: boolean = true
+  order: boolean = false
 
   constructor(public callApi: CallApiService, private alert: AlertService, private fb: FormBuilder) {
     this.formTrackNumber = fb.group({
@@ -34,7 +36,8 @@ export class OrderStoreComponent implements OnInit {
   getAllOrderByStore() {
     this.callApi.getAllOrderByStore().subscribe((res: orderList[]) => {
       this.ordersList = res
-      console.log(this.ordersList);
+
+      //console.log(this.ordersList);
     })
   }
 

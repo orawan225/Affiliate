@@ -31,14 +31,11 @@ export class WithdrawHistoryComponent implements OnInit {
   ngOnInit(): void {
     this.showStatusWithdraw()
   }
-
-
-
-
+  
   showStatusWithdraw() {
     this.callApi.showStatusWithdraw().subscribe((res: any) => {
       const _wid: Array<withdraw> = res;
-      console.log(_wid);
+      //console.log(_wid);
 
       this.dataSourceAffiliate = new MatTableDataSource<any>(_wid.filter(x => x.withdrawType == 'affiliate'));
       this.dataSourceAffiliate.paginator = this.paginatorAffiliate;

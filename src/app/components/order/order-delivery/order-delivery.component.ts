@@ -21,7 +21,7 @@ export class OrderDeliveryComponent implements OnInit {
   getOrderDelivery(){
     this.callApi.getStatusSuccess().subscribe(res => {
       this.ordertList = res
-      console.log(res);
+      //console.log(res);
       
     })
   }

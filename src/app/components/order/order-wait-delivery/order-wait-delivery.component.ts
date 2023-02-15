@@ -27,7 +27,7 @@ export class OrderWaitDeliveryComponent implements OnInit {
   getWaitDelivery() {
     this.callApi.getWaitDeliveryOrder().subscribe(res => {
       this.ordertList = res
-      console.log(res);
+      //console.log(res);
       if (this.ordertList == 0) {
         this.hide = false
         this.order = false
@@ -41,7 +41,7 @@ export class OrderWaitDeliveryComponent implements OnInit {
   getProfileAdmin() {
     this.callApi.getProfilesAdmin().subscribe((res: any) => {
       this.profile = res
-      console.log(res);
+      //console.log(res);
     })
   }
 

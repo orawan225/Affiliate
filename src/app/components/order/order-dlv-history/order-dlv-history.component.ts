@@ -26,7 +26,7 @@ export class OrderDlvHistoryComponent implements OnInit {
   getOrderHistory() {
     this.callApi.getOrderHistoryDelivery().subscribe(res => {
       this.ordertList = res
-      console.log(res);
+      //console.log(res);
       if (this.ordertList == 0) {
         this.hide = false
         this.order = false

@@ -15,31 +15,28 @@ export class HomeComponent implements OnInit {
   product: any = []
   api = environment.apiUrl
   role?: string
+  showCardRole: any
 
   constructor(private callApi: CallApiService, private router: Router,private cookie: CookieServiceService) {}
 
   ngOnInit(): void {
     this.getProduct()
-    // this.getProfile()
+    this.getRoleProfile()
   }
 
   getProduct() {
     this.callApi.getAllProduct().subscribe(data => {
       this.product = data
-      console.log(data)
+      //console.log(data)
     })
   }
 
-  getProfile() {
-    const _auth: boolean = this.cookie.getToken() ? true : false;
-    if (_auth) {
-      this.callApi.getProfile().subscribe((res: any) => {
-        this.role = res.data.profile.role;
-        console.log(this.role);
-      })
+  getRoleProfile() {
+    if (this.cookie.getRoleAccount()) {
+      this.showCardRole = this.cookie.getRoleAccount()
+      //console.log(this.showCardRole); 
     }
   }
-
 
   setProductIdtolocal(productId : string) {
     this.router.navigate(['/product-detail'],{queryParams: {id:productId}})
@@ -48,7 +45,7 @@ export class HomeComponent implements OnInit {
   searchProduct(keyword: string) {
     this.callApi.getSearchProduct(keyword).subscribe((res: any) => {
      this.product = res
-      console.log(res);   
+      //console.log(res);   
     })
   }
 }

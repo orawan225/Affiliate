@@ -44,7 +44,7 @@ export class ProfileUserComponent implements OnInit {
     })
 
     this.store = cookie.getUserId();
-    console.log(this.store);
+    //console.log(this.store);
   }
 
   patchValue(receiveProfile: profile) {
@@ -87,18 +87,14 @@ export class ProfileUserComponent implements OnInit {
   }
 
   getProfile() {
-    const _auth: boolean = this.cookie.getToken() ? true : false;
-    if (_auth) {
-      this.callApi.getProfile().subscribe((res: any) => {
-        this.profile = res.data.profile
-        this.role = res.data.profile.role;
-        this.store = res.data.profile.store
-        this.affiliate = res.data.profile.affiliate
-        this.img = this.api + this.profile.image
-        this.patchValue(this.profile)
-        console.log(res);
-      })
-    }
+    this.callApi.getProfile().subscribe((res: any) => {
+      this.profile = res.data.profile
+      this.store = res.data.profile.store
+      this.affiliate = res.data.profile.affiliate
+      this.img = this.api + this.profile.image
+      this.patchValue(this.profile)
+      //console.log(res);
+    })
   }
 
 
@@ -110,7 +106,7 @@ export class ProfileUserComponent implements OnInit {
     }
     data.append('profile', JSON.stringify(this.formProfile.value))
     this.callApi.editProfile(data).subscribe(data => {
-      console.log(data);
+      //console.log(data);
       this.alert.success("แก้ไขรูปโปรไฟล์สำเร็จ")
     }, ((err: any) => {
       if (err.status === 500) {

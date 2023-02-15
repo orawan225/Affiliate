@@ -22,7 +22,7 @@ export class BankComponent implements OnInit {
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService,
     private fb: FormBuilder, private router: Router, public dialogRef: MatDialogRef<BankComponent>,
-     private alert: AlertService) {
+    private alert: AlertService) {
 
     this.formBank = fb.group({
       bankNameAccount: [null],
@@ -45,21 +45,16 @@ export class BankComponent implements OnInit {
   }
 
   getBank() {
-    const _auth: boolean = this.cookie.getToken() ? true : false;
-    if (_auth) {
-      this.callApi.getBankAccount().subscribe((res: any) => {
-        this.bank = res
-        this.patchValue(this.bank)
-        console.log(this.bank);
-        this.patchValue(res.data.bank)
-      })
-    }
-    
+    this.callApi.getBankAccount().subscribe((res: any) => {
+      this.bank = res
+      this.patchValue(this.bank)
+ 
+    })
   }
 
   editBank() {
     this.callApi.editBank(this.formBank.value).subscribe(data => {
-      console.log(data);
+      //console.log(data);
       this.alert.success("แก้ไขข้อมูลสำเร็จ")
       this.closeDialog()
     })

@@ -23,7 +23,7 @@ export class OrderlistUserComponent implements OnInit {
   getAllOderUser() {
     this.callApi.getAllOderUser().subscribe(res => {
       this.ordertList = res
-      console.log(res);
+      //console.log(res);
     })
   }
 

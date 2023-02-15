@@ -37,8 +37,6 @@ export class ShareLinkComponent implements OnInit {
     this.getShareLink()
   }
 
-
-
   getShareLink() {
     this.callApi.getShareLinkSuccess(this.productId).subscribe((res: any) => {
       this.linkProduct = res
@@ -49,14 +47,14 @@ export class ShareLinkComponent implements OnInit {
       this.productName = res.productName
       this.productPrice = res.productPrice
       this.ordertList = true
-      console.log( this.linkProduct);
-      console.log(res);
+      //console.log(this.linkProduct);
+      //console.log(res);
     
     },((err: any) => {
       if (err.status === 417) {
         this.hide = false
         this.ordertList = false
-        console.log(this.ordertList);
+        //console.log(this.ordertList);
       }
     }))
   }

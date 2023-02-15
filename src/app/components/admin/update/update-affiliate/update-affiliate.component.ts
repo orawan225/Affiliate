@@ -64,8 +64,8 @@ export class UpdateAffiliateComponent implements OnInit {
       this.user = res.user
       this.store = res
       this.patchValue(res.user)
-      console.log(this.store);
-      console.log(this.user);
+      //console.log(this.store);
+      //console.log(this.user);
     })
   }
 
@@ -73,7 +73,7 @@ export class UpdateAffiliateComponent implements OnInit {
     const data = new FormData()
     data.append('user', JSON.stringify(this.formProfile.value))
     this.callApi.editProfileUser(this.userId, data).subscribe(data => {
-      console.log(data);
+      //console.log(data);
       this.alert.success("แก้ไขข้อมูลสำเร็จ")
       this.router.navigate(['/affiliate'])
     })

@@ -37,13 +37,11 @@ export class RegisterCustomerComponent implements OnInit {
     this.submitAdd = true
   }
 
-
-
   registerCustomer() {
     this.submitAdd = true;
     if (this.formRegister.valid) {
       this.callApi.registerAffiliate(this.formRegister.value).subscribe((res: any) => {
-        console.log(res);
+        //console.log(res);
         this.alert.success("สมัครสมาชิกสำเร็จ")
         if (this.cookie.getToken()) {
           this.checkLogin = true

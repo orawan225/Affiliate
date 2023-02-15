@@ -81,7 +81,7 @@ export class DashboardComponent implements OnInit {
   getConfig() {
     this.callApi.getconfig().subscribe((res: any) => {
       this.config = res
-      console.log(res);
+      //console.log(res);
       this.percent = res.percent
       this.minStore = res.minStore
       this.maxStore = res.maxStore
@@ -93,7 +93,7 @@ export class DashboardComponent implements OnInit {
 
   percentWithdrawMoney() {
     this.callApi.createPercent(this.createPercent.value).subscribe(res => {
-      console.log(res);
+      //console.log(res);
       this.alert.success("ตั้งค่าสำเร็จ")
 
       setTimeout(() => {
@@ -107,7 +107,7 @@ export class DashboardComponent implements OnInit {
   getWithdrawMoney() {
     this.callApi.withdrawMoney().subscribe((res: any) => {
       const withdraw: Array<withdraw> = res;
-      console.log(withdraw);
+      //console.log(withdraw);
 
       this.dataSourceAffiliate = new MatTableDataSource<any>(withdraw.filter(x => x.withdrawType == 'affiliate'));
       this.dataSourceAffiliate.paginator = this.paginatorAffiliate;

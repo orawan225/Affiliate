@@ -49,7 +49,7 @@ export class RegisterUserComponent implements OnInit {
     this.submitAdd = true;
     if (this.formRegister.valid) {
       this.callApi.registerUser(this.formRegister.value).subscribe(async (data) => {
-        console.log(data);
+        //console.log(data);
         await this.alert.success("สมัครสมาชิกสำเร็จ")
         setTimeout(() => {
           this.router.navigate(['/login'])

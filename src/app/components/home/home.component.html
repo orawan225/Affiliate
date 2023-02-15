@@ -5,7 +5,6 @@
             <h1 class="banner-heading h2 display-3 pb-5 semi-bold-600 typo-space-line-center mt-3">
                 Affiliate Marketing
             </h1>
-            <!-- <h3 class="h4 pb-2 regular-400"> ยินดีต้อนรับเข้าสู่ระบบการขายสินค้าออนไลน์ </h3> -->
             <p class="banner-body pb-2 light-300 mb-5">
                 ซื้อ-ขายสินค้าและสร้างรายได้ง่าย ๆ กับ
                 <a class="text-white" target="_blank">เว็บแอปพลิเคชันระบบการตลาดแบบพันธมิตร.</a> ประกอบด้วยระบบงานที่สามารถซื้อ-ขายสินค้าได้ผ่านระบบออนไลน์บนเว็บแอปพลิเคชัน นอกจากนี้ผู้ใช้งานในส่วนของตัวแทนขาย (Affiliate) ยังสามารถนําลิงค์ สินค้าแชร์ไปยังช่องทางโชเชียลเน็ตเวิร์คของตน
@@ -55,7 +54,7 @@
                         <p class="card-detail">{{element.productDetail}}</p>
                         <span class="text-price light-300 mt-2 mb-2">
                             <div class="row">
-                                <div class="col priceForShare" *ngIf="role == 'AFFILIATE' || role == 'ST_AF'"> คอมมิชชัน {{element.priceForShare | number}} บาท </div>
+                                <div class="col priceForShare" *ngIf="showCardRole == 'AFFILIATE' || showCardRole == 'ST_AF'"> คอมมิชชัน {{element.priceForShare | number}} บาท </div>
                                 <div class="col text-danger productPrice"> ราคา {{element.productPrice | number }} บาท </div>
                             </div>
                         </span>

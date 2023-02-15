@@ -55,7 +55,7 @@ export class CartService {
   }
 
 
-
+  //totalPrice
   getTotalPrice(storeId: any): number {
     let totalPrice: number = 0
     let product = this.getCart()
@@ -78,10 +78,10 @@ export class CartService {
     return totalAmount
   }
 
+   //delete product by id 
   remove(productId: number) {
     let cart = this.getCart();
 
-    //delete product in cart Localstorage by id
     for (let index in cart) {
       if (cart[index].productId == productId) {
         cart.splice(index, 1);

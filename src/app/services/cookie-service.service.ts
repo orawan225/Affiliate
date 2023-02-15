@@ -7,8 +7,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class CookieServiceService {
   helper$ = new JwtHelperService()
-  constructor(private cookie: CookieService) {
-  }
+  constructor(private cookie: CookieService) {}
 
   _token: string = "token"
 

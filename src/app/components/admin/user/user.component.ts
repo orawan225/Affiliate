@@ -24,7 +24,7 @@ export class UserComponent implements OnInit {
     this.callApi.getAllUser().subscribe((data: any) => {
       this.user = data
       this.user2 = data
-      console.log(data)
+      //console.log(data)
     })
   }
 

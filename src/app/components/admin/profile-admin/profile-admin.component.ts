@@ -73,7 +73,7 @@ export class ProfileAdminComponent implements OnInit {
         this.province = res.province
         this.postalCode = res.postalCode
         this.patchValue(this.profile)
-        console.log(res);
+        //console.log(res);
         this.patchValue(res.data.profile)
       })
     }
@@ -87,7 +87,7 @@ export class ProfileAdminComponent implements OnInit {
     }
     data.append('profile', JSON.stringify(this.formProfile.value))
     this.callApi.editProfile(data).subscribe(data => {
-      console.log(data);
+      //console.log(data);
       this.alert.success("แก้ไขข้อมูลสำเร็จ")
       this.closeDialog()
     })

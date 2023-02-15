@@ -44,7 +44,7 @@ export class RegisterStoreComponent implements OnInit {
     this.submitAdd = true;
     if (this.formRegister.valid) {
       this.callApi.registerStore(this.formRegister.value).subscribe((res: any) => {
-        console.log(res);
+        //console.log(res);
         this.alert.success("สมัครสมาชิกสำเร็จ")
         if (this.cookie.getToken()) {
           this.checkLogin = true

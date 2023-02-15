@@ -19,7 +19,7 @@
                             </div>
                             <div class="productprice row">
                                 <div class="price row">
-                                    <span class="priceForShare col" *ngIf="role == 'AFFILIATE' || role == 'ST_AF'">
+                                    <span class="priceForShare col" *ngIf="showCardRole == 'AFFILIATE' || showCardRole == 'ST_AF'">
                                         ค่าคอม {{product.priceForShare}} บาท
                                     </span>
                                     <span class="priceValue col">
@@ -41,7 +41,7 @@
                                         <p class="d-none d-md-none d-lg-block">เพิ่มไปยังรถเข็น</p>
                                     </button>
                                 </div>
-                                <div class="col-4" *ngIf="role=='AFFILIATE' || role=='ST_AF'">
+                                <div class="col-4" *ngIf="showCardRole=='AFFILIATE' || showCardRole=='ST_AF'">
                                     <button type="button" class="btn btn-outline-success" (click)="shareProduct(productId)">
                                         <i class="bi bi-share">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"

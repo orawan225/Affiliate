@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { product } from 'src/app/models/product';
 import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { CartService } from 'src/app/services/cart.service';
@@ -22,7 +21,7 @@ export class ProductDetailComponent implements OnInit {
   product: any = []
   showCardRole: any
   profile: any = []
-  role: string=""
+  role: string = ""
   storeId: number = 0;
 
 
@@ -44,43 +43,60 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProductById()
-    this.getProfile()
+    this.getRoleProfile()
+    // this.getProfile()
   }
 
   getProductById() {
     this.callApi.getProductById(this.productId).subscribe((res: any) => {
       this.product = res
+      //console.log(res);
+    })
+  }
+
+  // getProfile() {
+  //   const _auth: boolean = this.cookie.getToken() ? true : false;
+  //   if (_auth) {
+  //     this.callApi.getProfile().subscribe((res: any) => {
+  //       this.profile = res.data.profile
+  //       this.role = this.profile.role
+  //       this.storeId = this.profile.store?.storeId ?? 0;
+  //       this.cookie.setRoleAccount(this.role)
+  //       //console.log(this.profile);
+  //     })
+  //   }
+  // }
+
+  getRoleProfile() {
+    if (this.cookie.getRoleAccount()) {
+      this.showCardRole = this.cookie.getRoleAccount()
+      //console.log(this.showCardRole); 
+    }
+  }
+
+
+
+  addProductToCart(product: any) {
+    this.callApi.getProfile().subscribe((res: any) => {
       console.log(res);
-    })
-  }
 
-  getProfile() {
-    const _auth: boolean = this.cookie.getToken() ? true : false;
-    if (_auth) {
-      this.callApi.getProfile().subscribe((res: any) => {
-        this.profile = res.data.profile
-        this.role = this.profile.role
-        this.storeId = this.profile.store?.storeId ?? 0;
-        this.cookie.setRoleAccount(this.role)
-        console.log(this.profile);
-      })
-    }
-  }
+      if (res.data.profile.role == "STORE" || res.data.profile.role == "ST_AF") {
 
+        this.storeId = res.data.profile.store.storeId
+        console.log(this.storeId);
+        console.log(res);
 
-  async addProductToCart(product: any) {
-    await this.callApi.getProfile().subscribe((res: any) => {
-      this.storeId = this.profile.store.storeId
-    })
-    if (this.storeId == this.product.storeId) {
-      await this.alert.error("ไม่สามารถสั่งซื้อสินค้าจากร้านตนเองได้");
-    }
-    else {
+        if (this.storeId == this.product.storeId) {
+          this.alert.error("ไม่สามารถสั่งซื้อสินค้าจากร้านตนเองได้");
+          return
+        }
+      }
       product.amount = 1;
       product.linkId = this.link
       this.cartService.addCart(product, true)
       this.router.navigate(['/cart'])
-    }
+    })
+
   }
 
   shareProduct(productId: string) {

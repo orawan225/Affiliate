@@ -13,29 +13,37 @@ export class NavbarHeaderComponent implements OnInit {
   profile: any = []
   role: string = ""
   checkLogin: boolean = true
+  showCardRole: any
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router,
     private ref: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.checkLogout()
-    this.getProfile()
+    this.getRoleProfile()
+    // this.getProfile()
   }
 
 
 
   // <---- checkRoleAccuont ---->
-  getProfile() {
-    const _auth: boolean = this.cookie.getToken() ? true : false;
-    if (_auth) {
-      this.callApi.getProfile().subscribe((res: any) => {
-        this.profile = res.data.profile
-        this.role = res.data.profile.role
-        this.cookie.setRoleAccount(this.role)
-      })
+  // getProfile() {
+  //   const _auth: boolean = this.cookie.getToken() ? true : false;
+  //   if (_auth) {
+  //     this.callApi.getProfile().subscribe((res: any) => {
+  //       this.profile = res.data.profile
+  //       this.role = res.data.profile.role
+  //       this.cookie.setRoleAccount(this.role)
+  //     })
+  //   }
+  // }
+
+  getRoleProfile() {
+    if (this.cookie.getRoleAccount()) {
+      this.showCardRole = this.cookie.getRoleAccount()
+      //console.log(this.showCardRole);
     }
   }
-
 
   routeToPage() {
     const _role = this.cookie.getRoleAccount();
@@ -45,10 +53,6 @@ export class NavbarHeaderComponent implements OnInit {
       this.router.navigate(['/home']);
     }
   }
-
-
-
-
 
   checkLogout() {
     if (this.cookie.getToken()) {

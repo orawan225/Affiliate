@@ -22,7 +22,7 @@ export class OrderlistPaymentComponent implements OnInit {
   getAllOrderDeliveryByUser(){
     this.callApi.getAllOrderDelivery().subscribe(res => {
       this.ordertList = res
-      console.log(res);
+      //console.log(res);
       
     })
   }

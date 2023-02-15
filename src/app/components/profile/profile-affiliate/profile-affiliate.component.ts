@@ -22,15 +22,15 @@ export class ProfileAffiliateComponent implements OnInit {
   user?: string = undefined;
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService,
-    private fb: FormBuilder, private router: Router,  public dialogRef: MatDialogRef<ProfileUserComponent>, private alert: AlertService) {
+    private fb: FormBuilder, private router: Router, public dialogRef: MatDialogRef<ProfileUserComponent>, private alert: AlertService) {
     this.formProfile = fb.group({
       bankName: [null],
       bankNameAccount: [null],
       bankNumber: [null],
     })
 
-    this.user = cookie.getUserId();  
-    console.log(this.user);
+    this.user = cookie.getUserId();
+    //console.log(this.user);
   }
 
   ngOnInit(): void {
@@ -46,21 +46,17 @@ export class ProfileAffiliateComponent implements OnInit {
   }
 
   getProfile() {
-    const _auth: boolean = this.cookie.getToken() ? true : false;
-    if (_auth) {
-      this.callApi.getProfile().subscribe((res: any) => {
-        this.profile = res.data.store
-        this.affiliate = res.data.profile.store
-        this.patchValue(res.data.profile.store)
-      })
-    }
+    this.callApi.getProfile().subscribe((res: any) => {
+      this.affiliate = res.data.profile.affiliate
+      this.patchValue(this.affiliate)
+    })
   }
 
   editProfileAffiliate() {
     this.callApi.editProfileAffiliate(this.formProfile.value).subscribe(data => {
-      console.log(data);
+      //console.log(data);
       this.alert.success("แก้ไขข้อมูลสำเร็จ")
-      this. closeDialog()
+      this.closeDialog()
     })
   }
 

@@ -50,7 +50,7 @@ export class MoneyComponent implements OnInit {
       this.withholdMoney = res.withholdMoney
       this.fullName = res.user.fullName
       this.tel = res.user.tel
-      console.log(this.withdraw);
+      //console.log(this.withdraw);
     })
   }
 
@@ -62,7 +62,7 @@ export class MoneyComponent implements OnInit {
       return
     }
     this.callApi.updateOrderWithdraw(this.withdrawId, fileData).subscribe((res: any) => {
-      //console.log(res);
+      ////console.log(res);
       this.alert.success("โอนเงินสำเร็จ")
       setTimeout(() => {
         this.router.navigate(['/dashboard'])

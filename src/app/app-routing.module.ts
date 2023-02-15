@@ -57,7 +57,7 @@ const routes: Routes = [
   { path: 'register-customer', component: RegisterCustomerComponent},
   { path: 'register-store', component: RegisterStoreComponent},
   { path: 'product-detail', component: ProductDetailComponent},
-  { path: 'productByStore', component: ProductbystoreComponent},
+  // { path: 'productByStore', component: ProductbystoreComponent},
   { path: 'login', component: LoginComponent},
 
 

@@ -24,7 +24,7 @@ export class AffiliateComponent implements OnInit {
     this.callApi.getAllAffiliate().subscribe((data: any) => {
       this.affiliate = data
       this.affiliate2 = data
-      console.log(data)
+      //console.log(data)
     })
   }
 

@@ -29,7 +29,7 @@ export class OrderlistComponent implements OnInit {
   getAllOrderStore() {
     this.callApi.getOrderStore().subscribe((data: any) => {
       this.order = data
-      console.log(data)
+      //console.log(data)
     })
   }
 

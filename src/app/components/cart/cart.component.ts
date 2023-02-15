@@ -62,7 +62,7 @@ export class CartComponent implements OnInit {
         this.productStores.push(_productStore);
       }
     });
-    console.log(this.productStores);
+    //console.log(this.productStores);
   }
 
   SetAllAmount() {

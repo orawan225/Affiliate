@@ -44,7 +44,7 @@ export class ProductStoreComponent implements OnInit {
   getAllProductByStore() {
     this.callApi.getAllProductByStore().subscribe(data => {
       this.products = data
-      console.log(data);
+      //console.log(data);
       
     })
   }
@@ -58,7 +58,7 @@ export class ProductStoreComponent implements OnInit {
       if (result.isConfirmed) {
         this.callApi.deleteProductById(productId,this.formProduct.value).subscribe(data => {
           this.getAllProductByStore()
-          console.log(data);
+          //console.log(data);
         })
         this.alert.success("ลบสินค้าสำเร็จ")
       }
@@ -69,7 +69,7 @@ export class ProductStoreComponent implements OnInit {
   searchProduct(keyword: string) {
     this.callApi.getSearchProduct(keyword).subscribe((res: any) => {
      this.products = res
-      console.log(res);   
+      //console.log(res);   
     })
   }
 

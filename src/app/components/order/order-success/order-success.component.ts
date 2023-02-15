@@ -23,7 +23,7 @@ export class OrderSuccessComponent implements OnInit {
   getOrderSuccess() {
     this.callApi.getOrderSuccess().subscribe(res => {
       this.ordertList = res
-      console.log(res);
+      //console.log(res);
       if (this.ordertList == 0) {
         this.hide = false
         this.order = false

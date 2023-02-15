@@ -28,7 +28,7 @@ export class OrderHistoryComponent implements OnInit {
     this.callApi.getOrderHistory().subscribe(res => {
       this.ordertList = res
       this.hide = false
-      console.log(res);
+      //console.log(res);
     })
   }
 

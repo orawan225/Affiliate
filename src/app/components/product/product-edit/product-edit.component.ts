@@ -54,7 +54,7 @@ export class ProductEditComponent implements OnInit {
       this.product = res
       this.img = this.api + res.image
       this.patchValue(res)
-      console.log(res);
+      //console.log(res);
     })
   }
 
@@ -67,7 +67,7 @@ export class ProductEditComponent implements OnInit {
     }
     data.append('product', JSON.stringify(this.formProduct.value))
     this.callApi.editProductById(this.productId, data).subscribe(data => {
-      console.log(data);
+      //console.log(data);
       this.alert.success("แก้ไขสำเร็จ")
       setTimeout(() => {
         this.router.navigate(['/product-store'])

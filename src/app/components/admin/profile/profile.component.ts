@@ -81,7 +81,7 @@ export class ProfileComponent implements OnInit {
       this.postalCode = res.postalCode
       this.img = this.api + res.image
       this.patchValue(this.profile)
-      console.log(res);
+      //console.log(res);
     })
   }
 
@@ -90,7 +90,7 @@ export class ProfileComponent implements OnInit {
       this.bankNameAccount = res.bankNameAccount
       this.bankName = res.bankName
       this.bankNumber = res.bankNumber
-      console.log(this.bankNameAccount);
+      //console.log(this.bankNameAccount);
 
     })
 
@@ -118,7 +118,7 @@ export class ProfileComponent implements OnInit {
     }
     data.append('profile', JSON.stringify(this.formProfile.value))
     this.callApi.editProfileAdmin(data).subscribe(data => {
-      console.log(data);
+      //console.log(data);
       this.alert.success("แก้ไขรูปโปรไฟล์สำเร็จ")
     }, ((err: any) => {
       if (err.status === 500) {

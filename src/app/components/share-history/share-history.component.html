@@ -12,7 +12,7 @@
 
             <div class="card mt-2 mb-5">
                 <div class="card-body">
-                    <div class="clock-history" *ngIf="ordertList == 0">
+                    <div class="clock-history" [ngClass]="{'test' : hide == true}" *ngIf="order == false">
                         <i class="bi bi-clock-history">
                             <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
                                 class="bi bi-clock-history" viewBox="0 0 16 16">
@@ -25,7 +25,7 @@
                         </i>
                         <p> ผู้ใช้งานยังไม่มีประวัติการแชร์สินค้า </p>
                     </div>
-                    <table *ngIf="ordertList != 0">
+                    <table *ngIf="order ==  true">
                         <thead>
                             <tr>
                                 <th style=" width: 2%;"> # </th>

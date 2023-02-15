@@ -63,9 +63,9 @@ export class UpdateStoreComponent implements OnInit {
     this.callApi.getUserById(this.userId).subscribe((res: any) => {
       this.user = res.user
       this.store = res.store
-      console.log(this.store);
+      //console.log(this.store);
       this.patchValue(res.user)
-      console.log(this.user);
+      //console.log(this.user);
     })
   }
 
@@ -73,7 +73,7 @@ export class UpdateStoreComponent implements OnInit {
     const data = new FormData()
     data.append('user', JSON.stringify(this.formProfile.value))
     this.callApi.editProfileUser(this.userId, data).subscribe(data => {
-      console.log(data);
+      //console.log(data);
       this.alert.success("แก้ไขข้อมูลสำเร็จ")
       this.router.navigate(['/store'])
     })

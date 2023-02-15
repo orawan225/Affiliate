@@ -56,15 +56,10 @@ export class ProfileUpdateComponent implements OnInit {
   }
 
   getProfile() {
-    const _auth: boolean = this.cookie.getToken() ? true : false;
-    if (_auth) {
-      this.callApi.getProfile().subscribe((res: any) => {
-        this.profile = res.data.profile
-        this.role = res.data.profile.role;
-        this.patchValue(res.data.profile)
-      })
-    }
-    
+    this.callApi.getProfile().subscribe((res: any) => {
+      this.profile = res.data.profile
+      this.patchValue(this.profile)
+    })
   }
 
   editProfile() {
@@ -74,7 +69,7 @@ export class ProfileUpdateComponent implements OnInit {
     }
     data.append('profile', JSON.stringify(this.formProfile.value))
     this.callApi.editProfile(data).subscribe(data => {
-      console.log(data);
+      //console.log(data);
       this.alert.success("แก้ไขข้อมูลสำเร็จ")
       this.closeDialog()
     })

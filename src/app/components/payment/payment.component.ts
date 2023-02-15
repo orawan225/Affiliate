@@ -62,7 +62,7 @@ export class PaymentComponent implements OnInit {
     let fileData = new FormData()
     fileData.append('file', this.file)
     this.callApi.createPayment(this.orderListId, fileData).subscribe((res: any) => {
-      console.log(res);
+      //console.log(res);
       this.alert.success("เพิ่มสินค้าสำเร็จ")
       setTimeout(() => {
         this.router.navigate(['/home'])
@@ -77,7 +77,7 @@ export class PaymentComponent implements OnInit {
   getProfileAdmin(){
     this.callApi.getProfilesAdmin().subscribe((res: any) => {
       this.profile = res
-      console.log(res);
+      //console.log(res);
     })
   }
   getBankadmin(){
@@ -85,7 +85,7 @@ export class PaymentComponent implements OnInit {
       this.bankName = res.bankName
       this.bankNumber = res.bankNumber
       this.bankNameAccount = res.bankNameAccount
-      console.log(this.bank);
+      //console.log(this.bank);
       
     })
   }

@@ -43,9 +43,9 @@ export class ProductCreateComponent implements OnInit {
       const fileData = new FormData()
       fileData.append('file', this.file, this.file.name)
       fileData.append('product', JSON.stringify(this.formCreateProduct.value))
-      console.log(this.formCreateProduct.value);
+      //console.log(this.formCreateProduct.value);
       this.callApi.createProduct(fileData).subscribe(data => {
-        console.log(data);
+        //console.log(data);
         this.alert.success("เพิ่มสินค้าสำเร็จ")
         setTimeout(() => {
           this.router.navigate(['/product-store'])
@@ -66,7 +66,7 @@ export class ProductCreateComponent implements OnInit {
     image.readAsDataURL(this.file)
     image.onload = () => {
       this.img = image.result
-      console.log(this.img);
+      //console.log(this.img);
     }
   }
 

@@ -30,9 +30,10 @@ export class MoneyHistoryComponent implements OnInit {
   maxAffiliate: any
   minStore: any
   maxStore: any
+  showCardRole: any
 
   get perPlusWithdraw() {
-    return (this.formWithdraw.value.withdraw*1) + ((this.formWithdraw.value.withdraw * this.percent) / 100)
+    return (this.formWithdraw.value.withdraw * 1) + ((this.formWithdraw.value.withdraw * this.percent) / 100)
   }
 
   affiliate: Observable<any[]> = new Observable();
@@ -52,9 +53,10 @@ export class MoneyHistoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.getWithdraw()
-    this.getProfile()
+    // this.getProfile()
     this.getconfig()
     this.getWathdrawMoneyHistory()
+    this.getRoleProfile()
   }
 
 
@@ -65,8 +67,8 @@ export class MoneyHistoryComponent implements OnInit {
       this.minStore = res.minStore
       this.maxAffiliate = res.maxAffiliate
       this.minAffiliate = res.minAffiliate
-      console.log(res);
-      
+      //console.log(res);
+
     })
   }
 
@@ -75,11 +77,11 @@ export class MoneyHistoryComponent implements OnInit {
       this.wallet = res.data.Wallets
     })
   }
-  
+
   getWathdrawMoneyHistory() {
     this.callApi.wathdrawMoneyHistory().subscribe((res: any) => {
       const withdrawMoney: Array<withdraw> = res;
-      console.log(withdrawMoney);
+      // console.log(withdrawMoney);
 
       this.dataSourceAffiliate = new MatTableDataSource<any>(withdrawMoney.filter(x => x.withdrawType == 'affiliate'));
       this.dataSourceAffiliate.paginator = this.paginatorAffiliate;
@@ -102,10 +104,12 @@ export class MoneyHistoryComponent implements OnInit {
 
 
   wathdrawMoneyStore() {
-    this.callApi.wathdrawMoney(this.formWithdraw.value.withdraw).subscribe( res => {
+    this.callApi.wathdrawMoney(this.formWithdraw.value.withdraw).subscribe(res => {
       this.alert.success("ทำการถอนเงินสำเร็จ")
-      window.location.reload();
-       this.getWithdraw()
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+      this.getWithdraw()
     }, ((err: any) => {
       if (err.status === 417) {
         this.alert.warnings("ถอนเงินไม่สำเร็จ")
@@ -139,14 +143,10 @@ export class MoneyHistoryComponent implements OnInit {
     )
   }
 
-  getProfile() {
-    const _auth: boolean = this.cookie.getToken() ? true : false;
-    if (_auth) {
-      this.callApi.getProfile().subscribe((res: any) => {
-        this.profile = res.data.profile;
-        this.role = res.data.profile.role;
-        console.log(this.role);
-      })
+  getRoleProfile() {
+    if (this.cookie.getRoleAccount()) {
+      this.showCardRole = this.cookie.getRoleAccount()
+      //console.log(this.showCardRole);
     }
   }
 }
