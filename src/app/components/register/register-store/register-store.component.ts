@@ -22,7 +22,7 @@ export class RegisterStoreComponent implements OnInit {
     this.formRegister = fb.group({
       store: [null, [Validators.required]],
       bankNameAccount: [null, [Validators.required]],
-      bankNumber: [null, [Validators.required,Validators.pattern('^[0-9]*$')]],
+      bankNumber: [null, [Validators.required, Validators.pattern('^[0-9]*$')]],
       bankName: [null, [Validators.required]]
     })
   }
@@ -38,14 +38,23 @@ export class RegisterStoreComponent implements OnInit {
     this.submitAdd = false
   }
 
+  getProfile() {
+    this.callApi.getProfile().subscribe((res: any) => {
+      this.cookie.setRoleAccount(res.data.profile.role) 
+      
+    })
+  }
+
 
 
   registerStore() {
     this.submitAdd = true;
     if (this.formRegister.valid) {
       this.callApi.registerStore(this.formRegister.value).subscribe((res: any) => {
+        this.getProfile()
         //console.log(res);
         this.alert.success("สมัครสมาชิกสำเร็จ")
+
         if (this.cookie.getToken()) {
           this.checkLogin = true
           this.router.navigate(['/home'])

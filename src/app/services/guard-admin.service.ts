@@ -10,7 +10,7 @@ export class GuardAdminService implements CanActivate{
 
   constructor(private cookie: CookieServiceService, private router: Router) { }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    this.cookie.helper$.decodeToken(this.cookie.getToken())
+    // this.cookie.helper$.decodeToken(this.cookie.getToken())
 
     if (!this.cookie.checkToken()) {
       if(this.cookie.getRoleAccount() == "ADMIN" ){

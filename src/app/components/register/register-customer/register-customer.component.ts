@@ -37,10 +37,20 @@ export class RegisterCustomerComponent implements OnInit {
     this.submitAdd = true
   }
 
+  getProfile() {
+    this.callApi.getProfile().subscribe((res: any) => {
+      this.cookie.setRoleAccount(res.data.profile.role) 
+      
+    })
+  }
+
+
+
   registerCustomer() {
     this.submitAdd = true;
     if (this.formRegister.valid) {
       this.callApi.registerAffiliate(this.formRegister.value).subscribe((res: any) => {
+        this.getProfile()
         //console.log(res);
         this.alert.success("สมัครสมาชิกสำเร็จ")
         if (this.cookie.getToken()) {

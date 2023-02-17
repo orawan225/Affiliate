@@ -12,9 +12,12 @@ export class GuardService implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
 
-    this.cookie.helper$.decodeToken(this.cookie.getToken())
+    // this.cookie.helper$.decodeToken(this.cookie.getToken())
 
+    // console.log(this.cookie.checkToken());
+    
     if (this.cookie.checkToken()) {
+      this.cookie.clearCookie()
       this.router.navigate(['/login'])
       return false
     }

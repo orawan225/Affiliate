@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -7,16 +8,27 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class CookieServiceService {
   helper$ = new JwtHelperService()
-  constructor(private cookie: CookieService) {}
+  constructor(private cookie: CookieService, private router: Router) { }
 
   _token: string = "token"
 
   getUserId(): string {
     let userId;
+    try {
+      if (!this.checkToken()) {
+        userId = this.helper$.decodeToken(this.getToken()).principal
+      }
 
-    if (!this.checkToken()) userId = this.helper$.decodeToken(this.getToken()).principal
-    else userId = ""
-    return userId;
+      else userId = ""
+      return userId;
+
+    } catch (error) {
+      this.clearCookie()
+      this.router.navigate(['/login'])
+      throw new Error("เข้าสู่ระบบใหม่");
+    }
+
+
   }
 
   setToken(token: string): void {
@@ -24,7 +36,18 @@ export class CookieServiceService {
   }
 
   getToken(): string {
-    return this.cookie.get(this._token)
+    let token = this.cookie.get(this._token)
+    try {
+      this.helper$.decodeToken(this.cookie.get(token))
+      return token
+
+    } catch (error) {
+      this.clearCookie()
+      this.router.navigate(['/login'])
+      throw new Error("เข้าสู่ระบบใหม่");
+
+
+    }
   }
 
   clearCookie() {
@@ -32,7 +55,7 @@ export class CookieServiceService {
   }
 
   setRoleAccount(data: string) {
-    this.cookie.set('roleAccount',data)
+    this.cookie.set('roleAccount', data)
   }
 
   getRoleAccount() {
@@ -41,7 +64,16 @@ export class CookieServiceService {
   }
 
   checkToken(): boolean {
-    return this.helper$.isTokenExpired(this.getToken())
+    try {
+      return this.helper$.isTokenExpired(this.getToken())
+    } catch (error) {
+      this.clearCookie()
+      this.router.navigate(['/login'])
+      throw new Error("เข้าสู่ระบบใหม่");
+
+    }
+
   }
+
 
 }

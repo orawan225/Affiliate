@@ -12,7 +12,7 @@ export class GuardStoreService implements CanActivate{
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
 
-    this.cookie.helper$.decodeToken(this.cookie.getToken())
+    // this.cookie.helper$.decodeToken(this.cookie.getToken())
 
     if (!this.cookie.checkToken()) {
       if(this.cookie.getRoleAccount() == "STORE" || this.cookie.getRoleAccount() == "ST_AF"){
