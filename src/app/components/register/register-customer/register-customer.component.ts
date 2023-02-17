@@ -40,7 +40,7 @@ export class RegisterCustomerComponent implements OnInit {
   getProfile() {
     this.callApi.getProfile().subscribe((res: any) => {
       this.cookie.setRoleAccount(res.data.profile.role) 
-      
+      window.location.reload();
     })
   }
 
