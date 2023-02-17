@@ -11,9 +11,8 @@ import { CookieServiceService } from 'src/app/services/cookie-service.service';
 export class NavbarHeaderComponent implements OnInit {
 
   profile: any = []
-  role: string = ""
   checkLogin: boolean = true
-  showCardRole: any
+  showCardRole: string = ""
 
   constructor(private callApi: CallApiService, private cookie: CookieServiceService, private router: Router,
     private ref: ChangeDetectorRef) { }
@@ -21,27 +20,13 @@ export class NavbarHeaderComponent implements OnInit {
   ngOnInit(): void {
     this.checkLogout()
     this.getRoleProfile()
-    // this.getProfile()
   }
 
 
 
-  // <---- checkRoleAccuont ---->
-  // getProfile() {
-  //   const _auth: boolean = this.cookie.getToken() ? true : false;
-  //   if (_auth) {
-  //     this.callApi.getProfile().subscribe((res: any) => {
-  //       this.profile = res.data.profile
-  //       this.role = res.data.profile.role
-  //       this.cookie.setRoleAccount(this.role)
-  //     })
-  //   }
-  // }
-
   getRoleProfile() {
     if (this.cookie.getRoleAccount()) {
       this.showCardRole = this.cookie.getRoleAccount()
-      //console.log(this.showCardRole);
     }
   }
 
