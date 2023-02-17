@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { link } from 'src/app/models/link';
 import { AlertService } from 'src/app/services/alert.service';
 import { CallApiService } from 'src/app/services/call-api.service';
 import { environment } from 'src/environments/environment';
@@ -39,22 +38,24 @@ export class ShareLinkComponent implements OnInit {
 
   getShareLink() {
     this.callApi.getShareLinkSuccess(this.productId).subscribe((res: any) => {
-      this.linkProduct = res
-      this.links = res.links
-      this.totalPrice = res.totalPrice
-      this.totalAmount = res.totalAmount
-      this.linkAmount = res.linkAmount
-      this.productName = res.productName
-      this.productPrice = res.productPrice
+      this.linkProduct = res.data.detail.links
+      this.links = res.data.detail
+      this.totalPrice = res.data.detail.totalPrice
+      this.totalAmount = res.data.detail.totalAmount
+      this.linkAmount = res.data.detail.linkAmount
+      this.productName = res.data.detail.productName
+      this.productPrice = res.data.detail.productPrice
       this.ordertList = true
-      //console.log(this.linkProduct);
-      //console.log(res);
+      console.log(this.links);
+      
+      console.log(this.linkProduct);
+      
     
     },((err: any) => {
       if (err.status === 417) {
         this.hide = false
         this.ordertList = false
-        //console.log(this.ordertList);
+        console.log(this.ordertList);
       }
     }))
   }

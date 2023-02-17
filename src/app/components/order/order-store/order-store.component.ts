@@ -36,7 +36,6 @@ export class OrderStoreComponent implements OnInit {
   getAllOrderByStore() {
     this.callApi.getAllOrderByStore().subscribe((res: orderList[]) => {
       this.ordersList = res
-
       //console.log(this.ordersList);
     })
   }
