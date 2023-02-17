@@ -10,56 +10,56 @@
         <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="navbar-toggler-success">
             <div class="flex-fill mb-2">
                 <ul class="nav navbar-nav d-flex justify-content-end text-center text-dark">
-                    <div class="dropdown" *ngIf="this.showCardRole=='AFFILIATE' || this.showCardRole=='ST_AF'">
+                    <div class="dropdown" *ngIf="showCardRole=='AFFILIATE' || showCardRole=='ST_AF'">
                         <a class="nav-link btn-outline-primary rounded-pill px-3" aria-expanded="false" routerLink="/share-history">
                             รายการแชร์สินค้า
                         </a>
                     </div>
-                    <div class="dropdown" *ngIf="this.showCardRole=='STORE' || this.showCardRole=='ST_AF'">
+                    <div class="dropdown" *ngIf="showCardRole=='STORE' || showCardRole=='ST_AF'">
                         <a class="nav-link btn-outline-primary rounded-pill px-3" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown" aria-expanded="false">
                             รายการร้านค้า
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
-                            <li *ngIf="this.showCardRole=='STORE' || this.showCardRole=='ST_AF'">
+                            <li *ngIf="showCardRole=='STORE' || showCardRole=='ST_AF'">
                                 <a class="dropdown-item" routerLink="/product-store"> ร้านค้าของฉัน </a>
                             </li>
-                            <li *ngIf="this.showCardRole=='STORE' || this.showCardRole=='ST_AF'">
+                            <li *ngIf="showCardRole=='STORE' || showCardRole=='ST_AF'">
                                 <a class="dropdown-item" routerLink="/order-store"> คำสั่งซื้อ </a>
                             </li>
-                            <li *ngIf="this.showCardRole=='STORE' || this.showCardRole=='ST_AF'">
+                            <li *ngIf="showCardRole=='STORE' || showCardRole=='ST_AF'">
                                 <a class="dropdown-item" routerLink="/order-delivery"> รายการจัดส่งสินค้า </a>
                             </li>
-                            <li *ngIf="this.showCardRole=='STORE' || this.showCardRole=='ST_AF'">
+                            <li *ngIf="showCardRole=='STORE' || showCardRole=='ST_AF'">
                                 <a class="dropdown-item" routerLink="/order-dlv-history"> ประวัติการจัดส่ง </a>
                             </li>
                         </ul>
                     </div>
 
-                    <div class="dropdown" *ngIf="this.showCardRole=='USER'|| this.showCardRole=='STORE' || this.showCardRole=='AFFILIATE' || this.showCardRole=='ST_AF'">
+                    <div class="dropdown" *ngIf="showCardRole=='USER'|| showCardRole=='STORE' || showCardRole=='AFFILIATE' || showCardRole=='ST_AF'">
                         <a class="nav-link btn-outline-primary rounded-pill px-3 " role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                             ติดตามสินค้า
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li *ngIf="this.showCardRole=='USER' || this.showCardRole=='STORE' || this.showCardRole=='AFFILIATE' || this.showCardRole=='ST_AF'">
+                            <li *ngIf="showCardRole=='USER' || showCardRole=='STORE' || showCardRole=='AFFILIATE' || showCardRole=='ST_AF'">
                                 <a class="dropdown-item" routerLink="/order-user"> คำสั่งซื้อที่รอการตรวจสอบ </a>
                             </li>
-                            <li *ngIf="this.showCardRole=='USER' || this.showCardRole=='STORE' || this.showCardRole=='AFFILIATE' || this.showCardRole=='ST_AF'">
+                            <li *ngIf="showCardRole=='USER' || showCardRole=='STORE' || showCardRole=='AFFILIATE' || showCardRole=='ST_AF'">
                                 <a class="dropdown-item" routerLink="/order-wait-payment"> สินค้ารอชำระเงิน </a>
                             </li>
-                            <li *ngIf="this.showCardRole=='USER' || this.showCardRole=='STORE' || this.showCardRole=='AFFILIATE' || this.showCardRole=='ST_AF'">
+                            <li *ngIf="showCardRole=='USER' || showCardRole=='STORE' || showCardRole=='AFFILIATE' || showCardRole=='ST_AF'">
                                 <a class="dropdown-item" routerLink="/order-wait-delivery"> รอการจัดส่ง </a>
                             </li>
-                            <li *ngIf="this.showCardRole=='USER' || this.showCardRole=='STORE' || this.showCardRole=='AFFILIATE' || this.showCardRole=='ST_AF'">
+                            <li *ngIf="showCardRole=='USER' || showCardRole=='STORE' || showCardRole=='AFFILIATE' || showCardRole=='ST_AF'">
                                 <a class="dropdown-item" routerLink="/order-success"> รับสินค้า </a>
                             </li>
-                            <li *ngIf="this.showCardRole=='USER' || this.showCardRole=='STORE' || this.showCardRole=='AFFILIATE' || this.showCardRole=='ST_AF'">
+                            <li *ngIf="showCardRole=='USER' || showCardRole=='STORE' || showCardRole=='AFFILIATE' || showCardRole=='ST_AF'">
                                 <a class="dropdown-item " routerLink="/order-history"> ประวัติการสั่งซื้อ </a>
                             </li>
                         </ul>
                     </div>
 
 
-                    <div class="dropdown" *ngIf="this.showCardRole!='ST_AF'">
+                    <div class="dropdown" *ngIf="showCardRole!='ST_AF'">
                         <a class="nav-link btn-outline-primary rounded-pill px-3" role="button" id="dropdownMenuLink2" data-bs-toggle="dropdown" aria-expanded="false">
                             สมัครสมาชิก
                         </a>
