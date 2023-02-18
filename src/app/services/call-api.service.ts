@@ -316,4 +316,8 @@ export class CallApiService {
     return this.http.get(`${environment.apiUrl}/admin/get-username-search?keyword=${user}`,this.header())
   }
 
+  public getProfileAdmins() {
+    return this.http.get<profile>(`${environment.apiUrl}/auth/get-profile-by-admin`)
+  }
+
 }
