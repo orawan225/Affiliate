@@ -53,8 +53,9 @@ export class CartComponent implements OnInit {
         findStore.products.push(product);
       } else {
         const _productStore = new ProductASStore();
-        _productStore.storeName = this.stores.find(x => x.storeId == product.storeId) != null
-          ? this.stores.find(x => x.storeId == product.storeId)?.store!
+        let findStoreInList = this.stores.find(x => x.storeId == product.storeId)
+        _productStore.storeName = findStoreInList != null
+          ? findStoreInList?.store!
           : '';
         _productStore.storeId = product.storeId;
         _productStore.products.push(product);
