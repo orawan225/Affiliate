@@ -79,3 +79,8 @@ p {
 .withdraw-money {
     margin-top: 4.8rem;
 }
+
+.card-img-top {
+    width: 400px;
+    height: 400px;
+}
