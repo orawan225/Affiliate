@@ -56,6 +56,7 @@
                                                                 <th style=" width: 5%;"> สินค้า </th>
                                                                 <th style=" width: 3%;"> จำนวน/ชิ้น </th>
                                                                 <th style=" width: 5%;"> ราคา </th>
+                                                                <th style=" width: 5%;"> ราคารวม </th>
                                                             </tr>
                                                         </thead>
                                                         <br>
@@ -64,6 +65,7 @@
                                                                 <td> {{res.productName}} </td>
                                                                 <td> {{res.amount}} </td>
                                                                 <td> {{res.productPrice | number}} </td>
+                                                                <td> {{res.productTotal | number}} </td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -72,7 +74,7 @@
                                                     ยอดสุทธิ {{order.totalPrice | number}} บาท
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> ตกลง </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -98,7 +100,7 @@
                                                     <img class="card-img-top" [src]="api+order.image" alt="...">
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Close </button>
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> ตกลง </button>
                                                 </div>
                                             </div>
                                         </div>

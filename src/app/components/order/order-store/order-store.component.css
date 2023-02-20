@@ -53,3 +53,8 @@ img {
 .inputtrack {
     margin-right: 20px;
 }
+
+.card-img-top {
+    height: 350px;
+    width: 350px;
+}

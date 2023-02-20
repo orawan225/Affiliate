@@ -49,3 +49,8 @@ p {
 .test {
     display: none;
 }
+
+.card-img-top {
+    width: 350px;
+    height: 350px;
+}

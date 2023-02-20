@@ -54,6 +54,7 @@
                                                                     <th style=" width: 5%;"> สินค้า </th>
                                                                     <th style=" width: 3%;"> จำนวน/ชิ้น </th>
                                                                     <th style=" width: 5%;"> ราคา </th>
+                                                                    <th style=" width: 5%;"> ราคารวม </th>
                                                                 </tr>
                                                             </thead>
                                                             <br>
@@ -61,16 +62,17 @@
                                                                 <tr *ngFor="let res of order.detail">
                                                                     <td> {{res.productName}} </td>
                                                                     <td> {{res.amount}} </td>
-                                                                    <td> {{res.productPrice}} </td>
+                                                                    <td> {{res.productPrice | number}} </td>
+                                                                    <td> {{res.productTotal | number}} </td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
                                                     </div>
                                                     <div class="totalPrice">
-                                                        ยอดสุทธิ {{order.totalPrice}} บาท
+                                                        ยอดสุทธิ {{order.totalPrice | number}} บาท
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> ตกลง </button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -97,7 +99,7 @@
                         <div class="row">
                             <div class="col">
                                 <img class="card-img-top" [src]="api+item.image" alt="...">
-                                <!-- <p class="mt-3"> ชือ : {{item.fullName}}</p> -->
+                                <p class="mt-3"> ชือ : {{item.fullName}}</p>
                                 <p class="mt-3"> เบอร์ติดต่อ : {{item.tel}}</p>
                                 <p> ที่อยู่ : {{item.address}} ตำบล{{item.sub}} อำเภอ{{item.district}} จังหวัด{{item.province}} {{item.postalCode}}</p>
                             </div>
