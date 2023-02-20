@@ -51,15 +51,13 @@ export class CartComponent implements OnInit {
 
       if (findStore) {
         findStore.products.push(product);
-      } else {
+      } 
+      else {
         const _productStore = new ProductASStore();
         let findStoreInList = this.stores.find(x => x.storeId == product.storeId)
-        _productStore.storeName = findStoreInList != null
-          ? findStoreInList?.store!
-          : '';
+        _productStore.storeName = findStoreInList != null? findStoreInList?.store! : '';
         _productStore.storeId = product.storeId;
         _productStore.products.push(product);
-
         this.productStores.push(_productStore);
       }
     });

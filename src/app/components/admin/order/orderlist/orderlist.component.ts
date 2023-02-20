@@ -38,8 +38,9 @@ export class OrderlistComponent implements OnInit {
       if (result.isConfirmed) {
         this.callApi.updateOrderPayment(orderListId, this.formOrder).subscribe(data => {
           this.alert.success("รอการจัดส่งสินค้า")
-          window.location.reload();
-          this.getAllOrderStore()
+          setTimeout(() => {
+            this.getAllOrderStore()
+          }, 1000);
 
         })
       }
