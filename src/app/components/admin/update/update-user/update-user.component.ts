@@ -70,9 +70,12 @@ export class UpdateUserComponent implements OnInit {
   }
 
   editProfileUser() {
-    const data = new FormData()
-    data.append('user', JSON.stringify(this.formProfile.value))
-    this.callApi.editProfileUser(this.userId, data).subscribe(data => {
+    // const data = new FormData()
+    // data.append('user', JSON.stringify(this.formProfile.value))
+    let data = new profile()
+    data.userName = this.formProfile.value.userName
+    data.passWord = this.formProfile.value.passWord
+    this.callApi.editProfileUser(this.userId, data).subscribe(res => {
       //console.log(data);
       this.alert.success("แก้ไขข้อมูลสำเร็จ")
       this.router.navigate(['/user'])

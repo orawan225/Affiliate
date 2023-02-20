@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
   getProfileAdmin() {
     this.callApi.getProfileAdmins().subscribe(res => {
       this.profile = res
-      console.log(res);
+      // console.log(res);
     })
   }
 

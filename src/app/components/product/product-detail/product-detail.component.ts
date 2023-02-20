@@ -44,7 +44,6 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit(): void {
     this.getProductById()
     this.getRoleProfile()
-    // this.getProfile()
   }
 
   getProductById() {
@@ -53,19 +52,6 @@ export class ProductDetailComponent implements OnInit {
       //console.log(res);
     })
   }
-
-  // getProfile() {
-  //   const _auth: boolean = this.cookie.getToken() ? true : false;
-  //   if (_auth) {
-  //     this.callApi.getProfile().subscribe((res: any) => {
-  //       this.profile = res.data.profile
-  //       this.role = this.profile.role
-  //       this.storeId = this.profile.store?.storeId ?? 0;
-  //       this.cookie.setRoleAccount(this.role)
-  //       //console.log(this.profile);
-  //     })
-  //   }
-  // }
 
   getRoleProfile() {
     if (this.cookie.getRoleAccount()) {
@@ -77,14 +63,23 @@ export class ProductDetailComponent implements OnInit {
 
 
   addProductToCart(product: any) {
+    if (this.cookie.checkToken()) {
+      this.alert.error("กรุณาเข้าสู่ระบบ")
+
+      setTimeout(() => {
+        this.router.navigate(['/login'])
+      }, 1000);
+      return
+    }
+
     this.callApi.getProfile().subscribe((res: any) => {
-      console.log(res);
+      // console.log(res);
 
       if (res.data.profile.role == "STORE" || res.data.profile.role == "ST_AF") {
 
         this.storeId = res.data.profile.store.storeId
-        console.log(this.storeId);
-        console.log(res);
+        // console.log(this.storeId);
+        // console.log(res);
 
         if (this.storeId == this.product.storeId) {
           this.alert.error("ไม่สามารถสั่งซื้อสินค้าจากร้านตนเองได้");
@@ -95,7 +90,17 @@ export class ProductDetailComponent implements OnInit {
       product.linkId = this.link
       this.cartService.addCart(product, true)
       this.router.navigate(['/cart'])
+    }, ((err: any) => {
+      // console.log(err);
+      if (err.status === 403) {
+        this.alert.error("กรุณาเข้าสู่ระบบ")
+
+        setTimeout(() => {
+          this.router.navigate(['/login'])
+        }, 1000);
+      }
     })
+    )
 
   }
 
