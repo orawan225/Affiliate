@@ -78,7 +78,9 @@ export class UpdateUserComponent implements OnInit {
     this.callApi.editProfileUser(this.userId, data).subscribe(res => {
       //console.log(data);
       this.alert.success("แก้ไขข้อมูลสำเร็จ")
-      this.router.navigate(['/user'])
+      setTimeout(() => {
+        this.router.navigate(['/user'])
+      }, 1000);
     })
   }
 }

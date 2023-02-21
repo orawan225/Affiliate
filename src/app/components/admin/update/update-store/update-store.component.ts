@@ -75,7 +75,9 @@ export class UpdateStoreComponent implements OnInit {
     this.callApi.editProfileUser(this.userId, data).subscribe(data => {
       //console.log(data);
       this.alert.success("แก้ไขข้อมูลสำเร็จ")
-      this.router.navigate(['/store'])
+      setTimeout(() => {
+        this.router.navigate(['/store'])
+      }, 1000);
     })
   }
 }

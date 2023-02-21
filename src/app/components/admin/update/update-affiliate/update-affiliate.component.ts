@@ -75,7 +75,9 @@ export class UpdateAffiliateComponent implements OnInit {
     this.callApi.editProfileUser(this.userId, data).subscribe(data => {
       //console.log(data);
       this.alert.success("แก้ไขข้อมูลสำเร็จ")
-      this.router.navigate(['/affiliate'])
+      setTimeout(() => {
+        this.router.navigate(['/affiliate'])
+      }, 1000);
     })
   }
 }
