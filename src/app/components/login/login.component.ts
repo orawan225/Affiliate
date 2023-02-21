@@ -66,7 +66,6 @@ export class LoginComponent implements OnInit {
         this.alert.error("เข้าสู่ระบบไม่สำเร็จ")
       }
     }))
-
   }
 
 }
